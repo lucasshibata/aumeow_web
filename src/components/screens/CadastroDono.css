@@ -1,0 +1,10 @@
+.txtInput{
+    background-color:'#EDEDED';
+    width:'auto';
+    border-radius:15;
+}
+.Container{
+    display: flex;
+    flex-direction:'row';
+    gap:10
+}
