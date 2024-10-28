@@ -1,21 +1,17 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 
-export default (props:any)=>{
-    return(
-        <View style={styles.centralSqr}>
-            {props.children}
-        </View>
-    );
-};
-
-const styles = StyleSheet.create({
-    centralSqr:{
+export default function WhiteBox(props:any){
+    const styles={
         backgroundColor:'white',
         width:'auto',
         height:'auto',
         justifyContent:'center',
         borderRadius:20,
         padding:20,
-    },
-});
+    }
+    return(
+        <div style={styles}>
+            {props.children}
+        </div>
+    );
+};

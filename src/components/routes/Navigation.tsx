@@ -30,3 +30,51 @@ export default function Navigation(){
         </Routes>
     );
 };
+
+
+{/* <NavigationContainer>
+	<AuthProvider>
+		<Stack.Navigator initialRouteName="Login">
+			<Stack.Screen options={{headerShown:false}}
+				name="Login"
+				component={Login}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="CreateUser"
+				component={CreateUser}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="CadastroDono"
+				component={CadastroDono}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="CadastroPrestador"
+				component={CadastroPrestador}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="RecoverPassword"
+				component={RecoverPassword}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="OAuth2Screen"
+				component={OAuth2Screen}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="NavigationScreen"
+				component={NavigationScreen}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="Shopping"
+				component={Shopping}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="PetServices"
+				component={PetServices}
+			/>
+			<Stack.Screen options={{headerTransparent:true, title:''}}
+				name="EspecificProduct"
+				component={EspecificProduct}
+			/>
+		</Stack.Navigator>
+	</AuthProvider>
+</NavigationContainer> */}

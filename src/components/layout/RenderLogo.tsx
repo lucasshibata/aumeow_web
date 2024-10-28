@@ -1,16 +1,14 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import image from '../../assets/logo_img.png';
 
-
-export default ()=>{
+export default function RenderLogo(){
+    const styles= {
+        height:118,
+        width:138, 
+    }
     return(
-        <Image source={require('../../assets/logo_img.png')} style={styles.imgDimension}/>
+        <div>
+            <img src={image} alt='imagem da logo' style={styles}/>
+        </div>
     );
 };
-
-const styles = StyleSheet.create({
-    imgDimension:{
-        height:118,
-        width:138,
-    },
-});
