@@ -2,4 +2,6 @@
     display: flex;
     height: 100vh;
     flex-wrap: wrap;
+    flex-grow: 1;
+    background-color: blue;
 }

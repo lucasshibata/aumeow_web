@@ -1,5 +1,6 @@
 import React from 'react';
-import {Route, Routes} from'react-router-dom'
+import {Route, Routes} from'react-router-dom';
+import './Navigation.css';
 
 import CreateUser from '../screens/CreateUser.tsx';
 import CadastroDono from '../screens/CadastroDono.tsx';
@@ -15,19 +16,21 @@ import EspecificProduct from '../screens/EspecificProduct.tsx';
 
 export default function Navigation(){
     return(
-        <Routes>
-            <Route path='/CreateUser' element={<CreateUser/>}/>
-            {/* <Route path='/CadastroDono' element={<CadastroDono/>}/>
-            <Route path='/CadastroPrestador' element={<CadastroPrestador/>}/> */}
-            <Route path='/' element={<Login/>}/>
-            {/* <Route path='/RecoverPassword' element={<RecoverPassword/>}/>
-            <Route path='/OAuth2Screen' element={<OAuth2Screen/>}/>
-            <Route path='/NavigationScreen' element={<NavigationScreen/>}/>
-            <Route path='/Shopping' element={<Shopping/>}/>
-            <Route path='/PetServices' element={<PetServices/>}/>
-            <Route path='/AuthProvider' element={<AuthProvider/>}/>
-            <Route path='/EspecificProduct' element={<EspecificProduct/>}/> */}
-        </Routes>
+		<div className='Navigation'>
+			<Routes>
+				<Route path='/CreateUser' element={<CreateUser/>}/>
+				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/>
+				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/> */}
+				<Route path='/' element={<Login/>}/>
+				{/* <Route path='/RecoverPassword' element={<RecoverPassword/>}/>
+				<Route path='/OAuth2Screen' element={<OAuth2Screen/>}/>
+				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>
+				<Route path='/Shopping' element={<Shopping/>}/>
+				<Route path='/PetServices' element={<PetServices/>}/>
+				<Route path='/AuthProvider' element={<AuthProvider/>}/>
+				<Route path='/EspecificProduct' element={<EspecificProduct/>}/> */}
+			</Routes>
+		</div>
     );
 };
 

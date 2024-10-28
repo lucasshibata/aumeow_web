@@ -1,4 +1,5 @@
 import React from 'react';
+import './Login.css';
 
 import BackGround from '../layout/BackGround.tsx';
 // import WhiteBox from '../layout/WhiteBox.tsx';
@@ -34,10 +35,12 @@ export default function Login(props:any){
 	// 	});
 	// }
 	return(
-		<BackGround>
-			<h1>olá</h1>
-			<RenderLogo/>
-		</BackGround>
+		<div className='Login'>
+			<BackGround>
+				<h1>olá</h1>
+				<RenderLogo/>
+			</BackGround>
+		</div>
 	// 	<BackGround>
 	// 	<RenderLogo/>
 	// 	<TitleBusiness/>
