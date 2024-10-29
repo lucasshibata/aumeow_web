@@ -13,6 +13,7 @@ import Shopping from '../screens/Shopping.tsx';
 import PetServices from '../screens/PetServices.tsx';
 import AuthProvider from '../contexts/AuthContext.tsx';
 import EspecificProduct from '../screens/EspecificProduct.tsx';
+import TelaInicial from '../screens/TelaInicial.tsx';
 
 export default function Navigation(){
     return(
@@ -21,7 +22,8 @@ export default function Navigation(){
 				<Route path='/CreateUser' element={<CreateUser/>}/>
 				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/>
 				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/> */}
-				<Route path='/' element={<Login/>}/>
+				<Route path='/Login' element={<Login/>}/>
+				<Route path='/' element={<TelaInicial/>}/>
 				{/* <Route path='/RecoverPassword' element={<RecoverPassword/>}/>
 				<Route path='/OAuth2Screen' element={<OAuth2Screen/>}/>
 				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>

@@ -1,0 +1,63 @@
+.TelaInicial{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+.TelaInicial .Footer{
+    background-color: #DEB2FB;
+    display: flex;
+    justify-content: center;
+}
+.TelaInicial .Article1{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+.TelaInicial .Article1 .Div1{
+    color: black;
+}
+.TelaInicial .Article1 .Div1 .btn_div1{
+    background-color: #7360DF;
+    border: 0;
+    width: 5vw;
+    height: 5vh;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.TelaInicial .Article1 .Div1 h1{
+    font-family: "Josefin Slab", serif;
+    font-size: 56px;
+    font-weight: normal;
+}
+.TelaInicial .Article1 .Div1 p{
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.TelaInicial .Article2{
+    background-color: #7360DF;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.TelaInicial .Article2 h1{
+    font-family: "Josefin Slab", serif;
+    font-size: 56px;
+    font-weight: normal;
+}
+.TelaInicial .Article2 .FlatList{ 
+    padding: 10;
+    border-bottom: '1px solid #ccc';
+    display: flex;
+    flex-direction: row;
+}
+.TelaInicial .Article2 .FlatList .ContainerList{ 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
