@@ -1,12 +1,10 @@
 import React from 'react';
 import BackGround from '../layout/BackGround';
-import { Text } from 'react-native';
 
-
-export default ()=>{
+export default function PetServices(){
     return(
         <BackGround>
-            <Text>Serviços de pet</Text>
+            <p>Serviços de pet</p>
         </BackGround>
     );
 };

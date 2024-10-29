@@ -1,5 +1,5 @@
 import React from "react";
-import RenderLogo from "../layout/RenderLogo.tsx";
+import RenderLogo from "../layout/RenderLogo";
 import {Link} from "react-router-dom";
 
 export default function Header(){

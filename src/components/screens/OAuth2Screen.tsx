@@ -1,12 +1,10 @@
 import React from 'react';
 import BackGround from '../layout/BackGround';
-import { Text } from 'react-native';
 
-
-export default ()=>{
+export default function OAuth2Screen(){
     return(
         <BackGround>
-            <Text>OAuth2</Text>
+            <p>OAuth2</p>
         </BackGround>
     );
 };

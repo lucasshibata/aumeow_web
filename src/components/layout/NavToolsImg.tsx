@@ -1,33 +1,31 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import TouchableOpacity from './TouchableOpacity';
 
 
-export default (props:any)=>{
+export default function NavToolsImg(props:any){
     const {src, titleNav, onTouch} = props;
+    const styles = {
+        box:{
+            height:250,
+            width:155,
+            backgroundColor:'#7360DF',
+            borderRadius:15,
+            margin:10,
+        },
+        img:{
+            height:'85%',
+            width:'100%',
+            borderTopLeftRadius:15,
+            borderTopRightRadius:15,
+        },
+        text:{
+            color:'white'
+        },
+    };
     return(
         <TouchableOpacity style={styles.box} onPress={onTouch}>
-            <Image source={src} style={styles.img} />
-            <Text style={styles.txt}>{titleNav}</Text>
+            <img src={src} style={styles.img} alt='uma imagem ai'/>
+            <p style={styles.text}>{titleNav}</p>
         </TouchableOpacity>
     );
 };
-
-const styles = StyleSheet.create({
-    box:{
-        height:250,
-        width:155,
-        backgroundColor:'#7360DF',
-        borderRadius:15,
-        margin:10,
-    },
-    img:{
-        height:'85%',
-        width:'100%',
-        borderTopLeftRadius:15,
-        borderTopRightRadius:15,
-    },
-    txt:{
-        color:'white',
-        textAlign:'center',
-    },
-});

@@ -1,9 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
 
 
-export default ()=>{
+export default function EspecificProduct (){
     return(
-        <View/>
+        <div>
+            <h1>produto específico</h1>
+        </div>
     )
 }

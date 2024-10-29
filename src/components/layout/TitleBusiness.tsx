@@ -1,15 +1,15 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
 
-export default ()=>{
+export default function TitleBusiness(){
+    const styles = {
+        title:{
+            fontSize:32,
+            color:'white',
+        },
+    };
     return(
-        <Text style={styles.title}>AuMeow</Text>
+        <p style={styles.title}>AuMeow</p>
     );
 };
 
-const styles = StyleSheet.create({
-    title:{
-        fontSize:32,
-		color:'white',
-    },
-});
+

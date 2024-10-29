@@ -2,18 +2,18 @@ import React from 'react';
 import {Route, Routes} from'react-router-dom';
 import './Navigation.css';
 
-import CreateUser from '../screens/CreateUser.tsx';
-import CadastroDono from '../screens/CadastroDono.tsx';
-import CadastroPrestador from '../screens/CadastroPrestador.tsx';
-import Login from '../screens/Login.tsx';
-import RecoverPassword from '../screens/RecoverPassword.tsx';
-import OAuth2Screen from '../screens/OAuth2Screen.tsx';
-import NavigationScreen from '../screens/NavigationScreen.tsx';
-import Shopping from '../screens/Shopping.tsx';
-import PetServices from '../screens/PetServices.tsx';
-import AuthProvider from '../contexts/AuthContext.tsx';
-import EspecificProduct from '../screens/EspecificProduct.tsx';
-import TelaInicial from '../screens/TelaInicial.tsx';
+import CreateUser from '../screens/CreateUser';
+import CadastroDono from '../screens/CadastroDono';
+import CadastroPrestador from '../screens/CadastroPrestador';
+import Login from '../screens/Login';
+import RecoverPassword from '../screens/RecoverPassword';
+import OAuth2Screen from '../screens/OAuth2Screen';
+import NavigationScreen from '../screens/NavigationScreen';
+import Shopping from '../screens/Shopping';
+import PetServices from '../screens/PetServices';
+import AuthProvider from '../contexts/AuthContext';
+import EspecificProduct from '../screens/EspecificProduct';
+import TelaInicial from '../screens/TelaInicial';
 
 export default function Navigation(){
     return(

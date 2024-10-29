@@ -1,13 +1,14 @@
 import React from 'react';
 import './Login.css';
 
-import BackGround from '../layout/BackGround.tsx';
-// import WhiteBox from '../layout/WhiteBox.tsx';
+import BackGround from '../layout/BackGround';
+import WhiteBox from '../layout/WhiteBox';
 // // import { CheckBox } from 'react-native-elements';
 // import BtnComp from '../layout/BtnComp.tsx';
 // import OAuth2 from '../layout/OAuth2.tsx';
 // import Space from '../layout/Space.tsx';
-import RenderLogo from '../layout/RenderLogo.tsx';
+import RenderLogo from '../layout/RenderLogo';
+import { FaInstagram } from 'react-icons/fa';
 // import TitleBusiness from '../layout/TitleBusiness.tsx';
 // import { useForm, Controller} from 'react-hook-form';
 // import Auth from '@react-native-firebase/auth';
@@ -37,8 +38,11 @@ export default function Login(props:any){
 	return(
 		<div className='Login'>
 			<BackGround>
-				<h1>olá</h1>
-				<RenderLogo/>
+				<WhiteBox>
+					<h1 style={{color:'black'}}>olá</h1>
+					<h2 style={{color:'black'}}>{<FaInstagram/>}</h2>
+					<RenderLogo/>
+				</WhiteBox>	
 			</BackGround>
 		</div>
 	// 	<BackGround>

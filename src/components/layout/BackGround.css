@@ -1,6 +1,6 @@
 .imagem-fundo {
-    width: 300px;
-    height: 200px;
+    width: 100vw;
+    height: 100vh;
     background-image: url('../../assets/bg_img.png'); /* Caminho relativo para uma imagem local */
     background-size: cover;
     flex:1;
@@ -8,4 +8,5 @@
     height:'100%';
     justify-content:'center';
     align-items:'center';
+    margin: 0;
   }

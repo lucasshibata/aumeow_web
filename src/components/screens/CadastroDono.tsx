@@ -7,36 +7,36 @@ import TitleBusiness from '../layout/TitleBusiness';
 import Space from '../layout/Space';
 import { useForm, Controller} from 'react-hook-form';
 import BtnComp from '../layout/BtnComp';
-import Auth from '@react-native-firebase/auth';
-import Database from '@react-native-firebase/database';
+// import Auth from '@react-native-firebase/auth';
+// import Database from '@react-native-firebase/database';
 
 
 export default function CadastroDono(props:any){
 	const {navigation} = props;
 	const { control, handleSubmit} = useForm();
 
-	function handleSign(data:any){
-		Auth().createUserWithEmailAndPassword(data.userEmail, data.userPassword)
-		.then(userCrendential =>{
-			console.log('user: ', userCrendential);
-			const userRef = Database().ref(`/users/${userCrendential.user.uid}`).push();
-			userRef.set({
-				...data,
-				uid: userRef.key, // Adiciona o UID gerado pelo Firebase
-			});
-			navigation.navigate('Login');
-		})
-		.catch(error=>{
-			if(error.code === 'auth/email-already-in-use'){
-				console.log('email já existe');
-				Alert.alert('email já existe');
-			}
-			if(error.code === 'auth/invalid-email'){
-				Alert.alert('email inválido');
-				console.log('email inválido');
-			}
-		});
-	}
+	// function handleSign(data:any){
+	// 	Auth().createUserWithEmailAndPassword(data.userEmail, data.userPassword)
+	// 	.then(userCrendential =>{
+	// 		console.log('user: ', userCrendential);
+	// 		const userRef = Database().ref(`/users/${userCrendential.user.uid}`).push();
+	// 		userRef.set({
+	// 			...data,
+	// 			uid: userRef.key, // Adiciona o UID gerado pelo Firebase
+	// 		});
+	// 		navigation.navigate('Login');
+	// 	})
+	// 	.catch(error=>{
+	// 		if(error.code === 'auth/email-already-in-use'){
+	// 			console.log('email já existe');
+	// 			Alert.alert('email já existe');
+	// 		}
+	// 		if(error.code === 'auth/invalid-email'){
+	// 			Alert.alert('email inválido');
+	// 			console.log('email inválido');
+	// 		}
+	// 	});
+	// }
 
 	const estilo = {
 		backgroundColor: '#000'
@@ -112,7 +112,7 @@ export default function CadastroDono(props:any){
 						/>
 					)}
 				/>
-				<BtnComp labelButton="aperte" toPress={handleSubmit(handleSign)} bgColor={'blue'}/>
+				{/* <BtnComp labelButton="aperte" toPress={handleSubmit(handleSign)} bgColor={'blue'}/> */}
 			</WhiteBox>
 		</BackGround>
 	);

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Text } from 'react-native';
 import BackGround from '../layout/BackGround';
 
-export default ()=>{
+export default function RecoverPassword(){
     return(
         <BackGround>
-            <Text>Esqueci minha senha</Text>
+            <p>Esqueci minha senha</p>
         </BackGround>
     );
 };
