@@ -20,17 +20,17 @@ export default function Navigation(){
 		<div className='Navigation'>
 			<Routes>
 				<Route path='/CreateUser' element={<CreateUser/>}/>
-				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/>
-				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/> */}
+				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/> */}
+				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/>
 				<Route path='/Login' element={<Login/>}/>
 				<Route path='/' element={<TelaInicial/>}/>
-				{/* <Route path='/RecoverPassword' element={<RecoverPassword/>}/>
-				<Route path='/OAuth2Screen' element={<OAuth2Screen/>}/>
-				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>
-				<Route path='/Shopping' element={<Shopping/>}/>
+				<Route path='/RecoverPassword' element={<RecoverPassword/>}/>
+				{/* <Route path='/OAuth2Screen' element={<OAuth2Screen/>}/> */}
+				{/* <Route path='/NavigationScreen' element={<NavigationScreen/>}/> */}
+				{/* <Route path='/Shopping' element={<Shopping/>}/> */}
 				<Route path='/PetServices' element={<PetServices/>}/>
-				<Route path='/AuthProvider' element={<AuthProvider/>}/>
-				<Route path='/EspecificProduct' element={<EspecificProduct/>}/> */}
+				{/* <Route path='/AuthProvider' element={<AuthProvider/>}/> */}
+				<Route path='/EspecificProduct' element={<EspecificProduct/>}/>
 			</Routes>
 		</div>
     );

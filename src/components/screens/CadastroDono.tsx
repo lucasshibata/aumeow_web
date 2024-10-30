@@ -1,5 +1,4 @@
 import React from 'react';
-//import { Text, View, StyleSheet, TextInput, Alert } from 'react-native';
 import BackGround from '../layout/BackGround';
 import WhiteBox from '../layout/WhiteBox';
 import RenderLogo from '../layout/RenderLogo';
@@ -38,9 +37,9 @@ export default function CadastroDono(props:any){
 	// 	});
 	// }
 
-	const estilo = {
-		backgroundColor: '#000'
-	}
+	const onSubmit = (data:any) => {
+		console.log(data);
+	};
 
 	return(
 		<BackGround>
@@ -49,69 +48,77 @@ export default function CadastroDono(props:any){
 			<WhiteBox>
 				<h1>Encontre todos os serviços que seu Pet precisa</h1>
 				<Space h={10}/>
-				<form onSubmit={}>
-
-				</form>
-				<div className='Container'>
+				<form onSubmit={handleSubmit(onSubmit)} className='Container'>
 					<Controller
 						control={control}
 						name="userName"
-						render={({field:{onChange, value}})=>(
-							<TextInput
-								placeholder="Seu Nome:"
-								style={estilo}
-								onChangeText={onChange}
-								value={value}
-								
-							/>
+						render={({ field: { onChange, value } }) => (
+						<input
+							placeholder="Seu Nome:"
+							style={{ padding: '8px', fontSize: '16px' }}
+							onChange={onChange}
+							value={value}
+						/>
 						)}
 					/>
+					
 					<Controller
 						control={control}
 						name="userSurname"
-						render={({field:{onChange, value}})=>(
-							<TextInput
-								placeholder="Seu Sobrenome:"
-								onChangeText={onChange}
-								value={value}
-							/>
+						render={({ field: { onChange, value } }) => (
+						<input
+							placeholder="Seu Sobrenome:"
+							style={{ padding: '8px', fontSize: '16px' }}
+							onChange={onChange}
+							value={value}
+						/>
 						)}
 					/>
-				</div>
-				<Space h={10}/>
-				<Controller
-					control={control}
-					name="userEmail"
-					render={({field:{onChange, value}})=>(
-						<TextInput
+					
+					<Controller
+						control={control}
+						name="userEmail"
+						render={({ field: { onChange, value } }) => (
+						<input
+							type="email"
 							placeholder="Email:"
-							onChangeText={onChange}
+							style={{ padding: '8px', fontSize: '16px' }}
+							onChange={onChange}
 							value={value}
 						/>
-					)}
-				/>
-				<Controller
-					control={control}
-					name="userPassword"
-					render={({field:{onChange, value}})=>(
-						<TextInput
+						)}
+					/>
+					
+					<Controller
+						control={control}
+						name="userPassword"
+						render={({ field: { onChange, value } }) => (
+						<input
+							type="password"
 							placeholder="Senha:"
-							onChangeText={onChange}
+							style={{ padding: '8px', fontSize: '16px' }}
+							onChange={onChange}
 							value={value}
 						/>
-					)}
-				/>
-				<Controller
-					control={control}
-					name="userConfirmPass"
-					render={({field:{onChange, value}})=>(
-						<TextInput
+						)}
+					/>
+					
+					<Controller
+						control={control}
+						name="userConfirmPass"
+						render={({ field: { onChange, value } }) => (
+						<input
+							type="password"
 							placeholder="Confirme a senha:"
-							onChangeText={onChange}
+							style={{ padding: '8px', fontSize: '16px' }}
+							onChange={onChange}
 							value={value}
 						/>
-					)}
-				/>
+						)}
+					/>
+
+					<button type="submit" style={{ padding: '10px 20px', marginTop: '10px' }}>Enviar</button>
+				</form>
 				{/* <BtnComp labelButton="aperte" toPress={handleSubmit(handleSign)} bgColor={'blue'}/> */}
 			</WhiteBox>
 		</BackGround>
