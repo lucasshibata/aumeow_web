@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 
-const TouchableOpacity = ({ children, onClick, style, activeOpacity = 0.6 }:any) => {
+export default function TouchableOpacity ({ children, onClick, activeOpacity = 0.6 }:any){
   const [isPressed, setIsPressed] = useState(false);
 
   const handleMouseDown = () => setIsPressed(true);
   const handleMouseUp = () => setIsPressed(false);
 
-  const touchableStyle = {
+  const touchableStyle:React.CSSProperties = {
     opacity: isPressed ? activeOpacity : 1,
-    transition: 'opacity 0.2s',
+    transition: 'opacity 0.4s',
     cursor: 'pointer',
-    ...style,
+    display:'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'column',
+    padding:10,
+    borderRadius:16,
+    backgroundColor:'#33186B',
+    justifyContent: 'center',
+    alignItems: 'center'
   };
 
   return (
@@ -25,5 +32,3 @@ const TouchableOpacity = ({ children, onClick, style, activeOpacity = 0.6 }:any)
     </div>
   );
 };
-
-export default TouchableOpacity;

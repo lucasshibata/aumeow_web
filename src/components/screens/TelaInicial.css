@@ -19,12 +19,12 @@
     color: black;
 }
 .TelaInicial .Article1 .Div1 .btn_div1{
-    background-color: #7360DF;
+    background-color: #33186B;
     border: 0;
-    width: 5vw;
-    height: 5vh;
+    width: 8vw;
+    height: 7vh;
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     border-radius: 15px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -51,13 +51,15 @@
     font-weight: normal;
 }
 .TelaInicial .Article2 .FlatList{ 
-    padding: 10;
-    border-bottom: '1px solid #ccc';
     display: flex;
     flex-direction: row;
-}
-.TelaInicial .Article2 .FlatList .ContainerList{ 
-    display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    width: 100vw;
     flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.TelaInicial .Article2 .FlatList .tituloImgMenu{
+    font-size: 22px;
+    color: white;
+    text-align: center;
 }

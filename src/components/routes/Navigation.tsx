@@ -15,15 +15,16 @@ import AuthProvider from '../contexts/AuthContext';
 import EspecificProduct from '../screens/EspecificProduct';
 import TelaInicial from '../screens/TelaInicial';
 
-export default function Navigation(){
+export default function Navigation(props:any){
     return(
 		<div className='Navigation'>
 			<Routes>
-				<Route path='/CreateUser' element={<CreateUser/>}/>
+				<Route path='/' element={<TelaInicial/>}/>
+				<Route path='/CreateUser' element={<CreateUser firebase={props.firebase}/>}/>
 				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/> */}
 				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/>
 				<Route path='/Login' element={<Login/>}/>
-				<Route path='/' element={<TelaInicial/>}/>
+				
 				<Route path='/RecoverPassword' element={<RecoverPassword/>}/>
 				{/* <Route path='/OAuth2Screen' element={<OAuth2Screen/>}/> */}
 				{/* <Route path='/NavigationScreen' element={<NavigationScreen/>}/> */}

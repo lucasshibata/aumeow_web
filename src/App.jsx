@@ -19,7 +19,7 @@ export default function App(){
     return(
         <div className="App">
             <BrowserRouter> 
-                <Navigation></Navigation>
+                <Navigation firebase={app}></Navigation>
             </BrowserRouter>
         </div>
     )
