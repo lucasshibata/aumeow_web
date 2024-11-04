@@ -3,13 +3,13 @@ import BackGround from '../layout/BackGround';
 import NavToolsImg from '../layout/NavToolsImg';
 import RenderLogo from '../layout/RenderLogo';
 import Space from '../layout/Space';
-import {AuthContext} from '../contexts/AuthContext';
+// import {AuthContext} from '../contexts/AuthContext';
 
 
 
 export default function NavigationScreen (props:any){
     const {navigation} = props;
-    const {nomeUsuario}:any = useContext(AuthContext);
+    // const {nomeUsuario}:any = useContext(AuthContext);
     const data = [
         { id:1, titleNav: 'Serviços Pet', srcImg:require('../../assets/dog-walk.jpg'), navScreen:()=>navigation.navigate('PetServices') },
         { id:2, titleNav: 'Loja', srcImg:require('../../assets/shop-img.png'), navScreen:()=>navigation.navigate('Shopping') },
@@ -28,7 +28,7 @@ export default function NavigationScreen (props:any){
                     </div>
                 ))}
             </div>
-            <p>{nomeUsuario}</p>
+            {/* <p>{nomeUsuario}</p> */}
         </BackGround>
     );
 };
