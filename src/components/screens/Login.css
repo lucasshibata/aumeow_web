@@ -2,3 +2,31 @@
     margin: 0;
     display: flex;
 }
+.container{
+	flex-direction:row;
+	align-items:center;
+}
+.containerLateral{
+	flex-direction:row;
+	justify-content:space-around;
+}
+.title{
+	font-size:28;
+	color:#7360DF;
+}
+.txt{
+	font-size:16;
+	color:#7360DF;
+}
+.txtInput{
+	background-color:#EDEDED;
+	width:auto;
+	border-radius:15;
+}
+.txtRecover{
+	text-decoration-line:underline;
+	color:blue;
+}
+.checkboxStyle{
+	padding:0;
+}

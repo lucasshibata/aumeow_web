@@ -21,6 +21,9 @@ export default function TelaInicial(){
         { id:5, titleNav: 'Lojinha', srcImg:navImg5, navegacao:'soos' },
     ];
     const navigate = useNavigate();
+    function função_qualquer(){
+        
+    }
     return(
         <div className="TelaInicial">
             <Header/>

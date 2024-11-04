@@ -3,13 +3,12 @@ import './Login.css';
 
 import BackGround from '../layout/BackGround';
 import WhiteBox from '../layout/WhiteBox';
-// // import { CheckBox } from 'react-native-elements';
 // import BtnComp from '../layout/BtnComp.tsx';
 // import OAuth2 from '../layout/OAuth2.tsx';
-// import Space from '../layout/Space.tsx';
+import Space from '../layout/Space';
 import RenderLogo from '../layout/RenderLogo';
 import { FaInstagram } from 'react-icons/fa';
-// import TitleBusiness from '../layout/TitleBusiness.tsx';
+import TitleBusiness from '../layout/TitleBusiness';
 // import { useForm, Controller} from 'react-hook-form';
 // import Auth from '@react-native-firebase/auth';
 
@@ -38,10 +37,13 @@ export default function Login(props:any){
 	return(
 		<div className='Login'>
 			<BackGround>
+				<RenderLogo/>
+				<TitleBusiness/>
+				<Space h={10}/>
 				<WhiteBox>
+					<h1 className='title'>Entrar</h1>
 					<h1 style={{color:'black'}}>olá</h1>
 					<h2 style={{color:'black'}}>{<FaInstagram/>}</h2>
-					<RenderLogo/>
 				</WhiteBox>	
 			</BackGround>
 		</div>
@@ -106,34 +108,3 @@ export default function Login(props:any){
 	// </BackGround>
 	);
 }
-
-// const styles = StyleSheet.create({
-// 	container:{
-// 		flexDirection:'row',
-// 		alignItems:'center',
-// 	},
-// 	containerLateral:{
-// 		flexDirection:'row',
-// 		justifyContent:'space-around',
-// 	},
-// 	title:{
-// 		fontSize:28,
-// 		color:'#7360DF',
-// 	},
-// 	txt:{
-// 		fontSize:16,
-// 		color:'#7360DF',
-// 	},
-// 	txtInput:{
-// 		backgroundColor:'#EDEDED',
-// 		width:'auto',
-// 		borderRadius:15,
-// 	},
-// 	txtRecover:{
-// 		textDecorationLine:'underline',
-// 		color:'blue',
-// 	},
-// 	checkboxStyle:{
-// 		padding:0,
-// 	},
-// });
