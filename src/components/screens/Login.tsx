@@ -10,18 +10,17 @@ import RenderLogo from '../layout/RenderLogo';
 import { FaInstagram } from 'react-icons/fa';
 import TitleBusiness from '../layout/TitleBusiness';
 import { useForm } from 'react-hook-form';
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import {auth, signInWithEmailAndPassword} from '../firebase/Firebase'
 
 
 export default function Login(props:any){
-	const firebase = props.firebase
 	const navigate = useNavigate()
 	const {register, handleSubmit} = useForm();
 
 	function signIn(data:any){
 		console.log(data);
-		signInWithEmailAndPassword(firebase, data.loginEmail, data.loginPassword).then(()=>{
+		signInWithEmailAndPassword(auth, data.loginEmail, data.loginPassword).then(()=>{
 			console.log('login com sucesso');
 			alert("login com sucesso");
 			navigate("/")
