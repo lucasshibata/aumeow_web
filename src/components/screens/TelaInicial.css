@@ -3,13 +3,21 @@
     flex-direction: column;
     width: 100vw;
 }
+.TelaInicial .Header .btn_home, .btn_loja, .btn_servicos, .btn_usuario{
+  background-color: #DEB2FB;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: #F8F7F4;
+}
 .TelaInicial .Footer{
     background-color: #DEB2FB;
     display: flex;
     justify-content: center;
 }
 .TelaInicial .Article1{
-    background-color: white;
+    background-color: #F8F7F4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,8 +71,23 @@
     color: white;
     text-align: center;
 }
+.TelaInicial .Article3{
+  background-color: #F8F7F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+.TelaInicial .Article3 .Div2{
+  color: black;
+}
+.TelaInicial .Article3 .Div2 h1{
+  font-family: "Josefin Slab", serif;
+  font-size: 56px;
+  font-weight: normal;
+}
 
-/* Animação */
+/* Animação Article2 */
 .card {
     width: 300px;
     height: 340px;
@@ -99,7 +122,7 @@
   .card-front {
     background-color: #6A2C70;
     color: #fff;
-    border: 5px solid #6A2C70;
+    border: 5px solid #6A2C70;    
   }
   
   .card-front img {
@@ -110,7 +133,7 @@
   }
   
   .card-back {
-    background-color: #ffffff;
+    background-color: #F8F7F4;
     color: #fff;
     border: 5px solid #6A2C70;
     transform: rotateY(180deg);

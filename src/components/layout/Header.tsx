@@ -26,11 +26,12 @@ export default function Header(){
                 <h1>Aumeow</h1>
             </div>
             <div style={styles.content}>
-                <Link to="/Login" style={styles.texto}>Home</Link>
-                <Link to="/Login" style={styles.texto}>Serviços</Link>
-                <Link to="/Login" style={styles.texto}>Loja</Link>
-                <Link to="/Login" style={styles.texto}>Usuário</Link>
+                <Link to="/Login" className="btn_home">Home</Link>
+                <Link to="/Login" className="btn_servicos">Serviços</Link>
+                <Link to="/Login" className="btn_loja">Loja</Link>
+                <Link to="/Login" className="btn_usuario">Usuário</Link>
             </div>
+
         </header>
     )
 };

@@ -28,7 +28,7 @@ export default function TelaInicial(){
         <div className="TelaInicial">
             <Header/>
             <main>
-                {/* ==================================================== */}
+                {/* =============================================================== */}
                 <article className="Article1">
                     <div className="Div1">
                         <h1>Cuidando dos nosso pequenos amigos</h1>
@@ -65,6 +65,12 @@ export default function TelaInicial(){
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </article>
+                {/* =============================================================== */}
+                <article className="Article3">
+                    <div className="Div2">
+                        <h1>Sobre nós</h1>
                     </div>
                 </article>
             </main>
