@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route, Routes} from'react-router-dom';
-import './Navigation.css';
 
 import CreateUser from '../screens/CreateUser';
 import CadastroDono from '../screens/CadastroDono';
@@ -16,8 +15,12 @@ import EspecificProduct from '../screens/EspecificProduct';
 import TelaInicial from '../screens/TelaInicial';
 
 export default function Navigation(props:any){
+	const styles:React.CSSProperties = {
+		width: '100%',
+		height: '100%'
+	}
     return(
-		<div className='Navigation'>
+		<div className='Navigation' style={styles}>
 			<Routes>
 				<Route path='/' element={<TelaInicial/>}/>
 				<Route path='/CreateUser' element={<CreateUser firebase={props.firebase}/>}/>

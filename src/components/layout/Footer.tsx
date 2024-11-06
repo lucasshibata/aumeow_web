@@ -7,15 +7,14 @@ export default function Footer(){
         backgroundColor: '#DEB2FB',
         display: 'flex',
         justifyContent: 'center',
-        
+        flexWrap:"wrap",
+        width:'100%'
     }
     const stylesContent:React.CSSProperties = {
         display:'flex',
         flexDirection: "column",
         alignItems:"center",
-        flexGrow: 1,
         flex: '30%',
-        boxSizing: 'border-box'
     }
     const stylesText:React.CSSProperties = {
         color: 'white'
