@@ -44,12 +44,25 @@ export default function TelaInicial(){
                 <article className="Article2">
                     <h1>Como podemos te ajudar hoje?</h1>
                     <div className="FlatList">
-                        {data.map(item => (
+                        {/* {data.map(item => (
                             <div key={item.id}>
                                 <TouchableOpacity onClick={()=>navigate(item.navegacao)}>
                                     <img src={item.srcImg} alt={item.titleNav} style={{ width: 338, height: 338 }}/>
                                     <p className="tituloImgMenu">{item.titleNav}</p>
                                 </TouchableOpacity>
+                            </div>
+                        ))} */}
+                        {data.map(item => (
+                            <div key={item.id} className="card">
+                                <div className="card-inner">
+                                    <div className="card-front">
+                                        <img src={item.srcImg} alt={item.titleNav} />
+                                        <p className="tituloImgMenu">{item.titleNav}</p>
+                                    </div>
+                                    <div className="card-back">
+                                        <p>Mais detalhes sobre {item.titleNav}</p> {/* Conteúdo do VERSO do card */}
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>

@@ -29,7 +29,7 @@ export default function Footer(){
                 <h2>mensagem:</h2>
             </div>
             <div style={styles.content}>
-                <h1>Entre em contato</h1>
+                <h1>Contato</h1>
                 <h2>E-mail:</h2>
                 <h3>aumeow.pets@gmail.com</h3>
                 <h2>Whatsapp:</h2>
