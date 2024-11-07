@@ -1,15 +1,14 @@
-.TelaInicial{
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
+.TelaInicial {
+    width: '100%';
+    height: '100%';
 }
 .TelaInicial .Header .btn_home, .btn_loja, .btn_servicos, .btn_usuario{
-  background-color: #DEB2FB;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 22px;
-  color: #F8F7F4;
+    background-color: #DEB2FB;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #F8F7F4;
 }
 .TelaInicial .Footer{
     background-color: #DEB2FB;
@@ -21,29 +20,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    flex-wrap: wrap;
+    gap: 3vw;
+    padding: 20px;
+}
+.TelaInicial .Article1 .imgDogCat{
+    display: flex;
+    width: auto;
+    height: auto;
 }
 .TelaInicial .Article1 .Div1{
     color: black;
+    display: flex;
+    flex-direction: column;
 }
 .TelaInicial .Article1 .Div1 .btn_div1{
     background-color: #33186B;
+    transition: 0.4s;
     border: 0;
-    width: 8vw;
-    height: 7vh;
+    width: 200px;
+    height: auto;
+    padding: 15px;
     color: white;
-    font-size: 18px;
+    font-size: 1.2rem;
     border-radius: 15px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
+.TelaInicial .Article1 .Div1 .btn_div1:active {
+    background-color: #34186b57; /* Cor transparente no clique */
+    color: #33186B; /* Mantém a cor do texto visível */
+  }
 .TelaInicial .Article1 .Div1 h1{
     font-family: "Josefin Slab", serif;
-    font-size: 56px;
+    font-size: 4em;
     font-weight: normal;
+    margin: 0;
 }
 .TelaInicial .Article1 .Div1 p{
     font-family: "Inter", sans-serif;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: normal;
 }
 
@@ -52,10 +67,11 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
 }
 .TelaInicial .Article2 h1{
     font-family: "Josefin Slab", serif;
-    font-size: 56px;
+    font-size: 4rem;
     font-weight: normal;
 }
 .TelaInicial .Article2 .FlatList{ 
@@ -67,47 +83,41 @@
     margin-bottom: 15px;
 }
 .TelaInicial .Article2 .FlatList .tituloImgMenu{
-    font-size: 22px;
+    font-size: 1.3rem;
     color: white;
     text-align: center;
 }
 .TelaInicial .Article3{
-  background-color: #F8F7F4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 100px;
+    background-color: #F8F7F4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .TelaInicial .Article3 .Div2{
-  color: black;
+    color: black;
 }
 .TelaInicial .Article3 .Div2 h1{
-  font-family: "Josefin Slab", serif;
-  font-size: 56px;
-  font-weight: normal;
+    font-family: "Josefin Slab", serif;
+    font-size: 4rem;
+    font-weight: normal;
 }
-
-/* ########## Animação Article2 ########## */
 .card {
     width: 300px;
     height: 340px;
-    perspective: 1000px;
-  }
-  
-  .card-inner {
+    display: flex;
+    justify-content: center;
+}
+.card-inner {
     width: 90%;
     height: 90%;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.700s;
-  }
-  
-  .card:hover .card-inner {
+}
+.card:hover .card-inner {
     transform: rotateY(180deg);
-  }
-  
-  .card-front,
-  .card-back {
+} 
+.card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -117,33 +127,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  
-  .card-front {
+}  
+.card-front {
     background-color: #6A2C70;
     color: #fff;
     border: 5px solid #6A2C70;    
-  }
-  
-  .card-front img {
+}
+.card-front img {
     width: 98%;
     height: auto;
     border-radius: 10px;
     margin-top: 20px;
-  }
-  
-  .card-back {
+}
+.card-back {
     background-color: #F8F7F4;
-    color: #fff;
+    color: #000000;
     border: 5px solid #6A2C70;
     transform: rotateY(180deg);
-  }
-  
-  .tituloImgMenu {
+} 
+.tituloImgMenu {
     font-size: 18px;
     font-weight: bold;
     margin-top: 5px;
     text-align: center;
     color: #fff;
-  }
-  /* ########## Animação Article2 ########## */
+}

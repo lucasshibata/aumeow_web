@@ -1,29 +1,23 @@
-import React from "react";
 import "./TelaInicial.css";
-import { useNavigate } from "react-router-dom";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import cachorroGato from "../../assets/cachorro_e_gato.png";
-import TouchableOpacity from "../layout/TouchableOpacity";
-
 import navImg1 from "../../assets/banho_doguinho.png";
 import navImg2 from "../../assets/corgi_vacina.png";
 import navImg3 from "../../assets/cachorro_piscina.png";
 import navImg4 from "../../assets/cachorro_grade.png";
 import navImg5 from "../../assets/dog_loja.png";
+import { useNavigate } from "react-router-dom";
 
 export default function TelaInicial(){
     const data = [
-        { id:1, titleNav: 'Banho e tosa', srcImg:navImg1, navegacao:'soos'},
-        { id:2, titleNav: 'Vacinação', srcImg:navImg2, navegacao:'soos' },
-        { id:3, titleNav: 'Hospedagem', srcImg:navImg3, navegacao:'soos' },
-        { id:4, titleNav: 'Denúncia', srcImg:navImg4, navegacao:'soos' },
-        { id:5, titleNav: 'Lojinha', srcImg:navImg5, navegacao:'soos' },
+        { id:1, titleNav: 'Banho e tosa', srcImg:navImg1, detalhes:"detalhes sobre banho e tosa" },
+        { id:2, titleNav: 'Vacinação', srcImg:navImg2, detalhes:"detalhes sobre vacinação" },
+        { id:3, titleNav: 'Hospedagem', srcImg:navImg3, detalhes:"detalhes sobre Hospedagem" },
+        { id:4, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"detalhes sobre Denúncia" },
+        { id:5, titleNav: 'Loja', srcImg:navImg5, detalhes:"detalhes sobre a Loja" },
     ];
-    const navigate = useNavigate();
-    function função_qualquer(){
-        
-    }
+    const navigate = useNavigate()
     return(
         <div className="TelaInicial">
             <Header/>
@@ -34,10 +28,10 @@ export default function TelaInicial(){
                         <h1>Cuidando dos nosso pequenos amigos</h1>
                         <p>Seja bem vindo ao AuMeow, o seu site de cuidados ideal para o seu melhor amigo.
                         Aproveite nossos serviços</p>
-                        <button className="btn_div1">Fique por dentro</button>
+                        <button className="btn_div1" onClick={()=>navigate("/Login")}>Fique por dentro</button>
                     </div>
-                    <div>
-                        <img src={cachorroGato} alt="imagem de cachorro e gato" />
+                    <div className="imgDogCat">
+                        <img src={cachorroGato} alt="imagem de cachorro e gato" style={{flex:1, width:'100%', height:'100%'}}/>
                     </div>
                 </article>
                 {/* =============================================================== */}
@@ -52,7 +46,7 @@ export default function TelaInicial(){
                                         <p className="tituloImgMenu">{item.titleNav}</p>
                                     </div>
                                     <div className="card-back">
-                                        <p>Mais detalhes sobre {item.titleNav}</p> {/* Conteúdo do VERSO do card */}
+                                        <p>{item.detalhes}</p> 
                                     </div>
                                 </div>
                             </div>
@@ -77,6 +71,5 @@ export default function TelaInicial(){
             </main>
             <Footer/>
         </div>
-        
     )
 }
