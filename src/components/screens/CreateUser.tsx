@@ -5,7 +5,7 @@ import BtnComp from '../layout/BtnComp';
 import RenderLogo from '../layout/RenderLogo';
 import Space from '../layout/Space';
 
-export default function CreateUser(props:any){
+export default function CreateUser(){
 	const styles = {
 		title:{
 			fontSize:30,

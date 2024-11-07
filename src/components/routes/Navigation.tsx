@@ -23,14 +23,14 @@ export default function Navigation(props:any){
 		<div className='Navigation' style={styles}>
 			<Routes>
 				<Route path='/' element={<TelaInicial/>}/>
-				<Route path='/CreateUser' element={<CreateUser firebase={props.firebase}/>}/>
+				<Route path='/CreateUser' element={<CreateUser/>}/>
 				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/> */}
 				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/>
 				<Route path='/Login' element={<Login/>}/>
 				
 				<Route path='/RecoverPassword' element={<RecoverPassword/>}/>
 				{/* <Route path='/OAuth2Screen' element={<OAuth2Screen/>}/> */}
-				{/* <Route path='/NavigationScreen' element={<NavigationScreen/>}/> */}
+				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>
 				{/* <Route path='/Shopping' element={<Shopping/>}/> */}
 				<Route path='/PetServices' element={<PetServices/>}/>
 				{/* <Route path='/AuthProvider' element={<AuthProvider/>}/> */}
