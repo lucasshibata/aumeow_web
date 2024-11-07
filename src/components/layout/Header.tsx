@@ -23,7 +23,7 @@ export default function Header(){
         <header className="Header" style={styles.container}>
             <div style={styles.content}>
                 <RenderLogo/>
-                <h1>Aumeow</h1>
+                <h1>AuMeow</h1>
             </div>
             <div style={styles.content}>
                 <Link to="/Login" className="btn_home">Home</Link>

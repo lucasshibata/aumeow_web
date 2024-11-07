@@ -32,7 +32,7 @@ export default function TelaInicial(){
                 <article className="Article1">
                     <div className="Div1">
                         <h1>Cuidando dos nosso pequenos amigos</h1>
-                        <p>Seja bem vindo ao AuMeow, o seu site de cuidados para o seu melhor amigo.
+                        <p>Seja bem vindo ao AuMeow, o seu site de cuidados ideal para o seu melhor amigo.
                         Aproveite nossos serviços</p>
                         <button className="btn_div1">Fique por dentro</button>
                     </div>
@@ -44,14 +44,6 @@ export default function TelaInicial(){
                 <article className="Article2">
                     <h1>Como podemos te ajudar hoje?</h1>
                     <div className="FlatList">
-                        {/* {data.map(item => (
-                            <div key={item.id}>
-                                <TouchableOpacity onClick={()=>navigate(item.navegacao)}>
-                                    <img src={item.srcImg} alt={item.titleNav} style={{ width: 338, height: 338 }}/>
-                                    <p className="tituloImgMenu">{item.titleNav}</p>
-                                </TouchableOpacity>
-                            </div>
-                        ))} */}
                         {data.map(item => (
                             <div key={item.id} className="card">
                                 <div className="card-inner">
@@ -65,12 +57,21 @@ export default function TelaInicial(){
                                 </div>
                             </div>
                         ))}
+                        {/* CODIGO QUE ESTAVA ANTES */}
+                        {/* {data.map(item => (
+                            <div key={item.id}>
+                                <TouchableOpacity onClick={()=>navigate(item.navegacao)}>
+                                    <img src={item.srcImg} alt={item.titleNav} style={{ width: 338, height: 338 }}/>
+                                    <p className="tituloImgMenu">{item.titleNav}</p>
+                                </TouchableOpacity>
+                            </div>
+                            ))} */}
                     </div>
                 </article>
                 {/* =============================================================== */}
                 <article className="Article3">
                     <div className="Div2">
-                        <h1>Sobre nós</h1>
+                        <h1>Sobre o AuMeow</h1>
                     </div>
                 </article>
             </main>
