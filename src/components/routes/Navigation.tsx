@@ -31,7 +31,7 @@ export default function Navigation(props:any){
 				<Route path='/RecoverPassword' element={<RecoverPassword/>}/>
 				{/* <Route path='/OAuth2Screen' element={<OAuth2Screen/>}/> */}
 				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>
-				{/* <Route path='/Shopping' element={<Shopping/>}/> */}
+				<Route path='/Shopping' element={<Shopping/>}/>
 				<Route path='/PetServices' element={<PetServices/>}/>
 				{/* <Route path='/AuthProvider' element={<AuthProvider/>}/> */}
 				<Route path='/EspecificProduct' element={<EspecificProduct/>}/>

@@ -1,14 +1,21 @@
 import React from 'react';
 import './BackGround.css';
+import imgbg from '../../assets/bg_img.png'
 
 export default function BackGround(props:any){
-    const styles={
+    const styles:React.CSSProperties={
         display:'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '100vw',
+        height: '100vh',
+        backgroundImage: `url(${imgbg})`,
+        backgroundSize: 'cover',
+        flex:1,
+        margin: 0
     }
     return(
-        <div className='imagem-fundo' style={styles}> 
+        <div style={styles}> 
             {props.children}
         </div>
     );

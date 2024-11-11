@@ -23,7 +23,7 @@ export default function NavToolsImg(props:any){
         },
     };
     return(
-        <TouchableOpacity style={styles.box} onPress={onTouch}>
+        <TouchableOpacity style={styles.box} onClick={onTouch}>
             <img src={src} style={styles.img} alt='uma imagem ai'/>
             <p style={styles.text}>{titleNav}</p>
         </TouchableOpacity>
