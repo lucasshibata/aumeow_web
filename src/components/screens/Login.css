@@ -1,33 +1,33 @@
 .Login{
-    margin: 0;
-    display: flex;
+    height: 100%;
+	width: 100%;
+}
+.Login .title{
+	font-size:1.5rem;
+	color:#7360DF;
 }
 .Login .container{
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
 }
-.containerLateral{
-	flex-direction:row;
-	justify-content:space-around;
-}
-.title{
-	font-size:28;
-	color:#7360DF;
-}
 .Login .container .txt{
-	font-size:16;
+	font-size:1.3rem;
 	color:#7360DF;
 }
-.txtInput{
-	background-color:#EDEDED;
-	width:auto;
-	border-radius:15;
+.Login .container .inputText{
+	font-size:1.3rem;
+	border-width: 2px;
+	border-color: #7360DF;
+	border-radius: 5px;
+	border-style: solid;
+	padding: 5px;
 }
-.txtRecover{
-	text-decoration-line:underline;
-	color:blue;
-}
-.checkboxStyle{
-	padding:0;
+.Login .container .submit{
+	font-size:1.3rem;
+	background-color: #7360DF;
+	border: 0;
+	border-radius: 10px;
+	padding: 5px;
+	color: white;
 }

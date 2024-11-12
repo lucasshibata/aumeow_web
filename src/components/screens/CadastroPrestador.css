@@ -1,0 +1,30 @@
+.Container{
+    display: flex;
+	flex-direction: column;
+	color:white;
+    gap:10px
+}
+.Title{
+    color: #7360DF;
+    font-size: 2rem;
+}
+.Container .txt{
+    color: #7360DF;
+}
+.Container .submit{
+	font-size:1.3rem;
+	background-color: #7360DF;
+	border: 0;
+	border-radius: 10px;
+	padding: 5px;
+	color: white;
+}
+.InputText{
+	font-size:1.3rem;
+	
+	border-width: 2px;
+	border-color: #7360DF;
+	border-radius: 5px;
+	border-style: solid;
+	padding: 5px;
+}

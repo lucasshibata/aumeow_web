@@ -1,5 +1,4 @@
 import React from 'react';
-import './BackGround.css';
 import imgbg from '../../assets/bg_img.png'
 
 export default function BackGround(props:any){

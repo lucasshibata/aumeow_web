@@ -9,7 +9,7 @@ import Space from '../layout/Space';
 import RenderLogo from '../layout/RenderLogo';
 import TitleBusiness from '../layout/TitleBusiness';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {auth, signInWithEmailAndPassword} from '../firebase/Firebase'
 
 
@@ -50,16 +50,18 @@ export default function Login(){
 					<h1 className='title'>Entrar</h1>
 					<form className='container' onSubmit={handleSubmit(signIn)}>
 						<label className='txt'>Email:</label>
-						<input type='email' placeholder='Email:' {...register("email")} />
+						<input className='inputText' type='email' placeholder='Email:' {...register("email")} />
 						<label className='txt'>Senha:</label>
-						<input type='password' placeholder='senha:' {...register("password")}/>
+						<input className='inputText' type='password' placeholder='senha:' {...register("password")}/>
 						{/* <select {...register("gender")}>
 							<option value="female">female</option>
 							<option value="male">male</option>
 							<option value="other">other</option>
 						</select> */}
-						<input type="submit" />
+						<input className='submit' value='Enviar' type="submit"/>
 					</form>
+					<Link to='/CreateUser'>Não possuo Cadastro</Link><br/>
+					<Link to='/RecoverPassword'>Esqueci minha senha</Link>
 				</WhiteBox>	
 			</BackGround>
 		</div>

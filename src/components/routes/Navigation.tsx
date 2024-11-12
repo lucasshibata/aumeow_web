@@ -27,7 +27,6 @@ export default function Navigation(props:any){
 				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/> */}
 				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/>
 				<Route path='/Login' element={<Login/>}/>
-				
 				<Route path='/RecoverPassword' element={<RecoverPassword/>}/>
 				{/* <Route path='/OAuth2Screen' element={<OAuth2Screen/>}/> */}
 				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>

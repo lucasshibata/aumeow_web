@@ -26,7 +26,7 @@ export default function BtnComp(props:any){
         },
     };
     return(
-        <button onClick={()=>navigate(toPress)} style={styles.btn_txt} onMouseDown={handleMouseDown}
+        <button onClick={()=>navigate(`/${toPress}`)} style={styles.btn_txt} onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}>
             {labelButton}
