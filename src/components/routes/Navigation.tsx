@@ -24,7 +24,7 @@ export default function Navigation(props:any){
 			<Routes>
 				<Route path='/' element={<TelaInicial/>}/>
 				<Route path='/CreateUser' element={<CreateUser/>}/>
-				{/* <Route path='/CadastroDono' element={<CadastroDono/>}/> */}
+				<Route path='/CadastroDono' element={<CadastroDono/>}/>
 				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/>
 				<Route path='/Login' element={<Login/>}/>
 				<Route path='/RecoverPassword' element={<RecoverPassword/>}/>

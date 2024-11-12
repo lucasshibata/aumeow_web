@@ -1,17 +1,30 @@
-.Container{
+.CadastroPrestador{
+	height: 100vh;
+	width: 100vw;
+}
+.CadastroPrestador .Container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+.CadastroPrestador .Container .FormContainer{
     display: flex;
 	flex-direction: column;
 	color:white;
+	columns: 2;
     gap:10px
 }
-.Title{
+.CadastroPrestador .Container .Title{
     color: #7360DF;
-    font-size: 2rem;
+    font-size: 1.8rem;
+	margin: 0;
 }
-.Container .txt{
+.CadastroPrestador .Container .FormContainer .txt{
     color: #7360DF;
 }
-.Container .submit{
+.CadastroPrestador .Container .FormContainer .submit{
 	font-size:1.3rem;
 	background-color: #7360DF;
 	border: 0;
@@ -19,10 +32,9 @@
 	padding: 5px;
 	color: white;
 }
-.InputText{
-	font-size:1.3rem;
-	
-	border-width: 2px;
+.CadastroPrestador .Container .FormContainer .InputText{
+	font-size:1rem;
+	border-width: 0.2vw;
 	border-color: #7360DF;
 	border-radius: 5px;
 	border-style: solid;

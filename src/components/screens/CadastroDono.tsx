@@ -4,122 +4,71 @@ import WhiteBox from '../layout/WhiteBox';
 import RenderLogo from '../layout/RenderLogo';
 import TitleBusiness from '../layout/TitleBusiness';
 import Space from '../layout/Space';
-import { useForm, Controller} from 'react-hook-form';
-import BtnComp from '../layout/BtnComp';
-// import Auth from '@react-native-firebase/auth';
-// import Database from '@react-native-firebase/database';
+import { useForm } from 'react-hook-form';
+import {auth, createUserWithEmailAndPassword, database, ref, set} from '../firebase/Firebase';
 
 
-export default function CadastroDono(props:any){
-	const {navigation} = props;
-	const { control, handleSubmit} = useForm();
+export default function CadastroDono(){
+	const {register, handleSubmit} = useForm();
 
-	// function handleSign(data:any){
-	// 	Auth().createUserWithEmailAndPassword(data.userEmail, data.userPassword)
-	// 	.then(userCrendential =>{
-	// 		console.log('user: ', userCrendential);
-	// 		const userRef = Database().ref(`/users/${userCrendential.user.uid}`).push();
-	// 		userRef.set({
-	// 			...data,
-	// 			uid: userRef.key, // Adiciona o UID gerado pelo Firebase
-	// 		});
-	// 		navigation.navigate('Login');
-	// 	})
-	// 	.catch(error=>{
-	// 		if(error.code === 'auth/email-already-in-use'){
-	// 			console.log('email já existe');
-	// 			Alert.alert('email já existe');
-	// 		}
-	// 		if(error.code === 'auth/invalid-email'){
-	// 			Alert.alert('email inválido');
-	// 			console.log('email inválido');
-	// 		}
-	// 	});
-	// }
-
-	const onSubmit = (data:any) => {
-		console.log(data);
-	};
-
+	async function signUp (data:any){
+		await createUserWithEmailAndPassword(auth, data.email, data.password)
+		.then((users)=>{
+			console.log(users.user.uid);
+			const userRef = ref(database, 'users/'+users.user.uid);
+			const userData ={
+				nome: data.name,
+				cpf: data.cpf,
+				email: data.email,
+				senha: data.password,
+				genero: data.gender
+			}
+			set(userRef, userData)
+			.then(()=>{
+				alert("conta criada com sucesso e salvo no banco");
+			})
+			.catch((error:any)=>{
+				alert(error.code);
+			})
+		})
+		.catch((error:any)=>{
+			switch(error.code){
+				case 'auth/email-already-in-use':
+					alert('O email inserido já está em uso!');
+					break;
+				default:
+					alert('Outro erro');
+					break;
+			}
+		});  
+	}
+	
 	return(
 		<BackGround>
 			<RenderLogo/>
 			<TitleBusiness/>
+			<Space w={20}/>
 			<WhiteBox>
-				<h1>Encontre todos os serviços que seu Pet precisa</h1>
-				<Space h={10}/>
-				<form onSubmit={handleSubmit(onSubmit)} className='Container'>
-					<Controller
-						control={control}
-						name="userName"
-						render={({ field: { onChange, value } }) => (
-						<input
-							placeholder="Seu Nome:"
-							style={{ padding: '8px', fontSize: '16px' }}
-							onChange={onChange}
-							value={value}
-						/>
-						)}
-					/>
-					
-					<Controller
-						control={control}
-						name="userSurname"
-						render={({ field: { onChange, value } }) => (
-						<input
-							placeholder="Seu Sobrenome:"
-							style={{ padding: '8px', fontSize: '16px' }}
-							onChange={onChange}
-							value={value}
-						/>
-						)}
-					/>
-					
-					<Controller
-						control={control}
-						name="userEmail"
-						render={({ field: { onChange, value } }) => (
-						<input
-							type="email"
-							placeholder="Email:"
-							style={{ padding: '8px', fontSize: '16px' }}
-							onChange={onChange}
-							value={value}
-						/>
-						)}
-					/>
-					
-					<Controller
-						control={control}
-						name="userPassword"
-						render={({ field: { onChange, value } }) => (
-						<input
-							type="password"
-							placeholder="Senha:"
-							style={{ padding: '8px', fontSize: '16px' }}
-							onChange={onChange}
-							value={value}
-						/>
-						)}
-					/>
-					
-					<Controller
-						control={control}
-						name="userConfirmPass"
-						render={({ field: { onChange, value } }) => (
-						<input
-							type="password"
-							placeholder="Confirme a senha:"
-							style={{ padding: '8px', fontSize: '16px' }}
-							onChange={onChange}
-							value={value}
-						/>
-						)}
-					/>
-
-					<button type="submit" style={{ padding: '10px 20px', marginTop: '10px' }}>Enviar</button>
+				<h1 className='Title'>Cadastro de Cliente</h1>
+				<form className='Container' onSubmit={handleSubmit(signUp)}>
+					<label className='txt'>Nome:</label>
+					<input className='InputText' type='text' placeholder='Nome Completo:' {...register("name")} />
+					<label className='txt'>CPF:</label>
+					<input className='InputText' type='text' placeholder='CPF:' {...register("cpf")} />
+					<label className='txt'>Email:</label>
+					<input className='InputText' type='email' placeholder='Email:' {...register("email")} />
+					<label className='txt'>Senha:</label>
+					<input className='InputText' type='password' placeholder='senha:' {...register("password")}/>
+					<label className='txt'>Repita a senha:</label>
+					<input className='InputText' type='password' placeholder='Repita a senha:' {...register("passwordAgain")}/>
+					<label className='txt'>sexo:</label>
+					<select className='InputText' {...register("gender")}>
+						<option value="Feminino">Feminino</option>
+						<option value="Masculino">Masculino</option>
+						<option value="Outro">Outro</option>
+					</select>
+					<input className='submit' value='Enviar' type="submit"/>
 				</form>
-				{/* <BtnComp labelButton="aperte" toPress={handleSubmit(handleSign)} bgColor={'blue'}/> */}
 			</WhiteBox>
 		</BackGround>
 	);

@@ -43,26 +43,30 @@ export default function Login(){
 	return(
 		<div className='Login'>
 			<BackGround>
-				<RenderLogo/>
-				<TitleBusiness/>
-				<Space h={10}/>
-				<WhiteBox>
-					<h1 className='title'>Entrar</h1>
-					<form className='container' onSubmit={handleSubmit(signIn)}>
-						<label className='txt'>Email:</label>
-						<input className='inputText' type='email' placeholder='Email:' {...register("email")} />
-						<label className='txt'>Senha:</label>
-						<input className='inputText' type='password' placeholder='senha:' {...register("password")}/>
-						{/* <select {...register("gender")}>
-							<option value="female">female</option>
-							<option value="male">male</option>
-							<option value="other">other</option>
-						</select> */}
-						<input className='submit' value='Enviar' type="submit"/>
-					</form>
-					<Link to='/CreateUser'>Não possuo Cadastro</Link><br/>
-					<Link to='/RecoverPassword'>Esqueci minha senha</Link>
-				</WhiteBox>	
+				<div className='Container'>
+					<RenderLogo/>
+					<TitleBusiness/>
+					<Space h={10}/>
+					<WhiteBox>
+						<h1 className='Title'>Entrar</h1>
+						<form className='FormContainer' onSubmit={handleSubmit(signIn)}>
+							<label className='Txt'>Email:</label>
+							<input className='InputText' type='email' placeholder='Email:' {...register("email")} />
+							<label className='Txt'>Senha:</label>
+							<input className='InputText' type='password' placeholder='senha:' {...register("password")}/>
+							{/* <select {...register("gender")}>
+								<option value="female">female</option>
+								<option value="male">male</option>
+								<option value="other">other</option>
+							</select> */}
+							<input className='Submit' value='Enviar' type="submit"/>
+						</form>
+						<Space h={20}/>
+						<Link to='/CreateUser'>Não possuo Cadastro</Link><br/>
+						<Space h={20}/>
+						<Link to='/RecoverPassword'>Esqueci minha senha</Link>
+					</WhiteBox>	
+				</div>
 			</BackGround>
 		</div>
 	);
