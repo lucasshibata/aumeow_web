@@ -6,9 +6,10 @@ export default function Header(){
     const stylesContainer:React.CSSProperties = {
         backgroundColor: '#DEB2FB',
         display: 'flex',
+        alignItems:'center',
         justifyContent: 'space-around',
         flexWrap:"wrap",
-        paddingBottom:10
+        padding:5
     }
     const stylesContent:React.CSSProperties = {
         display:'flex',
