@@ -1,5 +1,5 @@
 import {initializeApp} from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
 import { getDatabase, ref, set, push } from "firebase/database";
 
 const firebaseConfig = {
@@ -15,4 +15,4 @@ const aplication = initializeApp(firebaseConfig);
 const auth = getAuth(aplication);
 const database = getDatabase(aplication);
 
-export {auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, database, ref, set, push};
+export {auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, database, ref, set, push, sendPasswordResetEmail};
