@@ -6,7 +6,7 @@ export default function App(){
     return(
         <div className="App">
             <BrowserRouter> 
-                <Navigation></Navigation>
+                <Navigation> </Navigation>
             </BrowserRouter>
         </div>
     )
