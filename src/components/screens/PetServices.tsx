@@ -1,10 +1,20 @@
 import React from 'react';
 import BackGround from '../layout/BackGround';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
+import PetSitter from '../layout/PetSitter';
 
 export default function PetServices(){
     return(
-        <BackGround>
-            <p>Serviços de pet</p>
-        </BackGround>
+        <div className='Container
+        '>
+            <BackGround>
+                <div className='InerContainer'>
+                    <Header/>
+                        <PetSitter/>
+                    <Footer/>
+                </div>
+            </BackGround>
+        </div>
     );
 };
