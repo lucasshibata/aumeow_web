@@ -10,7 +10,7 @@ import RenderLogo from '../layout/RenderLogo';
 import TitleBusiness from '../layout/TitleBusiness';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import {auth, signInWithEmailAndPassword} from '../firebase/Firebase'
+import {auth, signInWithEmailAndPassword, ref, database, get} from '../firebase/Firebase'
 
 
 export default function Login(){
@@ -19,9 +19,16 @@ export default function Login(){
 
 	async function signIn(data:any){
 		console.log(data);
-		await signInWithEmailAndPassword(auth, data.email, data.password).then(()=>{
+		await signInWithEmailAndPassword(auth, data.email, data.password).then((user)=>{
 			console.log('login com sucesso');
-			navigate('/NavigationScreen');
+			const dataDb = ref(database, 'users/'+user.user.uid+'/funcao')
+			get(dataDb).then((snapshot)=>{
+				if (snapshot.val() === 'cliente'){
+					navigate('/NavigationScreen');
+				} else if (snapshot.val() ==='prestador'){
+					navigate('/MenuPrestador');
+				}
+			})
 		})
 		.catch((error:any)=>{
 			console.log(error.code)

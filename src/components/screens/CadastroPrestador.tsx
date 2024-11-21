@@ -13,35 +13,40 @@ export default function CadastroPrestador(){
 	const {register, handleSubmit} = useForm();
 
 	async function signUp (data:any){
-		await createUserWithEmailAndPassword(auth, data.email, data.password)
-		.then((users)=>{
-			console.log(users.user.uid);
-			const userRef = ref(database, 'workers/'+users.user.uid);
-			const userData ={
-				nome: data.name,
-				cpf: data.cpf,
-				email: data.email,
-				senha: data.password,
-				genero: data.gender
-			}
-			set(userRef, userData)
-			.then(()=>{
-				alert("conta criada com sucesso e salvo no banco");
+		if (data.password === data.passwordAgain){
+			await createUserWithEmailAndPassword(auth, data.email, data.password)
+			.then((users)=>{
+				console.log(users.user.uid);
+				const userRef = ref(database, 'users/'+users.user.uid);
+				const userData ={
+					nome: data.name,
+					cpf: data.cpf,
+					email: data.email,
+					senha: data.password,
+					genero: data.gender,
+					funcao: 'prestador'
+				}
+				set(userRef, userData)
+				.then(()=>{
+					alert("conta criada com sucesso e salvo no banco");
+				})
+				.catch((error:any)=>{
+					alert(error.code);
+				})
 			})
 			.catch((error:any)=>{
-				alert(error.code);
-			})
-		})
-		.catch((error:any)=>{
-			switch(error.code){
-				case 'auth/email-already-in-use':
-					alert('O email inserido já está em uso!');
-					break;
-				default:
-					alert('Outro erro');
-					break;
-			}
-		});  
+				switch(error.code){
+					case 'auth/email-already-in-use':
+						alert('O email inserido já está em uso!');
+						break;
+					default:
+						alert('Outro erro');
+						break;
+				}
+			});
+		} else {
+			alert('senha de confirmação está incorreta, insira novamente!');
+		}
 	}
 	
 	return(

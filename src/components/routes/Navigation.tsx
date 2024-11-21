@@ -13,6 +13,7 @@ import PetServices from '../screens/PetServices';
 // import AuthProvider from '../contexts/AuthContext';
 import EspecificProduct from '../screens/EspecificProduct';
 import TelaInicial from '../screens/TelaInicial';
+import MenuPrestador from '../screens/MenuPrestador';
 
 export default function Navigation(props:any){
 	const styles:React.CSSProperties = {
@@ -32,6 +33,7 @@ export default function Navigation(props:any){
 				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>
 				<Route path='/Shopping' element={<Shopping/>}/>
 				<Route path='/PetServices' element={<PetServices/>}/>
+				<Route path='/MenuPrestador' element={<MenuPrestador/>}/>
 				{/* <Route path='/AuthProvider' element={<AuthProvider/>}/> */}
 				<Route path='/EspecificProduct' element={<EspecificProduct/>}/>
 			</Routes>

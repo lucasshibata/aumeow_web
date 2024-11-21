@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
-import { getDatabase, ref, set, push } from "firebase/database";
+import { getDatabase, ref, set, push, get } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCMRhy9y4iEakKfCje4Y04d7JyhIKlWnz4",
@@ -15,4 +15,4 @@ const aplication = initializeApp(firebaseConfig);
 const auth = getAuth(aplication);
 const database = getDatabase(aplication);
 
-export {auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, database, ref, set, push, sendPasswordResetEmail};
+export {auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, database, ref, set, push, sendPasswordResetEmail, get};
