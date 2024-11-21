@@ -1,6 +1,4 @@
-import React from 'react';
 import './Login.css';
-
 import BackGround from '../layout/BackGround';
 import WhiteBox from '../layout/WhiteBox';
 // import BtnComp from '../layout/BtnComp.tsx';
@@ -10,43 +8,13 @@ import RenderLogo from '../layout/RenderLogo';
 import TitleBusiness from '../layout/TitleBusiness';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import {auth, signInWithEmailAndPassword, ref, database, get} from '../firebase/Firebase'
+import SignIn from '../layout/SignIn';
 
 
 export default function Login(){
-	const navigate = useNavigate()
 	const {register, handleSubmit} = useForm();
+	const navigate = useNavigate()
 
-	async function signIn(data:any){
-		console.log(data);
-		await signInWithEmailAndPassword(auth, data.email, data.password).then((user)=>{
-			console.log('login com sucesso');
-			const dataDb = ref(database, 'users/'+user.user.uid+'/funcao')
-			get(dataDb).then((snapshot)=>{
-				if (snapshot.val() === 'cliente'){
-					navigate('/NavigationScreen');
-				} else if (snapshot.val() ==='prestador'){
-					navigate('/MenuPrestador');
-				}
-			})
-		})
-		.catch((error:any)=>{
-			console.log(error.code)
-			switch(error.code){
-				case 'auth/invalid-credential':
-					alert('Usuário ou senha errada!');
-				break;
-				case 'auth/invalid-email':
-					alert('O e-mail fornecido não está no formato correto!');
-					break;
-				case 'auth/missing-password':
-					alert('Campo de senha está em branco!')
-					break;
-				default:
-					alert("algum outro erro");
-			}
-		});
-	}
 	return(
 		<div className='Login'>
 			<BackGround>
@@ -58,7 +26,7 @@ export default function Login(){
 					<Space h={10}/>
 					<WhiteBox>
 						<h1 className='Title'>Entrar</h1>
-						<form className='FormContainer' onSubmit={handleSubmit(signIn)}>
+						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignIn(data, navigate))}>
 							{/* <label className='Txt'>Email:</label> */}
 							<input className='InputText' type='email' placeholder='Email' {...register("email")} />
 							{/* <label className='Txt'>Senha:</label> */}

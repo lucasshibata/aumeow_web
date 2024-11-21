@@ -3,8 +3,8 @@ import image from '../../assets/logo_img.png';
 
 export default function RenderLogo(){
     const styles:React.CSSProperties= {
-        height:'13vh',
-        width:'8vw', 
+        height:'130px',
+        width:'180px', 
     }
     return(
         <div>

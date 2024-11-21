@@ -1,52 +1,16 @@
-import React from 'react';
 import BackGround from '../layout/BackGround';
 import WhiteBox from '../layout/WhiteBox';
 import RenderLogo from '../layout/RenderLogo';
 import TitleBusiness from '../layout/TitleBusiness';
 import Space from '../layout/Space';
 import { useForm } from 'react-hook-form';
-import {auth, createUserWithEmailAndPassword, database, ref, set} from '../firebase/Firebase';
+import SignUp from '../layout/SignUp';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CadastroDono(){
 	const {register, handleSubmit} = useForm();
-
-	async function signUp (data:any){
-		if(data.password === data.passwordAgain){
-			await createUserWithEmailAndPassword(auth, data.email, data.password)
-			.then((users)=>{
-				console.log(users.user.uid);
-				const userRef = ref(database, 'users/'+users.user.uid);
-				const userData ={
-					nome: data.name,
-					cpf: data.cpf,
-					email: data.email,
-					senha: data.password,
-					genero: data.gender,
-					funcao: 'cliente'
-				}
-				set(userRef, userData)
-				.then(()=>{
-					alert("conta criada com sucesso e salvo no banco");
-				})
-				.catch((error:any)=>{
-					alert(error.code);
-				})
-			})
-			.catch((error:any)=>{
-				switch(error.code){
-					case 'auth/email-already-in-use':
-						alert('O email inserido já está em uso!');
-						break;
-					default:
-						alert('Outro erro');
-						break;
-				}
-			}); 
-		} else {
-			alert('senha de confirmação está incorreta, insira novamente!');
-		} 
-	}
+	const navigate = useNavigate();
 	
 	return(
 		<BackGround>
@@ -55,7 +19,7 @@ export default function CadastroDono(){
 			<Space w={20}/>
 			<WhiteBox>
 				<h1 className='Title'>Cadastro de Cliente</h1>
-				<form className='Container' onSubmit={handleSubmit(signUp)}>
+				<form className='Container' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "dono"))}>
 					<label className='txt'>Nome:</label>
 					<input className='InputText' type='text' placeholder='Nome Completo:' {...register("name")} />
 					<label className='txt'>CPF:</label>
