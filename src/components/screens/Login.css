@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
-
-
 *{
 	font-family: "Josefin Slab", serif;
 	font-optical-sizing: auto;
@@ -10,74 +8,65 @@
 .Login{
     height: 100vh;
 	width: 100vw;
-}
-.Login .Container{
-	display:flex;
-	flex-wrap:wrap;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-.Login .Container .Title{
-	font-size:1.5rem;
-	color:#7360DF;
-}
-.Login .Container .FormContainer{
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-}
-
-.Login .Container .FormContainer a{
-	color: #7360DF;
-	margin-left: 15px;
-}
-.Login .Container .FormContainer .FunctionsContainer{
-	display: flex;
-	align-items: center;
-}
-
-.Login .Container .FormContainer .FunctionsContainer .CheckboxConnected label{
-	font-size: 1rem;
-	display: flex;
-	align-items: center;
-	flex-direction: row-reverse;
-}
-
-.Login .Container .FormContainer .FunctionsContainer .CheckboxConnected input[type=checkbox] {
-    width: 1.4rem;
-    height: 2rem;
-}
-
-
-.Login .Container .FormContainer .Txt{
-	font-size:1.3rem;
-	color:#7360DF;
-}
-.Login .Container .FormContainer .InputText{
-	font-size:1.3rem;
-	border-width: 2px;
-	border-color: #7360DF;
-	border-radius: 5px;
-	border-style: solid;
-	padding: 5px;
-}
-.Login .Container .FormContainer .InputText{
-	padding: 8px;
-	background-color: #EDEDED;	
-}
-
-.Login .Container .FormContainer ::-webkit-input-placeholder{
-	color: #858585;
-
-}
-
-.Login .Container .FormContainer .Submit{
-	font-size:1.3rem;
-	background-color: #7360DF;
-	border: 0;
-	border-radius: 10px;
-	padding: 0.7rem;
-	color: white;
-	cursor: pointer;
+	& .Container{
+		display:flex;
+		flex-wrap:wrap;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		& .Title{
+			font-size:1.5rem;
+			color:#7360DF;
+		}
+		& .FormContainer{
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			& a{
+				color: #7360DF;
+				margin-left: 15px;
+			}
+			& .FunctionsContainer{
+				display: flex;
+				align-items: center;
+				& .CheckboxConnected{
+					& label{
+						font-size: 1rem;
+						display: flex;
+						align-items: center;
+						flex-direction: row-reverse;
+					}
+					& input[type=checkbox] {
+						width: 1.4rem;
+						height: 2rem;
+					}
+				}
+			}
+			& .Txt{
+				font-size:1.3rem;
+				color:#7360DF;
+			}
+			& .InputText{
+				font-size:1.3rem;
+				border-width: 2px;
+				border-color: #7360DF;
+				border-radius: 5px;
+				border-style: solid;
+				padding: 8px;
+				background-color: #EDEDED;
+			}
+			& .Submit{
+				font-size:1.3rem;
+				background-color: #7360DF;
+				border: 0;
+				border-radius: 10px;
+				padding: 0.7rem;
+				color: white;
+				cursor: pointer;
+			}
+		}
+		& .FormContainer ::-webkit-input-placeholder{
+			color: #858585;
+		}
+	}
 }
