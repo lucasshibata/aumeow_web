@@ -54,21 +54,23 @@ export default function TelaInicial(){
                                 </div>
                             </div>
                         ))}
-                        {/* CODIGO QUE ESTAVA ANTES */}
-                        {/* {data.map(item => (
-                            <div key={item.id}>
-                                <TouchableOpacity onClick={()=>navigate(item.navegacao)}>
-                                    <img src={item.srcImg} alt={item.titleNav} style={{ width: 338, height: 338 }}/>
-                                    <p className="tituloImgMenu">{item.titleNav}</p>
-                                </TouchableOpacity>
-                            </div>
-                            ))} */}
                     </div>
                 </article>
                 {/* =============================================================== */}
                 <article className="Article3">
                     <div className="Div2">
                         <h1>Sobre o AuMeow</h1>
+                        <div className="InerContainer">
+                            <img src="" alt="imagem1" />
+                            <p>Encontre abrigos e centros de adoção próximos, 
+                                conectando você a uma gama de animais adoráveis 
+                                esperando por um lar amoroso. Explore perfis e descubra 
+                                quem está pronto para se tornar o novo membro da sua família.</p>
+                        </div>
+                        <div className="InerContainer">
+                            <p></p>
+                            <img src="" alt="imagem2" />
+                        </div>
                     </div>
                 </article>
             </main>
