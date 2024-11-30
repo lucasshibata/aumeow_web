@@ -9,6 +9,7 @@ export default function MenuPrestador(){
         <div className="Container">
             <Header/>
             <button onClick={()=>navigate('/RegistroServicoPrestador')}>ir para registro</button>
+            <button onClick={()=>navigate('/ListaServicosPrestador')}>ir para lista de serviços</button>
             <Footer/>
         </div>
         
