@@ -1,37 +1,112 @@
-import {auth, ref, database, query, equalTo, orderByChild, get} from "../firebase/Firebase";
+import {auth, ref, database, get} from "../firebase/Firebase";
+import React, { useState, useEffect } from "react";
+
+
+interface Service {
+    id: string; // Chave única do serviço no Firebase
+    endereco: string;
+    preco: number;
+    tipoAnimal: string;
+    qtdService: number;
+    userUid: string;
+    nomePrestador: string;
+}
 
 export default function ListaServicosPrestador(){
-    function exercutar(){
-        const userUID:any = auth.currentUser?.uid
-        console.log(userUID)
-        const servicesRef = ref(database, "services/");
-        get(servicesRef)
-        .then((snapshot)=>{
-            if (snapshot.exists()) {
-                const allServices = snapshot.val(); // Todos os serviços
-                console.log("Todos os serviços:", allServices);
+    const [services, setServices] = useState<Service[]>([]);
+    const [loading, setLoading] = useState(true);
+    
+
+    // function exercutar(){
+    //     const userUID:any = auth.currentUser?.uid
+    //     console.log(userUID)
+    //     const servicesRef = ref(database, "services/");
+    //     get(servicesRef)
+    //     .then((snapshot)=>{
+    //         if (snapshot.exists()) {
+    //             const allServices = snapshot.val(); // Todos os serviços
+    //             console.log("Todos os serviços:", allServices);
           
-                // Filtrar serviços no lado do cliente
-                const userServices = Object.keys(allServices)
-                    .filter((key) => allServices[key].userUid === userUID) // Filtra pelo UID do usuário
-                    .reduce((obj:any, key:any) => {
-                    obj[key] = allServices[key]; // Recria o objeto com os serviços do usuário
-                    return obj;
-                  }, {});
+    //             // Filtrar serviços no lado do cliente
+    //             const userServices = Object.keys(allServices)
+    //             .filter((key) => allServices[key].userUid === userUID)
+    //             .map((key) => ({
+    //               id: key, // Inclui a chave como `id`
+    //               ...allServices[key],
+    //             }));
           
-                console.log("Serviços do usuário:", userServices);
-            }else {
-                console.log("Nenhum serviço encontrado.");
+    //             console.log("Serviços do usuário:", userServices);
+    //             return userServices
+    //         }else {
+    //             console.log("Nenhum serviço encontrado.");
+    //         }
+    //     })
+    //     .catch((error) => {
+    //         console.error("Erro ao buscar serviços:", error);
+    //     });
+    // }
+
+    useEffect(() => {
+        const fetchServices = async () => {
+          try {
+            const userUid = auth.currentUser?.uid;
+    
+            if (!userUid) {
+              console.error("Usuário não autenticado.");
+              setLoading(false);
+              return;
             }
-        })
-        .catch((error) => {
+
+            const servicesRef = ref(database, "services");
+    
+            const snapshot = await get(servicesRef);
+    
+            if (snapshot.exists()) {
+              const allServices = snapshot.val();
+    
+              // Filtrar os serviços do usuário atual
+              const userServices = Object.keys(allServices)
+                .filter((key) => allServices[key].userUid === userUid)
+                .map((key) => ({
+                  id: key, // Inclui a chave como `id`
+                  ...allServices[key],
+                }));
+    
+              setServices(userServices); // Salva no estado
+            } else {
+              console.log("Nenhum serviço encontrado.");
+            }
+          } catch (error) {
             console.error("Erro ao buscar serviços:", error);
-        });
-    }
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchServices();
+      }, []);
+
+      if (loading) {
+        return <p>Carregando...</p>;
+      }
+    
+      if (services.length === 0) {
+        return <p>Nenhum serviço encontrado.</p>;
+      }
     
     return(
         <div className="ListaServicosPrestador">
-            <button onClick={()=>exercutar()}>executar função</button>
+            <ul>
+            {services.map((service:any) => (
+            <li key={service.id}>
+                <h2>{service.nomePrestador}</h2>
+                <p>Endereço: {service.endereco}</p>
+                <p>Preço: {service.preco}</p>
+                <p>Animal: {service.tipoAnimal}</p>
+                <p>Quantidade de Serviços: {service.qtdService}</p>
+            </li>
+            ))}
+            </ul>
         </div>
     )
 }
