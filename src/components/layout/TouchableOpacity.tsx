@@ -13,11 +13,10 @@ export default function TouchableOpacity ({ children, onClick, activeOpacity = 0
     display:'flex',
     flexWrap: 'wrap',
     flexDirection: 'column',
-    padding:10,
-    borderRadius:16,
-    backgroundColor:'#33186B',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    height:'100%',
+    width:'100%'
   };
 
   return (

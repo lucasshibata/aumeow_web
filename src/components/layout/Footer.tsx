@@ -2,8 +2,16 @@ import React from "react";
 import RenderLogo from "./RenderLogo";
 import { Link } from "react-router-dom";
 import { FaHome, FaInstagram } from 'react-icons/fa'
+import TouchableOpacity from "./TouchableOpacity";
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer(){
+    const navigate = useNavigate();
+
+    const handleExternalRedirect = () => {
+        window.location.href = "https://www.instagram.com/aumeow.pets/";
+      };
+
     const stylesContainer:React.CSSProperties = {
         backgroundColor: '#DEB2FB',
         display: 'flex',
@@ -43,15 +51,32 @@ export default function Footer(){
         justifyContent:'center',
         alignItems:'center'
     }
+    const stylesLogo:React.CSSProperties = {
+        height:'150px',
+        width:'200px',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center'
+    }
 
     return(
         <footer style={stylesContainer}>
             <div style={stylesContentSpecial}>
-                <RenderLogo/>
+                <div style={stylesLogo}>
+                    <RenderLogo/>
+                </div>
                 <h1 style={{margin:0, marginBottom:15}}>Aumeow</h1>
                 <div style={{display:'flex', gap:'50px'}}>
-                    <div style={stylesCircle}><FaHome style={{height:'50%', width:'50%'}}/></div>
-                    <div style={stylesCircle}><FaInstagram style={{height:'50%', width:'50%'}}/></div>
+                    <TouchableOpacity onClick={()=>navigate('/')}>
+                        <div style={stylesCircle}>
+                            <FaHome style={{height:'50%', width:'50%'}}/>
+                        </div>
+                    </TouchableOpacity>
+                    <TouchableOpacity onClick={handleExternalRedirect}>
+                        <div style={stylesCircle}>
+                            <FaInstagram style={{height:'50%', width:'50%'}}/>
+                        </div>
+                    </TouchableOpacity>
                 </div>
             </div>
             <div style={stylesContent}>

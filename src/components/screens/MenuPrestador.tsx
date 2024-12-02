@@ -7,7 +7,7 @@ import './MenuPrestador.css'
 export default function MenuPrestador(){
     const navigate = useNavigate();
     return(
-        <div className="Container" style={{background: "rgb(222, 178, 251)"}}>
+        <div className="Container">
             <Header/>
             <div className="main">
                 <button onClick={()=>navigate('/RegistroServicoPrestador')}>ir para registro</button>

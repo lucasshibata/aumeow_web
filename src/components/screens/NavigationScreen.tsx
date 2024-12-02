@@ -1,4 +1,3 @@
-import React from 'react';
 import NavToolsImg from '../layout/NavToolsImg';
 // import {AuthContext} from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +20,6 @@ export default function NavigationScreen(){
                 {data.map(item => (
                     <div key={item.id} className="ContainerList">
                         <NavToolsImg src={item.srcImg} titleNav={item.titleNav} onTouch={item.navScreen}/>
-                        {item.titleNav}
                     </div>
                 ))}
             </div>

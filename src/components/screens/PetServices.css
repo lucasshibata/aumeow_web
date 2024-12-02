@@ -1,9 +1,11 @@
 .Container{
     height: 100vh;
     width: 100vw;
-    & .InerContainer{
-        display: flex;
-        height: 100%;
+    & .ListaDeServicos{
         width: 100%;
+        height: 100%;
+        & .Texto{
+            color: black;
+        }
     }
 }

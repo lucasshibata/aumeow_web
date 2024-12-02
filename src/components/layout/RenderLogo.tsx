@@ -2,13 +2,17 @@ import React from 'react';
 import image from '../../assets/logo_img.png';
 
 export default function RenderLogo(){
-    const styles:React.CSSProperties= {
-        height:'130px',
-        width:'180px', 
+    const stylesImg:React.CSSProperties= {
+        height:'100%',
+        width:'100%', 
+    }
+    const stylesLogo:React.CSSProperties= {
+        height:'100%',
+        width:'100%', 
     }
     return(
-        <div>
-            <img src={image} alt='imagem da logo' style={styles}/>
+        <div style={stylesLogo}>
+            <img src={image} alt='imagem da logo' style={stylesImg}/>
         </div>
     );
 };

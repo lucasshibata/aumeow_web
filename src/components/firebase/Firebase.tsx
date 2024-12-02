@@ -1,5 +1,5 @@
 import {initializeApp} from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, signOut } from "firebase/auth";
 import { getDatabase, ref, set, push, get, query, equalTo, orderByChild } from "firebase/database";
 
 const firebaseConfig = {
@@ -15,4 +15,5 @@ const aplication = initializeApp(firebaseConfig);
 const auth = getAuth(aplication);
 const database = getDatabase(aplication);
 
-export {auth, signInWithEmailAndPassword, orderByChild, createUserWithEmailAndPassword, database, ref, set, push, sendPasswordResetEmail, get, query, equalTo};
+export {auth, signInWithEmailAndPassword, orderByChild, createUserWithEmailAndPassword, 
+    database, ref, set, push, sendPasswordResetEmail, get, query, equalTo, signOut, onAuthStateChanged};

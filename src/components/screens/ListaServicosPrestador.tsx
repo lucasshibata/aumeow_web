@@ -1,6 +1,5 @@
 import {auth, ref, database, get} from "../firebase/Firebase";
-import React, { useState, useEffect } from "react";
-
+import { useState, useEffect } from "react";
 
 interface Service {
     id: string; // Chave única do serviço no Firebase
@@ -15,36 +14,6 @@ interface Service {
 export default function ListaServicosPrestador(){
     const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState(true);
-    
-
-    // function exercutar(){
-    //     const userUID:any = auth.currentUser?.uid
-    //     console.log(userUID)
-    //     const servicesRef = ref(database, "services/");
-    //     get(servicesRef)
-    //     .then((snapshot)=>{
-    //         if (snapshot.exists()) {
-    //             const allServices = snapshot.val(); // Todos os serviços
-    //             console.log("Todos os serviços:", allServices);
-          
-    //             // Filtrar serviços no lado do cliente
-    //             const userServices = Object.keys(allServices)
-    //             .filter((key) => allServices[key].userUid === userUID)
-    //             .map((key) => ({
-    //               id: key, // Inclui a chave como `id`
-    //               ...allServices[key],
-    //             }));
-          
-    //             console.log("Serviços do usuário:", userServices);
-    //             return userServices
-    //         }else {
-    //             console.log("Nenhum serviço encontrado.");
-    //         }
-    //     })
-    //     .catch((error) => {
-    //         console.error("Erro ao buscar serviços:", error);
-    //     });
-    // }
 
     useEffect(() => {
         const fetchServices = async () => {
