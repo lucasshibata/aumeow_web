@@ -8,7 +8,7 @@ export default function WhiteBox(props:any){
         justifyContent:'center',
         borderRadius:20,
         padding:20,
-        boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.2)'
+        // boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.2)'
     }
     return(
         <div style={styles}>
