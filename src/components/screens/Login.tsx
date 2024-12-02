@@ -9,6 +9,7 @@ import TitleBusiness from '../layout/TitleBusiness';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import SignIn from '../layout/SignIn';
+import TitleLogo from '../layout/TitleLogo';
 
 
 export default function Login(){
@@ -20,9 +21,8 @@ export default function Login(){
 			<BackGround>
 				<div className='Container'>
 					<div className='divLogo'>
-						<RenderLogo/>
-						<TitleBusiness/>
-					</div>
+					<TitleLogo/>
+					</div>	
 					<Space h={10}/>
 					<WhiteBox>
 						<h1 className='Title'>Entrar</h1>

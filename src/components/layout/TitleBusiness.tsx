@@ -4,7 +4,8 @@ export default function TitleBusiness(){
     const styles = {
         title:{
             fontSize:32,
-            color:'white',
+            color:'#7360DF',
+            margin: 12
         },
     };
     return(

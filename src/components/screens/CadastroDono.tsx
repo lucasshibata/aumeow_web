@@ -6,6 +6,7 @@ import Space from '../layout/Space';
 import { useForm } from 'react-hook-form';
 import SignUp from '../layout/SignUp';
 import { useNavigate } from 'react-router-dom';
+import TitleLogo from '../layout/TitleLogo';
 
 
 export default function CadastroDono(){
@@ -14,8 +15,7 @@ export default function CadastroDono(){
 	
 	return(
 		<BackGround>
-			<RenderLogo/>
-			<TitleBusiness/>
+			<TitleLogo/>
 			<Space w={20}/>
 			<WhiteBox>
 				<h1 className='Title'>Cadastro de Cliente</h1>
