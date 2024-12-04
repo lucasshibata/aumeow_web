@@ -48,7 +48,7 @@ export default function Header(){
             </div>
             <div style={stylesContent}>
                 <FaHome style={stylesIcons}/><Link to="/" style={stylesText}>Home</Link>
-                <FaUser style={stylesIcons}/><Link to="/Login" style={stylesText}>Usuário</Link>
+                <FaUser style={stylesIcons}/><Link to="/Login" style={stylesText}>Entrar</Link>
             </div>
         </header>
     )

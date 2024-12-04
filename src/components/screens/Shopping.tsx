@@ -1,8 +1,8 @@
-import React from 'react';
 import ShopBox from '../layout/ShopBox';
+import './Shopping.css'
+import withAuth from '../contexts/AuthContext';
 
-
-export default function Shopping (props:any){
+function Shopping (props:any){
     const {navigation} = props;
     const data = [
         {id:1, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto',lojaP:'nome da loja', preco:18.90},
@@ -18,16 +18,9 @@ export default function Shopping (props:any){
         {id:11, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto10',lojaP:'nome da loja10', preco:14.90},
         {id:12, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto11',lojaP:'nome da loja11', preco:14.90},
     ];
-    const styles = {
-        container:{
-            alignItems:'center',
-        },
-        listItens:{
-            height:'100%',
-        },
-    };
+    
     return(
-        <div style={styles.container}>
+        <div className='Shopping'>
             <p>Loja</p>
             <div className="FlatList">
                 {data.map(item => (
@@ -40,3 +33,4 @@ export default function Shopping (props:any){
         </div>
     );
 };
+export default withAuth(Shopping);

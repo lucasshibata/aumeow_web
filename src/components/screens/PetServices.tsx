@@ -4,6 +4,7 @@ import './PetServices.css';
 import { auth, ref, database, get, onAuthStateChanged } from "../firebase/Firebase";
 import { useState, useEffect } from "react";
 import { User } from "firebase/auth";
+import withAuth from '../contexts/AuthContext';
 
 interface Service {
     id: string;
@@ -15,7 +16,7 @@ interface Service {
     nomePrestador: string;
 }
 
-export default function PetServices() {
+function PetServices() {
     const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
@@ -76,10 +77,10 @@ export default function PetServices() {
     return (
         <div className='Container'>
             <Header />
-            <div className='ListaDeServicos'>
-                <ul>
+            <div className='ContainerListaDeServicos'>
+                <ul className='ListaDeServicos'>
                     {services.map((service: Service) => (
-                        <li key={service.id}>
+                        <li className='ItemLista' key={service.id}>
                             <h2 className='Texto'>{service.nomePrestador}</h2>
                             <p className='Texto'>Endereço: {service.endereco}</p>
                             <p className='Texto'>Preço: {service.preco}</p>
@@ -93,3 +94,4 @@ export default function PetServices() {
         </div>
     );
 }
+export default withAuth(PetServices);

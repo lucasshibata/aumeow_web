@@ -1,11 +1,29 @@
 .Container{
     height: 100vh;
     width: 100vw;
-    & .ListaDeServicos{
+    & .ContainerListaDeServicos{
         width: 100%;
         height: 100%;
-        & .Texto{
-            color: black;
+        display: flex;
+        justify-content: center;
+        & .ListaDeServicos{
+            display:flex; 
+            flex-direction:row;
+            gap:10px;
+            width: 100%;
+            height: 95%;
+            & .ItemLista{
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                border: solid #7360DF 3px;
+                height: 50%;
+                width: 20%;
+                flex-wrap: wrap;
+                & .Texto{
+                    color: black;
+                }
+            }
         }
     }
 }

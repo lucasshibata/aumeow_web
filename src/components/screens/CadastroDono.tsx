@@ -1,7 +1,5 @@
 import BackGround from '../layout/BackGround';
 import WhiteBox from '../layout/WhiteBox';
-import RenderLogo from '../layout/RenderLogo';
-import TitleBusiness from '../layout/TitleBusiness';
 import Space from '../layout/Space';
 import { useForm } from 'react-hook-form';
 import SignUp from '../layout/SignUp';

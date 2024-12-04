@@ -1,4 +1,3 @@
-import React from 'react';
 import BackGround from '../layout/BackGround';
 import { useForm } from 'react-hook-form';
 import {auth, sendPasswordResetEmail} from '../firebase/Firebase';

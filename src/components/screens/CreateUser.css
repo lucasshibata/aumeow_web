@@ -8,6 +8,10 @@
         align-items: center;
         flex-wrap: wrap;
         margin: 10px;
+        height: auto;
+        width: auto;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+        border-radius: 15px;
         & .Title {
             font-size:1.5rem;
             color:#7360DF;

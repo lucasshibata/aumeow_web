@@ -1,5 +1,6 @@
 import {auth, ref, database, get} from "../firebase/Firebase";
 import { useState, useEffect } from "react";
+import withAuth from '../contexts/AuthContext';
 
 interface Service {
     id: string; // Chave única do serviço no Firebase
@@ -11,7 +12,7 @@ interface Service {
     nomePrestador: string;
 }
 
-export default function ListaServicosPrestador(){
+function ListaServicosPrestador(){
     const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -79,3 +80,4 @@ export default function ListaServicosPrestador(){
         </div>
     )
 }
+export default withAuth(ListaServicosPrestador);

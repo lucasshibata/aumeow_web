@@ -6,11 +6,9 @@ import CadastroDono from '../screens/CadastroDono';
 import CadastroPrestador from '../screens/CadastroPrestador';
 import Login from '../screens/Login';
 import RecoverPassword from '../screens/RecoverPassword';
-import OAuth2Screen from '../screens/OAuth2Screen';
 import NavigationScreen from '../screens/NavigationScreen';
 import Shopping from '../screens/Shopping';
 import PetServices from '../screens/PetServices';
-// import AuthProvider from '../contexts/AuthContext';
 import EspecificProduct from '../screens/EspecificProduct';
 import TelaInicial from '../screens/TelaInicial';
 import MenuPrestador from '../screens/MenuPrestador';
@@ -31,13 +29,11 @@ export default function Navigation(props:any){
 				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/>
 				<Route path='/Login' element={<Login/>}/>
 				<Route path='/RecoverPassword' element={<RecoverPassword/>}/>
-				{/* <Route path='/OAuth2Screen' element={<OAuth2Screen/>}/> */}
 				<Route path='/NavigationScreen' element={<NavigationScreen/>}/>
 				<Route path='/Shopping' element={<Shopping/>}/>
 				<Route path='/PetServices' element={<PetServices/>}/>
 				<Route path='/MenuPrestador' element={<MenuPrestador/>}/>
 				<Route path='/ListaServicosPrestador' element={<ListaServicosPrestador/>}/>
-				{/* <Route path='/AuthProvider' element={<AuthProvider/>}/> */}
 				<Route path='/EspecificProduct' element={<EspecificProduct/>}/>
 				<Route path='/RegistroServicoPrestador' element={<RegistroServicoPrestador/>}/>
 			</Routes>

@@ -1,51 +1,25 @@
-// import React, {createContext, useState, useEffect} from 'react';
-// import Auth from '@react-native-firebase/auth';
-// import Database from '@react-native-firebase/database';
+import { useEffect, useState } from "react"; 
+import {onAuthStateChanged, auth} from "../firebase/Firebase"; 
+import { Navigate } from "react-router-dom";
 
-// export const AuthContext = createContext({});
+const withAuth = (Component:any) => { 
+    return (props:any) => { 
+        const [authenticated, setAuthenticated] = useState< boolean | null>(null); 
+        useEffect(() => { 
+            const unsubscribe = onAuthStateChanged(auth, (user) => { 
+                if (user) { 
+                    setAuthenticated(true);
+                } else { 
+                    setAuthenticated(false); 
+                } 
+            }); 
+            return () => unsubscribe(); 
+        }, []);
 
-// const fetchUserData = async () => {
-//     const user = Auth().currentUser;
-
-//     if (user) {
-//       const userId = user.uid;
-//       console.log(userId);
-
-//       try {
-
-//         const snapshot = await Database().ref(`/users/${userId}`).once('value');
-
-//         if (snapshot.exists()) {
-//             const userData = snapshot.val();
-//             const chave = Object.keys(userData)[0];
-//             return `${userData[chave].userName}`;
-
-//         } else {
-//             console.log('Nenhum dado encontrado para o usuário.');
-//         }
-//       } catch (error) {
-//             console.error('Erro ao buscar dados do usuário:', error);
-//       }
-//     } else {
-//         console.log('Nenhum usuário está autenticado.');
-//     }
-// };
-
-
-// export default function AuthProvider(props:any){
-//     const {children} = props;
-//     const [nomeUsuario, setNomeUsuario] = useState('');
-
-//     useEffect(() => {
-//         const fetchData = async () => {
-//             const result:string = await fetchUserData() ?? '';
-//             setNomeUsuario(result);
-//         };
-//         fetchData();
-//     }, []);
-//     return(
-//         <AuthContext.Provider value={{nomeUsuario:nomeUsuario}}>
-//             {children}
-//         </AuthContext.Provider>
-//     );
-// }
+        if (authenticated === null) { 
+            return <div>Loading...</div>;
+        } 
+        return authenticated ? <Component {...props} /> : <Navigate to="/Login" />; 
+    }; 
+};
+export default withAuth;

@@ -1,18 +1,14 @@
 import './Login.css';
 import BackGround from '../layout/BackGround';
 import WhiteBox from '../layout/WhiteBox';
-// import BtnComp from '../layout/BtnComp.tsx';
-// import OAuth2 from '../layout/OAuth2.tsx';
 import Space from '../layout/Space';
-import RenderLogo from '../layout/RenderLogo';
-import TitleBusiness from '../layout/TitleBusiness';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import SignIn from '../layout/SignIn';
 import TitleLogo from '../layout/TitleLogo';
 
 
-export default function Login(){
+function Login(){
 	const {register, handleSubmit} = useForm();
 	const navigate = useNavigate()
 
@@ -54,3 +50,5 @@ export default function Login(){
 		</div>
 	);
 }
+
+export default Login;

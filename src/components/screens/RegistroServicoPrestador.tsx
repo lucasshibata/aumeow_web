@@ -3,9 +3,10 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import SendService from "../layout/SendService";
 import { useNavigate } from "react-router-dom";
-import "./RegistroServicoPrestador.css"
+import "./RegistroServicoPrestador.css";
+import withAuth from '../contexts/AuthContext';
 
-export default function RegistroServicoPrestador(){
+ function RegistroServicoPrestador(){
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
 
@@ -46,3 +47,4 @@ export default function RegistroServicoPrestador(){
         </div>
     )
 }
+export default withAuth(RegistroServicoPrestador);
