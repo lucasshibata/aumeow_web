@@ -1,12 +1,11 @@
 import BackGround from '../layout/BackGround';
 import WhiteBox from '../layout/WhiteBox';
 import { useForm } from 'react-hook-form';
-import RenderLogo from '../layout/RenderLogo';
-import TitleBusiness from '../layout/TitleBusiness';
 import Space from '../layout/Space';
 import './CadastroPrestador.css';
 import SignUp from '../layout/SignUp';
 import { useNavigate } from 'react-router-dom';
+import TitleLogo from '../layout/TitleLogo';
 
 export default function CadastroPrestador(){
 	const {register, handleSubmit} = useForm();
@@ -16,8 +15,7 @@ export default function CadastroPrestador(){
 		<div className='CadastroPrestador'>
 			<BackGround>
 				<div className='Container'>
-					<RenderLogo/>
-					<TitleBusiness/>
+					<TitleLogo/>
 					<Space w={20}/>
 					<WhiteBox>
 						<h1 className='Title'>Cadastro Prestador</h1>

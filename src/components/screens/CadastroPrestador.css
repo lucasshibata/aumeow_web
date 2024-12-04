@@ -7,6 +7,11 @@
 		align-items: center;
 		flex-wrap: wrap;
 		flex-direction: row;
+		height: auto;
+		width: auto;
+		box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+        border-radius: 15px;
+		padding: 20px;
 		& .FormContainer{
 			display: flex;
 			flex-direction: column;
