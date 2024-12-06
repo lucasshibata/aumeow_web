@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import SignIn from '../layout/SignIn';
 import TitleLogo from '../layout/TitleLogo';
-
+import withAuth from '../contexts/LoginContext';
 
 function Login(){
 	const {register, handleSubmit} = useForm();
@@ -51,4 +51,4 @@ function Login(){
 	);
 }
 
-export default Login;
+export default withAuth(Login);

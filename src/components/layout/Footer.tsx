@@ -10,7 +10,7 @@ export default function Footer(){
 
     const handleExternalRedirect = () => {
         window.location.href = "https://www.instagram.com/aumeow.pets/";
-      };
+    };
 
     const stylesContainer:React.CSSProperties = {
         backgroundColor: '#DEB2FB',
@@ -58,6 +58,11 @@ export default function Footer(){
         alignItems:'center',
         justifyContent:'center'
     }
+    const stylesIcon:React.CSSProperties = {
+        height:'50%', 
+        width:'50%', 
+        color:'white'
+    }
 
     return(
         <footer style={stylesContainer}>
@@ -69,12 +74,12 @@ export default function Footer(){
                 <div style={{display:'flex', gap:'50px'}}>
                     <TouchableOpacity onClick={()=>navigate('/')}>
                         <div style={stylesCircle}>
-                            <FaHome style={{height:'50%', width:'50%'}}/>
+                            <FaHome style={stylesIcon}/>
                         </div>
                     </TouchableOpacity>
                     <TouchableOpacity onClick={handleExternalRedirect}>
                         <div style={stylesCircle}>
-                            <FaInstagram style={{height:'50%', width:'50%'}}/>
+                            <FaInstagram style={stylesIcon}/>
                         </div>
                     </TouchableOpacity>
                 </div>
