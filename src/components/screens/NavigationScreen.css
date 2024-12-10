@@ -7,13 +7,8 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        width: 100%;
-        height: 100%;
         flex-wrap: wrap;
-        margin-bottom: 15px;
-        & .ContainerList{
-            width: 20vw;
-            height: 30vh;
-        }
+        padding: 20px;
+        height: 100%;
     }
 }

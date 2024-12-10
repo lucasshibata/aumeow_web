@@ -2,7 +2,6 @@ import BackGround from '../layout/BackGround';
 import { useForm } from 'react-hook-form';
 import {auth, sendPasswordResetEmail} from '../firebase/Firebase';
 import "./RecoverPassword.css"
-import RenderLogo from '../layout/RenderLogo';
 import TitleLogo from '../layout/TitleLogo';
 import { Link } from 'react-router-dom';
 
@@ -19,22 +18,21 @@ export default function RecoverPassword(){
       };
     return(
         <div className='RecoverPassword'>
-
-        <BackGround>
-            <div className='ContainerRecoverLogo'>
-                <div className='LogoDiv'>
-                    <TitleLogo/>
+            <BackGround>
+                <div className='ContainerRecoverLogo'>
+                    <div className='LogoDiv'>
+                        <TitleLogo/>
+                    </div>
+                <div className='RecoverContainer'>
+                    <h4>Esqueceu a senha? Prencha os campos abaixo</h4>
+                    <form className='FormContainer' onSubmit={handleSubmit(handlePasswordReset)}>
+                        <input className='InputEmail' type='email' placeholder='Email' {...register("email")}/>
+                        <input className='submit' value='Enviar e-mail de recuperação:' type="submit"/>
+                    </form>
+                    <Link className='LinkReturn' to={'/Login'}>Voltar para a página Inicial</Link>
                 </div>
-            <div className='RecoverContainer'>
-                <h4>Esqueceu a senha? Prencha os campos abaixo</h4>
-                <form className='FormContainer' onSubmit={handleSubmit(handlePasswordReset)}>
-                    <input className='InputEmail' type='email' placeholder='Email' {...register("email")}/>
-                    <input className='submit' value='Enviar e-mail de recuperação:' type="submit"/>
-                </form>
-                <Link className='LinkReturn' to={'/Login'}>Voltar para a página Inicial</Link>
-            </div>
-            </div>
-        </BackGround>
+                </div>
+            </BackGround>
         </div>
     );
 };

@@ -11,8 +11,8 @@ export default function Header(){
         alignItems:'center',
         justifyContent: 'space-around',
         flexWrap:"wrap",
-        // padding:'5px',
-        height:'20vh',
+        paddingTop:'10px',
+        paddingBottom:'10px',
         width:'100vw'
     }
     const stylesContent:React.CSSProperties = {
@@ -25,7 +25,7 @@ export default function Header(){
         width:'auto'
     }
     const stylesText:React.CSSProperties = {
-        fontSize:'1.4rem',
+        fontSize:'2rem',
         color: '#7360DF',
         margin:'0px',
         padding: '0px'
@@ -55,7 +55,7 @@ export default function Header(){
         display:'flex', 
         justifyContent:'center', 
         alignItems:'center',
-        gap:'5px'
+        gap:'10px'
     }
     const location = useLocation();
     const showButtonOnRoutes = ["/EspecificProduct", "/ListaServicosPrestador", "/MenuPrestador", "/NavigationScreen", "/PetServices", "/RegistroProdutoPrestador", "/Shopping"];
