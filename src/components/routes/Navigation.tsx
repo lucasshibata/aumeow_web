@@ -15,6 +15,7 @@ import MenuPrestador from '../screens/MenuPrestador';
 import RegistroServicoPrestador from '../screens/RegistroServicoPrestador';
 import ListaServicosPrestador from '../screens/ListaServicosPrestador';
 import CadastroProdutos from '../screens/CadastroProdutos';
+import ListaProdutosPrestador from '../screens/ListaProdutosPrestador';
 
 export default function Navigation(props:any){
 	const styles:React.CSSProperties = {
@@ -38,6 +39,7 @@ export default function Navigation(props:any){
 				<Route path='/EspecificProduct' element={<EspecificProduct/>}/>
 				<Route path='/RegistroServicoPrestador' element={<RegistroServicoPrestador/>}/>
 				<Route path='/CadastroProdutos' element={<CadastroProdutos/>}/>
+				<Route path='/ListaProdutosPrestador' element={<ListaProdutosPrestador/>}/>
 			</Routes>
 		</div>
     );
