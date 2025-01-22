@@ -75,7 +75,7 @@ function PetServices() {
     }
 
     return (
-        <div className='Container'>
+        <div className='PetServices'>
             <Header />
             <div className='ContainerListaDeServicos'>
                 <ul className='ListaDeServicos'>

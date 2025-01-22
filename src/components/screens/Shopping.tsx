@@ -1,6 +1,8 @@
 import ShopBox from '../layout/ShopBox';
 import './Shopping.css'
 import withAuth from '../contexts/AuthContext';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 
 function Shopping (props:any){
     const {navigation} = props;
@@ -21,6 +23,7 @@ function Shopping (props:any){
     
     return(
         <div className='Shopping'>
+            <Header/>
             <p>Loja</p>
             <div className="FlatList">
                 {data.map(item => (
@@ -29,6 +32,7 @@ function Shopping (props:any){
                         priceProduct={item.preco} navegar={()=>navigation.navigate('EspecificProduct')}/>
                     </div>
                 ))}
+            <Footer/>
             </div>
         </div>
     );

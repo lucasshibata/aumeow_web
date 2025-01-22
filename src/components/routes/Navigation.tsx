@@ -14,6 +14,7 @@ import TelaInicial from '../screens/TelaInicial';
 import MenuPrestador from '../screens/MenuPrestador';
 import RegistroServicoPrestador from '../screens/RegistroServicoPrestador';
 import ListaServicosPrestador from '../screens/ListaServicosPrestador';
+import CadastroProdutos from '../screens/CadastroProdutos';
 
 export default function Navigation(props:any){
 	const styles:React.CSSProperties = {
@@ -36,6 +37,7 @@ export default function Navigation(props:any){
 				<Route path='/ListaServicosPrestador' element={<ListaServicosPrestador/>}/>
 				<Route path='/EspecificProduct' element={<EspecificProduct/>}/>
 				<Route path='/RegistroServicoPrestador' element={<RegistroServicoPrestador/>}/>
+				<Route path='/CadastroProdutos' element={<CadastroProdutos/>}/>
 			</Routes>
 		</div>
     );

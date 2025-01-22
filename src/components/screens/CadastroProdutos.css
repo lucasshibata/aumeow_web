@@ -1,0 +1,13 @@
+.CadastroProdutos{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    & .Container{
+        display: flex;
+        & .FormContainer{
+            color: #000;
+        }
+    }
+}
