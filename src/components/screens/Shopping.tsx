@@ -3,32 +3,87 @@ import './Shopping.css'
 import withAuth from '../contexts/AuthContext';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
+import { useState, useEffect } from "react";
+import {auth, ref, database, get, onAuthStateChanged} from "../firebase/Firebase";
+import { User } from "firebase/auth";
+
+interface Product {
+    id: string; // Chave única do serviço no Firebase
+    marca: string;
+    nome: string;
+    preco: number;
+    quantidade: number;
+    userEmail: string;
+    userName: string;
+}
 
 function Shopping (props:any){
     const {navigation} = props;
-    const data = [
-        {id:1, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto',lojaP:'nome da loja', preco:18.90},
-        {id:2, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto2',lojaP:'nome da loja2', preco:54.90},
-        {id:3, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto3',lojaP:'nome da loja3', preco:32.60},
-        {id:4, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto4',lojaP:'nome da loja4', preco:10.99},
-        {id:5, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto5',lojaP:'nome da loja5', preco:1.50},
-        {id:6, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto6',lojaP:'nome da loja6', preco:14.90},
-        {id:7, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto6',lojaP:'nome da loja6', preco:14.90},
-        {id:8, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto7',lojaP:'nome da loja7', preco:14.90},
-        {id:9, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto8',lojaP:'nome da loja8', preco:14.90},
-        {id:10, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto9',lojaP:'nome da loja9', preco:14.90},
-        {id:11, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto10',lojaP:'nome da loja10', preco:14.90},
-        {id:12, srcImg:require('../../assets/Teste_img_racao.jpg'), nomeP:'nome do produto11',lojaP:'nome da loja11', preco:14.90},
-    ];
+    const [product, setServices] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState<User | null>(null);
+    const [authChecked, setAuthChecked] = useState(false);
+
+    // Verifica a autenticação do usuário
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser || null);
+            setAuthChecked(true); // Finaliza a verificação de autenticação
+        });
+        return () => unsubscribe();
+    }, []);
+
+    // Busca os serviços após a autenticação
+    useEffect(() => {
+        const fetchServices = async () => {
+            if (!user) {
+                setLoading(false); // Finaliza o carregamento caso o usuário não esteja autenticado
+                return;
+            }
+
+            try {
+                const servicesRef = ref(database, "products");
+                const snapshot = await get(servicesRef);
+
+                if (snapshot.exists()) {
+                    const allServices = snapshot.val();
+                    const userServices = Object.keys(allServices).map((key) => ({
+                        id: key,
+                        ...allServices[key],
+                    }));
+                    setServices(userServices);
+                } else {
+                    console.log("Nenhum serviço encontrado.");
+                    setServices([]);
+                }
+            } catch (error) {
+                console.error("Erro ao buscar serviços:", error);
+            } finally {
+                setLoading(false); // Finaliza o carregamento independentemente do resultado
+            }
+        };
+
+        if (authChecked) {
+            fetchServices();
+        }
+    }, [authChecked, user]);
+
+    if (loading) {
+        return <p>Carregando...</p>;
+    }
+
+    if (!user) {
+        return <div>Faça login</div>;
+    }
     
     return(
         <div className='Shopping'>
             <Header/>
             <p>Loja</p>
             <div className="FlatList">
-                {data.map(item => (
+                {product.map(item => (
                     <div key={item.id} className="ContainerList">
-                        <ShopBox imgProduct={item.srcImg} titleProduct={item.nomeP} subtitleProduct={item.lojaP} 
+                        <ShopBox titleProduct={item.nome} subtitleProduct={item.marca} 
                         priceProduct={item.preco} navegar={()=>navigation.navigate('EspecificProduct')}/>
                     </div>
                 ))}

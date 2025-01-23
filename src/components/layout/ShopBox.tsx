@@ -3,8 +3,8 @@ import TouchableOpacity from './TouchableOpacity';
 
 export default function ShopBox (props:any){
     const {imgProduct, titleProduct, subtitleProduct, priceProduct, navegar} = props;
-    const styles = {
-        container:{
+    
+        const stylesContainer:React.CSSProperties = {
             backgroundColor:'#D9D9D9',
             width:155,
             height:236,
@@ -12,32 +12,34 @@ export default function ShopBox (props:any){
             paddingTop:15,
             borderRadius:8,
             margin:10,
-        },
-        img:{
+        }
+        const stylesImg:React.CSSProperties ={
             width:122,
             height:122,
             borderRadius:8,
-        },
-        txtContainer:{
+            color:'black'
+        }
+        const stylesTxtContainer:React.CSSProperties ={
             alignItems:'flex-start',
             width:'100%',
             paddingLeft:15,
             marginTop:10,
-        },
-        titleStyle:{
+        }
+        const stylesTitleStyle:React.CSSProperties ={
             color:'black',
-        },
-        subtitleStyle:{
+        }
+        const stylesSubtitleStyle:React.CSSProperties ={
             color:'#626262',
-        },
-    };
+        }
     return(
-        <TouchableOpacity style={styles.container} onPress={navegar}>
-            <img src={imgProduct} style={styles.img} alt='uma imagem ai'/>
-            <div style={styles.txtContainer}>
-                <p style={styles.titleStyle}>{titleProduct}</p>
-                <p style={styles.subtitleStyle}>{subtitleProduct}</p>
-                <p style={styles.titleStyle}>Preço: R${priceProduct}</p>
+        <TouchableOpacity onPress={navegar}>
+            <div style={stylesContainer}>
+                <img src={imgProduct} style={stylesImg} alt='uma imagem ai'/>
+                <div style={stylesTxtContainer}>
+                    <p style={stylesTitleStyle}>{titleProduct}</p>
+                    <p style={stylesSubtitleStyle}>{subtitleProduct}</p>
+                    <p style={stylesTitleStyle}>Preço: R${priceProduct}</p>
+                </div>
             </div>
         </TouchableOpacity>
     );

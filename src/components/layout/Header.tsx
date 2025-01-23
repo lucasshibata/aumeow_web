@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import RenderLogo from "../layout/RenderLogo";
 import {Link, useLocation} from "react-router-dom";
-import { FaHome, FaUser, FaSignOutAlt } from "react-icons/fa";
+import { FaHome, FaUser, FaSignOutAlt, FaArrowLeft } from "react-icons/fa";
 import {signOut, auth} from '../firebase/Firebase';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header(){
+    const navigate = useNavigate()
+    const [isHovering, setIsHovering] = useState(false);
+    
     const stylesContainer:React.CSSProperties = {
         backgroundColor: '#DEB2FB',
         display: 'flex',
@@ -25,13 +29,14 @@ export default function Header(){
         width:'auto'
     }
     const stylesText:React.CSSProperties = {
-        fontSize:'2rem',
-        color: '#7360DF',
+        fontSize:'1.4rem',
+        color: 'white',
         margin:'0px',
-        padding: '0px'
+        padding: '0px',
+        textDecoration:'none'
     }
     const stylesIcons:React.CSSProperties = {
-        color: '#7360DF',
+        color: '#white',
         fontSize:'1.4rem',
         margin:'0px',
         padding: '0px'
@@ -48,18 +53,23 @@ export default function Header(){
         color: 'white',
         fontSize:'1.4rem',
         border: '0px',
-        borderRadius: '5px',
-        padding: '5px',
+        cursor: isHovering ? 'pointer' : 'default'
     }
     const stylesInnerDiv:React.CSSProperties = {
+        backgroundColor:'#7360DF',
         display:'flex', 
         justifyContent:'center', 
         alignItems:'center',
-        gap:'10px'
+        gap:'10px',
+        padding:'10px',
+        borderRadius:'15px'
     }
     const location = useLocation();
     const showButtonOnRoutes = ["/EspecificProduct", "/ListaServicosPrestador", "/MenuPrestador", "/NavigationScreen", "/PetServices", "/RegistroProdutoPrestador", "/Shopping"];
     const shouldShowButton = showButtonOnRoutes.includes(location.pathname);
+    const dontShow = !shouldShowButton;
+    const showBack = ['/NavigationScreen'].includes(location.pathname);
+    const showHome = ['/'].includes(location.pathname);
     const handleLogout = async () => {
         try {
           await signOut(auth);
@@ -70,6 +80,11 @@ export default function Header(){
     };
     return(
         <header style={stylesContainer}>
+            {!showBack && shouldShowButton && <div onMouseEnter={() => setIsHovering(true)} 
+          onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
+                <FaArrowLeft style={stylesIcons}/>
+                <button style={stylesButton} onClick={()=>navigate(-1)}>Voltar</button>
+            </div>}
             <div style={stylesContent}>
                 <div style={stylesLogo}>
                     <RenderLogo/>
@@ -77,13 +92,14 @@ export default function Header(){
                 <h1>AuMeow</h1>
             </div>
             <div style={stylesContent}>
-                <div style={stylesInnerDiv}>
+                {!showHome &&<div style={stylesInnerDiv}>
                     <FaHome style={stylesIcons}/><Link to="/" style={stylesText}>Home</Link>
-                </div>
-                <div style={stylesInnerDiv}>
+                </div>}
+                {dontShow &&<div style={stylesInnerDiv}>
                     <FaUser style={stylesIcons}/><Link to="/Login" style={stylesText}>Entrar</Link>
-                </div>
-                {shouldShowButton && <div style={stylesInnerDiv}>
+                </div>}
+                {shouldShowButton && <div onMouseEnter={() => setIsHovering(true)} 
+          onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
                     <FaSignOutAlt style={stylesIcons}/><button style={stylesButton} onClick={handleLogout}>Sair</button>
                     </div>}
             </div>
