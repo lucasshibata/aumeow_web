@@ -1,6 +1,9 @@
 import {auth, ref, database, get} from "../firebase/Firebase";
 import { useState, useEffect } from "react";
 import withAuth from '../contexts/AuthContext';
+import './ListaServicosPrestador.css';
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 interface Service {
     id: string; // Chave única do serviço no Firebase
@@ -66,17 +69,19 @@ function ListaServicosPrestador(){
     
     return(
         <div className="ListaServicosPrestador">
-            <ul>
-            {services.map((service:any) => (
-            <li key={service.id}>
-                <h2>{service.nomePrestador}</h2>
-                <p>Endereço: {service.endereco}</p>
-                <p>Preço: {service.preco}</p>
-                <p>Animal: {service.tipoAnimal}</p>
-                <p>Quantidade de Serviços: {service.qtdService}</p>
-            </li>
-            ))}
+            <Header/>
+            <ul className="ContainerServicos">
+                {services.map((service:any) => (
+                    <li className="ItemLista" key={service.id}>
+                        <h2 className="Textoh2">{service.nomePrestador}</h2>
+                        <p className="TextoP">Endereço: {service.endereco}</p>
+                        <p className="TextoP">Preço: {service.preco}</p>
+                        <p className="TextoP">Animal: {service.tipoAnimal}</p>
+                        <p className="TextoP">Quantidade de Serviços: {service.qtdService}</p>
+                    </li>
+                ))}
             </ul>
+            <Footer/>
         </div>
     )
 }

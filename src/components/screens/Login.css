@@ -11,66 +11,71 @@
 	& .Container{
 		display:flex;
 		height: auto;
-		width: auto;
+		width: 22vw;
 		border-radius: 15px;
 		padding: 10px;
 		flex-wrap:wrap;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		& .Title{
-			font-size:1.5rem;
-			color:#7360DF;
-		}
-		& .FormContainer{
+		& .InnerContainer{
 			display: flex;
 			flex-direction: column;
-			gap: 15px;
-			& a{
-				color: #7360DF;
-				margin-left: 15px;
-			}
-			& .FunctionsContainer{
-				display: flex;
-				align-items: center;
-				& .CheckboxConnected{
-					& label{
-						font-size: 1rem;
-						display: flex;
-						align-items: center;
-						flex-direction: row-reverse;
-					}
-					& input[type=checkbox] {
-						width: 1.4rem;
-						height: 2rem;
-					}
-				}
-			}
-			& .Txt{
-				font-size:1.3rem;
+			width: 90%;
+			& .Title{
+				font-size:1.5rem;
 				color:#7360DF;
 			}
-			& .InputText{
-				font-size:1.3rem;
-				border-width: 2px;
-				border-color: #7360DF;
-				border-radius: 5px;
-				border-style: solid;
-				padding: 8px;
-				background-color: #EDEDED;
+			& .FormContainer{
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+				& a{
+					color: #7360DF;
+					margin-left: 15px;
+				}
+				& .FunctionsContainer{
+					display: flex;
+					align-items: center;
+					/* & .CheckboxConnected{
+						& label{
+							font-size: 1rem;
+							display: flex;
+							align-items: center;
+							flex-direction: row-reverse;
+						}
+						& input[type=checkbox] {
+							width: 1.4rem;
+							height: 2rem;
+						}
+					} */
+				}
+				& .Txt{
+					font-size:1.3rem;
+					color:#7360DF;
+				}
+				& .InputText{
+					font-size:1.3rem;
+					border-width: 2px;
+					border-color: #7360DF;
+					border-radius: 5px;
+					border-style: solid;
+					padding: 8px;
+					background-color: #EDEDED;
+				}
+				& .Submit{
+					font-size:1.3rem;
+					background-color: #7360DF;
+					border: 0;
+					border-radius: 10px;
+					padding: 0.7rem;
+					color: white;
+					cursor: pointer;
+				}
 			}
-			& .Submit{
-				font-size:1.3rem;
-				background-color: #7360DF;
-				border: 0;
-				border-radius: 10px;
-				padding: 0.7rem;
-				color: white;
-				cursor: pointer;
+			& .FormContainer ::-webkit-input-placeholder{
+				color: #858585;
 			}
-		}
-		& .FormContainer ::-webkit-input-placeholder{
-			color: #858585;
 		}
 	}
 }

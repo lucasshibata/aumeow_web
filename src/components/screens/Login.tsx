@@ -1,6 +1,6 @@
 import './Login.css';
 import BackGround from '../layout/BackGround';
-import WhiteBox from '../layout/WhiteBox';
+
 import Space from '../layout/Space';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
@@ -20,31 +20,24 @@ function Login(){
 					<TitleLogo/>
 					</div>	
 					<Space h={10}/>
-					<WhiteBox>
+					<div className='InnerContainer'>
 						<h1 className='Title'>Entrar</h1>
 						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignIn(data, navigate))}>
-							{/* <label className='Txt'>Email:</label> */}
 							<input className='InputText' type='email' placeholder='Email' {...register("email")} />
-							{/* <label className='Txt'>Senha:</label> */}
 							<input className='InputText' type='password' placeholder='Senha' {...register("password")}/>
-							{/* <select {...register("gender")}>
-								<option value="female">female</option>
-								<option value="male">male</option>
-								<option value="other">other</option>
-							</select> */}
 							<div className='FunctionsContainer'>
-							<div className='CheckboxConnected'>
-								<label className='Txt'>Manter Conectado
-								<input value={1} className="checkbox" type="checkbox"/>
-								</label>
-							</div>
-								<Link to='/RecoverPassword'>Esqueci minha senha</Link>
+								<Link style={{margin:0, fontSize: '1.2rem', color:'#7360DF'}} to='/RecoverPassword'>Esqueci minha senha</Link>
+								{/* <div className='CheckboxConnected'>
+									<label className='Txt'>Manter Conectado
+									<input value={1} className="checkbox" type="checkbox"/>
+									</label>
+								</div> */}
 							</div>
 							<input className='Submit' value='Enviar' type="submit"/>
 						</form>
 						<Space h={20}/>
-						<Link className="submit" to='/CreateUser'>Não possuo Cadastro</Link><br/>
-					</WhiteBox>	
+						<Link style={{margin:0, fontSize: '1.2rem', color:'#7360DF'}} className="submit" to='/CreateUser'>Não possuo Cadastro</Link><br/>
+					</div>	
 				</div>
 			</BackGround>
 		</div>

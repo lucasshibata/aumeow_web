@@ -1,6 +1,9 @@
 import withAuth from '../contexts/AuthContext';
 import {auth, ref, database, get} from "../firebase/Firebase";
 import { useState, useEffect } from "react";
+import "./ListaProdutosPrestador.css";
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 
 interface Product {
     id: string; // Chave única do serviço no Firebase
@@ -65,19 +68,21 @@ function ListaProdutosPrestador(){
     }
 
     return(
-        <div className="ListaServicosPrestador">
-            <ul>
-            {products.map((service:any) => (
-            <li key={service.id}>
-                <h2>{service.userName}</h2>
-                <p>Produto: {service.nome}</p>
-                <p>Marca: {service.marca}</p>
-                <p>Preço: {service.preco}</p>
-                <p>quantidade: {service.quantidade}</p>
-                <p>email de contato: {service.userEmail}</p>
-            </li>
-            ))}
+        <div className='ListaServicosPrestador'>
+            <Header/>
+            <ul className='ContainerProdutos'>
+                {products.map((service:any) => (
+                    <li className='ItemLista' key={service.id}>
+                        <h2 className='Textoh2'>{service.userName}</h2>
+                        <p className='TextoP'>Produto: {service.nome}</p>
+                        <p className='TextoP'>Marca: {service.marca}</p>
+                        <p className='TextoP'>Preço: {service.preco}</p>
+                        <p className='TextoP'>quantidade: {service.quantidade}</p>
+                        <p className='TextoP'>email de contato: {service.userEmail}</p>
+                    </li>
+                ))}
             </ul>
+            <Footer/>
         </div>
     )
 }
