@@ -61,15 +61,18 @@ export default function TelaInicial(){
                     <div className="Div2">
                         <h1>Sobre o AuMeow</h1>
                         <div className="InerContainer">
-                            <img src="" alt="imagem1" />
+                            <img src={require("../../assets/cachorro_piscina.png")} alt="imagem1" />
                             <p>Encontre abrigos e centros de adoção próximos, 
                                 conectando você a uma gama de animais adoráveis 
                                 esperando por um lar amoroso. Explore perfis e descubra 
                                 quem está pronto para se tornar o novo membro da sua família.</p>
                         </div>
                         <div className="InerContainer">
-                            <p></p>
-                            <img src="" alt="imagem2" />
+                            <p>Encontre abrigos e centros de adoção próximos, 
+                                conectando você a uma gama de animais adoráveis 
+                                esperando por um lar amoroso. Explore perfis e descubra 
+                                quem está pronto para se tornar o novo membro da sua família.</p>
+                            <img src={require("../../assets/cachorro_piscina.png")} alt="imagem2" />
                         </div>
                     </div>
                 </article>

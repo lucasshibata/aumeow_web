@@ -77,20 +77,18 @@ function PetServices() {
     return (
         <div className='PetServices'>
             <Header />
-            <div className='ContainerListaDeServicos'>
-                <ul className='ListaDeServicos'>
-                    {services.map((service: Service) => (
-                        <li className='ItemLista' key={service.id}>
-                            <h2 className='Texto'>{service.nomePrestador}</h2>
-                            <p className='Texto'>Endereço: {service.endereco}</p>
-                            <p className='Texto'>Preço: {service.preco}</p>
-                            <p className='Texto'>Animal: {service.tipoAnimal}</p>
-                            <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <Footer />
+            <ul className='ListaDeServicos'>
+                {services.map((service: Service) => (
+                    <li className='ItemLista' key={service.id}>
+                        <h2 className='Texto'>{service.nomePrestador}</h2>
+                        <p className='Texto'>Endereço: {service.endereco}</p>
+                        <p className='Texto'>Preço: {service.preco}</p>
+                        <p className='Texto'>Animal: {service.tipoAnimal}</p>
+                        <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
+                    </li>
+                ))}
+            </ul>
+            <Footer/>
         </div>
     );
 }

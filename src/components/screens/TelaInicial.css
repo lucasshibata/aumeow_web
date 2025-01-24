@@ -136,6 +136,7 @@
                 font-family: "Josefin Slab", serif;
                 font-size: 4rem;
                 font-weight: normal;
+                text-align: center;
             }
             & .InerContainer{
                 display: flex;
@@ -143,6 +144,18 @@
                 align-items: center;
                 flex-direction: row;
                 flex-wrap: wrap;
+                gap: 20px;
+                padding: 20px;
+                & p{
+                    width: 40vw;
+                    font-size: 1.4rem;
+                }
+                & img{
+                    border-style: ridge;
+                    border-color: #33186B;
+                    border-width: 6px;
+                    border-radius: 22px;
+                }
             }
         }
     }

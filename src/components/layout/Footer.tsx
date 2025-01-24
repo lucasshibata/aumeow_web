@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 import { FaHome, FaInstagram } from 'react-icons/fa'
 import TouchableOpacity from "./TouchableOpacity";
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import SendEmail from './SendEmail';
 
 export default function Footer(){
     const navigate = useNavigate();
+    const {register, handleSubmit} = useForm();
 
     const handleExternalRedirect = () => {
         window.location.href = "https://www.instagram.com/aumeow.pets/";
@@ -15,12 +18,11 @@ export default function Footer(){
     const stylesContainer:React.CSSProperties = {
         backgroundColor: '#DEB2FB',
         display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems:'center',
+        justifyContent: 'center',
         paddingBottom:'30px',
+        paddingTop:'20px',
         flexWrap:'wrap',
         gap:'6vw',
-        paddingLeft: '23vw'
     }
     const stylesContent:React.CSSProperties = {
         display:'flex',
@@ -63,6 +65,28 @@ export default function Footer(){
         width:'50%', 
         color:'white'
     }
+    const stylesForm:React.CSSProperties = {
+        display: 'flex',
+        flexDirection:'column',
+        gap: '10px',
+        margin: '0px'
+    }
+    const stylesFormInput:React.CSSProperties = {
+        borderColor: '#7360DF',
+        borderWidth: '4px',
+        borderRadius: '15px',
+        fontSize: '1.2rem',
+        padding: '7px',
+        backgroundColor:'white'
+    }
+    const stylesFormSubmit:React.CSSProperties = {
+        backgroundColor: '#7360DF',
+        borderWidth: '0px',
+        borderRadius: '15px',
+        fontSize: '1.2rem',
+        padding: '7px',
+        color: 'white'
+    }
 
     return(
         <footer style={stylesContainer}>
@@ -85,22 +109,24 @@ export default function Footer(){
                 </div>
             </div>
             <div style={stylesContent}>
-                <h1>Envie uma mensagem</h1>
-                <h2 style={stylesTexth2}>nome:</h2>
-                <h2 style={stylesTexth2}>email:</h2>
-                <h2 style={stylesTexth2}>mensagem:</h2>
+                <h1 style={{margin:0}}>Envie um email para nós:</h1>
+                <form style={stylesForm} onSubmit={handleSubmit((data)=>SendEmail(data))}>
+                    <input style={stylesFormInput} type='text' placeholder='Nome Completo:' {...register("nome")}/>
+                    <input style={stylesFormInput} type='email' placeholder='Seu Email Pessoal:' {...register("email")}/>
+                    <input style={stylesFormInput} type='text' placeholder='Mensagem:' {...register("mensagem")}/>
+                    <input style={stylesFormSubmit} className='Submit' value='Enviar' type="submit"/>
+                </form>
             </div>
             <div style={stylesContent}>
-                <h1>Entre em Contato</h1>
+                <h1 style={{margin:0}}>Entre em Contato</h1>
                 <h2 style={stylesTexth2}>E-mail:</h2>
                 <h3 style={stylesTexth3}>aumeow.pets@gmail.com</h3>
                 <h2 style={stylesTexth2}>Whatsapp:</h2>
                 <h3 style={stylesTexth3}>(61) 98282-1772</h3>
             </div>
             <div style={stylesContent}>
-                <h1>Navegação</h1>
-                <Link to='/login' style={stylesTexth3}>Home</Link>
-                <Link to='/login' style={stylesTexth3}>Galeria da Fofura</Link>
+                <h1 style={{margin:0}}>Navegação</h1>
+                <Link to='/' style={stylesTexth3}>Home</Link>
                 <Link to='/login' style={stylesTexth3}>Sobre nós</Link>
             </div>
         </footer>
