@@ -19,13 +19,13 @@ export default function CadastroProdutos(){
                     <input className='InputText' type='text' placeholder='Nome:' {...register("name")} />
                     <label className='txt'>Código do produto:</label>
                     <input className='InputText' type='text' placeholder='Código:' {...register("code")} />
-                    <label className='txt'>quantidade em estoque:</label>
+                    <label className='txt'>Quantidade em estoque:</label>
                     <input className='InputText' type='text' placeholder='quantidade:' {...register("amount")} />
                     <label className='txt'>Preço do produto:</label>
                     <input className='InputText' type='text' placeholder='preço:' {...register("price")} />
-                    <label className='txt'>marca do produto:</label>
+                    <label className='txt'>Marca do produto:</label>
                     <input className='InputText' type='text' placeholder='marca:' {...register("brand")}/>
-                    <input className='submit' value='Enviar' type="submit"/>
+                    <input className='Submit' value='Enviar' type="submit"/>
                 </form>
             </div>
             <Footer/>
