@@ -37,7 +37,7 @@ export default function Navigation(props:any){
 				<Route path='/PetServices' element={<PetServices/>}/>
 				<Route path='/MenuPrestador' element={<MenuPrestador/>}/>
 				<Route path='/ListaServicosPrestador' element={<ListaServicosPrestador/>}/>
-				<Route path='/EspecificProduct' element={<EspecificProduct/>}/>
+				<Route path='/Shopping/:ProdId' element={<EspecificProduct/>}/>
 				<Route path='/RegistroServicoPrestador' element={<RegistroServicoPrestador/>}/>
 				<Route path='/CadastroProdutos' element={<CadastroProdutos/>}/>
 				<Route path='/ListaProdutosPrestador' element={<ListaProdutosPrestador/>}/>

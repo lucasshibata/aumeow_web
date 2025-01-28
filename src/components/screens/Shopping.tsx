@@ -3,9 +3,8 @@ import './Shopping.css'
 import withAuth from '../contexts/AuthContext';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
-import { useState, useEffect } from "react";
-import {auth, ref, database, get, onAuthStateChanged} from "../firebase/Firebase";
-import { User } from "firebase/auth";
+import { useState } from "react";
+import { ref, database, get} from "../firebase/Firebase";
 import { useNavigate } from 'react-router-dom';
 
 interface Product {
@@ -21,62 +20,28 @@ interface Product {
 function Shopping (){
     const navigate = useNavigate()
     const [product, setServices] = useState<Product[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState<User | null>(null);
-    const [authChecked, setAuthChecked] = useState(false);
 
-    // Verifica a autenticação do usuário
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser || null);
-            setAuthChecked(true); // Finaliza a verificação de autenticação
-        });
-        return () => unsubscribe();
-    }, []);
+    async function qualquercoisa() {
+        try {
+            const servicesRef = ref(database, "products");
+            const snapshot = await get(servicesRef);
 
-    // Busca os serviços após a autenticação
-    useEffect(() => {
-        const fetchServices = async () => {
-            if (!user) {
-                setLoading(false); // Finaliza o carregamento caso o usuário não esteja autenticado
-                return;
+            if (snapshot.exists()) {
+                const allServices = snapshot.val();
+                const userServices = Object.keys(allServices).map((key) => ({
+                    id: key,
+                    ...allServices[key],
+                }));
+                setServices(userServices);
+            } else {
+                console.log("Nenhum serviço encontrado.");
+                setServices([]);
             }
-
-            try {
-                const servicesRef = ref(database, "products");
-                const snapshot = await get(servicesRef);
-
-                if (snapshot.exists()) {
-                    const allServices = snapshot.val();
-                    const userServices = Object.keys(allServices).map((key) => ({
-                        id: key,
-                        ...allServices[key],
-                    }));
-                    setServices(userServices);
-                } else {
-                    console.log("Nenhum serviço encontrado.");
-                    setServices([]);
-                }
-            } catch (error) {
-                console.error("Erro ao buscar serviços:", error);
-            } finally {
-                setLoading(false); // Finaliza o carregamento independentemente do resultado
-            }
-        };
-
-        if (authChecked) {
-            fetchServices();
+        } catch (error) {
+            console.error("Erro ao buscar serviços:", error);
         }
-    }, [authChecked, user]);
-
-    if (loading) {
-        return <p>Carregando...</p>;
     }
-
-    if (!user) {
-        return <div>Faça login</div>;
-    }
-    
+    qualquercoisa();
     return(
         <div className='Shopping'>
             <Header/>
@@ -85,7 +50,7 @@ function Shopping (){
                 {product.map(item => (
                     <div key={item.id} className="ContainerList">
                         <ShopBox imgProduct = {require("../../assets/Teste_img_racao.jpg")} titleProduct={item.nome} subtitleProduct={item.marca} 
-                        priceProduct={item.preco} navegar={()=>navigate('/EspecificProduct')}/>
+                        priceProduct={item.preco} navegar={()=>navigate(`/Shopping/${item.id}`)}/>
                     </div>
                 ))}
             <Footer/>
