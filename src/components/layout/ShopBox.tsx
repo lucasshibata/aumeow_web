@@ -1,9 +1,7 @@
 import React from 'react';
 import TouchableOpacity from './TouchableOpacity';
 
-export default function ShopBox (props:any){
-    const {imgProduct, titleProduct, subtitleProduct, priceProduct, navegar} = props;
-    
+export default function ShopBox ({imgProduct, titleProduct, subtitleProduct, priceProduct, navegar}:any){
         const stylesContainer:React.CSSProperties = {
             backgroundColor:'#D9D9D9',
             width:155,
@@ -32,7 +30,7 @@ export default function ShopBox (props:any){
             color:'#626262',
         }
     return(
-        <TouchableOpacity onPress={navegar}>
+        <TouchableOpacity onClick={navegar}>
             <div style={stylesContainer}>
                 <img src={imgProduct} style={stylesImg} alt='uma imagem ai'/>
                 <div style={stylesTxtContainer}>

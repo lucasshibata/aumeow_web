@@ -127,7 +127,7 @@ export default function Footer(){
             <div style={stylesContent}>
                 <h1 style={{margin:0}}>Navegação</h1>
                 <Link to='/' style={stylesTexth3}>Home</Link>
-                <Link to='/login' style={stylesTexth3}>Sobre nós</Link>
+                <Link to='/SobreNos' style={stylesTexth3}>Sobre nós</Link>
             </div>
         </footer>
     )

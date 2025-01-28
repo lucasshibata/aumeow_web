@@ -6,6 +6,7 @@ import Footer from '../layout/Footer';
 import { useState, useEffect } from "react";
 import {auth, ref, database, get, onAuthStateChanged} from "../firebase/Firebase";
 import { User } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 interface Product {
     id: string; // Chave única do serviço no Firebase
@@ -17,8 +18,8 @@ interface Product {
     userName: string;
 }
 
-function Shopping (props:any){
-    const {navigation} = props;
+function Shopping (){
+    const navigate = useNavigate()
     const [product, setServices] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
@@ -83,8 +84,8 @@ function Shopping (props:any){
             <div className="FlatList">
                 {product.map(item => (
                     <div key={item.id} className="ContainerList">
-                        <ShopBox titleProduct={item.nome} subtitleProduct={item.marca} 
-                        priceProduct={item.preco} navegar={()=>navigation.navigate('EspecificProduct')}/>
+                        <ShopBox imgProduct = {require("../../assets/Teste_img_racao.jpg")} titleProduct={item.nome} subtitleProduct={item.marca} 
+                        priceProduct={item.preco} navegar={()=>navigate('/EspecificProduct')}/>
                     </div>
                 ))}
             <Footer/>
