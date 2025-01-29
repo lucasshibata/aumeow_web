@@ -1,0 +1,28 @@
+.EspecificProduct{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    & .Container{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        & .ContainerList{
+            padding: 10px;
+            border: solid 4px #7360DF;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+            margin-bottom: 10px;
+            & .imageProduct{
+                width: 20vw;
+                height: 40vh;
+            }
+            & .textProduct{
+                color: black;
+            }
+        }
+    }
+}

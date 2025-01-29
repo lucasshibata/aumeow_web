@@ -65,8 +65,9 @@ export default function Header(){
         borderRadius:'15px'
     }
     const location = useLocation();
-    const showButtonOnRoutes = ["/EspecificProduct", "/CadastroProdutos", "/RegistroServicoPrestador", "/ListaProdutosPrestador", "/ListaServicosPrestador", "/MenuPrestador", "/NavigationScreen", "/PetServices", "/RegistroProdutoPrestador", "/Shopping"];
-    const shouldShowButton = showButtonOnRoutes.includes(location.pathname);
+    const showButtonOnRoutes = ["/EspecificProduct", "/CadastroProdutos", "/RegistroServicoPrestador", "/ListaProdutosPrestador", "/ListaServicosPrestador", "/MenuPrestador", "/NavigationScreen", "/PetServices", "/RegistroProdutoPrestador", "/Shopping", "/Shopping/:ProdId"];
+    const shouldShowButton = showButtonOnRoutes.some(route => 
+        location.pathname.startsWith(route),location.pathname);
     const dontShow = !shouldShowButton;
     const showBack = ["/NavigationScreen", "/MenuPrestador"].includes(location.pathname);
     const showHome = ["/"].includes(location.pathname);
