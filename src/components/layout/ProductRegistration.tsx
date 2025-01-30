@@ -16,15 +16,15 @@ export default async function ProductRegistration(data:any, navigation:any) {
                     quantidade: data.amount,
                     preco: data.price,
                     marca: data.brand,
-                    userName: snapshot.val(),
-                    userUID: user?.uid
+                    prestadorName: snapshot.val(),
+                    prestadorUID: user?.uid
                 }
             }
         })
 
         get(dbUserEmailRef).then((snapshot)=>{
             if (snapshot.exists()) {
-                productData.userEmail = snapshot.val()
+                productData.prestadorEmail = snapshot.val()
             }
         })
         

@@ -17,8 +17,7 @@
             border: solid #7360DF 4px;
             border-radius: 15px;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-            height: 35vh;
-            flex-wrap: wrap;
+            height: auto;
             & .Textoh2{
                 color: black;
             }

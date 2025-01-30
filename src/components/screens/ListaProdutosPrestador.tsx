@@ -39,7 +39,7 @@ function ListaProdutosPrestador(){
         
                 // Filtrar os serviços do usuário atual
                 const userProducts = Object.keys(allServices)
-                    .filter((key) => allServices[key].userUID === userUid)
+                    .filter((key) => allServices[key].prestadorUID === userUid)
                     .map((key) => ({
                     id: key, // Inclui a chave como `id`
                     ...allServices[key],
@@ -73,12 +73,11 @@ function ListaProdutosPrestador(){
             <ul className='ContainerProdutos'>
                 {products.map((service:any) => (
                     <li className='ItemLista' key={service.id}>
-                        <h2 className='Textoh2'>{service.userName}</h2>
-                        <p className='TextoP'>Produto: {service.nome}</p>
+                        <h2 className='Textoh2'>{service.nome}</h2>
                         <p className='TextoP'>Marca: {service.marca}</p>
                         <p className='TextoP'>Preço: {service.preco}</p>
                         <p className='TextoP'>quantidade: {service.quantidade}</p>
-                        <p className='TextoP'>email de contato: {service.userEmail}</p>
+                        <p className='TextoP'>email de contato: {service.prestadorEmail}</p>
                     </li>
                 ))}
             </ul>
