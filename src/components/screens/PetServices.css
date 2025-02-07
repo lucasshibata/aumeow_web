@@ -9,15 +9,16 @@
         flex-direction:row;
         gap:10px;
         width: 100%;
+        flex-wrap: wrap;
         height: 100%;
         & .ItemLista{
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding: 10px;
             border: solid #7360DF 4px;
             border-radius: 15px;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-            height: 30vh;
+            height: auto;
             flex-wrap: wrap;
             & .Texto{
                 color: black;
