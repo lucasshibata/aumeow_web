@@ -45,16 +45,15 @@ function Shopping (){
     return(
         <div className='Shopping'>
             <Header/>
-            <p>Loja</p>
             <div className="FlatList">
                 {product.map(item => (
-                    <div key={item.id} className="ContainerList">
+                    <div key={item.id} className="itemList">
                         <ShopBox imgProduct = {require("../../assets/Teste_img_racao.jpg")} titleProduct={item.nome} subtitleProduct={item.marca} 
                         priceProduct={item.preco} navegar={()=>navigate(`/Shopping/${item.id}`)}/>
                     </div>
                 ))}
-            <Footer/>
             </div>
+            <Footer/>
         </div>
     );
 };

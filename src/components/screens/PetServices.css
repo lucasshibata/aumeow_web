@@ -18,7 +18,7 @@
             border: solid #7360DF 4px;
             border-radius: 15px;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-            height: auto;
+            height: 30vh;
             flex-wrap: wrap;
             & .Texto{
                 color: black;

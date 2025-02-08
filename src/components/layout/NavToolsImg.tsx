@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TouchableOpacity from './TouchableOpacity';
 
 
 export default function NavToolsImg(props:any){
     const {src, titleNav, onTouch} = props;
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const stylesImg:React.CSSProperties = {
         height:'100%',
@@ -19,11 +28,12 @@ export default function NavToolsImg(props:any){
     const stylesContainer:React.CSSProperties = {
         backgroundColor:'#33186B',
         height:'40vh',
-        width:'15vw',
+        width:isMobile ? '35vh' : '15vw',
         display: 'flex',
         flexDirection:'column',
         justifyContent:'center',
         alignItems:'center',
+        flexWrap:'wrap',
         padding:10,
         borderRadius:16,
     }

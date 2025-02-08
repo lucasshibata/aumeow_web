@@ -76,7 +76,7 @@ function PetServices() {
 
     return (
         <div className='PetServices'>
-            <Header />
+            <Header/>
             <ul className='ListaDeServicos'>
                 {services.map((service: Service) => (
                     <li className='ItemLista' key={service.id}>

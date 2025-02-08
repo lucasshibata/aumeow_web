@@ -17,7 +17,7 @@ function Login(){
 			<BackGround>
 				<div className='Container'>
 					<div className='divLogo'>
-					<TitleLogo/>
+						<TitleLogo/>
 					</div>	
 					<Space h={10}/>
 					<div className='InnerContainer'>

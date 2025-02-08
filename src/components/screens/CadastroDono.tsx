@@ -1,6 +1,4 @@
 import BackGround from '../layout/BackGround';
-import WhiteBox from '../layout/WhiteBox';
-import Space from '../layout/Space';
 import { useForm } from 'react-hook-form';
 import SignUp from '../layout/SignUp';
 import { useNavigate } from 'react-router-dom';
@@ -17,8 +15,7 @@ export default function CadastroDono(){
 			<BackGround>
 				<div className='Container'>
 					<TitleLogo/>
-					<Space w={20}/>
-					<WhiteBox>
+					<div className='InnerContainer'>
 						<h1 className='Title'>Cadastro de Cliente</h1>
 						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "dono"))}>
 							<label className='txt'>Nome:</label>
@@ -39,7 +36,7 @@ export default function CadastroDono(){
 							</select>
 							<input className='submit' value='Enviar' type="submit"/>
 						</form>
-					</WhiteBox>
+					</div>
 				</div>
 			</BackGround>
 		</div>

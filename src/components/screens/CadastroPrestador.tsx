@@ -1,7 +1,5 @@
 import BackGround from '../layout/BackGround';
-import WhiteBox from '../layout/WhiteBox';
 import { useForm } from 'react-hook-form';
-import Space from '../layout/Space';
 import './CadastroPrestador.css';
 import SignUp from '../layout/SignUp';
 import { useNavigate } from 'react-router-dom';
@@ -16,8 +14,7 @@ export default function CadastroPrestador(){
 			<BackGround>
 				<div className='Container'>
 					<TitleLogo/>
-					<Space w={20}/>
-					<WhiteBox>
+					<div className='InnerContainer'>
 						<h1 className='Title'>Cadastro Prestador</h1>
 						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "prestador"))}>
 							<label className='txt'>Nome:</label>
@@ -38,7 +35,7 @@ export default function CadastroPrestador(){
 							</select>
 							<input className='submit' value='Enviar' type="submit"/>
 						</form>
-					</WhiteBox>
+					</div>
 				</div>
 			</BackGround>
 		</div>

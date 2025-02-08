@@ -1,5 +1,7 @@
 .Container{
     display: flex;
+    height: 100vh;
+    width: 100vw;
     flex-direction: column;
     background-color: white;
     & .FlatList{ 
@@ -10,5 +12,24 @@
         flex-wrap: wrap;
         padding: 20px;
         height: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .Container{
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        background-color: white;
+        & .FlatList{ 
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            height: 100%;
+        }
     }
 }

@@ -15,6 +15,10 @@ export default function TouchableOpacity ({ children, onClick, activeOpacity = 0
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    height:'100%',
+    width:'100%',
+    margin:0,
+    padding:0
   };
 
   return (
