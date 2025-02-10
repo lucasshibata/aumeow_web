@@ -1,16 +1,16 @@
 .PetServices{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background-color: white;
     & .ListaDeServicos{
         display:flex; 
         flex-direction:row;
         gap:10px;
-        width: 100%;
+        width: auto;
         flex-wrap: wrap;
-        height: 100%;
+        height: auto;
         & .ItemLista{
             display: flex;
             flex-direction: column;
@@ -18,7 +18,7 @@
             border: solid #7360DF 4px;
             border-radius: 15px;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-            height: 30vh;
+            height: auto;
             flex-wrap: wrap;
             & .Texto{
                 color: black;

@@ -18,7 +18,7 @@
 @media only screen and (max-width: 768px) {
     .Container{
         display: flex;
-        height: 100vh;
+        height: 100%;
         width: 100vw;
         flex-direction: column;
         background-color: white;
@@ -28,8 +28,10 @@
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
-            padding: 20px;
-            height: 100%;
+            gap: 10px;
+            height: auto;
+            width: auto;
+            background-color: white;
         }
     }
 }

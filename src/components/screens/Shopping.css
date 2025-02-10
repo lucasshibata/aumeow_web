@@ -1,6 +1,6 @@
 .Shopping{
     display: flex;
-    height: 100vh;
+    height: auto;
     width: 100vw;
     flex-direction: column;
     background-color: white;

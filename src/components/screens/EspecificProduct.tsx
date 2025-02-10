@@ -56,7 +56,7 @@ function EspecificProduct() {
         <div className='EspecificProduct'>
             <Header/>
             <div className='Container'>
-                <div style={{flex:1}}></div>
+                <div style={{width:'400 px', height:'1px'}}></div>
                 {getProduct &&
                     <div key={getProduct.id} className="ContainerList">
                         <img className='imageProduct' src={require("../../assets/Teste_img_racao.jpg")} alt="imagem do produto" />
@@ -67,12 +67,14 @@ function EspecificProduct() {
                     </div>
                 }
                 <div className='confirmacaoPedido'>
-                    <h1>Confirmação do pedido</h1>
-                    <form onSubmit={handleSubmit((data)=>realizarPedido(data))}>
-                        <label>Quantidade de produtos</label>
-                        <input type="number" placeholder='Quantidade:' {...register("quantidade")}/>
-                        <input className='Submit' value='Enviar' type="submit"/>
-                    </form>
+                    <div className='boxContainer'>
+                        <h1 className='confirmacaoTxt'>Confirmação do pedido</h1>
+                        <form onSubmit={handleSubmit((data)=>realizarPedido(data))}>
+                            <label className='confirmacaoTxt'>Quantidade de produtos: </label>
+                            <input type="number" placeholder='Quantidade:' {...register("quantidade")}/>
+                            <input className='Submit' value='Enviar' type="submit"/>
+                        </form>
+                    </div>
                 </div>
             </div>
             <Footer/>

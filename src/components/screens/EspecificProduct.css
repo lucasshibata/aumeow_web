@@ -3,13 +3,16 @@
     flex-direction: column;
     background-color: white;
     width: 100vw;
-    height: 100vh;
+    height: auto;
     & .Container{
         display: flex;
-        height: 100%;
+        flex-direction: row;
+        height: auto;
         width: 100%;
+        flex-wrap: wrap;
         align-items: center;
         flex-direction: row;
+        margin-bottom: 10px;
         & .ContainerList{
             flex: 1;
             display: flex;
@@ -30,9 +33,75 @@
             }
         }
         & .confirmacaoPedido{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             flex: 1;
+            padding: 10px;
             height: 100%;
-            background-color: blue;
+            & .boxContainer{
+                background-color: gray;
+                padding: 20px;
+                border-radius: 15px;
+                & .confirmacaoTxt{
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .EspecificProduct{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        width: 100vw;
+        height: auto;
+        & .Container{
+            display: flex;
+            height: auto;
+            width: 100%;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 10px;
+            & .ContainerList{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                border: solid 4px #7360DF;
+                border-radius: 15px;
+                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 350px;
+                & .imageProduct{
+                    width: 300px;
+                    height: 300px;
+                }
+                & .textProduct{
+                    color: black;
+                }
+            }
+            & .confirmacaoPedido{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+                height: 100%;
+                width: 350px;
+                & .boxContainer{
+                    background-color: gray;
+                    padding: 20px;
+                    border-radius: 15px;
+                    & .confirmacaoTxt{
+                        color: black;
+                    }
+                }
+            }
         }
     }
 }
