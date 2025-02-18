@@ -9,26 +9,27 @@ import "./CadastroProdutos.css";
 
 // Defina a interface para productData
 interface ProductData {
-  nome: string;
-  codigo: string;
-  quantidade: number;
-  preco: number;
-  marca: string;
-  prestadorName: string;
-  prestadorUID: string;
-  prestadorEmail?: string; // A propriedade é opcional
+nome: string;
+codigo: string;
+quantidade: number;
+preco: number;
+marca: string;
+prestadorName: string;
+prestadorUID: string;
+prestadorEmail?: string; // A propriedade é opcional
 }
 
 export default function CadastroProdutos() {
-  const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
-  const [file, setFile] = useState<File | null>(null);
-  const [uploading, setUploading] = useState(false);
+const { register, handleSubmit } = useForm();
+const navigate = useNavigate();
+const [file, setFile] = useState<File | null>(null);
+const [uploading, setUploading] = useState(false);
+const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-  const onSubmit = async (data: any) => {
+const onSubmit = async (data: any) => {
     if (!file) {
-      alert('Por favor, selecione uma imagem.');
-      return;
+    alert('Por favor, selecione uma imagem.');
+    return;
     }
 
     setUploading(true);
@@ -40,119 +41,131 @@ export default function CadastroProdutos() {
 
     // Declare productData com a interface ProductData
     let productData: ProductData = {
-      nome: data.name,
-      codigo: data.code,
-      quantidade: data.amount,
-      preco: data.price,
-      marca: data.brand,
-      prestadorName: '',
-      prestadorUID: user?.uid || '',
+    nome: data.name,
+    codigo: data.code,
+    quantidade: data.amount,
+    preco: data.price,
+    marca: data.brand,
+    prestadorName: '',
+    prestadorUID: user?.uid || '',
     };
 
     try {
-      // Obtém o nome do usuário
-      const userNameSnapshot = await get(dbUserNameRef);
-      if (userNameSnapshot.exists()) {
+    // Obtém o nome do usuário
+    const userNameSnapshot = await get(dbUserNameRef);
+    if (userNameSnapshot.exists()) {
         productData.prestadorName = userNameSnapshot.val();
-      }
+    }
 
-      // Obtém o email do usuário
-      const userEmailSnapshot = await get(dbUserEmailRef);
-      if (userEmailSnapshot.exists()) {
+    // Obtém o email do usuário
+    const userEmailSnapshot = await get(dbUserEmailRef);
+    if (userEmailSnapshot.exists()) {
         productData.prestadorEmail = userEmailSnapshot.val(); // Agora é seguro adicionar
-      }
+    }
 
-      // Verifica se o produto já existe
-      const productSnapshot = await get(productRef);
-      if (productSnapshot.exists()) {
+    // Verifica se o produto já existe
+    const productSnapshot = await get(productRef);
+    if (productSnapshot.exists()) {
         alert(`O código "${data.code}" já existe. Escolha outro.`);
         return;
-      }
+    }
 
-      // Salva os dados do produto no Firebase
-      await set(productRef, productData);
+    // Salva os dados do produto no Firebase
+    await set(productRef, productData);
 
-      // Faz o upload da imagem para o S3
-      await s3.upload({
+    // Faz o upload da imagem para o S3
+    await s3.upload({
         Bucket: 'aumeow-images',
-        Key: `uploads/${file.name}`,
+        Key: `${user?.uid}/${file.name}`,
         Body: file,
         ContentType: file.type,
-      }).promise();
+    }).promise();
 
-      alert('Produto criado com sucesso e salvo no banco!');
-      console.log('Arquivo enviado com sucesso');
+    alert('Produto criado com sucesso e salvo no banco!');
+    console.log('Arquivo enviado com sucesso');
 
-      // Navega para a tela do menu do prestador
-      navigate('/MenuPrestador');
+    // Navega para a tela do menu do prestador
+    navigate('/MenuPrestador');
     } catch (error) {
-      console.error('Erro ao adicionar o produto:', error);
-      alert('Erro ao adicionar o produto. Tente novamente.');
+    console.error('Erro ao adicionar o produto:', error);
+    alert('Erro ao adicionar o produto. Tente novamente.');
     } finally {
-      setUploading(false);
+    setUploading(false);
     }
-  };
+};
 
-  return (
+return (
     <div className='CadastroProdutos'>
-      <Header />
-      <div className='Container'>
-        <h1 className='Title'>Cadastro de Produtos</h1>
-        <form className='FormContainer' onSubmit={handleSubmit(onSubmit)}>
-          <label>Selecione uma imagem:</label>
-          <input
-            className='file'
-            type="file"
-            onChange={(e) => {
-              if (e.target.files && e.target.files[0]) {
-                setFile(e.target.files[0]);
-              }
-            }}
-          />
-          <label className='txt'>Nome do produto:</label>
-          <input
-            className='InputText'
-            type='text'
-            placeholder='Nome:'
-            {...register("name", { required: true })}
-          />
-          <label className='txt'>Código do produto:</label>
-          <input
-            className='InputText'
-            type='text'
-            placeholder='Código:'
-            {...register("code", { required: true })}
-          />
-          <label className='txt'>Quantidade em estoque:</label>
-          <input
-            className='InputText'
-            type='text'
-            placeholder='Quantidade:'
-            {...register("amount", { required: true })}
-          />
-          <label className='txt'>Preço do produto:</label>
-          <input
-            className='InputText'
-            type='text'
-            placeholder='Preço:'
-            {...register("price", { required: true })}
-          />
-          <label className='txt'>Marca do produto:</label>
-          <input
-            className='InputText'
-            type='text'
-            placeholder='Marca:'
-            {...register("brand", { required: true })}
-          />
-          <input
-            className='Submit'
-            value={uploading ? 'Enviando...' : 'Enviar'}
-            type="submit"
-            disabled={uploading}
-          />
-        </form>
-      </div>
-      <Footer />
+        <Header />
+        <div className='Container'>
+            <h1 className='Title'>Cadastro de Produtos</h1>
+            <form className='FormContainer' onSubmit={handleSubmit(onSubmit)}>
+                {imagePreview && (
+                    <div  style={{ display:'flex', flexDirection:'column', width: '100%', height: 'auto'}}>
+                    <h3 className='txt'>Prévia da Imagem:</h3>
+                    <img
+                        src={imagePreview}
+                        alt="Prévia da imagem selecionada"
+                        style={{ maxWidth: '100%', height: '100%', marginTop: '10px' }}
+                    />
+                    </div>
+                )}
+            <label className='txt'>Selecione uma imagem:</label>
+            <input
+                className='file'
+                type="file"
+                onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                    setFile(e.target.files[0]);
+                    const imageUrl = URL.createObjectURL(e.target.files[0]);
+                    setImagePreview(imageUrl);
+                }
+                }}
+            />
+            <label className='txt'>Nome do produto:</label>
+            <input
+                className='InputText'
+                type='text'
+                placeholder='Nome:'
+                {...register("name", { required: true })}
+            />
+            <label className='txt'>Código do produto:</label>
+            <input
+                className='InputText'
+                type='text'
+                placeholder='Código:'
+                {...register("code", { required: true })}
+            />
+            <label className='txt'>Quantidade em estoque:</label>
+            <input
+                className='InputText'
+                type='text'
+                placeholder='Quantidade:'
+                {...register("amount", { required: true })}
+            />
+            <label className='txt'>Preço do produto:</label>
+            <input
+                className='InputText'
+                type='text'
+                placeholder='Preço:'
+                {...register("price", { required: true })}
+            />
+            <label className='txt'>Marca do produto:</label>
+            <input
+                className='InputText'
+                type='text'
+                placeholder='Marca:'
+                {...register("brand", { required: true })}
+            />
+            <input
+                className='Submit'
+                value={uploading ? 'Enviando...' : 'Enviar'}
+                type="submit"
+                disabled={uploading}
+            />
+            </form>
+        </div>
+        <Footer />
     </div>
-  );
+);
 }

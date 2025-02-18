@@ -2,17 +2,18 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    height: 100vh;
+    height: auto;
     width: 100vw;
     & .Container{
         display: flex;
         align-items: center;
+        height: auto;
         & .Title{
             color: #7360DF;
         }
         & .FormContainer{
             border: solid #7360DF 4px;
-            width: 25vw;
+            width: 35vw;
             display: flex;
             flex-direction: column;
             padding: 20px;
