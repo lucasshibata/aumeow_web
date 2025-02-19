@@ -42,7 +42,7 @@ export default function ShopBox ({imgProduct, titleProduct, subtitleProduct, pri
     return(
         <div style={stylesContainer}>
             <TouchableOpacity onClick={navegar}>
-                <img src={imgProduct} style={stylesImg} alt='uma imagem ai'/>
+                <img src={imgProduct} style={stylesImg} alt='imagem do produto'/>
                 <div style={stylesTxtContainer}>
                     <p style={stylesText}>{titleProduct}</p>
                     <p style={stylesText}>{subtitleProduct}</p>

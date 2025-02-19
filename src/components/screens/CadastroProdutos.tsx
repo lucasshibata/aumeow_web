@@ -76,7 +76,7 @@ const onSubmit = async (data: any) => {
     // Faz o upload da imagem para o S3
     await s3.upload({
         Bucket: 'aumeow-images',
-        Key: `${user?.uid}/${file.name}`,
+        Key: `${data.code}/imagemProduto`,
         Body: file,
         ContentType: file.type,
     }).promise();

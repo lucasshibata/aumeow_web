@@ -6,8 +6,8 @@
     background-color: white;
     & .FlatList{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         height: 100%;
-        align-items: center;
+        justify-content: center;
     }
 }
