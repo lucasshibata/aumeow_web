@@ -73,7 +73,7 @@ function ListaProdutosPrestador(){
             <ul className='ContainerProdutos'>
                 {products.map((service:any) => (
                     <li className='ItemLista' key={service.id}>
-                        <img src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/${service.id}/imagemProduto`} alt="imagem do produto" />
+                        <img className='imgProduto' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/${service.id}/imagemProduto`} alt="imagem do produto" />
                         <h2 className='Textoh2'>{service.nome}</h2>
                         <p className='TextoP'>Marca: {service.marca}</p>
                         <p className='TextoP'>Preço: {service.preco}</p>
