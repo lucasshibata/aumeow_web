@@ -43,7 +43,7 @@ export default function Navigation(props:any){
 				<Route path='/CadastroProdutos' element={<CadastroProdutos/>}/>
 				<Route path='/ListaProdutosPrestador' element={<ListaProdutosPrestador/>}/>
 				<Route path='/SobreNos' element={<SobreNos/>}/>
-				<Route path='/Chat' element={<ChatC2P/>}/>
+				<Route path='/Chat/:userId' element={<ChatC2P/>}/>
 			</Routes>
 		</div>
     );

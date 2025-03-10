@@ -1,7 +1,7 @@
 //rodar o comando node ./src/components/server/server.js
-const WebS = require('ws');
+const WebSocket = require('ws');
 
-const server = new WebS.Server({ port: 8080 });
+const server = new WebSocket.Server({ port: 8080 });
 
 server.on('connection', (socket) => {
   console.log('Cliente conectado');
@@ -11,7 +11,7 @@ server.on('connection', (socket) => {
 
     // Enviar mensagem para todos os clientes conectados
     server.clients.forEach((client) => {
-      if (client.readyState === WebS.OPEN) {
+      if (client.readyState === WebSocket.OPEN) {
         client.send(message);
       }
     });
