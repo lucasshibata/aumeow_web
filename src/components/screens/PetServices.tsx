@@ -5,6 +5,7 @@ import { auth, ref, database, get, onAuthStateChanged } from "../firebase/Fireba
 import { useState, useEffect } from "react";
 import { User } from "firebase/auth";
 import withAuth from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 interface Service {
     id: string;
@@ -21,6 +22,9 @@ function PetServices() {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
     const [authChecked, setAuthChecked] = useState(false);
+    const userId = auth.currentUser;
+
+    const navigate = useNavigate();
 
     // Verifica a autenticação do usuário
     useEffect(() => {
@@ -74,6 +78,11 @@ function PetServices() {
         return <div>Faça login</div>;
     }
 
+    function startChat(id:string, nomePrestador:string){
+        localStorage.setItem('uidPrestador', id);
+        localStorage.setItem('nomePrestador', nomePrestador);
+        navigate('/Chat/'+userId?.uid+id);
+    }
     return (
         <div className='PetServices'>
             <Header/>
@@ -85,6 +94,7 @@ function PetServices() {
                         <p className='Texto'>Preço: {service.preco}</p>
                         <p className='Texto'>Animal: {service.tipoAnimal}</p>
                         <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
+                        <button onClick={()=>startChat(service.userUid, service.nomePrestador)}>iniciar chat</button>
                     </li>
                 ))}
             </ul>
