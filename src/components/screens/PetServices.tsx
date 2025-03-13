@@ -78,10 +78,8 @@ function PetServices() {
         return <div>Faça login</div>;
     }
 
-    function startChat(id:string, nomePrestador:string){
-        localStorage.setItem('uidPrestador', id);
-        localStorage.setItem('nomePrestador', nomePrestador);
-        navigate('/Chat/'+userId?.uid+id);
+    function startChat(id:string){
+        navigate('/Chat/'+id+'/'+userId?.uid);
     }
     return (
         <div className='PetServices'>
@@ -94,7 +92,7 @@ function PetServices() {
                         <p className='Texto'>Preço: {service.preco}</p>
                         <p className='Texto'>Animal: {service.tipoAnimal}</p>
                         <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
-                        <button onClick={()=>startChat(service.userUid, service.nomePrestador)}>iniciar chat</button>
+                        <button onClick={()=>startChat(service.userUid)}>iniciar chat</button>
                     </li>
                 ))}
             </ul>
