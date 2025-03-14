@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ref, database, get, set} from "../firebase/Firebase";
+import { ref, database, get, set} from "../../firebase/Firebase";
 import { useParams } from 'react-router-dom';
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
 import './EspecificProduct.css';
 import { useForm } from 'react-hook-form';
 

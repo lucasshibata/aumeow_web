@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Footer from "../layout/Footer";
-import Header from "../layout/Header";
+import Footer from "../../layout/Footer";
+import Header from "../../layout/Header";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { database, ref, set, get, auth } from '../firebase/Firebase';
-import s3 from '../aws/aws-config';
+import { database, ref, set, get, auth } from '../../firebase/Firebase';
+import s3 from '../../aws/aws-config';
 import "./CadastroProdutos.css";
 
 // Defina a interface para productData

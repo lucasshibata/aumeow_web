@@ -7,8 +7,10 @@ export default async function SignIn(data:any, navigation:any){
 			const dataDb = ref(database, 'users/'+user.user.uid+'/funcao')
 			get(dataDb).then((snapshot)=>{
 				if (snapshot.val() === 'cliente'){
-					navigation('/NavigationScreen');
+					navigation('/MenuCliente');
 				} else if (snapshot.val() ==='prestador'){
+					navigation('/MenuPrestador');
+				} else if (snapshot.val() ==='administrador'){
 					navigation('/MenuPrestador');
 				}
 			})

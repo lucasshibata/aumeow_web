@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form"
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
-import SendService from "../layout/SendService";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
+import SendService from "../../layout/SendService";
 import { useNavigate } from "react-router-dom";
 import "./RegistroServicoPrestador.css";
-import withAuth from '../contexts/AuthContext';
+import withAuth from '../../contexts/AuthContext';
 
  function RegistroServicoPrestador(){
     const {register, handleSubmit} = useForm();

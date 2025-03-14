@@ -1,9 +1,9 @@
-import BackGround from '../layout/BackGround';
-import WhiteBox from '../layout/WhiteBox';
-import BtnComp from '../layout/BtnComp';
-import Space from '../layout/Space';
+import BackGround from '../../layout/BackGround';
+import WhiteBox from '../../layout/WhiteBox';
+import BtnComp from '../../layout/BtnComp';
+import Space from '../../layout/Space';
 import './CreateUser.css'
-import TitleLogo from '../layout/TitleLogo';
+import TitleLogo from '../../layout/TitleLogo';
 
 export default function CreateUser(){
 	return(

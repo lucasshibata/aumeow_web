@@ -1,12 +1,12 @@
-import NavToolsImg from '../layout/NavToolsImg';
+import NavToolsImg from '../../layout/NavToolsImg';
 import { useNavigate } from 'react-router-dom';
-import './NavigationScreen.css'
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
-import withAuth from '../contexts/AuthContext';
+import './MenuCliente.css'
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
+import withAuth from '../../contexts/AuthContext';
 
 
-function NavigationScreen(){
+function MenuCliente(){
     const navigate = useNavigate();
     const data = [
         { id:1, titleNav: 'Serviços Pet', srcImg:require('../../assets/dog-walk.jpg'), navScreen:()=>navigate('/PetServices') },
@@ -27,4 +27,4 @@ function NavigationScreen(){
         </div>
     );
 };
-export default withAuth(NavigationScreen);
+export default withAuth(MenuCliente);

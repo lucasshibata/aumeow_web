@@ -1,5 +1,4 @@
-import React from 'react';
-import BackGround from '../layout/BackGround';
+import BackGround from '../../layout/BackGround';
 
 export default function OAuth2Screen(){
     return(

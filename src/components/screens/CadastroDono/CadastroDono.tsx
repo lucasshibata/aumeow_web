@@ -1,22 +1,23 @@
-import BackGround from '../layout/BackGround';
+import BackGround from '../../layout/BackGround';
 import { useForm } from 'react-hook-form';
-import './CadastroPrestador.css';
-import SignUp from '../layout/SignUp';
+import SignUp from '../../layout/SignUp';
 import { useNavigate } from 'react-router-dom';
-import TitleLogo from '../layout/TitleLogo';
+import TitleLogo from '../../layout/TitleLogo';
+import './CadastroDono.css'
 
-export default function CadastroPrestador(){
+
+export default function CadastroDono(){
 	const {register, handleSubmit} = useForm();
 	const navigate = useNavigate();
 	
 	return(
-		<div className='CadastroPrestador'>
+		<div className='CadastroDono'>
 			<BackGround>
 				<div className='Container'>
 					<TitleLogo/>
 					<div className='InnerContainer'>
-						<h1 className='Title'>Cadastro Prestador</h1>
-						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "prestador"))}>
+						<h1 className='Title'>Cadastro de Cliente</h1>
+						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "dono"))}>
 							<label className='txt'>Nome:</label>
 							<input className='InputText' type='text' placeholder='Nome Completo:' {...register("name")} />
 							<label className='txt'>CPF:</label>
@@ -41,3 +42,4 @@ export default function CadastroPrestador(){
 		</div>
 	);
 }
+

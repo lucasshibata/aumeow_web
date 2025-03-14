@@ -1,10 +1,10 @@
-import ShopBox from '../layout/ShopBox';
+import ShopBox from '../../layout/ShopBox';
 import './Shopping.css'
-import withAuth from '../contexts/AuthContext';
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
+import withAuth from '../../contexts/AuthContext';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
 import { useState } from "react";
-import { ref, database, get} from "../firebase/Firebase";
+import { ref, database, get} from "../../firebase/Firebase";
 import { useNavigate } from 'react-router-dom';
 
 interface Product {

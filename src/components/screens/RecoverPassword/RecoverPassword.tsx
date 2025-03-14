@@ -1,8 +1,8 @@
-import BackGround from '../layout/BackGround';
+import BackGround from '../../layout/BackGround';
 import { useForm } from 'react-hook-form';
-import {auth, sendPasswordResetEmail} from '../firebase/Firebase';
+import {auth, sendPasswordResetEmail} from '../../firebase/Firebase';
 import "./RecoverPassword.css"
-import TitleLogo from '../layout/TitleLogo';
+import TitleLogo from '../../layout/TitleLogo';
 import { Link } from 'react-router-dom';
 
 export default function RecoverPassword(){

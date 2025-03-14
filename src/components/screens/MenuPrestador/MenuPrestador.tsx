@@ -1,9 +1,9 @@
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
 import { useNavigate } from "react-router-dom";
 import './MenuPrestador.css';
-import withAuth from '../contexts/AuthContext';
-import { signOut, auth } from "../firebase/Firebase";
+import withAuth from '../../contexts/AuthContext';
+import { signOut, auth } from "../../firebase/Firebase";
 
 function MenuPrestador(){
     const navigate = useNavigate();

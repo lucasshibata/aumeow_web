@@ -1,9 +1,9 @@
-import withAuth from '../contexts/AuthContext';
-import {auth, ref, database, get} from "../firebase/Firebase";
+import withAuth from '../../contexts/AuthContext';
+import {auth, ref, database, get} from "../../firebase/Firebase";
 import { useState, useEffect } from "react";
 import "./ListaProdutosPrestador.css";
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
 
 interface Product {
     id: string; // Chave única do serviço no Firebase

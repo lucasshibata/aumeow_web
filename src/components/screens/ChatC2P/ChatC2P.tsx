@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { auth, database, set, ref, push, get, onValue } from '../firebase/Firebase';
+import { auth, database, set, ref, push, get, onValue } from '../../firebase/Firebase';
 
 export default function Chat() {
     const [funcaoUser, setFuncaoUser] = useState('');

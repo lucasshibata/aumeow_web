@@ -1,12 +1,12 @@
 import './Login.css';
-import BackGround from '../layout/BackGround';
+import BackGround from '../../layout/BackGround';
 
-import Space from '../layout/Space';
+import Space from '../../layout/Space';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import SignIn from '../layout/SignIn';
-import TitleLogo from '../layout/TitleLogo';
-import withAuth from '../contexts/LoginContext';
+import SignIn from '../../layout/SignIn';
+import TitleLogo from '../../layout/TitleLogo';
+import withAuth from '../../contexts/LoginContext';
 
 function Login(){
 	const {register, handleSubmit} = useForm();

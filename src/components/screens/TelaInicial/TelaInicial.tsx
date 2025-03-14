@@ -1,6 +1,6 @@
 import "./TelaInicial.css";
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
 import cachorroGato from "../../assets/cachorro_e_gato.png";
 // import navImg1 from "../../assets/banho_doguinho.png";
 // import navImg2 from "../../assets/corgi_vacina.png";
