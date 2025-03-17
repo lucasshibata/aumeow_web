@@ -1,0 +1,9 @@
+.Container{
+    min-height: 100vh;
+    background-color: white;
+    & .innerContainer{
+        color: black;
+        display: flex;
+        height: 100%;
+    }
+}

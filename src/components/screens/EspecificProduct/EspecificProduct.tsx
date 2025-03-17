@@ -59,7 +59,7 @@ function EspecificProduct() {
                 <div style={{width:'400 px', height:'1px'}}></div>
                 {getProduct &&
                     <div key={getProduct.id} className="ContainerList">
-                        <img className='imageProduct' src={require("../../assets/Teste_img_racao.jpg")} alt="imagem do produto" />
+                        <img className='imageProduct' src={require("../../../assets/Teste_img_racao.jpg")} alt="imagem do produto" />
                         <p className='textProduct'>Nome do produto: {getProduct.nome}</p>
                         <p className='textProduct'>Marca do Produto: {getProduct.marca}</p>
                         <p className='textProduct'>Preço do produto: R${getProduct.preco}</p>

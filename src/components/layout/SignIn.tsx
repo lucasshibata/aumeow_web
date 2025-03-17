@@ -11,7 +11,7 @@ export default async function SignIn(data:any, navigation:any){
 				} else if (snapshot.val() ==='prestador'){
 					navigation('/MenuPrestador');
 				} else if (snapshot.val() ==='administrador'){
-					navigation('/MenuPrestador');
+					navigation('/MenuAdministracao');
 				}
 			})
 		})

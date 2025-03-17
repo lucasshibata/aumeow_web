@@ -1,13 +1,13 @@
 import "./TelaInicial.css";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
-import cachorroGato from "../../assets/cachorro_e_gato.png";
+import cachorroGato from "../../../assets/cachorro_e_gato.png";
 // import navImg1 from "../../assets/banho_doguinho.png";
 // import navImg2 from "../../assets/corgi_vacina.png";
 // import navImg3 from "../../assets/cachorro_piscina.png";
 // import navImg4 from "../../assets/cachorro_grade.png";
-import navImg5 from "../../assets/dog_loja.png";
-import navImg6 from "../../assets/dog-walk.jpg";
+import navImg5 from "../../../assets/dog_loja.png";
+import navImg6 from "../../../assets/dog-walk.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function TelaInicial(){
@@ -61,7 +61,7 @@ export default function TelaInicial(){
                     <div className="Div2">
                         <h1>Sobre o AuMeow</h1>
                         <div className="InerContainer">
-                            <img src={require("../../assets/cachorro_piscina.png")} alt="imagem1" />
+                            <img src={require("../../../assets/cachorro_piscina.png")} alt="imagem1" />
                             <p>Encontre abrigos e centros de adoção próximos, 
                                 conectando você a uma gama de animais adoráveis 
                                 esperando por um lar amoroso. Explore perfis e descubra 
@@ -72,7 +72,7 @@ export default function TelaInicial(){
                                 conectando você a uma gama de animais adoráveis 
                                 esperando por um lar amoroso. Explore perfis e descubra 
                                 quem está pronto para se tornar o novo membro da sua família.</p>
-                            <img src={require("../../assets/cachorro_piscina.png")} alt="imagem2" />
+                            <img src={require("../../../assets/cachorro_piscina.png")} alt="imagem2" />
                         </div>
                     </div>
                 </article>

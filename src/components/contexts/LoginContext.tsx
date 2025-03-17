@@ -20,8 +20,10 @@ const withAuth = (Component: any) => {
               const funcao = snapshot.val();
               if (funcao === "prestador") {
                 navigate("/MenuPrestador");
-              } else {
-                navigate("/NavigationScreen");
+              } else if (funcao === "administrador"){
+                navigate("/MenuAdministracao");
+              }else{
+                navigate("/MenuCliente");
               }
             } else {
               console.log("Nenhum dado encontrado");

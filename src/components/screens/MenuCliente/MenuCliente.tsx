@@ -9,8 +9,8 @@ import withAuth from '../../contexts/AuthContext';
 function MenuCliente(){
     const navigate = useNavigate();
     const data = [
-        { id:1, titleNav: 'Serviços Pet', srcImg:require('../../assets/dog-walk.jpg'), navScreen:()=>navigate('/PetServices') },
-        { id:2, titleNav: 'Loja', srcImg:require('../../assets/shop-img.png'), navScreen:()=>navigate('/Shopping') },
+        { id:1, titleNav: 'Serviços Pet', srcImg:require('../../../assets/dog-walk.jpg'), navScreen:()=>navigate('/PetServices') },
+        { id:2, titleNav: 'Loja', srcImg:require('../../../assets/shop-img.png'), navScreen:()=>navigate('/Shopping') },
     ];
     
     return(
