@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { auth, database, set, ref, push, get, onValue } from '../../firebase/Firebase';
+import Footer from '../../layout/Footer';
+import Header from '../../layout/Header';
+import "./ChatC2P.css";
 
 export default function Chat() {
     const [funcaoUser, setFuncaoUser] = useState('');
@@ -127,21 +130,26 @@ export default function Chat() {
     };
     //===========================================================================
     return (
-        <div>
-        <h1>Chat</h1>
-        <div>
-            {messages.map((msg, index) => (
-            <div key={index}>
-                <b>{msg.nomeEnviou}</b>: {msg.text}
+        <div className='container'>
+            <Header/>
+            <div className='innerContainer'>
+                <h1>Chat</h1>
+                <div className='chat'>
+                    {messages.map((msg, index) => (
+                    <div key={index} className='messages'>
+                        <p className='text'>{msg.nomeEnviou}: {msg.text}</p>
+                    </div>
+                    ))}
+                </div>
+                <input
+                    type="text"
+                    value={message}
+                    onChange={e => setMessage(e.target.value)}
+                />
+                <button onClick={sendMessage}>Enviar</button>
             </div>
-            ))}
+            <Footer/>
         </div>
-        <input
-            type="text"
-            value={message}
-            onChange={e => setMessage(e.target.value)}
-        />
-        <button onClick={sendMessage}>Enviar</button>
-        </div>
+        
     );
 }

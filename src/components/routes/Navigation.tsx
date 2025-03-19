@@ -19,6 +19,7 @@ import ListaProdutosPrestador from '../screens/ListaProdutosPrestador/ListaProdu
 import SobreNos from '../screens/SobreNos/SobreNos';
 import ChatC2P from '../screens/ChatC2P/ChatC2P';
 import MenuAdministracao from '../screens/MenuAdministracao/MenuAdministracao';
+import ListaDeChats from '../screens/ListaDeChats/ListaDeChats';
 
 export default function Navigation(props:any){
 	const styles:React.CSSProperties = {
@@ -46,6 +47,7 @@ export default function Navigation(props:any){
 				<Route path='/SobreNos' element={<SobreNos/>}/>
 				<Route path='/Chat/:PrestadorId/:ClienteId' element={<ChatC2P/>}/>
 				<Route path='/MenuAdministracao' element={<MenuAdministracao/>}/>
+				<Route path='/ListaDeChats' element={<ListaDeChats/>}/>
 			</Routes>
 		</div>
     );

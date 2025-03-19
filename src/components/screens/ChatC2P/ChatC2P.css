@@ -1,0 +1,19 @@
+.container{
+    height: 100vh;
+    background-color: white;
+
+    & .innerContainer{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        & .chat{
+            & .messages{
+                
+                & .text{
+                    color: black;
+                }
+            }
+        }
+        
+    }
+}

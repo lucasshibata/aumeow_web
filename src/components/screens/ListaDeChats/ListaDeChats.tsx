@@ -33,7 +33,10 @@ export default function ListaDeChats() {
                 .map((key) => ({
                     id: key,
                     ...allServices[key],
-                }));
+                }))
+                .filter((item, index, self) => 
+                    index === self.findIndex((t) => t.UidEnviou === item.UidEnviou) // Garante apenas um por UidEnviou
+                );;
                 setChats(userServices);
             } else {
                 console.log("Nenhum chat encontrado.");
@@ -50,7 +53,8 @@ export default function ListaDeChats() {
             <div>
                 {chats.map(item => (
                     <div key={item.id} className="itemList">
-                        <p>{item.UidEnviou}</p>
+                        <p>{item.nomeEnviou}</p>
+                        <button onClick={()=>{navigate("/Chat/"+item.UidRecebeu+"/"+item.UidEnviou)}}>ir para o chat</button>
                     </div>
                 ))}
             </div>
