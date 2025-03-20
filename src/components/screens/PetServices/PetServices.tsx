@@ -4,7 +4,7 @@ import './PetServices.css';
 import { auth, ref, database, get, onAuthStateChanged } from "../../firebase/Firebase";
 import { useState, useEffect } from "react";
 import { User } from "firebase/auth";
-import withAuth from '../../contexts/AuthContext';
+import withAuth from '../../contexts/LoginContext';
 import { useNavigate } from 'react-router-dom';
 
 interface Service {

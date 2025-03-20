@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './MenuCliente.css'
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
-import withAuth from '../../contexts/AuthContext';
+import withAuth from '../../contexts/LoginContext';
 
 
 function MenuCliente(){

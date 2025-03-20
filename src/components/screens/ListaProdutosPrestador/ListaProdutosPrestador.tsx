@@ -1,4 +1,4 @@
-import withAuth from '../../contexts/AuthContext';
+import withAuth from '../../contexts/LoginContext';
 import {auth, ref, database, get} from "../../firebase/Firebase";
 import { useState, useEffect } from "react";
 import "./ListaProdutosPrestador.css";

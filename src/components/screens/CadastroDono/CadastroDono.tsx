@@ -6,7 +6,8 @@ import TitleLogo from '../../layout/TitleLogo';
 import './CadastroDono.css'
 
 
-export default function CadastroDono(){
+
+function CadastroDono(){
 	const {register, handleSubmit} = useForm();
 	const navigate = useNavigate();
 	
@@ -43,3 +44,4 @@ export default function CadastroDono(){
 	);
 }
 
+export default CadastroDono;

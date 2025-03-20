@@ -1,6 +1,6 @@
 import ShopBox from '../../layout/ShopBox';
 import './Shopping.css'
-import withAuth from '../../contexts/AuthContext';
+import withAuth from '../../contexts/LoginContext';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import { useState } from "react";

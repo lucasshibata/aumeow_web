@@ -5,7 +5,7 @@ import Space from '../../layout/Space';
 import './CreateUser.css'
 import TitleLogo from '../../layout/TitleLogo';
 
-export default function CreateUser(){
+function CreateUser(){
 	return(
 		<div className='CreateUser'>
 			<BackGround>
@@ -34,3 +34,5 @@ export default function CreateUser(){
 		</div>
 	);
 }
+
+export default CreateUser;

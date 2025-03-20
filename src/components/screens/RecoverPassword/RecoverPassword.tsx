@@ -5,7 +5,7 @@ import "./RecoverPassword.css"
 import TitleLogo from '../../layout/TitleLogo';
 import { Link } from 'react-router-dom';
 
-export default function RecoverPassword(){
+function RecoverPassword(){
     const {register, handleSubmit} = useForm();
     
     async function handlePasswordReset (data:any) {
@@ -36,3 +36,5 @@ export default function RecoverPassword(){
         </div>
     );
 };
+
+export default RecoverPassword;

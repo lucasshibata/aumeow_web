@@ -1,6 +1,6 @@
 import {auth, ref, database, get} from "../../firebase/Firebase";
 import { useState, useEffect } from "react";
-import withAuth from '../../contexts/AuthContext';
+import withAuth from '../../contexts/LoginContext';
 import './ListaServicosPrestador.css';
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";

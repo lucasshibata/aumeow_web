@@ -5,7 +5,7 @@ import SignUp from '../../layout/SignUp';
 import { useNavigate } from 'react-router-dom';
 import TitleLogo from '../../layout/TitleLogo';
 
-export default function CadastroPrestador(){
+function CadastroPrestador(){
 	const {register, handleSubmit} = useForm();
 	const navigate = useNavigate();
 	
@@ -41,3 +41,5 @@ export default function CadastroPrestador(){
 		</div>
 	);
 }
+
+export default CadastroPrestador;

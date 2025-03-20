@@ -65,42 +65,47 @@ export default function Header(){
         borderRadius:'15px'
     }
     const location = useLocation();
-    const showButtonOnRoutes = ["/EspecificProduct", "/CadastroProdutos", "/RegistroServicoPrestador", "/ListaProdutosPrestador", "/ListaServicosPrestador", "/MenuPrestador", 
-        "/MenuCliente","/MenuAdministracao", "/PetServices", "/RegistroProdutoPrestador", "/Shopping", "/Shopping/:ProdId","/Chat", "/Chat/:PrestadorId/:ClienteId", "/ListaDeChats"];
-    const shouldShowButton = showButtonOnRoutes.some(route => 
-        location.pathname.startsWith(route),location.pathname);
-    const dontShow = !shouldShowButton;
-    const showBack = ["/MenuCliente", "/MenuPrestador", "/MenuAdministracao"].includes(location.pathname);
-    const showHome = ["/"].includes(location.pathname);
+    const telasMostrarEntrar = ["/Login", "/", "/CreateUser", "/CadastroDono", "/CadastroPrestador", "/RecoverPassword", "/SobreNos"];
+    const mostrarEntrar = telasMostrarEntrar.includes(location.pathname);
+    // telasMostrarEntrar.some(route => location.pathname.startsWith(route),location.pathname);
+    const telasMenus = ["/MenuCliente", "/MenuPrestador", "/MenuAdministracao"]
+    const mostrarVoltar = telasMenus.includes(location.pathname);
+    const mostrarOutros = !mostrarEntrar;
     const handleLogout = async () => {
         try {
           await signOut(auth);
           console.log("Usuário deslogado com sucesso!");
+          navigate("/Login");
         } catch (error) {
           console.error("Erro ao deslogar:", error);
         }
     };
     return(
         <header style={stylesContainer}>
-            {!showBack && shouldShowButton && <div onMouseEnter={() => setIsHovering(true)} 
+
+            {!mostrarVoltar && !mostrarEntrar && <div onMouseEnter={() => setIsHovering(true)} 
           onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
                 <FaArrowLeft style={stylesIcons}/>
                 <button style={stylesButton} onClick={()=>navigate(-1)}>Voltar</button>
             </div>}
+            {/* =========================================== */}
             <div style={stylesContent}>
                 <div style={stylesLogo}>
                     <RenderLogo/>
                 </div>
                 <h1>AuMeow</h1>
             </div>
+            {/* ============================================= */}
             <div style={stylesContent}>
-                {!showHome &&<div style={stylesInnerDiv}>
+                {mostrarOutros &&<div style={stylesInnerDiv}>
                     <FaHome style={stylesIcons}/><Link to="/" style={stylesText}>Home</Link>
                 </div>}
-                {dontShow &&<div style={stylesInnerDiv}>
+                {/* =========================================== */}
+                {mostrarEntrar &&<div style={stylesInnerDiv}>
                     <FaUser style={stylesIcons}/><Link to="/Login" style={stylesText}>Entrar</Link>
                 </div>}
-                {shouldShowButton && <div onMouseEnter={() => setIsHovering(true)} 
+                {/* =============================================== */}
+                {mostrarOutros && <div onMouseEnter={() => setIsHovering(true)} 
           onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
                     <FaSignOutAlt style={stylesIcons}/><button style={stylesButton} onClick={handleLogout}>Sair</button>
                     </div>}

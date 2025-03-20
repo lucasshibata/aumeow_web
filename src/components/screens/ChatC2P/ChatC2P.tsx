@@ -4,8 +4,9 @@ import { auth, database, set, ref, push, get, onValue } from '../../firebase/Fir
 import Footer from '../../layout/Footer';
 import Header from '../../layout/Header';
 import "./ChatC2P.css";
+import withAuth from '../../contexts/LoginContext';
 
-export default function Chat() {
+function Chat() {
     const [funcaoUser, setFuncaoUser] = useState('');
     const [messages, setMessages] = useState<{ nomeEnviou: string, text: string }[]>([]);
     const [message, setMessage] = useState('');
@@ -153,3 +154,5 @@ export default function Chat() {
         
     );
 }
+
+export default withAuth(Chat);

@@ -5,6 +5,7 @@ import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import './EspecificProduct.css';
 import { useForm } from 'react-hook-form';
+import withAuth from '../../contexts/LoginContext';
 
 interface Product {
     id: string; // Chave única do serviço no Firebase
@@ -81,4 +82,4 @@ function EspecificProduct() {
         </div>
     );
 }
-export default EspecificProduct;
+export default withAuth(EspecificProduct);

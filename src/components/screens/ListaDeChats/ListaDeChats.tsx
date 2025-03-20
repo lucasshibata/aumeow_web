@@ -3,6 +3,7 @@ import Footer from "../../layout/Footer";
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import {auth, database, ref, get} from "../../firebase/Firebase";
+import withAuth from "../../contexts/LoginContext";
 
 
 interface Chat {
@@ -16,7 +17,7 @@ interface Chat {
 }
 
 
-export default function ListaDeChats() {
+function ListaDeChats() {
     const navigate = useNavigate()
     const [chats, setChats] = useState<Chat[]>([]);
 
@@ -62,3 +63,5 @@ export default function ListaDeChats() {
         </div>
     )
 }
+
+export default withAuth(ListaDeChats);
