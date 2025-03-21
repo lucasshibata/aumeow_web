@@ -18,7 +18,7 @@ function CadastroDono(){
 					<TitleLogo/>
 					<div className='InnerContainer'>
 						<h1 className='Title'>Cadastro de Cliente</h1>
-						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "dono"))}>
+						<form className='FormContainer' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "cliente"))}>
 							<label className='txt'>Nome:</label>
 							<input className='InputText' type='text' placeholder='Nome Completo:' {...register("name")} />
 							<label className='txt'>CPF:</label>
