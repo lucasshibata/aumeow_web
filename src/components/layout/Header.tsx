@@ -10,7 +10,7 @@ export default function Header(){
     const [isHovering, setIsHovering] = useState(false);
     
     const stylesContainer:React.CSSProperties = {
-        backgroundColor: '#DEB2FB',
+        backgroundColor: 'var(--marrom-bg)',
         display: 'flex',
         alignItems:'center',
         justifyContent: 'space-around',
@@ -30,13 +30,22 @@ export default function Header(){
     }
     const stylesText:React.CSSProperties = {
         fontSize:'1.4rem',
-        color: 'white',
+        color: 'var(--branco)',
         margin:'0px',
         padding: '0px',
+        fontFamily: 'var(--fonte-texto)',
+        textDecoration:'none'
+    }
+    const stylesTitleText:React.CSSProperties = {
+        fontSize:'2.3rem',
+        color: 'var(--branco)',
+        margin:'0px',
+        padding: '0px',
+        fontFamily: 'var(--fonte-texto)',
         textDecoration:'none'
     }
     const stylesIcons:React.CSSProperties = {
-        color: '#white',
+        color: 'var(--branco)',
         fontSize:'1.4rem',
         margin:'0px',
         padding: '0px'
@@ -49,19 +58,19 @@ export default function Header(){
         justifyContent:'center'
     }
     const stylesButton:React.CSSProperties = {
-        backgroundColor: '#7360DF',
-        color: 'white',
+        backgroundColor: 'var(--marrom-btn)',
+        color: 'var(--branco)',
         fontSize:'1.4rem',
         border: '0px',
         cursor: isHovering ? 'pointer' : 'default'
     }
     const stylesInnerDiv:React.CSSProperties = {
-        backgroundColor:'#7360DF',
+        backgroundColor:'var(--marrom-btn)',
         display:'flex', 
         justifyContent:'center', 
         alignItems:'center',
         gap:'10px',
-        padding:'10px',
+        padding:'15px',
         borderRadius:'15px'
     }
     const location = useLocation();
@@ -93,7 +102,7 @@ export default function Header(){
                 <div style={stylesLogo}>
                     <RenderLogo/>
                 </div>
-                <h1>AuMeow</h1>
+                <h1 style={stylesTitleText}>AuMeow</h1>
             </div>
             {/* ============================================= */}
             <div style={stylesContent}>

@@ -21,13 +21,9 @@ import ChatC2P from '../screens/ChatC2P/ChatC2P';
 import MenuAdministracao from '../screens/MenuAdministracao/MenuAdministracao';
 import ListaDeChats from '../screens/ListaDeChats/ListaDeChats';
 
-export default function Navigation(props:any){
-	const styles:React.CSSProperties = {
-		width: '100%',
-		height: '100%'
-	}
+export default function Navigation(){
     return(
-		<div className='Navigation' style={styles}>
+		<div className='Navigation'>
 			<Routes>
 				<Route path='/' element={<TelaInicial/>}/>
 				<Route path='/CreateUser' element={<CreateUser/>}/>

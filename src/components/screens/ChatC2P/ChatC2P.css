@@ -10,7 +10,7 @@
             & .messages{
                 
                 & .text{
-                    color: black;
+                    color: var(--preto);
                 }
             }
         }

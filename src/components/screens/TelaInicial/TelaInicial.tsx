@@ -39,7 +39,7 @@ export default function TelaInicial(){
                 </article>
                 {/* =============================================================== */}
                 <article className="Article2">
-                    <h1>Como podemos te ajudar hoje?</h1>
+                    <h1 className="tituloArt2">Como podemos te ajudar hoje?</h1>
                     <div className="FlatList">
                         {data.map(item => (
                             <div key={item.id} className="card">
@@ -55,11 +55,8 @@ export default function TelaInicial(){
                             </div>
                         ))}
                     </div>
-                </article>
-                {/* =============================================================== */}
-                <article className="Article3">
                     <div className="Div2">
-                        <h1>Sobre o AuMeow</h1>
+                        <h1 className="tituloSobre">Sobre o AuMeow</h1>
                         <div className="InerContainer">
                             <img src={require("../../../assets/cachorro_piscina.png")} alt="imagem1" />
                             <p>Encontre abrigos e centros de adoção próximos, 
@@ -75,7 +72,7 @@ export default function TelaInicial(){
                             <img src={require("../../../assets/cachorro_piscina.png")} alt="imagem2" />
                         </div>
                     </div>
-                </article>
+                </article>     
             </main>
             <Footer/>
         </div>

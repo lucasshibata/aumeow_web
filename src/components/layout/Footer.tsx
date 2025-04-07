@@ -16,7 +16,7 @@ export default function Footer(){
     };
 
     const stylesContainer:React.CSSProperties = {
-        backgroundColor: '#DEB2FB',
+        backgroundColor: 'var(--marrom-bg)',
         display: 'flex',
         justifyContent: 'center',
         paddingBottom:'30px',
@@ -35,20 +35,23 @@ export default function Footer(){
         alignItems:'center'
     }
     const stylesTexth3:React.CSSProperties = {
-        color: 'white',
+        color: 'var(--branco)',
+        fontFamily:'var(--fonte-texto)',
+        fontSize: '1.2rem',
         fontWeight:'lighter',
         margin: 0
     }
     const stylesTexth2:React.CSSProperties = {
-        color: 'white',
+        color: 'var(--branco)',
         fontWeight:'normal',
+        fontFamily:'var(--fonte-texto)',
         margin:0
     }
     const stylesCircle:React.CSSProperties = {
         width: '64px',
         height: '64px',
         borderRadius:'32px',
-        backgroundColor: '#7360DF',
+        backgroundColor: 'var(--marrom-btn)',
         display:'flex',
         justifyContent:'center',
         alignItems:'center'
@@ -63,7 +66,7 @@ export default function Footer(){
     const stylesIcon:React.CSSProperties = {
         height:'50%', 
         width:'50%', 
-        color:'white'
+        color:'var(--branco)'
     }
     const stylesForm:React.CSSProperties = {
         display: 'flex',
@@ -72,20 +75,23 @@ export default function Footer(){
         margin: '0px'
     }
     const stylesFormInput:React.CSSProperties = {
-        borderColor: '#7360DF',
+        borderColor: 'var(--marrom-btn)',
         borderWidth: '4px',
+        borderStyle:"solid",
         borderRadius: '15px',
         fontSize: '1.2rem',
-        padding: '7px',
-        backgroundColor:'white'
+        fontFamily:'var(--fonte-texto)',
+        padding: '10px',
+        backgroundColor:'var(--branco)'
     }
     const stylesFormSubmit:React.CSSProperties = {
-        backgroundColor: '#7360DF',
+        backgroundColor: 'var(--marrom-btn)',
         borderWidth: '0px',
         borderRadius: '15px',
         fontSize: '1.2rem',
+        fontFamily:'var(--fonte-texto)',
         padding: '7px',
-        color: 'white'
+        color: 'var(--branco)'
     }
 
     return(
