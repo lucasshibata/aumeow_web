@@ -1,171 +1,187 @@
 .TelaInicial {
     width: '100%';
     height: '100%';
-    background-image: url(../../../assets/bg_telaincial.png);
+    background-image: url(../../../assets/bg_telainicial.png);
     background-size: auto;
     background-position: center;
     background-repeat: repeat;
-    & .Article1{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 3vw;
-        & .Div1{
-            color: var(--fonte-texto);
+    & .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5); /* branco com 50% de opacidade */
+        z-index: 1;
+    }
+    & .ConteudoTelaInicial{
+        position: relative;
+        z-index: 2;
+        color: #000;
+        & .Article1TelaInicial{
             display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3vw;
+            & .Div1TelaInicial{
+                color: var(--fonte-texto);
+                display: flex;
+                flex-direction: column;
+                & h1{
+                    font-family: var(--fonte-texto);
+                    font-size: 4em;
+                    color: var(--marrom-text);
+                    font-weight: bold;
+                    margin: 0;
+                }
+                & p{
+                    font-family: var(--fonte-texto);
+                    font-size: 1.5rem;
+                    color: var(--marrom-text);
+                    font-weight: bold;
+                }
+                & .btn_div1{
+                    background-color: var(--marrom-btn);
+                    transition: 0.4s;
+                    border: 0;
+                    width: 200px;
+                    height: auto;
+                    padding: 15px;
+                    color: var(--branco);
+                    font-family: var(--fonte-texto);
+                    font-size: 1.2rem;
+                    border-radius: 15px;
+                    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                }
+                & .btn_div1:active{
+                    background-color: var(--marrom-btn-transparente); /* Cor transparente no clique */
+                    color: var(--marrom-text); /* Mantém a cor do texto visível */
+                }
+            }
+            & .imgDogCat{
+                display: flex;
+                width: auto;
+                height: auto;
+            }
+        }
+        & .Article2TelaInicial{
+            background-color: var(--pastel-bg);
+            display: flex;
+            width: 99.8%;
+            border: solid, var(--preto), 2px;
+            align-items: center;
             flex-direction: column;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            & .tituloArt2{
+                color: var(--marrom-text);
+                font-family: var(--fonte-texto);
+                font-weight: bold;
+            }
             & h1{
                 font-family: var(--fonte-texto);
-                font-size: 4em;
-                color: var(--marrom-text);
-                font-weight: bold;
-                margin: 0;
+                font-size: 4rem;
+                font-weight: normal;
             }
-            & p{
-                font-family: var(--fonte-texto);
-                font-size: 1.2rem;
-                color: var(--marrom-text);
-                font-weight: bold;
-            }
-            & .btn_div1{
-                background-color: var(--marrom-btn);
-                transition: 0.4s;
-                border: 0;
-                width: 200px;
-                height: auto;
-                padding: 15px;
-                color: var(--branco);
-                font-size: 1.2rem;
-                border-radius: 15px;
-                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-            }
-            & .btn_div1:active{
-                background-color: #34186b57; /* Cor transparente no clique */
-                color: #33186B; /* Mantém a cor do texto visível */
-            }
-        }
-        & .imgDogCat{
-            display: flex;
-            width: auto;
-            height: auto;
-        }
-    }
-    & .Article2{
-        background-color: var(--pastel-bg);
-        display: flex;
-        width: 100vw;
-        border: solid, var(--preto), 2px;
-        align-items: center;
-        flex-direction: column;
-        border-top-left-radius: 50px;
-        border-top-right-radius: 50px;
-        & .tituloArt2{
-            color: var(--marrom-text);
-            font-family: var(--fonte-texto);
-            font-weight: bold;
-        }
-        & h1{
-            font-family: var(--fonte-texto);
-            font-size: 4rem;
-            font-weight: normal;
-        }
-        & .FlatList{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            width: 100vw;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-            & .tituloImgMenu{
-                font-size: 1.3rem;
-                color: var(--preto);
-                text-align: center;
-            }
-            & .card {
-                width: 300px;
-                height: 340px;
+            & .FlatList{
                 display: flex;
-                justify-content: center;
-                & .card-inner {
-                    width: 90%;
-                    height: 90%;
-                    position: relative;
-                    transform-style: preserve-3d;
-                    transition: transform 0.700s;
-                    & .card-front, .card-back {
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        backface-visibility: hidden;
-                        border-radius: 10px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                    & .card-front {
-                        background-color: #6A2C70;
-                        color: #fff;
-                        border: 5px solid #6A2C70;
-                        & img {
-                            width: 98%;
-                            height: auto;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 100%;
+                flex-wrap: wrap;
+                margin-bottom: 15px;
+                & .tituloImgMenu{
+                    font-size: 1.3rem;
+                    color: var(--preto);
+                    text-align: center;
+                }
+                & .card {
+                    width: 300px;
+                    height: 340px;
+                    display: flex;
+                    justify-content: center;
+                    & .card-inner {
+                        width: 90%;
+                        height: 90%;
+                        position: relative;
+                        transform-style: preserve-3d;
+                        transition: transform 0.700s;
+                        & .card-front, .card-back {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            backface-visibility: hidden;
                             border-radius: 10px;
-                            margin-top: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
                         }
-                        & .tituloImgMenu {
-                            font-size: 18px;
-                            font-weight: bold;
-                            margin-top: 5px;
-                            text-align: center;
-                            color: #fff;
+                        & .card-front {
+                            background-color: var(--marrom-btn);
+                            color: var(--branco);
+                            border: 5px solid var(--marrom-btn);
+                            & img {
+                                width: 98%;
+                                height: auto;
+                                border-radius: 10px;
+                                margin-top: 20px;
+                            }
+                            & .tituloImgMenu {
+                                font-size: 18px;
+                                font-weight: bold;
+                                margin-top: 5px;
+                                text-align: center;
+                                color: var(--branco);
+                                font-family: var(--fonte-texto);
+                            }
                         }
+                        & .card-back {
+                            background-color: var(--branco);
+                            color: var(--preto);
+                            border: 5px solid var(--marrom-btn);
+                            transform: rotateY(180deg);
+                        } 
                     }
-                    & .card-back {
-                        background-color: #F8F7F4;
-                        color: #000000;
-                        border: 5px solid #6A2C70;
+                }
+                & .card:hover{
+                    & .card-inner {
                         transform: rotateY(180deg);
                     } 
                 }
             }
-            & .card:hover{
-                & .card-inner {
-                    transform: rotateY(180deg);
-                } 
-            }
-        }
-        & .Div2{
-            color: black;
-            & .tituloSobre{
-                color: var(--marrom-text);
-                font-family: var(--fonte-texto);
-                font-weight: bold;
-            }
-            & h1{
-                font-family: "Josefin Slab", serif;
-                font-size: 4rem;
-                font-weight: normal;
-                text-align: center;
-            }
-            & .InerContainer{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 20px;
-                padding: 20px;
-                & p{
-                    width: 40vw;
-                    font-size: 1.4rem;
+            & .Div2TelaInicial{
+                color: var(--preto);
+                & .tituloSobre{
+                    color: var(--marrom-text);
+                    font-family: var(--fonte-texto);
+                    font-weight: bold;
                 }
-                & img{
-                    border-style: solid;
-                    border-color: var(--marrom-btn);
-                    border-width: 6px;
-                    border-radius: 22px;
+                & h1{
+                    font-family: var(--fonte-texto);
+                    font-size: 4rem;
+                    font-weight: normal;
+                    text-align: center;
+                }
+                & .InerContainerTelaInicial{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    padding: 20px;
+                    & p{
+                        width: 40vw;
+                        font-size: 1.4rem;
+                    }
+                    & img{
+                        border-style: solid;
+                        border-color: var(--marrom-btn);
+                        border-width: 6px;
+                        border-radius: 22px;
+                    }
                 }
             }
         }

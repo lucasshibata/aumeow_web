@@ -1,15 +1,14 @@
 import React from 'react';
 
 export default function TitleBusiness(){
-    const styles = {
-        title:{
-            fontSize:32,
-            color:'#7360DF',
-            margin: 12
-        },
+    const stylesTitle:React.CSSProperties = {
+        fontSize:32,
+        color:'var(--marrom-text)',
+        margin: 12,
+        fontWeight: 'bold'
     };
     return(
-        <p style={styles.title}>AuMeow</p>
+        <p style={stylesTitle}>AuMeow</p>
     );
 };
 

@@ -22,7 +22,7 @@ export default function BtnComp(props:any){
             padding:10,
             borderRadius:10,
             paddingHorizontal:20,
-            backgroundColor:'#7360DF'
+            backgroundColor:'var(--marrom-btn)'
         },
     };
     return(

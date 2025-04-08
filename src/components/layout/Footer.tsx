@@ -100,7 +100,7 @@ export default function Footer(){
                 <div style={stylesLogo}>
                     <RenderLogo/>
                 </div>
-                <h1 style={{margin:0, marginBottom:15}}>Aumeow</h1>
+                <h1 style={{margin:0, marginBottom:15, color: 'var(--branco)'}}>Aumeow</h1>
                 <div style={{display:'flex', gap:'50px'}}>
                     <TouchableOpacity onClick={()=>navigate('/')}>
                         <div style={stylesCircle}>
@@ -115,7 +115,7 @@ export default function Footer(){
                 </div>
             </div>
             <div style={stylesContent}>
-                <h1 style={{margin:0}}>Envie um email para nós:</h1>
+                <h1 style={{margin:0,color: 'var(--branco)'}}>Envie um email para nós:</h1>
                 <form style={stylesForm} onSubmit={handleSubmit((data)=>SendEmail(data))}>
                     <input style={stylesFormInput} type='text' placeholder='Nome Completo:' {...register("nome")}/>
                     <input style={stylesFormInput} type='email' placeholder='Seu Email Pessoal:' {...register("email")}/>
@@ -124,14 +124,14 @@ export default function Footer(){
                 </form>
             </div>
             <div style={stylesContent}>
-                <h1 style={{margin:0}}>Entre em Contato</h1>
+                <h1 style={{margin:0, color: 'var(--branco)',}}>Entre em Contato</h1>
                 <h2 style={stylesTexth2}>E-mail:</h2>
                 <h3 style={stylesTexth3}>aumeow.pets@gmail.com</h3>
                 <h2 style={stylesTexth2}>Whatsapp:</h2>
                 <h3 style={stylesTexth3}>(61) 98282-1772</h3>
             </div>
             <div style={stylesContent}>
-                <h1 style={{margin:0}}>Navegação</h1>
+                <h1 style={{margin:0, color: 'var(--branco)',}}>Navegação</h1>
                 <Link to='/' style={stylesTexth3}>Home</Link>
                 <Link to='/SobreNos' style={stylesTexth3}>Sobre nós</Link>
             </div>

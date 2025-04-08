@@ -1,23 +1,26 @@
 import BackGround from '../../layout/BackGround';
-import WhiteBox from '../../layout/WhiteBox';
 import BtnComp from '../../layout/BtnComp';
 import Space from '../../layout/Space';
 import './CreateUser.css'
 import TitleLogo from '../../layout/TitleLogo';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function CreateUser(){
+	const navigate = useNavigate();
 	return(
 		<div className='CreateUser'>
 			<BackGround>
-				<div className='Container'>
+				<div className='ContainerCreateUser'>
+					<button className='BotaoVoltarCreateUser' onClick={()=>navigate(-1)}><FaArrowLeft/> Voltar</button>
 					<TitleLogo/>
 					<Space w={20}/>
-					<WhiteBox>
-						<h1 className='Title'>Bem-vindo ao AuMeow!</h1>
+					<div className='InnerContainerCreateUser'>
+						<h1 className='TitleCreateUser'>Bem-vindo ao AuMeow!</h1>
 						<Space h={10}/>
-						<p className='Txt'>Escolha uma opção para se cadastrar:</p>
+						<p className='TxtCreateUser'>Escolha uma opção para se cadastrar:</p>
 						<Space h={10}/>
-						<div className='ContainerBtns'>
+						<div className='ContainerBtnsCreateUser'>
 							<BtnComp
 								labelButton="Dono de Pet"
 								toPress='CadastroDono'
@@ -27,9 +30,8 @@ function CreateUser(){
 								toPress='CadastroPrestador'
 							/>
 						</div>
-					</WhiteBox>
-				</div>
-				
+					</div>
+				</div>	
 			</BackGround>
 		</div>
 	);
