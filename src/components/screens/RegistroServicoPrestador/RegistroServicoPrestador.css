@@ -1,53 +1,60 @@
-.Container{
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
+.ContainerRegistroServicoPrestador{
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--pastel-bg);
     display: flex;
     flex-direction: column;
-    & .DivForm{
+    & .DivFormRegistroServicoPrestador{
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        & .Title{
-            color: #7360DF;
+        & .TitleRegistroServicoPrestador{
+            color: var(--marrom-text);
+            font-size: 2rem;
         }
-        & .Form{
+        & .FormRegistroServicoPrestador{
             display: flex;
-            width: 25vw;
+            width: 500px;
             align-items: flex-start;
             flex-direction: column;
-            border: #7360DF solid 4px;
+            border: var(--marrom-btn) solid 4px;
             margin-bottom: 20px;
             border-radius: 15px;
             padding: 20px;
             gap: 1vh;
+            & .txtRegistroServicoPrestador{
+                display: flex;
+                width: 100%;
+                color: var(--marrom-text);
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
             & h1{
                 display: flex;
-                color: #7360DF;
+                color: var(--marrom-text);
                 font-weight: bold;
             }
-            & .Submit{
+            & .SubmitRegistroServicoPrestador{
                 display: flex;
                 width: 100%;
-                background-color: #7360DF;
-                color: white;
+                background-color: var(--marrom-btn);
+                color: var(--branco);
             }
-            & label{
-                display: flex;
-                width: 100%;
-                color: #7360DF;
-                font-size: xx-large;
-                font-weight: 500;
+            & .InputTextRegistroServicoPrestador{
+                background-color: var(--cinza-claro);
+            }
+            & .SelectOptionRegistroServicoPrestador{
+                background-color: var(--cinza-claro);
             }
             & input, select{
                 display: flex;
-                width: 100%;
-                font-size: xx-large;
+                width: 95%;
+                font-size: 1.5rem;
                 border-radius: 15px;
-                border: #7360DF solid;
+                border: var(--marrom-btn) solid;
                 padding: 5px;
             }
         }

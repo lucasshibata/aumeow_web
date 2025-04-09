@@ -1,10 +1,10 @@
-.Container{
+.ContainerMenuCliente{
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     flex-direction: column;
-    background-color: white;
-    & .FlatList{ 
+    background-color: var(--pastel-bg);
+    & .FlatListMenuCliente{ 
         display: flex;
         flex-direction: row;
         justify-content: space-around;

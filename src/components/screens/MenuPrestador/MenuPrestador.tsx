@@ -17,9 +17,9 @@ function MenuPrestador(){
         }
     };
     return(
-        <div className="Container">
+        <div className="ContainerMenuPrestador">
             <Header/>
-            <div className="main">
+            <div className="InnerContainerMenuPrestador">
                 <button onClick={()=>navigate('/RegistroServicoPrestador')}>ir para registro de serviço</button>
                 <button onClick={()=>navigate('/ListaServicosPrestador')}>ir para lista de Serviços</button>
                 <button onClick={()=>navigate('/ListaDeChats')}>ir para lista de chats</button>

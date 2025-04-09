@@ -14,11 +14,11 @@ function MenuCliente(){
     ];
     
     return(
-        <div className='Container'>
+        <div className='ContainerMenuCliente'>
             <Header/>
-            <div className="FlatList">
+            <div className="FlatListMenuCliente">
                 {data.map(item => (
-                    <div key={item.id} className="ContainerList">
+                    <div key={item.id} className="ContainerListMenuCliente">
                         <NavToolsImg src={item.srcImg} titleNav={item.titleNav} onTouch={item.navScreen}/>
                     </div>
                 ))}

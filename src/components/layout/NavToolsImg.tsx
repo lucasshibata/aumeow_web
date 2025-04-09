@@ -26,7 +26,7 @@ export default function NavToolsImg(props:any){
         fontSize:'1.2rem'
     }
     const stylesContainer:React.CSSProperties = {
-        backgroundColor:'#33186B',
+        backgroundColor:'var(--marrom-btn)',
         height:'40vh',
         width:isMobile ? '35vh' : '15vw',
         display: 'flex',

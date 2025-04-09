@@ -11,28 +11,28 @@ import withAuth from '../../contexts/LoginContext';
     const navigate = useNavigate();
 
     return(
-        <div className="Container">
+        <div className="ContainerRegistroServicoPrestador">
             <Header/>
-            <div className="DivForm">
-                <h1 className="Title">Formulário de Serviço</h1>
-                <form className= "Form"onSubmit={handleSubmit((data)=>SendService(data, navigate))}>
-                    <label className='txt'>Endereço:</label>
-                    <input className='InputText' type='text' placeholder='Endereço:' {...register("adress")} />
-                    <label className='txt'>Preço:</label>
-                    <input className='InputText' type="number" placeholder='Preço:' {...register("price")}/>
-                    <label className='txt'>Animal de Preferência:</label>
-                    <select className='SelectOption' {...register("animalType")}>
+            <div className="DivFormRegistroServicoPrestador">
+                <h1 className="TitleRegistroServicoPrestador">Formulário de Serviço</h1>
+                <form className= "FormRegistroServicoPrestador"onSubmit={handleSubmit((data)=>SendService(data, navigate))}>
+                    <label className='txtRegistroServicoPrestador'>Endereço:</label>
+                    <input className='InputTextRegistroServicoPrestador' type='text' placeholder='Endereço:' {...register("adress")} />
+                    <label className='txtRegistroServicoPrestador'>Preço:</label>
+                    <input className='InputTextRegistroServicoPrestador' type="number" placeholder='Preço:' {...register("price")}/>
+                    <label className='txtRegistroServicoPrestador'>Animal de Preferência:</label>
+                    <select className='SelectOptionRegistroServicoPrestador' {...register("animalType")}>
                         <option value="gato">gato</option>
                         <option value="cachorro">cachorro</option>
                     </select>
-                    <label className='txt'>Quantidade de passeio/visita:</label>
-                    <select className='SelectOption' {...register("qtdService")}>
+                    <label className='txtRegistroServicoPrestador'>Quantidade de passeio/visita:</label>
+                    <select className='SelectOptionRegistroServicoPrestador' {...register("qtdService")}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                     </select>
-                    <input className="Submit" type="submit" />
+                    <input className="SubmitRegistroServicoPrestador" type="submit" />
                 </form>
             </div>
             <Footer/>
