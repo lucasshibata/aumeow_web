@@ -23,6 +23,7 @@ function MenuPrestador(){
                 <button onClick={()=>navigate('/RegistroServicoPrestador')}>ir para registro de serviço</button>
                 <button onClick={()=>navigate('/ListaServicosPrestador')}>ir para lista de Serviços</button>
                 <button onClick={()=>navigate('/ListaDeChats')}>ir para lista de chats</button>
+                <button onClick={()=>navigate('/Denuncia')}>ir para o canal de denuncia</button>
                 <button onClick={handleLogout}>sair</button>
             </div>
             <Footer/>
