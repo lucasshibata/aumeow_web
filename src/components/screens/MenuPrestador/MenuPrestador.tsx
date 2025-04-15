@@ -4,8 +4,15 @@ import { useNavigate } from "react-router-dom";
 import './MenuPrestador.css';
 import withAuth from '../../contexts/LoginContext';
 import { signOut, auth } from "../../firebase/Firebase";
+import NavToolsImg from '../../layout/NavToolsImg';
 
 function MenuPrestador(){
+    const data = [
+        { id:1, titleNav: 'Registro de Serviço', srcImg:require('../../../assets/registro_servico.png'), navScreen:()=>navigate('/RegistroServicoPrestador') },
+        { id:2, titleNav: 'Lista de Serviços', srcImg:require('../../../assets/lista_servicos.png'), navScreen:()=>navigate('/ListaServicosPrestador') },
+        { id:3, titleNav: 'Lista de Chats', srcImg:require('../../../assets/lista_chats.png'), navScreen:()=>navigate('/ListaDeChats') },
+        { id:4, titleNav: 'Sair', srcImg:require('../../../assets/img_canal_de_denuncia.png'), navScreen:()=>handleLogout() }
+    ];
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -19,12 +26,12 @@ function MenuPrestador(){
     return(
         <div className="ContainerMenuPrestador">
             <Header/>
-            <div className="InnerContainerMenuPrestador">
-                <button onClick={()=>navigate('/RegistroServicoPrestador')}>ir para registro de serviço</button>
-                <button onClick={()=>navigate('/ListaServicosPrestador')}>ir para lista de Serviços</button>
-                <button onClick={()=>navigate('/ListaDeChats')}>ir para lista de chats</button>
-                <button onClick={()=>navigate('/Denuncia')}>ir para o canal de denuncia</button>
-                <button onClick={handleLogout}>sair</button>
+            <div className="FlatListMenuPrestador">
+                {data.map(item => (
+                    <div key={item.id} className="ContainerListMenuCliente">
+                        <NavToolsImg src={item.srcImg} titleNav={item.titleNav} onTouch={item.navScreen}/>
+                    </div>
+                ))}
             </div>
             <Footer/>
         </div>

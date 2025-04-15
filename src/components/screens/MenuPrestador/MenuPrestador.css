@@ -4,22 +4,16 @@
     display: flex;
     flex-direction: column;
     background: var(--branco);
-    & .InnerContainerMenuPrestador{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 15px;
-        width: 100%;
-        min-height: 100%;
+    
+    & .FlatListMenuPrestador{ 
         flex: 1;
-        & button{
-            border-radius: 15px;
-            padding: 10px;
-            margin: 10px;
-            background-color: var(--marrom-btn);
-            border: 0px;
-            color: var(--branco);
-            font-size: 15px;
-        }
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        height: 100%;
+        overflow-y: auto;
     }
 }

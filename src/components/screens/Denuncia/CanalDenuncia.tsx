@@ -4,14 +4,39 @@ import './CanalDenuncia.css';
 import { useNavigate } from 'react-router-dom';
 import TitleLogo from '../../layout/TitleLogo';
 import { FaArrowLeft } from 'react-icons/fa';
+import { database, ref, set, auth} from '../../firebase/Firebase';
+
+
+interface Data{
+    nome:string,
+    email:string,
+    cpf:string,
+    tipoDenuncia:string,
+    descricao:string
+}
 
 function CanalDenuncia() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
 
     const enviarDenuncia = (data: any) => {
-        console.log(data);
-        alert('Denúncia enviada com sucesso!');
+        const userUid = auth.currentUser?.uid;
+        const denunciaRef = ref(database, 'denuncias/'+userUid);
+            const denunciaData:Data ={
+                nome:data.nome || "N/a",
+                email:data.email || "N/a",
+                cpf:data.cpf || "N/a",
+                tipoDenuncia:data.denuncia || "N/a",
+                descricao:data.descricao || "N/a"
+            }
+            set(denunciaRef, denunciaData)
+            .then(()=>{
+                alert("conta criada com sucesso e salvo no banco");
+                navigate('/Login');
+            })
+            .catch((error:any)=>{
+                alert(error.code);
+            })
     };
 
     return (
@@ -54,9 +79,9 @@ function CanalDenuncia() {
                                 className='InputTextCanalDenuncia'
                                 {...register("tipoDenuncia")}
                             >
-                                <option value="Assédio">Assédio</option>
-                                <option value="Corrupção">Corrupção</option>
-                                <option value="Violência">Violência</option>
+                                <option value="Abandono">Abandono</option>
+                                <option value="Agressão">Agressão</option>
+                                <option value="Aprisionamento">Aprisionamento</option>
                                 <option value="Outros">Outros</option>
                             </select>
 

@@ -5,7 +5,7 @@ import cachorroGato from "../../../assets/cachorro_e_gato.png";
 // import navImg1 from "../../assets/banho_doguinho.png";
 // import navImg2 from "../../assets/corgi_vacina.png";
 // import navImg3 from "../../assets/cachorro_piscina.png";
-// import navImg4 from "../../assets/cachorro_grade.png";
+import navImg4 from "../../../assets/cachorro_grade.png";
 import navImg5 from "../../../assets/dog_loja.png";
 import navImg6 from "../../../assets/dog-walk.jpg";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ export default function TelaInicial(){
         { id:1, titleNav: 'Passeios', srcImg:navImg6, detalhes:"detalhes sobre Passeios" },
         { id:2, titleNav: 'Loja', srcImg:navImg5, detalhes:"detalhes sobre a Loja" },
         // { id:3, titleNav: 'Vacinação', srcImg:navImg2, detalhes:"detalhes sobre vacinação" },
-        // { id:4, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"detalhes sobre Denúncia" },
+        { id:3, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"detalhes sobre Denúncia" },
         // { id:5, titleNav: 'Hospedagem', srcImg:navImg3, detalhes:"detalhes sobre Hospedagem" },
         // { id:6, titleNav: 'Banho e tosa', srcImg:navImg1, detalhes:"detalhes sobre banho e tosa" },
         
