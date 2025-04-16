@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Footer from "../../layout/Footer";
 import Header from "../../layout/Header";
 import { useForm } from 'react-hook-form';
@@ -6,18 +6,19 @@ import { useNavigate } from 'react-router-dom';
 import { database, ref, set, get, auth } from '../../firebase/Firebase';
 import s3 from '../../aws/aws-config';
 import "./CadastroProdutos.css";
+import verifyFunction from "../../layout/verifyFunction";
 import withAuth from '../../contexts/LoginContext';
 
 // Defina a interface para productData
 interface ProductData {
-nome: string;
-codigo: string;
-quantidade: number;
-preco: number;
-marca: string;
-prestadorName: string;
-prestadorUID: string;
-prestadorEmail?: string; // A propriedade é opcional
+    nome: string;
+    codigo: string;
+    quantidade: number;
+    preco: number;
+    marca: string;
+    prestadorName: string;
+    prestadorUID: string;
+    prestadorEmail?: string; 
 }
 
 function CadastroProdutos() {
@@ -26,6 +27,45 @@ function CadastroProdutos() {
     const [file, setFile] = useState<File | null>(null);
     const [uploading, setUploading] = useState(false);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
+    const fileInputRef = useRef<HTMLInputElement>(null);;
+    
+    const handleFileChange = (e:any) => {
+        if (e.target.files && e.target.files[0]) {
+          setFile(e.target.files[0]);
+          const imageUrl = URL.createObjectURL(e.target.files[0]);
+          setImagePreview(imageUrl);
+        }
+    };
+
+    const handleClick = () => {
+        if (fileInputRef.current) {
+            fileInputRef.current.click();
+          } // abre o seletor de arquivos
+    };
+
+     useEffect(()=>{
+        const verificar = async () => {
+            const funcao = await verifyFunction();
+            
+            switch (funcao){
+                case "prestador":
+                    navigate("/MenuPrestador");
+                    break;
+                case "cliente":
+                    navigate("/MenuCliente");
+                    break;
+                default:
+                    console.log("permitido ou não encontrado");
+            }
+            setLoading(false);
+        }
+        verificar();
+    },[navigate])
+
+    if(loading){
+        <div>loading...</div>
+    }
 
     const onSubmit = async (data: any) => {
         if (!file) {
@@ -98,72 +138,72 @@ function CadastroProdutos() {
     return (
         <div className='CadastroProdutos'>
             <Header />
-            <div className='Container'>
-                <h1 className='Title'>Cadastro de Produtos</h1>
-                <form className='FormContainer' onSubmit={handleSubmit(onSubmit)}>
+            <div className='ContainerCadastroProdutos'>
+                <h1 className='TitleCadastroProdutos'>Cadastro de Produtos</h1>
+                <form className='FormContainerCadastroProdutos' onSubmit={handleSubmit(onSubmit)}>
                     {imagePreview && (
-                        <div  style={{ display:'flex', flexDirection:'column', width: '100%', height: 'auto'}}>
-                        <h3 className='txt'>Prévia da Imagem:</h3>
-                        <img
-                            src={imagePreview}
-                            alt="Prévia da imagem selecionada"
-                            style={{ maxWidth: '100%', height: '100%', marginTop: '10px' }}
-                        />
+                        <div  style={{ display:'flex', flexDirection:'column', width: '100%', height: 'auto', alignItems:'center'}}>
+                            <h3 className='txtCadastroProdutos'>Prévia da Imagem:</h3>
+                            <img
+                                src={imagePreview}
+                                alt="Prévia da imagem selecionada"
+                                style={{ width: '40%', height: '100%', marginTop: '10px' }}
+                            />
                         </div>
                     )}
-                <label className='txt'>Selecione uma imagem:</label>
-                <input
-                    className='file'
-                    type="file"
-                    onChange={(e) => {
-                    if (e.target.files && e.target.files[0]) {
-                        setFile(e.target.files[0]);
-                        const imageUrl = URL.createObjectURL(e.target.files[0]);
-                        setImagePreview(imageUrl);
-                    }
-                    }}
-                />
-                <label className='txt'>Nome do produto:</label>
-                <input
-                    className='InputText'
-                    type='text'
-                    placeholder='Nome:'
-                    {...register("name", { required: true })}
-                />
-                <label className='txt'>Código do produto:</label>
-                <input
-                    className='InputText'
-                    type='text'
-                    placeholder='Código:'
-                    {...register("code", { required: true })}
-                />
-                <label className='txt'>Quantidade em estoque:</label>
-                <input
-                    className='InputText'
-                    type='text'
-                    placeholder='Quantidade:'
-                    {...register("amount", { required: true })}
-                />
-                <label className='txt'>Preço do produto:</label>
-                <input
-                    className='InputText'
-                    type='text'
-                    placeholder='Preço:'
-                    {...register("price", { required: true })}
-                />
-                <label className='txt'>Marca do produto:</label>
-                <input
-                    className='InputText'
-                    type='text'
-                    placeholder='Marca:'
-                    {...register("brand", { required: true })}
-                />
-                <input
-                    className='Submit'
-                    value={uploading ? 'Enviando...' : 'Enviar'}
-                    type="submit"
-                    disabled={uploading}
-                />
+                    <label className='txtCadastroProdutos'>Selecione uma imagem:</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        ref={fileInputRef}
+                        style={{ display: 'none' }}
+                    />
+                    <button
+                        onClick={handleClick}
+                        className="botaoUploadImagemCadastroProdutos"
+                    >Selecionar imagem</button>
+                    <label className='txtCadastroProdutos'>Nome do produto:</label>
+                    <input
+                        className='InputTextCadastroProdutos'
+                        type='text'
+                        placeholder='Nome:'
+                        {...register("name", { required: true })}
+                    />
+                    <label className='txtCadastroProdutos'>Código do produto:</label>
+                    <input
+                        className='InputTextCadastroProdutos'
+                        type='text'
+                        placeholder='Código:'
+                        {...register("code", { required: true })}
+                    />
+                    <label className='txtCadastroProdutos'>Quantidade em estoque:</label>
+                    <input
+                        className='InputTextCadastroProdutos'
+                        type='text'
+                        placeholder='Quantidade:'
+                        {...register("amount", { required: true })}
+                    />
+                    <label className='txtCadastroProdutos'>Preço do produto:</label>
+                    <input
+                        className='InputTextCadastroProdutos'
+                        type='text'
+                        placeholder='Preço:'
+                        {...register("price", { required: true })}
+                    />
+                    <label className='txtCadastroProdutos'>Marca do produto:</label>
+                    <input
+                        className='InputTextCadastroProdutos'
+                        type='text'
+                        placeholder='Marca:'
+                        {...register("brand", { required: true })}
+                    />
+                    <input
+                        className='SubmitCadastroProdutos'
+                        value={uploading ? 'Enviando...' : 'Enviar'}
+                        type="submit"
+                        disabled={uploading}
+                    />
                 </form>
             </div>
             <Footer />

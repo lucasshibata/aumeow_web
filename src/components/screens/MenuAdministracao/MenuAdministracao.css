@@ -1,9 +1,21 @@
 .Container{
     min-height: 100vh;
-    background-color: white;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--branco);
     & .innerContainer{
-        color: black;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+        color: var(--preto);
         display: flex;
         height: 100%;
+        & .FlatListMenuAdministracao{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
     }
 }

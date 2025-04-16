@@ -1,19 +1,20 @@
 .CadastroProdutos{
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--branco);
     min-height: 100vh;
-    width: 100vw;
-    & .Container{
+    width: 100%;
+    & .ContainerCadastroProdutos{
         display: flex;
         flex: 1;
         align-items: center;
-        height: auto;
-        & .Title{
-            color: #7360DF;
+        flex-direction: column;
+        overflow-y: auto;
+        & .TitleCadastroProdutos{
+            color: var(--marrom-text);
         }
-        & .FormContainer{
-            border: solid #7360DF 4px;
+        & .FormContainerCadastroProdutos{
+            border: solid var(--marrom-btn) 4px;
             width: 35vw;
             display: flex;
             flex-direction: column;
@@ -22,23 +23,34 @@
             border-radius: 15px;
             margin-bottom: 20px;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-            & .txt{
-                color: #7360DF;
+            & .txtCadastroProdutos{
+                color: var(--marrom-text);
                 font-size: 1.4rem;
             }
-            & .InputText{
+            & .botaoUploadImagemCadastroProdutos{
                 font-size: 1.4rem;
-                border: solid #7360DF 4px;
+                color: var(--branco);
+                border: solid var(--marrom-btn) 4px;
                 border-radius: 8px;
                 padding: 5px;
+                cursor: pointer;
+                background-color: var(--marrom-btn);
             }
-            & .Submit{
+            & .InputTextCadastroProdutos{
+                font-size: 1.4rem;
+                border: solid var(--marrom-btn) 4px;
+                border-radius: 8px;
+                padding: 5px;
+                cursor: pointer;
+            }
+            & .SubmitCadastroProdutos{
                 font-size: 1.4rem;
                 border: 0px;
-                background-color: #7360DF;
-                color: white;
+                background-color: var(--marrom-btn);
+                color: var(--branco);
                 border-radius: 8px;
                 padding: 5px;
+                cursor: pointer;
             }
         }
     }
