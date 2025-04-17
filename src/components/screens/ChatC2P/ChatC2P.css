@@ -1,19 +1,85 @@
-.container{
+.ContainerChat{
     height: auto;
-    background-color: white;
-
-    & .innerContainer{
+    background-image: url("../../../assets/background_cha.png");
+    background-repeat: repeat;
+    background-size: 300px 300px; /* tamanho da imagem (ajuste como quiser) */
+    background-position: top left;
+    & .InnerContainerChat{
         display: flex;
         flex-direction: column;
         height: 100%;
-        & .chat{
-            & .messages{
-                
+        gap: 20px;
+        & h1{
+            color: var(--marrom-text);
+            text-align: center;
+        }
+        & .BlocoDeChats{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-left: 70px;
+            padding-right: 70px;
+            & .sentUser {
+                display: inline-block;
+                border-radius: 15px;
+                background-color: #dcf8c6; /* verde claro tipo WhatsApp */
+                text-align: right;
+                padding: 5px;
+                box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                word-break: break-word;
+                max-width: 70%;
+                align-self: flex-end;
                 & .text{
-                    color: var(--preto);
+                    color: var(--marrom-text);
+                    font-size: 1.2rem;
+                }
+            }
+              
+            & .receivedUser {
+                display: inline-block;
+                border-radius: 15px;
+                background-color: var(--cinza-claro); 
+                text-align: left;
+                box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                word-break: break-word;
+                max-width: 70%;
+                align-self: flex-start;
+                & .text{
+                    color: var(--marrom-text);
+                    font-size: 1.2rem;
                 }
             }
         }
-        
+        & .CaixaEnvioChat{
+            background-color: var(--marrom-btn);
+            display: flex;
+            padding: 20px;
+            gap: 5px;
+            & input{
+                background-color: var(--cinza-claro);
+                border: 0;
+                border-radius: 10px;
+                font-size: 1.3rem;
+                padding: 5px;
+                width: 90%;
+            }
+            & input:focus {
+                outline: none;
+                box-shadow: none;
+                border: none; /* se quiser tirar também */
+            }
+            & button{
+                background-color: var(--marrom-btn);
+                border: 0;
+                border-radius: 10px;
+                font-size: 1.5rem;
+                padding: 5px;
+                width: 10%;
+                color: var(--pastel-bg);
+                cursor: pointer;
+            }
+        }
     }
 }

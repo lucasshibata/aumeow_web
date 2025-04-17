@@ -5,10 +5,12 @@ import Footer from '../../layout/Footer';
 import Header from '../../layout/Header';
 import "./ChatC2P.css";
 import withAuth from '../../contexts/LoginContext';
+import { IoSend } from "react-icons/io5";
+
 
 function Chat() {
     const [funcaoUser, setFuncaoUser] = useState('');
-    const [messages, setMessages] = useState<{ nomeEnviou: string, text: string }[]>([]);
+    const [messages, setMessages] = useState<{ UidEnviou:string, nomeEnviou: string, text: string }[]>([]);
     const [message, setMessage] = useState('');
     const [socket, setSocket] = useState<WebSocket | null>(null);
     const [currentUserName, setCurrentUserName] = useState('');
@@ -44,7 +46,7 @@ function Chat() {
                 const data = snapshot.val();
                 if (data) {
                     // Convertendo o objeto do Firebase em um array de mensagens
-                    const loadedMessages = Object.values(data) as { nomeEnviou: string, text: string }[];
+                    const loadedMessages = Object.values(data) as { UidEnviou:string, nomeEnviou: string, text: string }[];
                     setMessages(loadedMessages);
                 }
             });
@@ -131,23 +133,28 @@ function Chat() {
     };
     //===========================================================================
     return (
-        <div className='container'>
+        <div className='ContainerChat'>
             <Header/>
-            <div className='innerContainer'>
+            <div className='InnerContainerChat'>
                 <h1>Chat</h1>
-                <div className='chat'>
-                    {messages.map((msg, index) => (
-                    <div key={index} className='messages'>
-                        <p className='text'>{msg.nomeEnviou}: {msg.text}</p>
-                    </div>
-                    ))}
+                <div className='BlocoDeChats'>
+                    {messages.map((msg, index) => {
+                        const isMine = msg.UidEnviou === user?.uid;
+                        return(
+                            <div key={index} className={`${isMine ? 'sentUser' : 'receivedUser'}`}>
+                                <p className='text'><strong>{msg.nomeEnviou}</strong><br/> {msg.text}</p>
+                            </div>
+                        );
+                    })}
                 </div>
-                <input
-                    type="text"
-                    value={message}
-                    onChange={e => setMessage(e.target.value)}
-                />
-                <button onClick={sendMessage}>Enviar</button>
+                <div className='CaixaEnvioChat'>
+                    <input
+                        type="text"
+                        value={message}
+                        onChange={e => setMessage(e.target.value)}
+                    />
+                    <button onClick={sendMessage}><IoSend/></button>
+                </div>
             </div>
             <Footer/>
         </div>

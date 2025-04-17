@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import {auth, database, ref, get} from "../../firebase/Firebase";
 import withAuth from "../../contexts/LoginContext";
+import "./ListaDeChats.css";
 
 
 interface Chat {
@@ -49,13 +50,13 @@ function ListaDeChats() {
     }
     recuperarChatsAbertos();
     return(
-        <div>
+        <div className="ContainerListaDeChats">
             <Header/>
-            <div>
+            <div className="InnerContainerListaDeChats">
                 {chats.map(item => (
-                    <div key={item.id} className="itemList">
-                        <p>{item.nomeEnviou}</p>
-                        <button onClick={()=>{navigate("/Chat/"+item.UidRecebeu+"/"+item.UidEnviou)}}>ir para o chat</button>
+                    <div key={item.id} className="itemListListaDeChats">
+                        <p className="TxtListaDeChats">{item.nomeEnviou}</p>
+                        <button className="Button1ListaDeChats" onClick={()=>{navigate("/Chat/"+item.UidRecebeu+"/"+item.UidEnviou)}}>ir para o chat</button>
                     </div>
                 ))}
             </div>
