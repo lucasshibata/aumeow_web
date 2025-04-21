@@ -1,13 +1,17 @@
 .Shopping{
     display: flex;
-    height: auto;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     flex-direction: column;
-    background-color: white;
-    & .FlatList{
+    background-color: var(--branco);
+    & .FlatListShopping{
         display: flex;
         flex-direction: row;
         height: 100%;
         justify-content: center;
+        & .itemListShopping{
+            width: auto;
+            height: auto;
+        }
     }
 }

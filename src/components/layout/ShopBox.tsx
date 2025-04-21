@@ -15,7 +15,7 @@ export default function ShopBox ({imgProduct, titleProduct, subtitleProduct, pri
     const stylesContainer:React.CSSProperties = {
         display: "flex",
         flexDirection:"column",
-        backgroundColor:'#7360DF',
+        backgroundColor:'var(--marrom-btn)',
         width:isMobile?'200px':'200px',
         height:isMobile?'340px':'340px',
         alignItems: 'center',
@@ -25,8 +25,8 @@ export default function ShopBox ({imgProduct, titleProduct, subtitleProduct, pri
         boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
     }
     const stylesImg:React.CSSProperties ={
-        width:'100%',
-        height:'60%',
+        width:'80%',
+        height:'auto',
         borderRadius:8,
         color:'black'
     }

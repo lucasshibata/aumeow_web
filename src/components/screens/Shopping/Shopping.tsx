@@ -45,9 +45,9 @@ function Shopping (){
     return(
         <div className='Shopping'>
             <Header/>
-            <div className="FlatList">
+            <div className="FlatListShopping">
                 {product.map(item => (
-                    <div key={item.id} className="itemList">
+                    <div key={item.id} className="itemListShopping">
                         <ShopBox imgProduct = {`https://aumeow-images.s3.sa-east-1.amazonaws.com/${item.id}/imagemProduto`} titleProduct={item.nome} subtitleProduct={item.marca} 
                         priceProduct={item.preco} navegar={()=>navigate(`/Shopping/${item.id}`)}/>
                     </div>

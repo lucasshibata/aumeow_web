@@ -56,10 +56,9 @@ function EspecificProduct() {
     return (
         <div className='EspecificProduct'>
             <Header/>
-            <div className='Container'>
-                <div style={{width:'400 px', height:'1px'}}></div>
+            <div className='ContainerEspecificProduct'>
                 {getProduct &&
-                    <div key={getProduct.id} className="ContainerList">
+                    <div key={getProduct.id} className="ContainerListEspecificProduct">
                         <img className='imageProduct' src={require("../../../assets/Teste_img_racao.jpg")} alt="imagem do produto" />
                         <p className='textProduct'>Nome do produto: {getProduct.nome}</p>
                         <p className='textProduct'>Marca do Produto: {getProduct.marca}</p>

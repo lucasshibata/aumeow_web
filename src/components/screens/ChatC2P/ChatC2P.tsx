@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { auth, database, set, ref, push, get, onValue } from '../../firebase/Firebase';
-import Footer from '../../layout/Footer';
+import { auth, database, set, ref, push, get, onValue } from '../../firebase/Firebase'; 
 import Header from '../../layout/Header';
 import "./ChatC2P.css";
 import withAuth from '../../contexts/LoginContext';
@@ -147,18 +146,16 @@ function Chat() {
                         );
                     })}
                 </div>
-                <div className='CaixaEnvioChat'>
-                    <input
-                        type="text"
-                        value={message}
-                        onChange={e => setMessage(e.target.value)}
-                    />
-                    <button onClick={sendMessage}><IoSend/></button>
-                </div>
             </div>
-            <Footer/>
+            <div className='CaixaEnvioChat'>
+                <input
+                    type="text"
+                    value={message}
+                    onChange={e => setMessage(e.target.value)}
+                />
+                <button onClick={sendMessage}><IoSend/></button>
+            </div>
         </div>
-        
     );
 }
 

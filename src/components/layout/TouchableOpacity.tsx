@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TouchableOpacity ({ children, onClick, activeOpacity = 0.6 }:any){
+export default function TouchableOpacity ({ children, onClick, activeOpacity = 0.4 }:any){
   const [isPressed, setIsPressed] = useState(false);
 
   const handleMouseDown = () => setIsPressed(true);

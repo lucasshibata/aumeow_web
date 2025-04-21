@@ -1,9 +1,9 @@
 .PetServices{
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100vw;
-    background-color: white;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--branco);
     & .ListaDeServicos{
         display:flex; 
         flex-direction:row;
@@ -15,13 +15,20 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
-            border: solid #7360DF 4px;
+            border: solid var(--marrom-btn) 4px;
             border-radius: 15px;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
             height: auto;
             flex-wrap: wrap;
             & .Texto{
-                color: black;
+                color: var(--preto);
+            }
+            & button{
+                border: 0;
+                background-color: var(--marrom-btn);
+                color: var(--branco);
+                border-radius: 10px;
+                padding: 10px;
             }
         }
     }
