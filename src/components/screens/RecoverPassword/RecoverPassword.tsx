@@ -23,14 +23,14 @@ function RecoverPassword(){
                     <div className='LogoDiv'>
                         <TitleLogo/>
                     </div>
-                <div className='RecoverContainer'>
-                    <h4>Esqueceu a senha? Prencha os campos abaixo</h4>
-                    <form className='FormContainer' onSubmit={handleSubmit(handlePasswordReset)}>
-                        <input className='InputEmail' type='email' placeholder='Email' {...register("email")}/>
-                        <input className='submit' value='Enviar e-mail de recuperação:' type="submit"/>
-                    </form>
-                    <Link className='LinkReturn' to={'/Login'}>Voltar para a página Inicial</Link>
-                </div>
+                    <div className='RecoverContainer'>
+                        <h4>Esqueceu a senha? Prencha os campos abaixo</h4>
+                        <form className='FormContainer' onSubmit={handleSubmit(handlePasswordReset)}>
+                            <input className='InputEmail' type='email' placeholder='Email' {...register("email")}/>
+                            <input className='submit' value='Solicitar recuperação' type="submit"/>
+                        </form>
+                        <Link className='LinkReturn' to={'/Login'}>Voltar para a página Inicial</Link>
+                    </div>
                 </div>
             </BackGround>
         </div>

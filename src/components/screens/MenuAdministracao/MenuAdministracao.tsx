@@ -39,9 +39,9 @@ function MenuAdministracao(){
     }
 
     return(
-        <div className="Container">
+        <div className="ContainerMenuAdministracao">
             <Header/>
-            <div className="innerContainer">
+            <div className="innerContainerMenuAdministracao">
                 <h1>Menu administração</h1>
                 <div className="FlatListMenuAdministracao">
                     {data.map(item => (
