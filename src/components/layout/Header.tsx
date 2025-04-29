@@ -4,6 +4,7 @@ import {Link, useLocation} from "react-router-dom";
 import { FaHome, FaUser, FaSignOutAlt, FaArrowLeft } from "react-icons/fa";
 import {signOut, auth} from '../firebase/Firebase';
 import { useNavigate } from 'react-router-dom';
+import { CgProfile } from "react-icons/cg";
 
 export default function Header(){
     const navigate = useNavigate()
@@ -118,6 +119,10 @@ export default function Header(){
           onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
                     <FaSignOutAlt style={stylesIcons}/><button style={stylesButton} onClick={handleLogout}>Sair</button>
                     </div>}
+                {/* ================================================== */}
+                    {mostrarOutros &&<div style={stylesInnerDiv}>
+                    <CgProfile style={stylesIcons}/><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
+                </div>}
             </div>
         </header>
     )

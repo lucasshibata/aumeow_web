@@ -50,6 +50,15 @@ function CadastroDono(){
 							<input className='InputTextCadastroDono' type='text' placeholder='Endereço:' {...register("endereco")} />
 							<label className='txtCadastroDono'>Telefone de Contato:</label>
 							<input className='InputTextCadastroDono' type='text' placeholder='Telefone:' {...register("telefone")} />
+							<label className='txtCadastroDono'>Nome do Pet:</label>
+							<input className='InputTextCadastroDono' type='text' placeholder='Nome Do Pet:' {...register("nomeDoPet")} />
+							<label className='txtCadastroDono'>Espécie do Pet:</label>
+							<input className='InputTextCadastroDono' type='text' placeholder='Espécie Do Pet:' {...register("especie")} />
+							<label className='txtCadastroDono'>Tipo do Animal:</label>
+							<select className='InputTextCadastroDono' {...register("tipoAnimal")}>
+								<option value="gato">Gato</option>
+								<option value="cachorro">Cachorro</option>
+							</select>
 							<label className='txtCadastroDono'>Foto Pessoal:</label>
 							{imagePreview && (
 								<div  style={{ display:'flex', flexDirection:'column', width: '30vw', height: 'auto', alignItems:'center'}}>

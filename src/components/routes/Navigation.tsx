@@ -22,6 +22,7 @@ import MenuAdministracao from '../screens/MenuAdministracao/MenuAdministracao';
 import ListaDeChats from '../screens/ListaDeChats/ListaDeChats';
 import CanalDenuncia from '../screens/Denuncia/CanalDenuncia';
 import CadastroContasAdministracao from '../screens/CadastroContasAdministracao/CadastroContasAdministracao';
+import PerfilDeUsuario from '../screens/PerfilDeUsuario/PerfilDeUsuario';
 
 export default function Navigation(){
     return(
@@ -48,6 +49,7 @@ export default function Navigation(){
 				<Route path='/ListaDeChats' element={<ListaDeChats/>}/>
 				<Route path='/Denuncia' element={<CanalDenuncia/>}/>
 				<Route path='/CadastroContasAdministracao' element={<CadastroContasAdministracao/>}/>
+				<Route path='/PerfilDeUsuario' element={<PerfilDeUsuario/>}/>
 			</Routes>
 		</div>
     );

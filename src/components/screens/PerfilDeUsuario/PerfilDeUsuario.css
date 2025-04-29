@@ -1,0 +1,16 @@
+.PerfilDeUsuario{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    & .ContainerPerfilDeUsuario{
+        flex: 1;
+        & .InnerContainerPerfilDeUsuario{
+            & .ItemListaPerfilDeUsuario{
+                & .TextoPPerfilDeUsuario{
+                    color: var(--preto);
+                }
+            }
+        }
+    }
+}

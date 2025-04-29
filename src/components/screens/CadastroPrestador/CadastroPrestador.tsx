@@ -52,9 +52,9 @@ function CadastroPrestador(){
 							<label className='txtCadastroPrestador'>Experiência:</label>
 							<input className='InputTextCadastroPrestador' type='text' placeholder='Diga sua exeperiência:' {...register("experiencia")} />
 							<label className='txtCadastroPrestador'>Raio de Atendimento (Km):</label>
-							<input className='InputTextCadastroPrestador' type='number' placeholder='Raio:' {...register("raioKM")} />
+							<input className='InputTextCadastroPrestador' type='number' placeholder='Raio:' {...register("raioAtendimento")} />
 							<label className='txtCadastroPrestador'>Animal de Preferência:</label>
-							<select className='InputTextCadastroPrestador' {...register("animallPreferencia")}>
+							<select className='InputTextCadastroPrestador' {...register("animalPreferencia")}>
 								<option value="gato">Gato</option>
 								<option value="cachorro">Cachorro</option>
 							</select>
