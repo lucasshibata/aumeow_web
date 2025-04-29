@@ -37,12 +37,14 @@
 			gap:10px;
 			& .txtCadastroDono{
 				color: var(--marrom-text);
+				width: 30vw;
 			}
 			& .submitCadastroDono{
 				font-size:1.3rem;
 				background-color: var(--marrom-btn);
 				border: 0;
 				border-radius: 10px;
+				width: 30vw;
 				padding: 5px;
 				color: var(--branco);
 				transition: 0.2s;
@@ -58,6 +60,15 @@
 				border-style: solid;
 				padding: 5px;
 				width:30vw;
+			}
+			& .botaoUploadImagemCadastroDono{
+				width: 30vw;
+				border: 0;
+				background-color: var(--marrom-btn);
+				color: var(--branco);
+				padding: 10px;
+				border-radius: 15px;
+				cursor: pointer;
 			}
 		}
 		& .TitleCadastroDono{

@@ -21,6 +21,7 @@ import ChatC2P from '../screens/ChatC2P/ChatC2P';
 import MenuAdministracao from '../screens/MenuAdministracao/MenuAdministracao';
 import ListaDeChats from '../screens/ListaDeChats/ListaDeChats';
 import CanalDenuncia from '../screens/Denuncia/CanalDenuncia';
+import CadastroContasAdministracao from '../screens/CadastroContasAdministracao/CadastroContasAdministracao';
 
 export default function Navigation(){
     return(
@@ -46,6 +47,7 @@ export default function Navigation(){
 				<Route path='/MenuAdministracao' element={<MenuAdministracao/>}/>
 				<Route path='/ListaDeChats' element={<ListaDeChats/>}/>
 				<Route path='/Denuncia' element={<CanalDenuncia/>}/>
+				<Route path='/CadastroContasAdministracao' element={<CadastroContasAdministracao/>}/>
 			</Routes>
 		</div>
     );

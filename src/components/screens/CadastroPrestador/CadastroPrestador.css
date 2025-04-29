@@ -37,11 +37,13 @@
 			gap:10px;
 			& .txtCadastroPrestador{
 				color: var(--marrom-text);
+				width: 30vw;
 			}
 			& .submitCadastroPrestador{
 				font-size:1.3rem;
 				background-color: var(--marrom-btn);
 				border: 0;
+				width: 30vw;
 				border-radius: 10px;
 				padding: 5px;
 				color: white;
@@ -58,6 +60,15 @@
 				border-style: solid;
 				padding: 5px;
 				width:30vw;
+			}
+			& .botaoUploadImagemCadastroPrestador{
+				width: 30vw;
+				border: 0;
+				background-color: var(--marrom-btn);
+				color: var(--branco);
+				padding: 10px;
+				border-radius: 15px;
+				cursor: pointer;
 			}
 		}
 		& .TitleCadastroPrestador{

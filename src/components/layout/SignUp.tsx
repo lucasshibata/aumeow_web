@@ -1,4 +1,6 @@
 import {auth, createUserWithEmailAndPassword, database, ref, set} from '../firebase/Firebase';
+import s3 from '../aws/aws-config';
+
 interface Data{
     nome: string,
     cpf: string,
@@ -17,7 +19,9 @@ interface Data{
     animalPreferencia: string
 }
 
-export default async function signUp(data:any, navigation:any, type:string) {
+
+
+export default async function signUp(data:any, navigation:any, type:string, file:any) {
     if (data.password === data.passwordAgain){
         await createUserWithEmailAndPassword(auth, data.email, data.password)
         .then((users)=>{
@@ -43,11 +47,28 @@ export default async function signUp(data:any, navigation:any, type:string) {
             set(userRef, userData)
             .then(()=>{
                 alert("conta criada com sucesso e salvo no banco");
-                navigation('/Login')
             })
             .catch((error:any)=>{
                 alert(error.code);
             })
+            if (!file) {
+                alert('Por favor, selecione uma imagem.');
+            } else{
+                try {
+                    s3.upload({
+                        Bucket: 'aumeow-images',
+                        Key: `${users.user.uid}/imagemDono`,
+                        Body: file,
+                        ContentType: file.type,
+                    }).promise();
+                    alert('Conta criada com sucesso!');
+                    console.log('Arquivos enviados com sucesso');
+                } catch (error) {
+                    console.error('Erro ao criar conta:', error);
+                    alert('Erro ao criar Conta. Tente novamente.');
+                }
+            }
+            navigation('/Login');
         })
         .catch((error:any)=>{
             switch(error.code){
