@@ -1,1 +1,9 @@
-
+.SobreNos{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    & .ContainerSobreNos{
+        flex: 1;
+    }
+}

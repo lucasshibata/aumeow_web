@@ -12,10 +12,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function TelaInicial(){
     const data = [
-        { id:1, titleNav: 'Passeios', srcImg:navImg6, detalhes:"detalhes sobre Passeios" },
-        { id:2, titleNav: 'Loja', srcImg:navImg5, detalhes:"detalhes sobre a Loja" },
+        { id:1, titleNav: 'Passeios', srcImg:navImg6, detalhes:"Permite aos tutores agendar passeios, banho, tosa ou cuidados especiais para seus pets com profissionais confiáveis. A plataforma mostra disponibilidade, preços, avaliações e permite acompanhar o serviço em tempo real, promovendo bem-estar e comodidade para os animais e seus donos." },
+        { id:2, titleNav: 'Loja', srcImg:navImg5, detalhes:"A funcionalidade permite que os clientes naveguem facilmente por categorias de produtos para animais, como ração, brinquedos, acessórios e itens de higiene. É possível pesquisar por nome, filtrar por tipo de pet, marca ou preço, visualizar detalhes do produto e adicionar ao carrinho com apenas alguns cliques. A experiência é otimizada para garantir praticidade, segurança na compra do cliente." },
         // { id:3, titleNav: 'Vacinação', srcImg:navImg2, detalhes:"detalhes sobre vacinação" },
-        { id:3, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"detalhes sobre Denúncia" },
+        { id:3, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"Funcionalidade dedicada à proteção animal, permitindo que os usuários denunciem casos de maus-tratos de forma anônima e segura. O sistema coleta informações, fotos ou vídeos e encaminha automaticamente os dados às autoridades ou ONGs responsáveis, garantindo agilidade e sigilo no processo." },
         // { id:5, titleNav: 'Hospedagem', srcImg:navImg3, detalhes:"detalhes sobre Hospedagem" },
         // { id:6, titleNav: 'Banho e tosa', srcImg:navImg1, detalhes:"detalhes sobre banho e tosa" },
         
@@ -60,18 +60,22 @@ export default function TelaInicial(){
                         <div className="Div2TelaInicial">
                             <h1 className="tituloSobre">Sobre o AuMeow</h1>
                             <div className="InerContainerTelaInicial">
-                                <img src={require("../../../assets/cachorro_piscina.png")} alt="imagem1" />
-                                <p>Encontre abrigos e centros de adoção próximos, 
-                                    conectando você a uma gama de animais adoráveis 
-                                    esperando por um lar amoroso. Explore perfis e descubra 
-                                    quem está pronto para se tornar o novo membro da sua família.</p>
+                                <img className="imagemSobreTelaInicial" src={require("../../../assets/animais_felizes.png")} alt="imagem1" />
+                                <p>O projeto AuMeow é uma iniciativa para agrupar todas as necessidades
+                                    de donos de pets em um único lugar, com o intúito de trazer o melhor
+                                    de todos os serviços, trazendo produtos, lojas e empresas que melhor
+                                    atendem seu(s) animal(is), venha com a gente e desfrute de tudo que 
+                                    a AuMeow pode fazer por você.</p>
                             </div>
                             <div className="InerContainerTelaInicial">
-                                <p>Encontre abrigos e centros de adoção próximos, 
+                                <div className="DivSobreNosTelaInicial">
+                                    <p>Encontre abrigos e centros de adoção próximos, 
                                     conectando você a uma gama de animais adoráveis 
                                     esperando por um lar amoroso. Explore perfis e descubra 
                                     quem está pronto para se tornar o novo membro da sua família.</p>
-                                <img src={require("../../../assets/cachorro_piscina.png")} alt="imagem2" />
+                                    <button className="BtnSobreNosTelaInicial" onClick={()=>navigate("/SobreNos")}>Conheça mais Sobre Nós</button>
+                                </div>
+                                <img className="imagemSobreTelaInicial" src={require("../../../assets/cachorro_piscina.png")} alt="imagem2" />
                             </div>
                         </div>
                     </article>     

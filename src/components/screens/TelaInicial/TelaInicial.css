@@ -119,6 +119,14 @@
                             align-items: center;
                             justify-content: center;
                         }
+                        & .card-back{
+                            padding: 5px;
+                            & p{
+                                text-align: justify;
+                                color: var(--marrom-text);
+                                font-weight: bold;
+                            }
+                        }
                         & .card-front {
                             background-color: var(--marrom-btn);
                             color: var(--branco);
@@ -173,12 +181,29 @@
                     flex-wrap: wrap;
                     gap: 20px;
                     padding: 20px;
+                    & .DivSobreNosTelaInicial{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        & .BtnSobreNosTelaInicial{
+                            width: 30%;
+                            border: 0;
+                            background-color: var(--marrom-btn);
+                            color: var(--branco);
+                            padding: 10px;
+                            border-radius: 10px;
+                            cursor: pointer;
+                            font-size: 1.4rem;
+                        }
+                    }
                     & p{
                         width: 40vw;
                         font-size: 1.4rem;
                     }
                     & img{
                         border-style: solid;
+                        width: 20%;
+                        height: auto;
                         border-color: var(--marrom-btn);
                         border-width: 6px;
                         border-radius: 22px;
