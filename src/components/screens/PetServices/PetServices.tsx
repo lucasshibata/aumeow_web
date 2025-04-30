@@ -84,18 +84,20 @@ function PetServices() {
     return (
         <div className='PetServices'>
             <Header/>
-            <ul className='ListaDeServicos'>
-                {services.map((service: Service) => (
-                    <li className='ItemLista' key={service.id}>
-                        <h2 className='Texto'>{service.nomePrestador}</h2>
-                        <p className='Texto'>Endereço: {service.endereco}</p>
-                        <p className='Texto'>Preço: {service.preco}</p>
-                        <p className='Texto'>Animal: {service.tipoAnimal}</p>
-                        <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
-                        <button onClick={()=>startChat(service.userUid)}>iniciar chat</button>
-                    </li>
-                ))}
-            </ul>
+            <div className='ListaDeServicosPetServices'>
+                <ul className='InnerListaPetServices'>
+                    {services.map((service: Service) => (
+                        <li className='ItemLista' key={service.id}>
+                            <h2 className='Texto'>{service.nomePrestador}</h2>
+                            <p className='Texto'>Endereço: {service.endereco}</p>
+                            <p className='Texto'>Preço: {service.preco}</p>
+                            <p className='Texto'>Animal: {service.tipoAnimal}</p>
+                            <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
+                            <button onClick={()=>startChat(service.userUid)}>iniciar chat</button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <Footer/>
         </div>
     );

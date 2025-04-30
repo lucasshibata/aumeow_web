@@ -11,14 +11,18 @@ export default function Header(){
     const [isHovering, setIsHovering] = useState(false);
     
     const stylesContainer:React.CSSProperties = {
+        display: 'flex',
+        alignItems:'center',
+        justifyContent: 'space-between',
+        flexWrap:"wrap",
+        width:'98%',
+    }
+    const stylesHeader:React.CSSProperties = {
         backgroundColor: 'var(--marrom-bg)',
         display: 'flex',
         alignItems:'center',
-        justifyContent: 'space-around',
-        flexWrap:"wrap",
-        paddingTop:'10px',
-        paddingBottom:'10px',
-        width:'100vw'
+        width: "100%",
+        paddingLeft:"1%"
     }
     const stylesContent:React.CSSProperties = {
         display:'flex',
@@ -80,6 +84,8 @@ export default function Header(){
     // telasMostrarEntrar.some(route => location.pathname.startsWith(route),location.pathname);
     const telasMenus = ["/MenuCliente", "/MenuPrestador", "/MenuAdministracao"]
     const mostrarVoltar = telasMenus.includes(location.pathname);
+    const PerfilDeUsuario = ["/PerfilDeUsuario"]
+    const mostrarPerfil = PerfilDeUsuario.includes(location.pathname);
     const mostrarOutros = !mostrarEntrar;
     const handleLogout = async () => {
         try {
@@ -91,38 +97,47 @@ export default function Header(){
         }
     };
     return(
-        <header style={stylesContainer}>
-
-            {!mostrarVoltar && !mostrarEntrar && <div onMouseEnter={() => setIsHovering(true)} 
-          onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
-                <FaArrowLeft style={stylesIcons}/>
-                <button style={stylesButton} onClick={()=>navigate(-1)}>Voltar</button>
-            </div>}
-            {/* =========================================== */}
-            <div style={stylesContent}>
-                <div style={stylesLogo}>
-                    <RenderLogo/>
-                </div>
-                <h1 style={stylesTitleText}>AuMeow</h1>
-            </div>
-            {/* ============================================= */}
-            <div style={stylesContent}>
-                {mostrarOutros &&<div style={stylesInnerDiv}>
-                    <FaHome style={stylesIcons}/><Link to="/" style={stylesText}>Home</Link>
-                </div>}
+        <header style={stylesHeader}>
+            <div style={stylesContainer}>
+                {!mostrarVoltar && !mostrarEntrar && 
+                    <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
+                        <FaArrowLeft style={stylesIcons}/>
+                        <button style={stylesButton} onClick={()=>navigate(-1)}>Voltar</button>
+                    </div>
+                }
                 {/* =========================================== */}
-                {mostrarEntrar &&<div style={stylesInnerDiv}>
-                    <FaUser style={stylesIcons}/><Link to="/Login" style={stylesText}>Entrar</Link>
-                </div>}
-                {/* =============================================== */}
-                {mostrarOutros && <div onMouseEnter={() => setIsHovering(true)} 
-          onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
-                    <FaSignOutAlt style={stylesIcons}/><button style={stylesButton} onClick={handleLogout}>Sair</button>
-                    </div>}
-                {/* ================================================== */}
-                    {mostrarOutros &&<div style={stylesInnerDiv}>
-                    <CgProfile style={stylesIcons}/><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
-                </div>}
+                <div style={stylesContent}>
+                    <div style={stylesLogo}>
+                        <RenderLogo/>
+                    </div>
+                    <h1 style={stylesTitleText}>AuMeow</h1>
+                </div>
+                {/* ============================================= */}
+                <div style={stylesContent}>
+                    {mostrarOutros &&
+                        <div style={stylesInnerDiv}>
+                            <FaHome style={stylesIcons}/><Link to="/" style={stylesText}>Home</Link>
+                        </div>
+                    }
+                    {/* =========================================== */}
+                    {mostrarEntrar &&
+                        <div style={stylesInnerDiv}>
+                            <FaUser style={stylesIcons}/><Link to="/Login" style={stylesText}>Entrar</Link>
+                        </div>
+                    }
+                    {/* =============================================== */}
+                    {mostrarOutros && 
+                        <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
+                            <FaSignOutAlt style={stylesIcons}/><button style={stylesButton} onClick={handleLogout}>Sair</button>
+                        </div>
+                    }
+                    {/* ================================================== */}
+                    {mostrarOutros && !mostrarPerfil &&
+                        <div style={stylesInnerDiv}>
+                            <CgProfile style={stylesIcons}/><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
+                        </div>
+                    }
+                </div>
             </div>
         </header>
     )

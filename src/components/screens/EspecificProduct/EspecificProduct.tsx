@@ -59,7 +59,7 @@ function EspecificProduct() {
             <div className='ContainerEspecificProduct'>
                 {getProduct &&
                     <div key={getProduct.id} className="ContainerListEspecificProduct">
-                        <img className='imageProduct' src={require("../../../assets/Teste_img_racao.jpg")} alt="imagem do produto" />
+                        <img className='imageProduct' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/${getProduct.id}/imagemProduto`} alt="imagem do produto" />
                         <p className='textProduct'>Nome do produto: {getProduct.nome}</p>
                         <p className='textProduct'>Marca do Produto: {getProduct.marca}</p>
                         <p className='textProduct'>Preço do produto: R${getProduct.preco}</p>

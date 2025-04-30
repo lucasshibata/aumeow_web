@@ -40,6 +40,8 @@ export default function PerfilDeUsuario(){
     const [UserPrestador, setUserPrestador] = useState<UserPrestador[]>([]);
     const [funcao, setFuncao] = useState<string|undefined>('');
     const [loading, setLoading] = useState(true);
+    const [authChecked, setAuthChecked] = useState(false);
+    const [user, setUser] = useState<any>(null);
     
     const fetchUserCliente = async () => {
         try {
@@ -96,15 +98,27 @@ export default function PerfilDeUsuario(){
     };
 
     useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            setUser(user);
+            setAuthChecked(true);
+        });
+    
+        return () => unsubscribe();
+    }, []);
+
+    useEffect(() => {
         const fetchFuncao = async () => {
             const result = await verifyFunction();
             setFuncao(result);
         };
-        fetchFuncao();
-    }, []); 
+    
+        if (authChecked) {
+            fetchFuncao();
+        }
+    }, [authChecked]);
     
     useEffect(() => {
-        if (!funcao) return;
+        if (!funcao || !user) return;
     
         if (funcao === 'cliente') {
             fetchUserCliente();
@@ -114,8 +128,11 @@ export default function PerfilDeUsuario(){
             console.warn('Função inesperada:', funcao);
             setLoading(false);
         }
-    }, [funcao]); 
+    }, [funcao, user]);
    
+    function PressedButton(){
+        console.log('ir para edição')
+    }
     
     if (loading) {
         return <p>Carregando...</p>;
@@ -170,6 +187,7 @@ export default function PerfilDeUsuario(){
                     ))
                 )}
                 </ul>
+                <button onClick={()=>PressedButton()}>Editar informações</button>
             </div>
             <Footer/>
         </div>

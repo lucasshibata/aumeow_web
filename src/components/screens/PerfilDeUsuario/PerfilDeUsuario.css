@@ -5,10 +5,33 @@
     flex-direction: column;
     & .ContainerPerfilDeUsuario{
         flex: 1;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
         & .InnerContainerPerfilDeUsuario{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
             & .ItemListaPerfilDeUsuario{
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                & .imgPerfilDeUsuario{
+                    width: 20%;
+                    height: auto;
+                }
                 & .TextoPPerfilDeUsuario{
                     color: var(--preto);
+                    text-align: center;
+                    border: solid var(--marrom-btn) 2px;
+                    padding: 10px;
+                    border-radius: 10px;
                 }
             }
         }

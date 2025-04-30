@@ -1,11 +1,12 @@
 .EspecificProduct{
     display: flex;
     flex-direction: column;
-    background-color: white;
-    width: 100vw;
-    height: auto;
+    background-color: var(--pastel-bg);
+    width: 100%;
+    min-height: 100vh;
     & .ContainerEspecificProduct{
         display: flex;
+        flex: 1;
         flex-direction: row;
         padding: 20px;
         height: auto;
@@ -30,7 +31,7 @@
                 height: 40vh;
             }
             & .textProduct{
-                color: black;
+                color: var(--preto);
             }
         }
         & .confirmacaoPedido{
@@ -42,11 +43,11 @@
             padding: 10px;
             height: 100%;
             & .boxContainer{
-                background-color: gray;
+                background-color: var(--cinza);
                 padding: 20px;
                 border-radius: 15px;
                 & .confirmacaoTxt{
-                    color: black;
+                    color: var(--preto);
                 }
             }
         }

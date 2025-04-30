@@ -29,7 +29,7 @@ function RecoverPassword(){
                             <input className='InputEmail' type='email' placeholder='Email' {...register("email")}/>
                             <input className='submit' value='Solicitar recuperação' type="submit"/>
                         </form>
-                        <Link className='LinkReturn' to={'/Login'}>Voltar para a página Inicial</Link>
+                        <Link className='LinkReturn' to={'/Login'}>Voltar para o Login</Link>
                     </div>
                 </div>
             </BackGround>
