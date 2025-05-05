@@ -30,7 +30,7 @@ export default function TelaInicial(){
                     {/* =============================================================== */}
                     <article className="Article1TelaInicial">
                         <div className="Div1TelaInicial">
-                            <h1>Cuidando dos nosso pequenos amigos</h1>
+                            <h1>Cuidando dos nossos pequenos amigos</h1>
                             <p>Seja bem vindo ao AuMeow, o seu site de cuidados ideal para o seu melhor amigo.
                             Aproveite nossos serviços</p>
                             <button className="btn_div1" onClick={()=>navigate("/Login")}>Fique por dentro</button>

@@ -1,0 +1,30 @@
+.ContainerEdicaoPerfil{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    & .InnerContainerEdicaoPerfil{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex: 1;
+        & .FormContainerEdicaoPerfil{
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            & .txtEdicaoPerfil{
+                color: black;
+            }
+            & .DivCampoSenhaEdicaoPerfil{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                & .InputTextSenhaEdicaoPerfil{
+                    flex: 1;
+                }
+            }
+        }
+    }
+}

@@ -6,10 +6,20 @@
     & .ContainerPerfilDeUsuario{
         flex: 1;
         display: flex;
+        margin: 10px;
         width: 100%;
         align-items: center;
         flex-direction: column;
         justify-content: center;
+        & .BtnEditInfoPerfilDeUsuario{
+            border: 0;
+            background-color: var(--marrom-btn);
+            color: var(--branco);
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
         & .InnerContainerPerfilDeUsuario{
             display: flex;
             width: 100%;
@@ -21,17 +31,35 @@
                 width: 100%;
                 align-items: center;
                 justify-content: center;
-                flex-direction: column;
-                & .imgPerfilDeUsuario{
-                    width: 20%;
-                    height: auto;
+                flex-direction: row;
+                & .DivImgPerfilDeUsuario{
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    & .imgPerfilDeUsuario{
+                        width: 100%;
+                        height: auto;
+                    }
+                    & h1{
+                        color: black;
+                        font-size: 1.5rem;
+                        text-align: center;
+                    }
                 }
-                & .TextoPPerfilDeUsuario{
-                    color: var(--preto);
-                    text-align: center;
-                    border: solid var(--marrom-btn) 2px;
-                    padding: 10px;
-                    border-radius: 10px;
+                & .InformacoesPerfilDeUsuario{
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    gap: 5px;
+                    & .TextoPPerfilDeUsuario{
+                        color: var(--preto);
+                        width: 90%;
+                        text-align: center;
+                        border: solid var(--marrom-btn) 2px;
+                        padding: 10px;
+                        border-radius: 10px;
+                        margin: 0;
+                    }
                 }
             }
         }

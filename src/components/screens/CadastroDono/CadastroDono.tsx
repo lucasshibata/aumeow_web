@@ -13,7 +13,7 @@ function CadastroDono(){
 	const navigate = useNavigate();
 	const [file, setFile] = useState<File | null>(null);
 	const [imagePreview, setImagePreview] = useState<string | null>(null);
-	const fileInputRef = useRef<HTMLInputElement>(null);;
+	const fileInputRef = useRef<HTMLInputElement>(null);
 
 	const handleFileChange = (e:any) => {
         if (e.target.files && e.target.files[0]) {

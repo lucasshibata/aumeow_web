@@ -23,6 +23,7 @@ import ListaDeChats from '../screens/ListaDeChats/ListaDeChats';
 import CanalDenuncia from '../screens/Denuncia/CanalDenuncia';
 import CadastroContasAdministracao from '../screens/CadastroContasAdministracao/CadastroContasAdministracao';
 import PerfilDeUsuario from '../screens/PerfilDeUsuario/PerfilDeUsuario';
+import EdicaoPerfil from '../screens/EdicaoPerfil/EdicaoPerfil';
 
 export default function Navigation(){
     return(
@@ -50,6 +51,7 @@ export default function Navigation(){
 				<Route path='/Denuncia' element={<CanalDenuncia/>}/>
 				<Route path='/CadastroContasAdministracao' element={<CadastroContasAdministracao/>}/>
 				<Route path='/PerfilDeUsuario' element={<PerfilDeUsuario/>}/>
+				<Route path='/EdicaoPerfil' element={<EdicaoPerfil/>}/>
 			</Routes>
 		</div>
     );

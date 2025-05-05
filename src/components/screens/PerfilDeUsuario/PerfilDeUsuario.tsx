@@ -4,6 +4,8 @@ import Footer from "../../layout/Footer";
 import {auth, ref, database, get} from "../../firebase/Firebase";
 import "./PerfilDeUsuario.css";
 import verifyFunction from "../../layout/verifyFunction";
+import { useNavigate } from "react-router-dom";
+import withAuth from "../../contexts/LoginContext";
 
 interface UserCliente {
     id: string; // Chave única do serviço no Firebase
@@ -35,13 +37,14 @@ interface UserPrestador {
     telefone: string
 }
 
-export default function PerfilDeUsuario(){
+function PerfilDeUsuario(){
     const [UserCliente, setUserCliente] = useState<UserCliente[]>([]);
     const [UserPrestador, setUserPrestador] = useState<UserPrestador[]>([]);
     const [funcao, setFuncao] = useState<string|undefined>('');
     const [loading, setLoading] = useState(true);
     const [authChecked, setAuthChecked] = useState(false);
     const [user, setUser] = useState<any>(null);
+    const navigate = useNavigate();
     
     const fetchUserCliente = async () => {
         try {
@@ -129,10 +132,6 @@ export default function PerfilDeUsuario(){
             setLoading(false);
         }
     }, [funcao, user]);
-   
-    function PressedButton(){
-        console.log('ir para edição')
-    }
     
     if (loading) {
         return <p>Carregando...</p>;
@@ -154,18 +153,23 @@ export default function PerfilDeUsuario(){
                 {funcao === "cliente" ? (
                     UserCliente.map((User: any) => (
                         <li className='ItemListaPerfilDeUsuario' key={User.id}>
-                            <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono`} alt="imagem do produto" />
-                            <p className='TextoPPerfilDeUsuario'>Nome: {User.nome}</p>
-                            <p className='TextoPPerfilDeUsuario'>Email: {User.email}</p>
-                            <p className='TextoPPerfilDeUsuario'>Endereço: {User.endereco}</p>
-                            <p className='TextoPPerfilDeUsuario'>cpf: {User.cpf}</p>
-                            <p className='TextoPPerfilDeUsuario'>Data de Nascimento: {User.dtNascimento}</p>
-                            <p className='TextoPPerfilDeUsuario'>Telefone: {User.telefone}</p>
-                            <p className='TextoPPerfilDeUsuario'>Gênero: {User.genero}</p>
-                            <p className='TextoPPerfilDeUsuario'>Nome Do Pet: {User.nomeDoPet}</p>
-                            <p className='TextoPPerfilDeUsuario'>Especie do Animal: {User.especie}</p>
-                            <p className='TextoPPerfilDeUsuario'>Tipo do Animal: {User.tipoAnimal}</p>
-                            <p className='TextoPPerfilDeUsuario'>Sua Senha Atual: {User.senha}</p>
+                            <div className="DivImgPerfilDeUsuario">
+                                <h1>imagem perfil:</h1>
+                                <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono`} alt="imagem do produto" />
+                            </div>
+                            <div className="InformacoesPerfilDeUsuario">
+                                <p className='TextoPPerfilDeUsuario'>Nome: {User.nome}</p>
+                                <p className='TextoPPerfilDeUsuario'>Email: {User.email}</p>
+                                <p className='TextoPPerfilDeUsuario'>Endereço: {User.endereco}</p>
+                                <p className='TextoPPerfilDeUsuario'>cpf: {User.cpf}</p>
+                                <p className='TextoPPerfilDeUsuario'>Data de Nascimento: {User.dtNascimento}</p>
+                                <p className='TextoPPerfilDeUsuario'>Telefone: {User.telefone}</p>
+                                <p className='TextoPPerfilDeUsuario'>Gênero: {User.genero}</p>
+                                <p className='TextoPPerfilDeUsuario'>Nome Do Pet: {User.nomeDoPet}</p>
+                                <p className='TextoPPerfilDeUsuario'>Especie do Animal: {User.especie}</p>
+                                <p className='TextoPPerfilDeUsuario'>Tipo do Animal: {User.tipoAnimal}</p>
+                                <p className='TextoPPerfilDeUsuario'>Sua Senha Atual: {User.senha}</p>
+                            </div>
                         </li>
                     ))
                 ) : (
@@ -187,9 +191,11 @@ export default function PerfilDeUsuario(){
                     ))
                 )}
                 </ul>
-                <button onClick={()=>PressedButton()}>Editar informações</button>
+                <button className="BtnEditInfoPerfilDeUsuario" onClick={()=>navigate('/EdicaoPerfil')}>Editar informações</button>
             </div>
             <Footer/>
         </div>
     )
 }
+
+export default withAuth(PerfilDeUsuario);
