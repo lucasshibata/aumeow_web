@@ -6,13 +6,15 @@ import EditProfile from "../../layout/EditProfile";
 import Footer from "../../layout/Footer";
 import Header from "../../layout/Header";
 import { ref, database, get, auth} from "../../firebase/Firebase";
+import verifyFunction from "../../layout/verifyFunction";
 import './EdicaoPerfil.css'
 
 interface Data{
     nome: string,
     cpf: string,
     senha: string,
-    genero: string
+    email:string,
+    genero: string,
     dtNascimento: string,
     endereco:string,
     telefone:string,
@@ -33,6 +35,7 @@ function EdicaoPerfil(){
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [user, setUser] = useState<Data|null>(null);
     const [mostrarSenha, setMostrarSenha] = useState(false);
+    const [funcao, setFuncao] = useState<string|undefined>('');
         
     const handleFileChange = (e:any) => {
         if (e.target.files && e.target.files[0]) {
@@ -57,33 +60,59 @@ function EdicaoPerfil(){
     }, []);
       
     useEffect(() => {
-        if (user) {
+        if (user && funcao==="cliente") {
             const dadosUsuario = {
                 name: user?.nome || "",
                 cpf: user?.cpf || "",
                 dtNascimento: user?.dtNascimento || "",
                 endereco: user?.endereco || "",
+                email: user.email,
                 telefone: user?.telefone || "",
                 nomeDoPet: user?.nomeDoPet || "",
                 especie: user?.especie || "",
                 tipoAnimal: user?.tipoAnimal || "",
-                gender: user?.genero || "",
-                password: user.senha ||""
+                genero: user?.genero || "",
+                senha: user.senha ||""
             };
             reset(dadosUsuario); // Agora isso só roda uma vez
+        } else if (user && funcao==="prestador"){
+            const dadosUsuario = {
+                name: user?.nome || "",
+                cpf: user?.cpf || "",
+                dtNascimento: user?.dtNascimento || "",
+                email: user.email,
+                endereco: user?.endereco || "",
+                telefone: user?.telefone || "",
+                experiencia: user?.experiencia || "",
+                animalPreferencia: user?.animalPreferencia || "",
+                raioAtendimento: user?.raioAtendimento || "",
+                genero: user?.genero || "",
+                senha: user.senha ||""
+            };
+            reset(dadosUsuario);
         }
-    }, [user, reset]);
+    }, [user, reset, funcao]);
+
+    useEffect(() => {
+        const fetchFuncao = async () => {
+            const result = await verifyFunction();
+            setFuncao(result);
+        };
+        fetchFuncao();
+       
+    }, []);
 
     return(
         <div className="ContainerEdicaoPerfil">
             <Header/>
             <div className="InnerContainerEdicaoPerfil">
+            {funcao === "cliente" ? (
                 <form className='FormContainerEdicaoPerfil' onSubmit={handleSubmit((data)=>EditProfile(data, navigate, "cliente", file))}>
                     <label className='txtEdicaoPerfil'>Nome:</label>
                     <input className='InputTextEdicaoPerfil' type='text' placeholder='Nome Completo:' {...register("name")} />
                     <label className='txtEdicaoPerfil'>CPF:</label>
                     <input className='InputTextEdicaoPerfil' type='text' placeholder='CPF:' {...register("cpf")} />
-                    <label className='txtEdicaoPerfil'>Email:</label>
+                    <label className='txtEdicaoPerfil'>Data de Nascimento:</label>
                     <input className='InputTextEdicaoPerfil' type='date' placeholder='Data:' {...register("dtNascimento")} />
                     <label className='txtEdicaoPerfil'>Endereço:</label>
                     <input className='InputTextEdicaoPerfil' type='text' placeholder='Endereço:' {...register("endereco")} />
@@ -129,13 +158,73 @@ function EdicaoPerfil(){
                     </select>
                     <label className='txtEdicaoPerfil'>Senha:</label>
                     <div className="DivCampoSenhaEdicaoPerfil">
-                        <input className='InputTextSenhaEdicaoPerfil' type={mostrarSenha ? 'text' : 'password'} placeholder='senha:' {...register("password")}/>
+                        <input className='InputTextSenhaEdicaoPerfil' type={mostrarSenha ? 'text' : 'password'} placeholder='senha:' {...register("senha")}/>
                         <button type="button" onClick={() => setMostrarSenha((prev) => !prev)}>
                             {mostrarSenha ? 'Ocultar' : 'Mostrar'}
                         </button>
                     </div>
                     <input className='submitEdicaoPerfil' value='Enviar' type="submit"/>
                 </form>
+                ) : (
+                <form className='FormContainerEdicaoPerfil' onSubmit={handleSubmit((data)=>EditProfile(data, navigate, "prestador", file))}>
+                    <label className='txtEdicaoPerfil'>Nome:</label>
+                    <input className='InputTextEdicaoPerfil' type='text' placeholder='Nome Completo:' {...register("name")} />
+                    <label className='txtEdicaoPerfil'>CPF:</label>
+                    <input className='InputTextEdicaoPerfil' type='text' placeholder='CPF:' {...register("cpf")} />
+                    <label className='txtEdicaoPerfil'>Data de Nascimento:</label>
+                    <input className='InputTextEdicaoPerfil' type='date' placeholder='Data:' {...register("dtNascimento")} />
+                    <label className='txtEdicaoPerfil'>Endereço:</label>
+                    <input className='InputTextEdicaoPerfil' type='text' placeholder='Endereço:' {...register("endereco")} />
+                    <label className='txtEdicaoPerfil'>Telefone de Contato:</label>
+                    <input className='InputTextEdicaoPerfil' type='text' placeholder='Telefone:' {...register("telefone")} />
+                    <label className='txtEdicaoPerfil'>Experiência:</label>
+                    <input className='InputTextEdicaoPerfil' type='text' placeholder='Diga sua exeperiência:' {...register("experiencia")} />
+                    <label className='txtEdicaoPerfil'>Raio de Atendimento (Km):</label>
+                    <input className='InputTextEdicaoPerfil' type='number' placeholder='Raio:' {...register("raioAtendimento")} />
+                    <label className='txtEdicaoPerfil'>Animal de Preferência:</label>
+                    <select className='InputTextEdicaoPerfil' {...register("animalPreferencia")}>
+                        <option value="gato">Gato</option>
+                        <option value="cachorro">Cachorro</option>
+                    </select>
+                    <label className='txtEdicaoPerfil'>Foto Pessoal:</label>
+                    {imagePreview && (
+                        <div  style={{ display:'flex', flexDirection:'column', width: '30vw', height: 'auto', alignItems:'center'}}>
+                            <h3 className='txtEdicaoPerfil'>Prévia da Imagem:</h3>
+                            <img
+                                src={imagePreview}
+                                alt="Prévia da imagem selecionada"
+                                style={{ width: '30%', height: 'auto', marginTop: '10px' }}
+                            />
+                        </div>
+                    )}
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        ref={fileInputRef}
+                        style={{ display: 'none' }}
+                    />
+                    <button
+                        onClick={handleClick}
+                        type='button'
+                        className="botaoUploadImagemEdicaoPerfil"
+                    >Selecionar imagem</button>
+                    <label className='txtEdicaoPerfil'>sexo:</label>
+                    <select className='InputTextEdicaoPerfil' {...register("gender")}>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <label className='txtEdicaoPerfil'>Senha:</label>
+                    <div className="DivCampoSenhaEdicaoPerfil">
+                        <input className='InputTextSenhaEdicaoPerfil' type={mostrarSenha ? 'text' : 'password'} placeholder='senha:' {...register("senha")}/>
+                        <button type="button" onClick={() => setMostrarSenha((prev) => !prev)}>
+                            {mostrarSenha ? 'Ocultar' : 'Mostrar'}
+                        </button>
+                    </div>
+                    <input className='submitEdicaoPerfil' value='Enviar' type="submit"/>
+                </form>
+                )}
             </div>
             <Footer/>
         </div>

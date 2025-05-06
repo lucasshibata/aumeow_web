@@ -175,18 +175,23 @@ function PerfilDeUsuario(){
                 ) : (
                     UserPrestador.map((User: any) => (
                         <li className='ItemListaPerfilDeUsuario' key={User.id}>
-                            <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono`} alt="imagem do produto" />
-                            <p className='TextoPPerfilDeUsuario'>Nome: {User.nome}</p>
-                            <p className='TextoPPerfilDeUsuario'>Email: {User.email}</p>
-                            <p className='TextoPPerfilDeUsuario'>Endereço: {User.endereco}</p>
-                            <p className='TextoPPerfilDeUsuario'>cpf: {User.cpf}</p>
-                            <p className='TextoPPerfilDeUsuario'>Data de Nascimento: {User.dtNascimento}</p>
-                            <p className='TextoPPerfilDeUsuario'>Telefone: {User.telefone}</p>
-                            <p className='TextoPPerfilDeUsuario'>Gênero: {User.genero}</p>
-                            <p className='TextoPPerfilDeUsuario'>Animal de Preferência: {User.animalPreferencia}</p>
-                            <p className='TextoPPerfilDeUsuario'>Experiência: {User.experiencia}</p>
-                            <p className='TextoPPerfilDeUsuario'>Raio de Atendimento: {User.raioAtendimento} Km</p>
-                            <p className='TextoPPerfilDeUsuario'>Sua Senha Atual: {User.senha}</p>
+                            <div className="DivImgPerfilDeUsuario">
+                                <h1>imagem perfil:</h1>
+                                <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono`} alt="imagem do produto" />
+                            </div>
+                            <div className="InformacoesPerfilDeUsuario">
+                                <p className='TextoPPerfilDeUsuario'>Nome: {User.nome}</p>
+                                <p className='TextoPPerfilDeUsuario'>Email: {User.email}</p>
+                                <p className='TextoPPerfilDeUsuario'>Endereço: {User.endereco}</p>
+                                <p className='TextoPPerfilDeUsuario'>cpf: {User.cpf}</p>
+                                <p className='TextoPPerfilDeUsuario'>Data de Nascimento: {User.dtNascimento}</p>
+                                <p className='TextoPPerfilDeUsuario'>Telefone: {User.telefone}</p>
+                                <p className='TextoPPerfilDeUsuario'>Gênero: {User.genero}</p>
+                                <p className='TextoPPerfilDeUsuario'>Animal de Preferência: {User.animalPreferencia}</p>
+                                <p className='TextoPPerfilDeUsuario'>Experiência: {User.experiencia}</p>
+                                <p className='TextoPPerfilDeUsuario'>Raio de Atendimento: {User.raioAtendimento} Km</p>
+                                <p className='TextoPPerfilDeUsuario'>Sua Senha Atual: {User.senha}</p>
+                            </div>
                         </li>
                     ))
                 )}

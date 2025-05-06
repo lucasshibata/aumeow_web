@@ -35,9 +35,10 @@
                 & .DivImgPerfilDeUsuario{
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                     flex: 1;
                     & .imgPerfilDeUsuario{
-                        width: 100%;
+                        width: 60%;
                         height: auto;
                     }
                     & h1{
@@ -49,7 +50,7 @@
                 & .InformacoesPerfilDeUsuario{
                     display: flex;
                     flex-direction: column;
-                    flex: 1;
+                    flex: 2;
                     gap: 5px;
                     & .TextoPPerfilDeUsuario{
                         color: var(--preto);
