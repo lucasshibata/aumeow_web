@@ -19,7 +19,6 @@ interface Data{
     animalPreferencia: string
 }
 
-
 export default async function signUp(data:any, navigation:any, type:string, file:any) {
     if (data.password === data.passwordAgain){
         if (!file) {
