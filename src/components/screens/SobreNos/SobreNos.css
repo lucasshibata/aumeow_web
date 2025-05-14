@@ -3,32 +3,72 @@
     width: 100%;
     min-height: 100vh;
     flex-direction: column;
+    background-color: var(--branco);
     & .InnercontainerSobreNos{
         flex: 1;
         display: flex;
         flex-direction: column;
         gap: 30px;
+        align-items: center;
+        padding-bottom: 20px;
         & .Article1SobreNos{
             display: flex;
             flex-direction: row;
             justify-content: center;
+            gap: 20px;
+            align-items: center;
+            background-color: var(--pastel-bg);
+            padding: 20px;
+            border: solid 2px var(--marrom-btn);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            & .Img1SobreNos{
+                width: 10%;
+                height: 5%;
+            }
+            & .Img2SobreNos{
+                width: 20%;
+                height: 40%;
+            }
             & p{
-                color: var(--preto);
+                color: var(--marrom-text);
+                font-weight: bold;
+                font-size: 1.5rem;
             }
         }
         & .Article2SobreNos{
+            padding: 40px;
             & .DivInterna1SobreNos{
                 display: flex;
+                gap: 20px;
+                & .Img3SobreNos{
+                    width: 20%;
+                    height: 40%;
+                }
                 & p{
                     color: var(--preto);
                 }
             }
             & .DivInterna2SobreNos{
                 display: flex;
+                gap: 20px;
+                & .Img4SobreNos{
+                    width: 20%;
+                    height: 40%;
+                }
                 & p{
                     color: var(--preto);
                 }
             }
+        }
+        & .Btn1SobreNos{
+            width: 200px;
+            border: 0;
+            background-color: var(--marrom-btn);
+            padding: 10px;
+            border-radius: 10px;
+            color: var(--branco);
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
         }
     }
 }
