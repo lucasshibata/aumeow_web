@@ -1,8 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import { ref, database, auth, get, set} from "../../firebase/Firebase";
+import { useState, useRef } from "react";
+import { ref, database, auth, get, set, push} from "../../firebase/Firebase";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import verifyFunction from "../../layout/verifyFunction";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 
@@ -27,7 +26,6 @@ export default function CadastroDeAdocao(){
     const [file, setFile] = useState<File | null>(null);
     const [uploading, setUploading] = useState(false);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
-    const [loading, setLoading] = useState(true);
     const fileInputRef = useRef<HTMLInputElement>(null);;
     
     const handleFileChange = (e:any) => {
@@ -44,29 +42,6 @@ export default function CadastroDeAdocao(){
           } // abre o seletor de arquivos
     };
 
-     useEffect(()=>{
-        const verificar = async () => {
-            const funcao = await verifyFunction();
-            
-            switch (funcao){
-                case "prestador":
-                    navigate("/MenuPrestador");
-                    break;
-                case "cliente":
-                    navigate("/MenuCliente");
-                    break;
-                default:
-                    console.log("permitido ou não encontrado");
-            }
-            setLoading(false);
-        }
-        verificar();
-    },[navigate])
-
-    if(loading){
-        <div>loading...</div>
-    }
-
     const onSubmit = async (data: any) => {
         if (!file) {
         alert('Por favor, selecione uma imagem.');
@@ -76,7 +51,7 @@ export default function CadastroDeAdocao(){
         setUploading(true);
 
         const user = auth.currentUser;
-        const productRef = ref(database, 'adocao/' + data.code); //resolver codigo que vai ser usado como referência
+        const productRef = push(ref(database, 'adocao')); //resolver codigo que vai ser usado como referência
         const dbUserNameRef = ref(database, 'users/' + user?.uid + '/nome');
         const dbUserEmailRef = ref(database, 'users/' + user?.uid + '/email');
 

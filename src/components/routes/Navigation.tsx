@@ -24,6 +24,7 @@ import CanalDenuncia from '../screens/Denuncia/CanalDenuncia';
 import CadastroContasAdministracao from '../screens/CadastroContasAdministracao/CadastroContasAdministracao';
 import PerfilDeUsuario from '../screens/PerfilDeUsuario/PerfilDeUsuario';
 import EdicaoPerfil from '../screens/EdicaoPerfil/EdicaoPerfil';
+import CadastroDeAdocao from '../screens/CadastroDeAdocao/CadastroDeAdocao';
 
 export default function Navigation(){
     return(
@@ -52,6 +53,7 @@ export default function Navigation(){
 				<Route path='/CadastroContasAdministracao' element={<CadastroContasAdministracao/>}/>
 				<Route path='/PerfilDeUsuario' element={<PerfilDeUsuario/>}/>
 				<Route path='/EdicaoPerfil' element={<EdicaoPerfil/>}/>
+				<Route path='/CadastroDeAdocao' element={<CadastroDeAdocao/>}/>
 			</Routes>
 		</div>
     );
