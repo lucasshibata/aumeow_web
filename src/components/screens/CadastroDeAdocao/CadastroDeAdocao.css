@@ -1,0 +1,29 @@
+.ContainerCadastroDeAdocao{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    & .InnercontainerCadastroDeAdocao{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & .TitleCadastroDeAdocao{
+            color: var(--preto);
+        }
+        & .FormContainerCadastroDeAdocao{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            gap: 10px;
+            border: solid 2px var(--marrom-btn);
+            & .txtCadastroDeAdocao{
+                color: var(--preto);
+            }
+            & .InputTextCadastroDeAdocao{
+                width: 70%;
+            }
+        }
+    }
+}

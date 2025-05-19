@@ -1,9 +1,11 @@
 import { useState, useRef } from "react";
 import { ref, database, auth, get, set, push} from "../../firebase/Firebase";
+import s3 from "../../aws/aws-config";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
+import "./CadastroDeAdocao.css";
 
 interface AdocaoData {
     Nome: string;
@@ -16,8 +18,9 @@ interface AdocaoData {
     Temperamento: string;
     HistoriaDoAnimal: string;
     NomeResponsavel: string;
-    UIDResponsavel: string;
-    EmailResponsavel: string; 
+    EmailResponsavel: string;
+    UIDCadastrante: string;
+    EmailCadastrante: string; 
 }
 
 export default function CadastroDeAdocao(){
@@ -51,11 +54,10 @@ export default function CadastroDeAdocao(){
         setUploading(true);
 
         const user = auth.currentUser;
-        const productRef = push(ref(database, 'adocao')); //resolver codigo que vai ser usado como referência
+        const adocaoRef = push(ref(database, 'adocao'));
         const dbUserNameRef = ref(database, 'users/' + user?.uid + '/nome');
         const dbUserEmailRef = ref(database, 'users/' + user?.uid + '/email');
 
-        // Declare productData com a interface ProductData
         let AdocaoData: AdocaoData = {
             Nome: data.nome,
             Especie: data.especie,
@@ -66,9 +68,10 @@ export default function CadastroDeAdocao(){
             EstadoDeSaude: data.estadoDeSaude,
             Temperamento: data.temperamento,
             HistoriaDoAnimal: data.historiaDoAnimal,
-            NomeResponsavel: '',
-            UIDResponsavel: user?.uid || '',
-            EmailResponsavel: data.email
+            NomeResponsavel: data.nomeResponsavel,
+            EmailResponsavel: data.emailResponsavel,
+            UIDCadastrante: user?.uid || '',
+            EmailCadastrante: data.email
         };
 
         try {
@@ -85,22 +88,22 @@ export default function CadastroDeAdocao(){
         }
 
         // Verifica se o produto já existe
-        const productSnapshot = await get(productRef);
+        const productSnapshot = await get(adocaoRef);
         if (productSnapshot.exists()) {
             alert(`O código "${data.code}" já existe. Escolha outro.`);
             return;
         }
 
         // Salva os dados do produto no Firebase
-        await set(productRef, AdocaoData);
+        await set(adocaoRef, AdocaoData);
 
-        // Faz o upload da imagem para o S3
-        // await s3.upload({
-        //     Bucket: 'aumeow-images',
-        //     Key: `${data.code}/imagemProduto`,
-        //     Body: file,
-        //     ContentType: file.type,
-        // }).promise();
+        //Faz o upload da imagem para o S3
+        await s3.upload({
+            Bucket: 'aumeow-images',
+            Key: `${adocaoRef.key}/imagemAdocao`,
+            Body: file,
+            ContentType: file.type,
+        }).promise();
 
         alert('Produto criado com sucesso e salvo no banco!');
         console.log('Arquivo enviado com sucesso');
@@ -143,40 +146,82 @@ export default function CadastroDeAdocao(){
                         onClick={handleClick}
                         className="botaoUploadImagemCadastroDeAdocao"
                     >Selecionar imagem</button>
-                    <label className='txtCadastroDeAdocao'>Nome do produto:</label>
+                    <label className='txtCadastroDeAdocao'>Nome do Animal:</label>
                     <input
                         className='InputTextCadastroDeAdocao'
                         type='text'
                         placeholder='Nome:'
-                        {...register("name", { required: true })}
+                        {...register("nome", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Código do produto:</label>
+                    <label className='txtCadastroDeAdocao'>Especie do Animal:</label>
                     <input
                         className='InputTextCadastroDeAdocao'
                         type='text'
-                        placeholder='Código:'
-                        {...register("code", { required: true })}
+                        placeholder='Especie:'
+                        {...register("especie", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Quantidade em estoque:</label>
+                    <label className='txtCadastroDeAdocao'>Raça do Animal:</label>
                     <input
                         className='InputTextCadastroDeAdocao'
                         type='text'
-                        placeholder='Quantidade:'
-                        {...register("amount", { required: true })}
+                        placeholder='Raça:'
+                        {...register("raca", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Preço do produto:</label>
+                    <label className='txtCadastroDeAdocao'>Sexo:</label>
                     <input
                         className='InputTextCadastroDeAdocao'
                         type='text'
-                        placeholder='Preço:'
-                        {...register("price", { required: true })}
+                        placeholder='Sexo:'
+                        {...register("sexo", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Marca do produto:</label>
+                    <label className='txtCadastroDeAdocao'>Idade:</label>
                     <input
                         className='InputTextCadastroDeAdocao'
                         type='text'
-                        placeholder='Marca:'
-                        {...register("brand", { required: true })}
+                        placeholder='Idade:'
+                        {...register("idade", { required: true })}
+                    />
+                    <label className='txtCadastroDeAdocao'>Porte:</label>
+                    <input
+                        className='InputTextCadastroDeAdocao'
+                        type='text'
+                        placeholder='Porte:'
+                        {...register("porte", { required: true })}
+                    />
+                    <label className='txtCadastroDeAdocao'>Estado de saúde:</label>
+                    <input
+                        className='InputTextCadastroDeAdocao'
+                        type='text'
+                        placeholder='Estado:'
+                        {...register("estadoDeSaude", { required: true })}
+                    />
+                    <label className='txtCadastroDeAdocao'>Temperamento:</label>
+                    <input
+                        className='InputTextCadastroDeAdocao'
+                        type='text'
+                        placeholder='Temperamento:'
+                        {...register("temperamento", { required: true })}
+                    />
+                    <label className='txtCadastroDeAdocao'>Historia do Animal:</label>
+                    <input
+                        className='InputTextCadastroDeAdocao'
+                        type='text'
+                        placeholder='Historia:'
+                        {...register("historiaDoAnimal", { required: true })}
+                    />
+                    <label className='txtCadastroDeAdocao'>Nome do Responsável:</label>
+                    <input
+                        className='InputTextCadastroDeAdocao'
+                        type='text'
+                        placeholder='Responsável:'
+                        {...register("nomeResponsavel", { required: true })}
+                    />
+                    <label className='txtCadastroDeAdocao'>Email do Responsável:</label>
+                    <input
+                        className='InputTextCadastroDeAdocao'
+                        type='text'
+                        placeholder='Email do Responsável:'
+                        {...register("emailResponsavel", { required: true })}
                     />
                     <input
                         className='SubmitCadastroDeAdocao'
