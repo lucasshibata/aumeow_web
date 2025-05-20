@@ -25,6 +25,7 @@ import CadastroContasAdministracao from '../screens/CadastroContasAdministracao/
 import PerfilDeUsuario from '../screens/PerfilDeUsuario/PerfilDeUsuario';
 import EdicaoPerfil from '../screens/EdicaoPerfil/EdicaoPerfil';
 import CadastroDeAdocao from '../screens/CadastroDeAdocao/CadastroDeAdocao';
+import PaginaDeAdocao from '../screens/PaginaDeAdocao/PaginaDeAdocao';
 
 export default function Navigation(){
     return(
@@ -54,6 +55,7 @@ export default function Navigation(){
 				<Route path='/PerfilDeUsuario' element={<PerfilDeUsuario/>}/>
 				<Route path='/EdicaoPerfil' element={<EdicaoPerfil/>}/>
 				<Route path='/CadastroDeAdocao' element={<CadastroDeAdocao/>}/>
+				<Route path='/PaginaDeAdocao' element={<PaginaDeAdocao/>}/>
 			</Routes>
 		</div>
     );

@@ -43,6 +43,7 @@ function CanalDenuncia() {
         <div className='CanalDenuncia'>
             <BackGround>
                 <div className='ContainerCanalDenuncia'>
+                    <h1>Canal de Denúncia</h1>
                     <button className='BotaoVoltarCanalDenuncia' onClick={() => navigate(-1)}>
                         <FaArrowLeft /> Voltar
                     </button>

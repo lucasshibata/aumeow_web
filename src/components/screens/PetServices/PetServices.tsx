@@ -85,6 +85,7 @@ function PetServices() {
         <div className='PetServices'>
             <Header/>
             <div className='ListaDeServicosPetServices'>
+                <h1>Lista de Pet Sitters</h1>
                 <ul className='InnerListaPetServices'>
                     {services.map((service: Service) => (
                         <li className='ItemLista' key={service.id}>

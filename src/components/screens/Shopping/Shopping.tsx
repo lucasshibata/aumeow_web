@@ -45,6 +45,7 @@ function Shopping (){
     return(
         <div className='Shopping'>
             <Header/>
+            <h1>Página de Shopping</h1>
             <div className="FlatListShopping">
                 {product.map(item => (
                     <div key={item.id} className="itemListShopping">

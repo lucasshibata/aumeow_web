@@ -1,7 +1,7 @@
 export default function PaginaDeAdocao(){
     return(
         <div className="ContainerPaginaDeAdocao">
-            olá
+            <h1>Adoção</h1>
         </div>
     )
 }
