@@ -38,28 +38,28 @@ function CadastroDono(){
 					<div className='InnerContainerCadastroDono'>
 						<h1 className='TitleCadastroDono'>Cadastro de Cliente</h1>
 						<form className='FormContainerCadastroDono' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "cliente", file))}>
-							<label className='txtCadastroDono'>Nome:</label>
-							<input className='InputTextCadastroDono' type='text' placeholder='Nome Completo:' {...register("name")} />
-							<label className='txtCadastroDono'>CPF:</label>
-							<input className='InputTextCadastroDono' type='text' placeholder='CPF:' {...register("cpf")} />
-							<label className='txtCadastroDono'>Email:</label>
-							<input className='InputTextCadastroDono' type='email' placeholder='Email:' {...register("email")} />
-							<label className='txtCadastroDono'>Data de Nascimento:</label>
-							<input className='InputTextCadastroDono' type='date' placeholder='Data:' {...register("dtNascimento")} />
-							<label className='txtCadastroDono'>Endereço:</label>
-							<input className='InputTextCadastroDono' type='text' placeholder='Endereço:' {...register("endereco")} />
-							<label className='txtCadastroDono'>Telefone de Contato:</label>
-							<input className='InputTextCadastroDono' type='text' placeholder='Telefone:' {...register("telefone")} />
-							<label className='txtCadastroDono'>Nome do Pet:</label>
-							<input className='InputTextCadastroDono' type='text' placeholder='Nome Do Pet:' {...register("nomeDoPet")} />
-							<label className='txtCadastroDono'>Espécie do Pet:</label>
-							<input className='InputTextCadastroDono' type='text' placeholder='Espécie Do Pet:' {...register("especie")} />
-							<label className='txtCadastroDono'>Tipo do Animal:</label>
-							<select className='InputTextCadastroDono' {...register("tipoAnimal")}>
+							<label htmlFor="nomeCadastroDono" className='txtCadastroDono'>Nome:</label>
+							<input id="nomeCadastroDono" className='InputTextCadastroDono' type='text' placeholder='Nome Completo:' {...register("name")} />
+							<label htmlFor="CPFCadastroDono" className='txtCadastroDono'>CPF:</label>
+							<input id="CPFCadastroDono" className='InputTextCadastroDono' type='text' placeholder='CPF:' {...register("cpf")} />
+							<label htmlFor="emailCadastroDono" className='txtCadastroDono'>Email:</label>
+							<input id="emailCadastroDono" className='InputTextCadastroDono' type='email' placeholder='Email:' {...register("email")} />
+							<label htmlFor="dataDeNascimentoCadastroDono" className='txtCadastroDono'>Data de Nascimento:</label>
+							<input id="dataDeNascimentoCadastroDono" className='InputTextCadastroDono' type='date' placeholder='Data:' {...register("dtNascimento")} />
+							<label htmlFor="enderecoCadastroDono" className='txtCadastroDono'>Endereço:</label>
+							<input id="enderecoCadastroDono" className='InputTextCadastroDono' type='text' placeholder='Endereço:' {...register("endereco")} />
+							<label htmlFor="telefoneContatoCadastroDono" className='txtCadastroDono'>Telefone de Contato:</label>
+							<input id="telefoneContatoCadastroDono" className='InputTextCadastroDono' type='text' placeholder='Telefone:' {...register("telefone")} />
+							<label htmlFor="nomePetCadastroDono" className='txtCadastroDono'>Nome do Pet:</label>
+							<input id="nomePetCadastroDono" className='InputTextCadastroDono' type='text' placeholder='Nome Do Pet:' {...register("nomeDoPet")} />
+							<label htmlFor="especieCadastroDono" className='txtCadastroDono'>Espécie do Pet:</label>
+							<input id="especieCadastroDono" className='InputTextCadastroDono' type='text' placeholder='Espécie Do Pet:' {...register("especie")} />
+							<label htmlFor="tipoAnimalCadastroDono" className='txtCadastroDono'>Tipo do Animal:</label>
+							<select id="tipoAnimalCadastroDono" className='InputTextCadastroDono' {...register("tipoAnimal")}>
 								<option value="gato">Gato</option>
 								<option value="cachorro">Cachorro</option>
 							</select>
-							<label className='txtCadastroDono'>Foto Pessoal:</label>
+							<label htmlFor="arquivoImagemCadastroDono" className='txtCadastroDono'>Foto Pessoal:</label>
 							{imagePreview && (
 								<div  style={{ display:'flex', flexDirection:'column', width: '30vw', height: 'auto', alignItems:'center'}}>
 									<h3 className='txtCadastroDono'>Prévia da Imagem:</h3>
@@ -71,6 +71,7 @@ function CadastroDono(){
 								</div>
 							)}
 							<input
+								id="arquivoImagemCadastroDono"
 								type="file"
 								accept="image/*"
 								onChange={handleFileChange}
@@ -82,16 +83,16 @@ function CadastroDono(){
 								className="botaoUploadImagemCadastroDono"
 								type='button'
 							>Selecionar imagem</button>
-							<label className='txtCadastroDono'>sexo:</label>
-							<select className='InputTextCadastroDono' {...register("gender")}>
+							<label htmlFor="sexoCadastroDono" className='txtCadastroDono'>sexo:</label>
+							<select id="sexoCadastroDono" className='InputTextCadastroDono' {...register("gender")}>
 								<option value="Feminino">Feminino</option>
 								<option value="Masculino">Masculino</option>
 								<option value="Outro">Outro</option>
 							</select>
-							<label className='txtCadastroDono'>Senha:</label>
-							<input className='InputTextCadastroDono' type='password' placeholder='senha:' {...register("password")}/>
-							<label className='txtCadastroDono'>Repita a senha:</label>
-							<input className='InputTextCadastroDono' type='password' placeholder='Repita a senha:' {...register("passwordAgain")}/>
+							<label htmlFor="senhaCadastroDono" className='txtCadastroDono'>Insira a senha:</label>
+							<input id="senhaCadastroDono" className='InputTextCadastroDono' type='password' placeholder='Insira a senha:' {...register("password")}/>
+							<label htmlFor="senhaDeNovoCadastroDono" className='txtCadastroDono'>Repita a senha:</label>
+							<input  id="senhaDeNovoCadastroDono" className='InputTextCadastroDono' type='password' placeholder='Repita a senha:' {...register("passwordAgain")}/>
 							<input className='submitCadastroDono' value='Enviar' type="submit"/>
 						</form>
 					</div>
