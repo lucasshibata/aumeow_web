@@ -12,7 +12,7 @@ function MenuCliente(){
         { id:1, titleNav: 'Serviços Pet', srcImg:require('../../../assets/dog-walk.jpg'), navScreen:()=>navigate('/PetServices') },
         { id:2, titleNav: 'Loja', srcImg:require('../../../assets/shop-img.png'), navScreen:()=>navigate('/Shopping') },
         { id:3, titleNav: 'Denuncia', srcImg:require('../../../assets/img_canal_de_denuncia.png'), navScreen:()=>navigate('/Denuncia') },
-        { id:4, titleNav: 'Adoção', srcImg:require('../../../assets/img_canal_de_denuncia.png'), navScreen:()=>navigate('/CadastroDeAdocao') }
+        { id:4, titleNav: 'Adoção', srcImg:require('../../../assets/img_canal_de_denuncia.png'), navScreen:()=>navigate('/PaginaDeAdocao') }
     ];
     
     return(

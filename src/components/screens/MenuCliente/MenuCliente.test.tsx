@@ -66,6 +66,6 @@ describe('MenuCliente', () => {
     expect(mockNavigate).toHaveBeenCalledWith('/Denuncia');
 
     await user.click(screen.getByText(/Adoção/i));
-    expect(mockNavigate).toHaveBeenCalledWith('/CadastroDeAdocao');
+    expect(mockNavigate).toHaveBeenCalledWith('/PaginaDeAdocao');
   });
 });

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import "./CadastroDeAdocao.css";
+import verifyFunction from "../../layout/verifyFunction";
 
 interface AdocaoData {
     Nome: string;
@@ -71,7 +72,7 @@ export default function CadastroDeAdocao(){
             NomeResponsavel: data.nomeResponsavel,
             EmailResponsavel: data.emailResponsavel,
             UIDCadastrante: user?.uid || '',
-            EmailCadastrante: data.email
+            EmailCadastrante: data.email || ''
         };
 
         try {
@@ -108,8 +109,15 @@ export default function CadastroDeAdocao(){
         alert('Produto criado com sucesso e salvo no banco!');
         console.log('Arquivo enviado com sucesso');
 
-        // Navega para a tela do menu do prestador
-        navigate('/MenuPrestador');
+        const funcao = await verifyFunction();
+        if (funcao === 'prestador'){
+            navigate('/MenuPrestador');
+        } else if(funcao === 'cliente'){
+            navigate('/Cliente');
+        } else{
+            navigate('/MenuAdministracao');
+        }
+        
         } catch (error) {
         console.error('Erro ao adicionar o produto:', error);
         alert('Erro ao adicionar o produto. Tente novamente.');
