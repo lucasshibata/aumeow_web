@@ -2,23 +2,18 @@ import "./TelaInicial.css";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import cachorroGato from "../../../assets/cachorro_e_gato.png";
-// import navImg1 from "../../assets/banho_doguinho.png";
-// import navImg2 from "../../assets/corgi_vacina.png";
-// import navImg3 from "../../assets/cachorro_piscina.png";
+import navImg1 from "../../../assets/dog-walk.jpg";
+import navImg2 from "../../../assets/shop-img.png";
+import navImg3 from "../../../assets/imagem_adocao.jpg";
 import navImg4 from "../../../assets/cachorro_grade.png";
-import navImg5 from "../../../assets/dog_loja.png";
-import navImg6 from "../../../assets/dog-walk.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function TelaInicial(){
     const data = [
-        { id:1, titleNav: 'Pet Sitter', srcImg:navImg6, detalhes:"Esse serviço permite que tutores agendem cuidados para seus pets com profissionais confiáveis, garantindo bem-estar na sua ausência. Oferece serviços como alimentação, passeios, administração de medicamentos e higiene, além de exibir disponibilidade, preços e avaliações, permitindo o acompanhamento do atendimento." },
-        { id:2, titleNav: 'Loja', srcImg:navImg5, detalhes:"Esse serviço permite que os clientes naveguem facilmente por categorias de produtos para animais, como ração, brinquedos, acessórios e itens de higiene. É possível pesquisar por nome, filtrar por tipo de pet, marca ou preço, visualizar detalhes do produto e adicionar ao carrinho com apenas alguns cliques. A experiência é otimizada para garantir praticidade, segurança na compra do cliente." },
-        { id:3, titleNav: 'Adoção', srcImg:navImg5, detalhes:"detalhes sobre Adoção" },
-        { id:4, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"Esse serviço é dedicado à proteção animal, permitindo que os usuários denunciem casos de maus-tratos de forma anônima e segura. O sistema coleta informações, fotos ou vídeos e encaminha automaticamente os dados às autoridades ou ONGs responsáveis, garantindo agilidade e sigilo no processo." },
-        // { id:5, titleNav: 'Hospedagem', srcImg:navImg3, detalhes:"detalhes sobre Hospedagem" },
-        // { id:6, titleNav: 'Banho e tosa', srcImg:navImg1, detalhes:"detalhes sobre banho e tosa" },
-        
+        { id:1, titleNav: 'Pet Sitter', srcImg:navImg1, detalhes:"Esse serviço permite que tutores agendem cuidados para seus pets com profissionais confiáveis, garantindo bem-estar na sua ausência. Oferece serviços como alimentação, passeios, administração de medicamentos e higiene, além de exibir disponibilidade, preços e avaliações, permitindo o acompanhamento do atendimento." },
+        { id:2, titleNav: 'Loja', srcImg:navImg2, detalhes:"Esse serviço permite que os clientes naveguem facilmente por categorias de produtos para animais, como ração, brinquedos, acessórios e itens de higiene. É possível pesquisar por nome, filtrar por tipo de pet, marca ou preço, visualizar detalhes do produto e adicionar ao carrinho com apenas alguns cliques. A experiência é otimizada para garantir praticidade, segurança na compra do cliente." },
+        { id:3, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"Esse serviço é dedicado à proteção animal, permitindo que os usuários denunciem casos de maus-tratos de forma anônima e segura. O sistema coleta informações, fotos ou vídeos e encaminha automaticamente os dados às autoridades ou ONGs responsáveis, garantindo agilidade e sigilo no processo." },
+        { id:4, titleNav: 'Adoção', srcImg:navImg3, detalhes:"detalhes sobre Adoção" },  
     ];
     const navigate = useNavigate()
     return(

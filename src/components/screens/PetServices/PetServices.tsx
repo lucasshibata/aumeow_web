@@ -22,6 +22,7 @@ function PetServices() {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
     const [authChecked, setAuthChecked] = useState(false);
+    const [filtroNome, setFiltroNome] = useState('');
     const userId = auth.currentUser;
 
     const navigate = useNavigate();
@@ -81,13 +82,24 @@ function PetServices() {
     function startChat(id:string){
         navigate('/Chat/'+id+'/'+userId?.uid);
     }
+
+    const servicosFiltrados = services.filter((servico) =>
+        servico.nomePrestador.toLowerCase().includes(filtroNome.toLowerCase())
+    );
     return (
         <div className='PetServices'>
             <Header/>
             <div className='ListaDeServicosPetServices'>
                 <h1>Lista de Pet Sitters</h1>
+                <input
+                    type="text"
+                    placeholder="Buscar por nome"
+                    value={filtroNome}
+                    onChange={(e) => setFiltroNome(e.target.value)}
+                    className="InputFiltroNome"
+                />
                 <ul className='InnerListaPetServices'>
-                    {services.map((service: Service) => (
+                    {servicosFiltrados.map((service: Service) => (
                         <li className='ItemLista' key={service.id}>
                             <h2 className='Texto'>{service.nomePrestador}</h2>
                             <p className='Texto'>Endereço: {service.endereco}</p>

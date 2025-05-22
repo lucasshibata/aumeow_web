@@ -1,0 +1,55 @@
+.ContainerPaginaDeAdocao{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    & .InnerContainerPaginaDeAdocao{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        flex: 1; 
+        & .DivBtnPaginaDeAdocao{
+            margin-left: auto;
+            margin-right: 10px; 
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: var(--marrom-btn);
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            & .BtnIrParaCadastroPaginaDeAdocao{
+                border: 0;
+                background-color: var(--marrom-btn);
+                color: var(--branco);
+                font-size: 1.2rem;
+                padding: 10px;
+                cursor: pointer;
+            }
+            & .IconBtnPaginaDeAdocao{
+                background-color: var(--marrom-btn);
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+        }
+        & .ContainerAdocaoPaginaDeAdocao{
+            display: flex;
+            flex-direction: row;
+            & .ItemListaPaginaDeAdocao{
+                border: 2px solid var(--marrom-btn);
+                padding: 10px;
+                border-radius: 15px;
+                & .Textoh1PaginaDeAdocao{
+                    color: var(--marrom-text);
+                    font-size: 2rem;
+                }
+                & .TextoPPaginaDeAdocao{
+                    color: var(--marrom-text);
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
