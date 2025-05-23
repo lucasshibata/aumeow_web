@@ -13,12 +13,12 @@ export default function TelaInicial(){
         { id:1, titleNav: 'Pet Sitter', srcImg:navImg1, detalhes:"Esse serviço permite que tutores agendem cuidados para seus pets com profissionais confiáveis, garantindo bem-estar na sua ausência. Oferece serviços como alimentação, passeios, administração de medicamentos e higiene, além de exibir disponibilidade, preços e avaliações, permitindo o acompanhamento do atendimento." },
         { id:2, titleNav: 'Loja', srcImg:navImg2, detalhes:"Esse serviço permite que os clientes naveguem facilmente por categorias de produtos para animais, como ração, brinquedos, acessórios e itens de higiene. É possível pesquisar por nome, filtrar por tipo de pet, marca ou preço, visualizar detalhes do produto e adicionar ao carrinho com apenas alguns cliques. A experiência é otimizada para garantir praticidade, segurança na compra do cliente." },
         { id:3, titleNav: 'Denúncia', srcImg:navImg4, detalhes:"Esse serviço é dedicado à proteção animal, permitindo que os usuários denunciem casos de maus-tratos de forma anônima e segura. O sistema coleta informações, fotos ou vídeos e encaminha automaticamente os dados às autoridades ou ONGs responsáveis, garantindo agilidade e sigilo no processo." },
-        { id:4, titleNav: 'Adoção', srcImg:navImg3, detalhes:"detalhes sobre Adoção" },  
+        { id:4, titleNav: 'Adoção', srcImg:navImg3, detalhes:"Esse serviço é dedicado a adoção de animais, facilitando a conexão entre abrigos e pessoas interessadas em adotar. Ele permite que os abrigos cadastrem animais disponíveis, com informações como nome, espécie, idade, porte e histórico médico. Usuários podem visualizar os animais, filtrar por critérios específicos e enviar pedidos de adoção. O sistema inclui etapas de triagem, como formulários e entrevistas, para garantir adoções responsáveis." },  
     ];
     const navigate = useNavigate()
     return(
         <div className="TelaInicial">
-            <div className="overlay"></div>
+            
             <div className="ConteudoTelaInicial">
                 <Header/>
                 <main>

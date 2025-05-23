@@ -8,7 +8,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
         align-items: center;
         padding-bottom: 20px;
         & .Article1SobreNos{
@@ -17,46 +17,76 @@
             justify-content: center;
             gap: 20px;
             align-items: center;
+            height: 200px;
+            width: 97%;
             background-color: var(--pastel-bg);
             padding: 20px;
             border: solid 2px var(--marrom-btn);
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
-            & .Img1SobreNos{
-                width: 10%;
-                height: 5%;
+            & .DivContainerMiniImg{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: flex-end;
+                height: 100%;
+                & .Img1SobreNos{
+                    width: 20%;
+                    height: auto;
+                }
             }
-            & .Img2SobreNos{
-                width: 20%;
-                height: 40%;
+            & .DivContainerMiniImg2{
+                display: flex;
+                align-items: center;
+                flex: 1;
+                height: 100%;
+                 & .Img2SobreNos{
+                    width: auto;
+                    height: 100%;
+                    border: 2px solid var(--marrom-btn);
+                    border-radius: 10px;
+                }
             }
             & p{
+                flex: 2;
                 color: var(--marrom-text);
                 font-weight: bold;
                 font-size: 1.5rem;
+                text-align: center;
             }
         }
         & .Article2SobreNos{
-            padding: 40px;
+            padding-left: 40px;
+            padding-right: 40px;
             & .DivInterna1SobreNos{
                 display: flex;
                 gap: 20px;
+                align-items: center;
                 & .Img3SobreNos{
+                    flex: 1;
                     width: 20%;
                     height: 40%;
+                    border: 2px solid var(--marrom-btn);
+                    border-radius: 10px;
                 }
                 & p{
+                    flex: 2;
                     color: var(--preto);
                 }
             }
             & .DivInterna2SobreNos{
                 display: flex;
                 gap: 20px;
+                align-items: center;
                 & .Img4SobreNos{
+                    flex: 1;
                     width: 20%;
                     height: 40%;
+                    border: 2px solid var(--marrom-btn);
+                    border-radius: 10px;
                 }
                 & p{
+                    flex: 2;
                     color: var(--preto);
                 }
             }
@@ -64,6 +94,7 @@
         & .Btn1SobreNos{
             width: 200px;
             border: 0;
+            cursor: pointer;
             background-color: var(--marrom-btn);
             padding: 10px;
             border-radius: 10px;

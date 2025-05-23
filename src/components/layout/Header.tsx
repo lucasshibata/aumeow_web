@@ -79,14 +79,27 @@ export default function Header(){
         borderRadius:'15px'
     }
     const location = useLocation();
-    const telasMostrarEntrar = ["/Login", "/", "/CreateUser", "/CadastroDono", "/CadastroPrestador", "/RecoverPassword", "/SobreNos"];
-    const mostrarEntrar = telasMostrarEntrar.includes(location.pathname);
-    // telasMostrarEntrar.some(route => location.pathname.startsWith(route),location.pathname);
-    const telasMenus = ["/MenuCliente", "/MenuPrestador", "/MenuAdministracao"]
-    const mostrarVoltar = telasMenus.includes(location.pathname);
-    const PerfilDeUsuario = ["/PerfilDeUsuario"]
-    const mostrarPerfil = PerfilDeUsuario.includes(location.pathname);
-    const mostrarOutros = !mostrarEntrar;
+    const isSobreNos = location.pathname === "/SobreNos";
+    const isHome = location.pathname === "/"; 
+    const isMenuCliente = location.pathname ==='/MenuCliente'
+    const isShopping = location.pathname ==='/Shopping' 
+    const isPetServices = location.pathname ==='/PetServices' 
+    const isMenuPrestador = location.pathname ==='/MenuPrestador' 
+    const isServicosPrestador = location.pathname ==='/ListaServicosPrestador' 
+    const isEspecificProduct = location.pathname ==='/Shopping/:ProdId' 
+    const isRegistroServicoPrestador = location.pathname ==='/RegistroServicoPrestador' 
+    const isCadastroProdutos = location.pathname ==='/CadastroProdutos' 
+    const isListaProdutosPrestador = location.pathname ==='/ListaProdutosPrestador' 
+    const isChat = location.pathname ==='/Chat/:PrestadorId/:ClienteId'
+    const isMenuAdministracao = location.pathname ==='/MenuAdministracao'
+    const isListaDeChats = location.pathname ==='/ListaDeChats' 
+    const isDenuncia = location.pathname ==='/Denuncia' 
+    const isCadastroContasAdministracao = location.pathname ==='/CadastroContasAdministracao' 
+    const isPerfilDeUsuario = location.pathname ==='/PerfilDeUsuario'
+    const isEdicaoPerfil = location.pathname ==='/EdicaoPerfil'
+    const isCadastroDeAdocao = location.pathname ==='/CadastroDeAdocao'
+    const isPaginaDeAdocao = location.pathname ==='/PaginaDeAdocao' 
+    
     const handleLogout = async () => {
         try {
           await signOut(auth);
@@ -99,12 +112,15 @@ export default function Header(){
     return(
         <header style={stylesHeader}>
             <div style={stylesContainer}>
-                {!mostrarVoltar && !mostrarEntrar && 
+                {(isSobreNos || isShopping || isPetServices || isServicosPrestador || isEspecificProduct ||
+                 isRegistroServicoPrestador || isCadastroProdutos || isListaProdutosPrestador || isChat || 
+                 isListaDeChats || isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || 
+                 isEdicaoPerfil || isCadastroDeAdocao || isPaginaDeAdocao) &&(
                     <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
                         <FaArrowLeft style={stylesIcons}/>
                         <button style={stylesButton} onClick={()=>navigate(-1)}>Voltar</button>
                     </div>
-                }
+                )}
                 {/* =========================================== */}
                 <div style={stylesContent}>
                     <div style={stylesLogo}>
@@ -114,29 +130,37 @@ export default function Header(){
                 </div>
                 {/* ============================================= */}
                 <div style={stylesContent}>
-                    {mostrarOutros &&
+                    {(isSobreNos || isMenuPrestador || isMenuCliente || isMenuAdministracao) && (
                         <div style={stylesInnerDiv}>
                             <FaHome style={stylesIcons}/><Link to="/" style={stylesText}>Home</Link>
                         </div>
-                    }
+                    )}
                     {/* =========================================== */}
-                    {mostrarEntrar &&
+                    {(isSobreNos || isHome) && (
                         <div style={stylesInnerDiv}>
                             <FaUser style={stylesIcons}/><Link to="/Login" style={stylesText}>Entrar</Link>
                         </div>
-                    }
+                    )}
                     {/* =============================================== */}
-                    {mostrarOutros && 
+                    {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
+                     isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador || 
+                     isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats || isDenuncia ||
+                      isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil || 
+                      isCadastroDeAdocao || isPaginaDeAdocao) && (
                         <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
                             <FaSignOutAlt style={stylesIcons}/><button style={stylesButton} onClick={handleLogout}>Sair</button>
                         </div>
-                    }
+                    )}
                     {/* ================================================== */}
-                    {mostrarOutros && !mostrarPerfil &&
+                    {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
+                     isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador || 
+                     isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats || 
+                     isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil || 
+                     isCadastroDeAdocao || isPaginaDeAdocao) && (
                         <div style={stylesInnerDiv}>
                             <CgProfile style={stylesIcons}/><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
                         </div>
-                    }
+                    )}
                 </div>
             </div>
         </header>
