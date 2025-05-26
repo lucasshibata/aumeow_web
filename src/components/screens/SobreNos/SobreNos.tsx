@@ -18,7 +18,7 @@ export default function SobreNos(){
                     <div className="DivContainerMiniImg">
                         <img className="Img1SobreNos" src={navImg1} alt="" />
                     </div>
-                    <p>Quem está por trás do AuMeow?</p>
+                    <p className="TituloArticle1SobreNos">Quem está por trás do AuMeow?</p>
                     <div className="DivContainerMiniImg2">
                         <img className="Img2SobreNos" src={navImg4} alt="" />
                     </div>

@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import { ref, database, auth, get, set, push} from "../../firebase/Firebase";
 import s3 from "../../aws/aws-config";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import Select from "react-select";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import "./CadastroDeAdocao.css";
@@ -23,9 +24,35 @@ interface AdocaoData {
     UIDCadastrante: string;
     EmailCadastrante: string; 
 }
+const saudeOptions = [
+  { value: "vacinacaoEmDia", label: "Vacinação em dia" },
+  { value: "vacinacaoIncompleta", label: "Vacinação incompleta" },
+  { value: "castrado", label: "Castrado" },
+  { value: "naoCastrado", label: "Não Castrado" },
+  { value: "vermifugado", label: "Vermifugado" },
+  { value: "naoVermifugado", label: "Não Vermifugado" },
+  { value: "FivPositivo", label: "FIV positivo" },
+  { value: "FelvPositivo", label: "FELV positivo" },
+  { value: "possuiComorbidades", label: "Possui comorbidades" }
+];
+const temperamentoOptions = [
+  { value: "docil", label: "Dócil" },
+  { value: "ativoEnergetico", label: "Ativo/Energético" },
+  { value: "calmoTranquilo", label: "Calmo/Tranquilo" },
+  { value: "brincalhao", label: "Brincalhão" },
+  { value: "independente", label: "Independente" },
+  { value: "sociavel", label: "Sociável" },
+  { value: "dominante", label: "Dominante" },
+  { value: "timidoMedroso", label: "Tímido/Medroso" },
+  { value: "preguicoso", label: "Preguiçoso" },
+  { value: "bravoReativo", label: "Bravo/Reativo" },
+  { value: "protetorTerritorial", label: "Protetor/Territorial" },
+  { value: "inteligente", label: "Inteligente" },
+  { value: "carenteGrudento", label: "Carente/Grudento" }
+];
 
 export default function CadastroDeAdocao(){
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, control } = useForm();
     const navigate = useNavigate();
     const [file, setFile] = useState<File | null>(null);
     const [uploading, setUploading] = useState(false);
@@ -58,6 +85,8 @@ export default function CadastroDeAdocao(){
         const adocaoRef = push(ref(database, 'adocao'));
         const dbUserNameRef = ref(database, 'users/' + user?.uid + '/nome');
         const dbUserEmailRef = ref(database, 'users/' + user?.uid + '/email');
+        const estadoSaude = data.estadoSaude?.map((opt:any) => opt.value) || [];
+        const temperamentoDoAnimal = data.temperamentoDoAnimal?.map((opt:any) => opt.value) || [];
 
         let AdocaoData: AdocaoData = {
             Nome: data.nome,
@@ -66,8 +95,8 @@ export default function CadastroDeAdocao(){
             Sexo:data.sexo,
             Idade:data.idade,
             Porte:data.porte,
-            EstadoDeSaude: data.estadoDeSaude,
-            Temperamento: data.temperamento,
+            EstadoDeSaude: estadoSaude,
+            Temperamento: temperamentoDoAnimal,
             HistoriaDoAnimal: data.historiaDoAnimal,
             NomeResponsavel: data.nomeResponsavel,
             EmailResponsavel: data.emailResponsavel,
@@ -113,7 +142,7 @@ export default function CadastroDeAdocao(){
         if (funcao === 'prestador'){
             navigate('/MenuPrestador');
         } else if(funcao === 'cliente'){
-            navigate('/Cliente');
+            navigate('/MenuCliente');
         } else{
             navigate('/MenuAdministracao');
         }
@@ -151,6 +180,7 @@ export default function CadastroDeAdocao(){
                         style={{ display: 'none' }}
                     />
                     <button
+                        type="button"
                         onClick={handleClick}
                         className="botaoUploadImagemCadastroDeAdocao"
                     >Selecionar imagem</button>
@@ -162,12 +192,10 @@ export default function CadastroDeAdocao(){
                         {...register("nome", { required: true })}
                     />
                     <label className='txtCadastroDeAdocao'>Especie do Animal:</label>
-                    <input
-                        className='InputTextCadastroDeAdocao'
-                        type='text'
-                        placeholder='Especie:'
-                        {...register("especie", { required: true })}
-                    />
+                    <select className='InputTextCadastroDeAdocao' {...register("especie", { required: true })}>
+                        <option value="gato">Gato</option>
+                        <option value="cachorro">Cachorro</option>
+                    </select>
                     <label className='txtCadastroDeAdocao'>Raça do Animal:</label>
                     <input
                         className='InputTextCadastroDeAdocao'
@@ -176,13 +204,11 @@ export default function CadastroDeAdocao(){
                         {...register("raca", { required: true })}
                     />
                     <label className='txtCadastroDeAdocao'>Sexo:</label>
-                    <input
-                        className='InputTextCadastroDeAdocao'
-                        type='text'
-                        placeholder='Sexo:'
-                        {...register("sexo", { required: true })}
-                    />
-                    <label className='txtCadastroDeAdocao'>Idade:</label>
+                    <select className='InputTextCadastroDeAdocao' {...register("sexo", { required: true })}>
+                        <option value="macho">Macho</option>
+                        <option value="femea">Fêmea</option>
+                    </select>
+                    <label className='txtCadastroDeAdocao'>Idade(anos):</label>
                     <input
                         className='InputTextCadastroDeAdocao'
                         type='text'
@@ -190,25 +216,42 @@ export default function CadastroDeAdocao(){
                         {...register("idade", { required: true })}
                     />
                     <label className='txtCadastroDeAdocao'>Porte:</label>
-                    <input
-                        className='InputTextCadastroDeAdocao'
-                        type='text'
-                        placeholder='Porte:'
-                        {...register("porte", { required: true })}
-                    />
+                    <select className='InputTextCadastroDeAdocao' {...register("porte", { required: true })}>
+                        <option value="pequeno">Pequeno</option>
+                        <option value="medio">Médio</option>
+                        <option value="grande">Grande</option>
+                    </select>
                     <label className='txtCadastroDeAdocao'>Estado de saúde:</label>
-                    <input
-                        className='InputTextCadastroDeAdocao'
-                        type='text'
-                        placeholder='Estado:'
-                        {...register("estadoDeSaude", { required: true })}
+                    <Controller
+                        name="estadoSaude"
+                        control={control}
+                        defaultValue={[]}
+                        render={({ field }) => (
+                        <Select
+                            {...field}
+                            options={saudeOptions}
+                            isMulti
+                            placeholder="Selecione..."
+                            className="InputTextCadastroDeAdocao"
+                            classNamePrefix="select"
+                        />
+                        )}
                     />
                     <label className='txtCadastroDeAdocao'>Temperamento:</label>
-                    <input
-                        className='InputTextCadastroDeAdocao'
-                        type='text'
-                        placeholder='Temperamento:'
-                        {...register("temperamento", { required: true })}
+                    <Controller
+                        name="temperamentoDoAnimal"
+                        control={control}
+                        defaultValue={[]}
+                        render={({ field }) => (
+                        <Select
+                            {...field}
+                            options={temperamentoOptions}
+                            isMulti
+                            placeholder="Selecione..."
+                            className="InputTextCadastroDeAdocao"
+                            classNamePrefix="select"
+                        />
+                        )}
                     />
                     <label className='txtCadastroDeAdocao'>Historia do Animal:</label>
                     <input

@@ -26,7 +26,13 @@ interface AnimaisAdocao {
 function PaginaDeAdocao(){
     const [adocao, setAdocao] = useState<AnimaisAdocao[]>([]);
     const [loading, setLoading] = useState(true);
+
     const [filtroNome, setFiltroNome] = useState('');
+    const [filtroEspecie, setFiltroEspecie] = useState('');
+    const [filtroRaca, setFiltroRaca] = useState('');
+    const [filtroSexo, setFiltroSexo] = useState('');
+    const [filtroIdade, setFiltroIdade] = useState('');
+
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -73,7 +79,11 @@ function PaginaDeAdocao(){
         return <p>Carregando...</p>;
     }
     const animaisFiltrados = adocao.filter((animal) =>
-        animal.Nome.toLowerCase().includes(filtroNome.toLowerCase())
+        animal.Nome.toLowerCase().includes(filtroNome.toLowerCase()) &&
+        animal.Especie.toLowerCase().includes(filtroEspecie.toLowerCase()) &&
+        animal.Raca.toLowerCase().includes(filtroRaca.toLowerCase()) &&
+        animal.Sexo.toLowerCase().includes(filtroSexo.toLowerCase()) &&
+        animal.Idade.toString().includes(filtroIdade.toLowerCase())
     );
     
     return(
@@ -83,13 +93,43 @@ function PaginaDeAdocao(){
                 <div className="DivBtnPaginaDeAdocao" onClick={()=>navigate("/CadastroDeAdocao")}>
                     <FaPlus className="IconBtnPaginaDeAdocao" /><button className="BtnIrParaCadastroPaginaDeAdocao">Cadastro De Adoção</button>
                 </div>
-                <input
-                    type="text"
-                    placeholder="Buscar por nome"
-                    value={filtroNome}
-                    onChange={(e) => setFiltroNome(e.target.value)}
-                    className="InputFiltroNome"
-                />
+                <div className="DivContainerDeFiltrosPaginaDeAdocao">
+                    <input
+                        type="text"
+                        placeholder="Buscar por nome"
+                        value={filtroNome}
+                        onChange={(e) => setFiltroNome(e.target.value)}
+                        className="InputFiltroNome"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por espécie"
+                        value={filtroEspecie}
+                        onChange={(e) => setFiltroEspecie(e.target.value)}
+                        className="InputFiltroEspecie"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por raça"
+                        value={filtroRaca}
+                        onChange={(e) => setFiltroRaca(e.target.value)}
+                        className="InputFiltroRaca"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por sexo"
+                        value={filtroSexo}
+                        onChange={(e) => setFiltroSexo(e.target.value)}
+                        className="InputFiltroSexo"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por idade"
+                        value={filtroIdade}
+                        onChange={(e) => setFiltroIdade(e.target.value)}
+                        className="InputFiltroIdade"
+                    />
+                </div>
                 <ul className="ContainerAdocaoPaginaDeAdocao">
                     {animaisFiltrados.map((service:any) => (
                         <li className="ItemListaPaginaDeAdocao" key={service.id}>

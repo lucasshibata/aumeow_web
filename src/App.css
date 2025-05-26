@@ -9,6 +9,7 @@
     --branco: #FFFFFF;
     --preto: #000000;
     --fonte-texto: "Inter";
+    --marrom-text-placeholder:#3d2c1c9f;
 }
 .App{
     font-family: "Inter";

@@ -11,6 +11,14 @@
         gap: 20px;
         align-items: center;
         padding-bottom: 20px;
+        & .TituloArticle1SobreNos{
+            font-family: var(--fonte-texto);
+            font-weight: bold;
+            font-size: 2.3rem;
+            flex: 2;
+            color: var(--marrom-text);
+            text-align: center;
+        }
         & .Article1SobreNos{
             display: flex;
             flex-direction: row;
@@ -47,13 +55,6 @@
                     border-radius: 10px;
                 }
             }
-            & p{
-                flex: 2;
-                color: var(--marrom-text);
-                font-weight: bold;
-                font-size: 1.5rem;
-                text-align: center;
-            }
         }
         & .Article2SobreNos{
             padding-left: 40px;
@@ -71,7 +72,8 @@
                 }
                 & p{
                     flex: 2;
-                    color: var(--preto);
+                    color: var(--marrom-text);
+                    font-size: 1.3rem;
                 }
             }
             & .DivInterna2SobreNos{
@@ -87,12 +89,14 @@
                 }
                 & p{
                     flex: 2;
-                    color: var(--preto);
+                    color: var(--marrom-text);
+                    font-size: 1.3rem;
                 }
             }
         }
         & .Btn1SobreNos{
-            width: 200px;
+            width: 300px;
+            font-size: 1.3rem;
             border: 0;
             cursor: pointer;
             background-color: var(--marrom-btn);

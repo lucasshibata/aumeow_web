@@ -130,7 +130,7 @@ export default function Header(){
                 </div>
                 {/* ============================================= */}
                 <div style={stylesContent}>
-                    {(isSobreNos || isMenuPrestador || isMenuCliente || isMenuAdministracao) && (
+                    {(isMenuPrestador || isMenuCliente || isMenuAdministracao) && (
                         <div style={stylesInnerDiv}>
                             <FaHome style={stylesIcons}/><Link to="/" style={stylesText}>Home</Link>
                         </div>

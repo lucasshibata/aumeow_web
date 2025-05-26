@@ -8,7 +8,24 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
+        gap:10px;
         flex: 1; 
+        & .DivContainerDeFiltrosPaginaDeAdocao{
+            display: flex;
+            flex-direction: row;
+            gap:10px;
+            flex-wrap: wrap;
+            & input{
+                border: 2px solid var(--marrom-btn);
+                padding: 5px;
+                border-radius: 5px;
+                font-size: 1rem;
+                background-color: var(--cinza-claro);
+            }
+            & input::placeholder{
+                color: var(--marrom-text-placeholder);
+            }
+        }
         & .DivBtnPaginaDeAdocao{
             margin-left: auto;
             margin-right: 10px; 
@@ -37,6 +54,8 @@
         & .ContainerAdocaoPaginaDeAdocao{
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
             & .ItemListaPaginaDeAdocao{
                 border: 2px solid var(--marrom-btn);
                 padding: 10px;
