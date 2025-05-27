@@ -159,7 +159,7 @@ function EdicaoPerfil(){
                     <label className='txtEdicaoPerfil'>Senha:</label>
                     <div className="DivCampoSenhaEdicaoPerfil">
                         <input className='InputTextSenhaEdicaoPerfil' type={mostrarSenha ? 'text' : 'password'} placeholder='senha:' {...register("senha")}/>
-                        <button type="button" onClick={() => setMostrarSenha((prev) => !prev)}>
+                        <button className="BtnShowSenhaEdicaoPerfil" type="button" onClick={() => setMostrarSenha((prev) => !prev)}>
                             {mostrarSenha ? 'Ocultar' : 'Mostrar'}
                         </button>
                     </div>
@@ -218,7 +218,7 @@ function EdicaoPerfil(){
                     <label className='txtEdicaoPerfil'>Senha:</label>
                     <div className="DivCampoSenhaEdicaoPerfil">
                         <input className='InputTextSenhaEdicaoPerfil' type={mostrarSenha ? 'text' : 'password'} placeholder='senha:' {...register("senha")}/>
-                        <button type="button" onClick={() => setMostrarSenha((prev) => !prev)}>
+                        <button className='BtnShowSenhaEdicaoPerfil' type="button" onClick={() => setMostrarSenha((prev) => !prev)}>
                             {mostrarSenha ? 'Ocultar' : 'Mostrar'}
                         </button>
                     </div>

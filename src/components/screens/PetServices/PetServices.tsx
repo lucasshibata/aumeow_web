@@ -117,61 +117,61 @@ function PetServices() {
         <div className='PetServices'>
             <Header/>
             <div className='ListaDeServicosPetServices'>
-                <h1>Lista de Pet Sitters</h1>
-                <div className="DivContainerDeFiltrosShopping">
-                    <p className="TxtFiltroShopping">Filtros:</p>
+                <h1 className="TxtTitlePetServices">Lista de Pet Sitters</h1>
+                <div className="DivContainerDeFiltrosPetServices">
+                    <p className="TxtFiltroPetServices">Filtros:</p>
                     <input
                         type="text"
-                        placeholder="Buscar por nome"
+                        placeholder="Nome:"
                         value={filtroNome}
                         onChange={(e) => setFiltroNome(e.target.value)}
                         className="InputFiltroNome"
                     />
                     <input
                         type="text"
-                        placeholder="Buscar por AnimalPref"
+                        placeholder="Preferência de Animal:"
                         value={filtroAnimalPref}
                         onChange={(e) => setFiltroAnimalPref(e.target.value)}
                         className="InputFiltroAnimalPref"
                     />
                     <input
                         type="text"
-                        placeholder="Buscar por preço mínimo"
+                        placeholder="Preço Mínimo:"
                         value={filtroPrecoMin}
                         onChange={(e) => setFiltroPrecoMin(e.target.value)}
                         className="InputFiltroPrecoMin"
                     />
                     <input
                         type="text"
-                        placeholder="Buscar por preço máximo"
+                        placeholder="Preço Máximo:"
                         value={filtroPrecoMax}
                         onChange={(e) => setFiltroPrecoMax(e.target.value)}
                         className="InputFiltroPrecoMax"
                     />
                     <input
                         type="number"
-                        placeholder="Buscar por Raio mínimo"
+                        placeholder="Raio Mínimo:"
                         value={filtroRaioMin}
                         onChange={(e) => setFiltroRaioMin(e.target.value)}
                         className="InputFiltroRaioMin"
                     />
                     <input
                         type="number"
-                        placeholder="Buscar por Raio máximo"
+                        placeholder="Raio Máximo:"
                         value={filtroRaioMax}
                         onChange={(e) => setFiltroRaioMax(e.target.value)}
                         className="InputFiltroRaioMax"
                     />
                     <input
                         type="text"
-                        placeholder="Buscar por Estado"
+                        placeholder="Estado (sigla):"
                         value={filtroEstado}
                         onChange={(e) => setFiltroEstado(e.target.value)}
                         className="InputFiltroEstado"
                     />
                     <input
                         type="number"
-                        placeholder="Buscar por Quantidade de Serviços"
+                        placeholder="Quantidade de Serviços:"
                         value={filtroQtdService}
                         onChange={(e) => setFiltroQtdService(e.target.value)}
                         className="InputFiltroQtdService"
