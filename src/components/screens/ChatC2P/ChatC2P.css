@@ -64,11 +64,11 @@
         gap: 5px;
         & input{
             background-color: var(--cinza-claro);
+            flex:10;
             border: 0;
             border-radius: 10px;
             font-size: 1.3rem;
             padding: 5px;
-            width: 90%;
         }
         & input:focus {
             outline: none;
@@ -77,11 +77,11 @@
         }
         & button{
             background-color: var(--marrom-btn);
+            flex: 1;
             border: 0;
             border-radius: 10px;
             font-size: 1.5rem;
             padding: 5px;
-            width: 10%;
             color: var(--pastel-bg);
             cursor: pointer;
         }

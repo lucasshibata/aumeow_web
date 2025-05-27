@@ -85,7 +85,7 @@ function CadastroProdutos() {
         nome: data.name,
         codigo: data.code,
         quantidade: data.amount,
-        preco: data.price,
+        preco: data.price.replace(',', '.'),
         marca: data.brand,
         prestadorName: '',
         prestadorUID: user?.uid || '',
@@ -126,7 +126,7 @@ function CadastroProdutos() {
         console.log('Arquivo enviado com sucesso');
 
         // Navega para a tela do menu do prestador
-        navigate('/MenuPrestador');
+        navigate('/MenuAdministracao');
         } catch (error) {
         console.error('Erro ao adicionar o produto:', error);
         alert('Erro ao adicionar o produto. Tente novamente.');
@@ -161,6 +161,7 @@ function CadastroProdutos() {
                     />
                     <button
                         onClick={handleClick}
+                        type='button'
                         className="botaoUploadImagemCadastroProdutos"
                     >Selecionar imagem</button>
                     <label className='txtCadastroProdutos'>Nome do produto:</label>

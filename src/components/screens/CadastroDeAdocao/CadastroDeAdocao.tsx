@@ -192,7 +192,8 @@ export default function CadastroDeAdocao(){
                         {...register("nome", { required: true })}
                     />
                     <label className='txtCadastroDeAdocao'>Especie do Animal:</label>
-                    <select className='InputTextCadastroDeAdocao' {...register("especie", { required: true })}>
+                    <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("especie", { required: true })}>
+                        <option value="" disabled hidden>Selecione uma opção:</option>
                         <option value="gato">Gato</option>
                         <option value="cachorro">Cachorro</option>
                     </select>
@@ -204,7 +205,8 @@ export default function CadastroDeAdocao(){
                         {...register("raca", { required: true })}
                     />
                     <label className='txtCadastroDeAdocao'>Sexo:</label>
-                    <select className='InputTextCadastroDeAdocao' {...register("sexo", { required: true })}>
+                    <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("sexo", { required: true })}>
+                        <option value="" disabled hidden>Selecione uma opção:</option>
                         <option value="macho">Macho</option>
                         <option value="femea">Fêmea</option>
                     </select>
@@ -216,7 +218,8 @@ export default function CadastroDeAdocao(){
                         {...register("idade", { required: true })}
                     />
                     <label className='txtCadastroDeAdocao'>Porte:</label>
-                    <select className='InputTextCadastroDeAdocao' {...register("porte", { required: true })}>
+                    <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("porte", { required: true })}>
+                        <option value="" disabled hidden>Selecione uma opção:</option>
                         <option value="pequeno">Pequeno</option>
                         <option value="medio">Médio</option>
                         <option value="grande">Grande</option>
@@ -231,6 +234,15 @@ export default function CadastroDeAdocao(){
                             {...field}
                             options={saudeOptions}
                             isMulti
+                            theme={(theme) => ({
+                                ...theme,
+                                colors: {
+                                    ...theme.colors,
+                                    primary: 'var(--marrom-btn)',
+                                    neutral0: 'var(--cinza-claro)',
+                                     
+                                },
+                            })}
                             placeholder="Selecione..."
                             className="InputTextCadastroDeAdocao"
                             classNamePrefix="select"
@@ -247,6 +259,14 @@ export default function CadastroDeAdocao(){
                             {...field}
                             options={temperamentoOptions}
                             isMulti
+                            theme={(theme) => ({
+                                ...theme,
+                                colors: {
+                                    ...theme.colors,
+                                    primary: 'var(--marrom-btn)',
+                                    neutral0: 'var(--cinza-claro)',
+                                },
+                            })}
                             placeholder="Selecione..."
                             className="InputTextCadastroDeAdocao"
                             classNamePrefix="select"

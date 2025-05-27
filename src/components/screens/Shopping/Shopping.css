@@ -4,6 +4,35 @@
     width: 100%;
     flex-direction: column;
     background-color: var(--pastel-bg);
+    & .TxtTitleShopping{
+        color: var(--marrom-text);
+        text-align: center;
+    }
+    & .DivContainerDeFiltrosShopping{
+         display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        gap:10px;
+        flex-wrap: wrap;
+        & .TxtFiltroShopping{
+            color: var(--marrom-text);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        & input{
+            border: 2px solid var(--marrom-btn);
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: var(--cinza-claro);
+        }
+        & input::placeholder{
+            color: var(--marrom-text-placeholder);
+        }
+    }
     & .FlatListShopping{
         flex: 1;
         display: flex;

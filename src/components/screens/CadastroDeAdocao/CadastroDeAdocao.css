@@ -10,59 +10,50 @@
         align-items: center;
         padding: 20px;
         & .TitleCadastroDeAdocao{
-            color: var(--preto);
+            color: var(--marrom-text);
         }
         & .FormContainerCadastroDeAdocao{
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 50%;
+            width: 40%;
             padding: 10px;
             gap: 10px;
             border: solid 2px var(--marrom-btn);
             border-radius: 15px;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            & .botaoUploadImagemCadastroDeAdocao, .SubmitCadastroDeAdocao{
+                border: 0;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 1.3rem;
+                background-color: var(--marrom-btn);
+                color: var(--branco);
+                cursor: pointer;
+            }
             & .txtCadastroDeAdocao{
-                color: var(--preto);
+                color: var(--marrom-text);
+                font-size: 1.3rem;
+                font-weight: bold;
+                margin-right: auto;
+            }
+            & input, select{
+                padding-top: 6px;
+                padding-bottom: 6px;
+                padding-left: 10px;
             }
             & .InputTextCadastroDeAdocao{
-                width: 70%;
-                color: black;
+                width: 100%;
+                border: 1px solid var(--marrom-btn);
+                border-radius: 5px;
+                font-size: 1.3rem;
+                color: var(--marrom-text);
+                background-color: var(--cinza-claro);
+                box-sizing: border-box;
+            }
+            & .InputTextCadastroDeAdocao:invalid{
+                color: #757575;
             }
         }
     }
-}
-
-.select__control {
-  background-color: #f0f0f0;
-  border-color: #ccc;
-  color: black;
-}
-
-.select__option {
-  background-color: white;
-  color: black;
-}
-
-.select__option--is-selected {
-  background-color: #cce5ff;
-  color: #000;
-}
-
-.select__option--is-focused {
-  background-color: #e6f2ff;
-  color: black;
-}
-
-.select__multi-value {
-  background-color: #d9edf7;
-  color: #000;
-}
-
-.select__multi-value__label {
-  color: #000;
-}
-
-.select__multi-value__remove {
-  color: #000;
 }

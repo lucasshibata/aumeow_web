@@ -18,13 +18,10 @@ import withAuth from '../../contexts/LoginContext';
                 <form className= "FormRegistroServicoPrestador"onSubmit={handleSubmit((data)=>SendService(data, navigate))}>
                     <label className='txtRegistroServicoPrestador'>Endereço:</label>
                     <input className='InputTextRegistroServicoPrestador' type='text' placeholder='Endereço:' {...register("adress")} />
-                    <label className='txtRegistroServicoPrestador'>Preço:</label>
-                    <input className='InputTextRegistroServicoPrestador' type="number" placeholder='Preço:' {...register("price")}/>
-                    <label className='txtRegistroServicoPrestador'>Animal de Preferência:</label>
-                    <select className='SelectOptionRegistroServicoPrestador' {...register("animalType")}>
-                        <option value="gato">gato</option>
-                        <option value="cachorro">cachorro</option>
-                    </select>
+                    <label className='txtRegistroServicoPrestador'>Estado (sigla):</label>
+                    <input className='InputTextRegistroServicoPrestador' type="text" placeholder='Estado:' {...register("estado")}/>
+                    <label className='txtRegistroServicoPrestador'>Preço por serviço:</label>
+                    <input className='InputTextRegistroServicoPrestador' type="text" placeholder='Preço:' {...register("price")}/>
                     <label className='txtRegistroServicoPrestador'>Quantidade de passeio/visita:</label>
                     <select className='SelectOptionRegistroServicoPrestador' {...register("qtdService")}>
                         <option value="1">1</option>

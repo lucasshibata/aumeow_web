@@ -10,11 +10,14 @@ import { useNavigate } from 'react-router-dom';
 interface Service {
     id: string;
     endereco: string;
-    preco: number;
+    preco: string;
     tipoAnimal: string;
     qtdService: number;
     userUid: string;
     nomePrestador: string;
+    raio: string;
+    experiencia: string;
+    estado: string;
 }
 
 function PetServices() {
@@ -22,8 +25,16 @@ function PetServices() {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
     const [authChecked, setAuthChecked] = useState(false);
-    const [filtroNome, setFiltroNome] = useState('');
     const userId = auth.currentUser;
+    
+    const [filtroNome, setFiltroNome] = useState('');
+    const [filtroAnimalPref, setFiltroAnimalPref] = useState('');
+    const [filtroPrecoMin, setFiltroPrecoMin] = useState('');
+    const [filtroPrecoMax, setFiltroPrecoMax] = useState('');
+    const [filtroRaioMin, setFiltroRaioMin] = useState('');
+    const [filtroRaioMax, setFiltroRaioMax] = useState('');
+    const [filtroEstado, setFiltroEstado] = useState('');
+    const [filtroQtdService, setFiltroQtdService] = useState('');
 
     const navigate = useNavigate();
 
@@ -83,28 +94,99 @@ function PetServices() {
         navigate('/Chat/'+id+'/'+userId?.uid);
     }
 
-    const servicosFiltrados = services.filter((servico) =>
-        servico.nomePrestador.toLowerCase().includes(filtroNome.toLowerCase())
-    );
+    const servicosFiltrados = services.filter((servico) =>{
+        const preco = Number((servico.preco ?? "0").replace(',', '.')); // substitua por seu campo real
+        const raio = Number(servico.raio ?? "0");
+
+        const precoMin = filtroPrecoMin === '' ? 0 : Number(filtroPrecoMin);
+        const precoMax = filtroPrecoMax === '' ? Infinity : Number(filtroPrecoMax);
+        const raioMin = filtroRaioMin === '' ? 0 : Number(filtroRaioMin);
+        const raioMax = filtroRaioMax === '' ? Infinity : Number(filtroRaioMax);
+        return(
+            servico.nomePrestador.toLowerCase().includes(filtroNome.toLowerCase())&&
+            servico.tipoAnimal.toLowerCase().includes(filtroAnimalPref.toLowerCase())&&
+            servico.estado.toLowerCase().includes(filtroEstado.toLowerCase())&&
+            servico.qtdService.toString().includes(filtroQtdService.toLowerCase())&&
+            preco >= precoMin && 
+            preco <= precoMax &&
+            raio >= raioMin && 
+            raio <= raioMax
+        )
+    });
     return (
         <div className='PetServices'>
             <Header/>
             <div className='ListaDeServicosPetServices'>
                 <h1>Lista de Pet Sitters</h1>
-                <input
-                    type="text"
-                    placeholder="Buscar por nome"
-                    value={filtroNome}
-                    onChange={(e) => setFiltroNome(e.target.value)}
-                    className="InputFiltroNome"
-                />
+                <div className="DivContainerDeFiltrosShopping">
+                    <p className="TxtFiltroShopping">Filtros:</p>
+                    <input
+                        type="text"
+                        placeholder="Buscar por nome"
+                        value={filtroNome}
+                        onChange={(e) => setFiltroNome(e.target.value)}
+                        className="InputFiltroNome"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por AnimalPref"
+                        value={filtroAnimalPref}
+                        onChange={(e) => setFiltroAnimalPref(e.target.value)}
+                        className="InputFiltroAnimalPref"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por preço mínimo"
+                        value={filtroPrecoMin}
+                        onChange={(e) => setFiltroPrecoMin(e.target.value)}
+                        className="InputFiltroPrecoMin"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por preço máximo"
+                        value={filtroPrecoMax}
+                        onChange={(e) => setFiltroPrecoMax(e.target.value)}
+                        className="InputFiltroPrecoMax"
+                    />
+                    <input
+                        type="number"
+                        placeholder="Buscar por Raio mínimo"
+                        value={filtroRaioMin}
+                        onChange={(e) => setFiltroRaioMin(e.target.value)}
+                        className="InputFiltroRaioMin"
+                    />
+                    <input
+                        type="number"
+                        placeholder="Buscar por Raio máximo"
+                        value={filtroRaioMax}
+                        onChange={(e) => setFiltroRaioMax(e.target.value)}
+                        className="InputFiltroRaioMax"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Buscar por Estado"
+                        value={filtroEstado}
+                        onChange={(e) => setFiltroEstado(e.target.value)}
+                        className="InputFiltroEstado"
+                    />
+                    <input
+                        type="number"
+                        placeholder="Buscar por Quantidade de Serviços"
+                        value={filtroQtdService}
+                        onChange={(e) => setFiltroQtdService(e.target.value)}
+                        className="InputFiltroQtdService"
+                    />
+                </div>
                 <ul className='InnerListaPetServices'>
                     {servicosFiltrados.map((service: Service) => (
                         <li className='ItemLista' key={service.id}>
                             <h2 className='Texto'>{service.nomePrestador}</h2>
                             <p className='Texto'>Endereço: {service.endereco}</p>
                             <p className='Texto'>Preço: {service.preco}</p>
-                            <p className='Texto'>Animal: {service.tipoAnimal}</p>
+                            <p className='Texto'>Animal de Prefência: {service.tipoAnimal}</p>
+                            <p className='Texto'>Raio de Atendimento: {service.raio} Km</p>
+                            <p className='Texto'>Estado: {service.estado}</p>
+                            <p className='Texto'>Experiência: {service.experiencia}</p>
                             <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
                             <button onClick={()=>startChat(service.userUid)}>iniciar chat</button>
                         </li>

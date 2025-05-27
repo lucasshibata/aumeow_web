@@ -81,24 +81,24 @@ export default function Header(){
     const location = useLocation();
     const isSobreNos = location.pathname === "/SobreNos";
     const isHome = location.pathname === "/"; 
-    const isMenuCliente = location.pathname ==='/MenuCliente'
-    const isShopping = location.pathname ==='/Shopping' 
-    const isPetServices = location.pathname ==='/PetServices' 
-    const isMenuPrestador = location.pathname ==='/MenuPrestador' 
-    const isServicosPrestador = location.pathname ==='/ListaServicosPrestador' 
-    const isEspecificProduct = location.pathname ==='/Shopping/:ProdId' 
-    const isRegistroServicoPrestador = location.pathname ==='/RegistroServicoPrestador' 
-    const isCadastroProdutos = location.pathname ==='/CadastroProdutos' 
-    const isListaProdutosPrestador = location.pathname ==='/ListaProdutosPrestador' 
-    const isChat = location.pathname ==='/Chat/:PrestadorId/:ClienteId'
-    const isMenuAdministracao = location.pathname ==='/MenuAdministracao'
-    const isListaDeChats = location.pathname ==='/ListaDeChats' 
-    const isDenuncia = location.pathname ==='/Denuncia' 
-    const isCadastroContasAdministracao = location.pathname ==='/CadastroContasAdministracao' 
-    const isPerfilDeUsuario = location.pathname ==='/PerfilDeUsuario'
-    const isEdicaoPerfil = location.pathname ==='/EdicaoPerfil'
-    const isCadastroDeAdocao = location.pathname ==='/CadastroDeAdocao'
-    const isPaginaDeAdocao = location.pathname ==='/PaginaDeAdocao' 
+    const isMenuCliente = location.pathname ==='/MenuCliente';
+    const isShopping = location.pathname ==='/Shopping';
+    const isPetServices = location.pathname ==='/PetServices';
+    const isMenuPrestador = location.pathname ==='/MenuPrestador';
+    const isServicosPrestador = location.pathname ==='/ListaServicosPrestador';
+    const isEspecificProduct = location.pathname ==='/Shopping/:ProdId';
+    const isRegistroServicoPrestador = location.pathname ==='/RegistroServicoPrestador';
+    const isCadastroProdutos = location.pathname ==='/CadastroProdutos';
+    const isListaProdutosPrestador = location.pathname ==='/ListaProdutosPrestador';
+    const isChat = location.pathname.startsWith('/Chat/');
+    const isMenuAdministracao = location.pathname ==='/MenuAdministracao';
+    const isListaDeChats = location.pathname ==='/ListaDeChats';
+    const isDenuncia = location.pathname ==='/Denuncia';
+    const isCadastroContasAdministracao = location.pathname ==='/CadastroContasAdministracao';
+    const isPerfilDeUsuario = location.pathname ==='/PerfilDeUsuario';
+    const isEdicaoPerfil = location.pathname ==='/EdicaoPerfil';
+    const isCadastroDeAdocao = location.pathname ==='/CadastroDeAdocao';
+    const isPaginaDeAdocao = location.pathname ==='/PaginaDeAdocao';
     
     const handleLogout = async () => {
         try {

@@ -17,8 +17,17 @@
     border-radius: 15px;
     padding: 30px;
     gap: 20px;
+    width: 40%;
+    & h1{
+      color: var(--marrom-text);
+      margin: 0;
+    }
+  }
+
+  .InnerContainerCanalDenuncia{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 600px;
   }
   
   .BotaoVoltarCanalDenuncia {
@@ -73,6 +82,7 @@
     border-style: solid;
     padding: 10px;
     width: 100%;
+    box-sizing: border-box;
   }
   
   textarea.InputTextCanalDenuncia {

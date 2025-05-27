@@ -6,6 +6,7 @@
     flex-direction: column;
     & .DivFormRegistroServicoPrestador{
         width: 100%;
+        flex: 1;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -56,6 +57,7 @@
                 border-radius: 15px;
                 border: var(--marrom-btn) solid;
                 padding: 5px;
+                box-sizing: border-box;
             }
         }
     }

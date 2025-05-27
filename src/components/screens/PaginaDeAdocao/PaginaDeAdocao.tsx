@@ -94,6 +94,7 @@ function PaginaDeAdocao(){
                     <FaPlus className="IconBtnPaginaDeAdocao" /><button className="BtnIrParaCadastroPaginaDeAdocao">Cadastro De Adoção</button>
                 </div>
                 <div className="DivContainerDeFiltrosPaginaDeAdocao">
+                    <p className="TxtFiltroPaginaDeAdocao">Filtros:</p>
                     <input
                         type="text"
                         placeholder="Buscar por nome"
