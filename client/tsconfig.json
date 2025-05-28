@@ -13,6 +13,6 @@
       "moduleResolution": "node",
       "resolveJsonModule": true
     },
-    "include": ["src", "declarations.d.ts"]
+    "include": ["src", "declarations.d.ts", "../server/aws"]
   }
   

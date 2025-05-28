@@ -1,5 +1,6 @@
 import {auth, createUserWithEmailAndPassword, database, ref, set} from '../firebase/Firebase';
-import s3 from '../aws/aws-config';
+import axios from 'axios';
+
 
 interface Data{
     nome: string,
@@ -26,7 +27,7 @@ export default async function signUp(data:any, navigation:any, type:string, file
         } else{
             try {
                 await createUserWithEmailAndPassword(auth, data.email, data.password)
-                .then((users)=>{
+                .then(async (users)=>{
                     console.log(users.user.uid);
                     const userRef = ref(database, 'users/'+users.user.uid);
                     const userData:Data ={
@@ -55,12 +56,18 @@ export default async function signUp(data:any, navigation:any, type:string, file
                         alert(error.code);
                     });
 
-                    s3.upload({
-                        Bucket: 'aumeow-images',
-                        Key: `imagensPerfil/${users.user.uid}/imagemDono`,
-                        Body: file,
-                        ContentType: file.type,
-                    }).promise();
+                
+                    const formData = new FormData();
+                    formData.append('file', file);
+                    formData.append('userId', users.user.uid);
+
+                    const response = await axios.post('http://localhost:3002/api/s3/upload', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                    });
+                    console.log('Imagem enviada:', response.data.url);
+
 
                     alert('Conta criada com sucesso!');
                     console.log('Arquivos enviados com sucesso');

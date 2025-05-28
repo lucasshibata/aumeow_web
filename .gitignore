@@ -1,0 +1,40 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+.env
+.env.* 
+.DS_Store
+
+# Vite
+.vite/
+
+# Editor
+.vscode/
+.idea/
+
+# Sistema
+Thumbs.db
+*.log
+
+# Build
+build/
+out/
+
+# Cliente (Vite)
+cliente/node_modules/
+cliente/dist/
+cliente/.vite/
+cliente/.env
+
+# Servidor (Node.js/Express)
+server/node_modules/
+server/dist/
+server/.env
+server/*.log
+
+# Mac OS
+.DS_Store

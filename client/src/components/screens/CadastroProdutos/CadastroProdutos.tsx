@@ -4,7 +4,7 @@ import Header from "../../layout/Header";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { database, ref, set, get, auth } from '../../firebase/Firebase';
-import s3 from '../../aws/aws-config';
+// import s3 from '../../../../../server/aws/aws-config';
 import "./CadastroProdutos.css";
 import verifyFunction from "../../layout/verifyFunction";
 import withAuth from '../../contexts/LoginContext';
@@ -115,12 +115,12 @@ function CadastroProdutos() {
         await set(productRef, productData);
 
         // Faz o upload da imagem para o S3
-        await s3.upload({
-            Bucket: 'aumeow-images',
-            Key: `${data.code}/imagemProduto`,
-            Body: file,
-            ContentType: file.type,
-        }).promise();
+        // await s3.upload({
+        //     Bucket: 'aumeow-images',
+        //     Key: `${data.code}/imagemProduto`,
+        //     Body: file,
+        //     ContentType: file.type,
+        // }).promise();
 
         alert('Produto criado com sucesso e salvo no banco!');
         console.log('Arquivo enviado com sucesso');

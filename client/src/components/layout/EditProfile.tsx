@@ -1,5 +1,5 @@
 import {auth, database, ref, set} from '../firebase/Firebase';
-import s3 from '../aws/aws-config';
+import axios from 'axios';
 
 interface Data{
     nome: string,
@@ -40,6 +40,7 @@ export default async function EditProfile(data:any, navigation:any, type:string,
             raioAtendimento: data.raioAtendimento || "N/a",
             animalPreferencia: data.animalPreferencia || "N/a"
         }
+        
 
         set(userRef, userData)
         .catch((error:any)=>{
@@ -47,13 +48,20 @@ export default async function EditProfile(data:any, navigation:any, type:string,
         });
 
         if (file) {
-            s3.upload({
-                Bucket: 'aumeow-images',
-                Key: `imagensPerfil/${user}/imagemDono`,
-                Body: file,
-                ContentType: file.type,
-            }).promise();
+                const formData = new FormData();
+                formData.append('file', file);
+                if (auth.currentUser?.uid) {
+                formData.append('userId', auth.currentUser?.uid); 
+                } else {
+                throw new Error('UID do usuário não está disponível.');
+                }
+
+                const response = await axios.post('http://localhost:3002/api/s3/upload', formData);
+                console.log('Imagem enviada:', response.data.url);
         }
+
+
+
 
         alert('Conta criada com sucesso!');
         console.log('Arquivos enviados com sucesso');

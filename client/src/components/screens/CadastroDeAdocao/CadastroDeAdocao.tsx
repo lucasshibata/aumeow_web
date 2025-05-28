@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { ref, database, auth, get, set, push} from "../../firebase/Firebase";
-import s3 from "../../aws/aws-config";
+// import s3 from "../../../../../server/aws/aws-config";
 import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
@@ -128,12 +128,12 @@ export default function CadastroDeAdocao(){
         await set(adocaoRef, AdocaoData);
 
         //Faz o upload da imagem para o S3
-        await s3.upload({
-            Bucket: 'aumeow-images',
-            Key: `${adocaoRef.key}/imagemAdocao`,
-            Body: file,
-            ContentType: file.type,
-        }).promise();
+        // await s3.upload({
+        //     Bucket: 'aumeow-images',
+        //     Key: `${adocaoRef.key}/imagemAdocao`,
+        //     Body: file,
+        //     ContentType: file.type,
+        // }).promise();
 
         alert('Produto criado com sucesso e salvo no banco!');
         console.log('Arquivo enviado com sucesso');
