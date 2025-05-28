@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/aumeow_web/static/css/main.e4ddf446.css",
+    "main.js": "/aumeow_web/static/js/main.a13dbd3a.js",
+    "static/media/imagem_equipe_sobre_nos.png": "/aumeow_web/static/media/imagem_equipe_sobre_nos.ff491059b486eb28796d.png",
+    "static/media/cadastro_contas_adm.png": "/aumeow_web/static/media/cadastro_contas_adm.35e6a06cf75b12d712cd.png",
+    "static/media/background_cha.png": "/aumeow_web/static/media/background_cha.60bad51541ecb3b2c8c4.png",
+    "static/media/gatos_comendo_sobre_nos.png": "/aumeow_web/static/media/gatos_comendo_sobre_nos.6027a6b2d8c5273feb13.png",
+    "static/media/lista_servicos.png": "/aumeow_web/static/media/lista_servicos.8dadb90c3958c797338b.png",
+    "static/media/lista_chats.png": "/aumeow_web/static/media/lista_chats.8c2140b8a011aea7c988.png",
+    "static/media/registro_servico.png": "/aumeow_web/static/media/registro_servico.409afa5ae00f8be69de2.png",
+    "static/media/icone_sair.png": "/aumeow_web/static/media/icone_sair.593c8123ba907c452597.png",
+    "static/media/animais_felizes.png": "/aumeow_web/static/media/animais_felizes.506bc9c55a2d76ba0ec0.png",
+    "static/media/bg_img.png": "/aumeow_web/static/media/bg_img.512d485b6c623f877d8a.png",
+    "static/media/bg_telainicial.png": "/aumeow_web/static/media/bg_telainicial.525a353bd99ebdca5efb.png",
+    "static/media/shop-img.png": "/aumeow_web/static/media/shop-img.cf090a7d81b9cefdf07f.png",
+    "static/media/dog-walk.jpg": "/aumeow_web/static/media/dog-walk.31c58fa1500924937793.jpg",
+    "static/media/imagem_time_desenvolvedores.jpg": "/aumeow_web/static/media/imagem_time_desenvolvedores.097937d830d29540ce7c.jpg",
+    "static/media/cachorro_piscina.png": "/aumeow_web/static/media/cachorro_piscina.2b1c5cfd586062fccbe0.png",
+    "static/media/imagem_adocao.jpg": "/aumeow_web/static/media/imagem_adocao.5646a55f941a12f7c2e9.jpg",
+    "static/media/gatinho_desenho_sobre_nos.png": "/aumeow_web/static/media/gatinho_desenho_sobre_nos.f5c7c5548f6ba585051c.png",
+    "static/media/cachorro_grade.png": "/aumeow_web/static/media/cachorro_grade.1555a0e27dede599a269.png",
+    "static/media/logo_img.png": "/aumeow_web/static/media/logo_img.99565c9138817082f465.png",
+    "static/media/cachorro_e_gato.png": "/aumeow_web/static/media/cachorro_e_gato.909e8401e0f297d2d5af.png",
+    "index.html": "/aumeow_web/index.html",
+    "main.e4ddf446.css.map": "/aumeow_web/static/css/main.e4ddf446.css.map",
+    "main.a13dbd3a.js.map": "/aumeow_web/static/js/main.a13dbd3a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e4ddf446.css",
+    "static/js/main.a13dbd3a.js"
+  ]
+}
