@@ -2,7 +2,7 @@
   "name": "aumeow_web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lucasshibata.github.io/aumeow_web/TelaInicial",
+  "homepage": "https://lucasshibata.github.io/aumeow_web",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "aws-sdk": "^2.1692.0",
@@ -21,9 +21,9 @@
     "ws": "^8.18.2"
   },
   "scripts": {
-    "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
