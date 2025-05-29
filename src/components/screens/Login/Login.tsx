@@ -16,7 +16,7 @@ function Login(){
 		<div className='Login'>
 			<BackGround>
 				<div className='ContainerLogin'>
-					<button className='BotaoVoltarLogin' onClick={()=>navigate("/")}><FaArrowLeft/> Voltar</button>
+					<button className='BotaoVoltarLogin' onClick={()=>navigate("/TelaInicial")}><FaArrowLeft/> Voltar</button>
 					<div className='divLogo'>
 						<TitleLogo/>
 					</div>	

@@ -102,7 +102,7 @@ export default function Footer(){
                 </div>
                 <h1 style={{margin:0, marginBottom:15, color: 'var(--branco)'}}>Aumeow</h1>
                 <div style={{display:'flex', gap:'50px'}}>
-                    <TouchableOpacity onClick={()=>navigate('/')}>
+                    <TouchableOpacity onClick={()=>navigate('/TelaInicial')}>
                         <div style={stylesCircle}>
                             <FaHome style={stylesIcon}/>
                         </div>
@@ -132,7 +132,7 @@ export default function Footer(){
             </div>
             <div style={stylesContent}>
                 <h1 style={{margin:0, color: 'var(--branco)',}}>Navegação</h1>
-                <Link to='/' style={stylesTexth3}>Home</Link>
+                <Link to='/TelaInicial' style={stylesTexth3}>Home</Link>
                 <Link to='/SobreNos' style={stylesTexth3}>Sobre nós</Link>
             </div>
         </footer>

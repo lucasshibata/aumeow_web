@@ -80,7 +80,7 @@ export default function Header(){
     }
     const location = useLocation();
     const isSobreNos = location.pathname === "/SobreNos";
-    const isHome = location.pathname === "/"; 
+    const isHome = location.pathname === "/TelaInicial"; 
     const isMenuCliente = location.pathname ==='/MenuCliente';
     const isShopping = location.pathname ==='/Shopping';
     const isPetServices = location.pathname ==='/PetServices';

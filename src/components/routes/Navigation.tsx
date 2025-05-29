@@ -31,7 +31,7 @@ export default function Navigation(){
     return(
 		<div className='Navigation'>
 			<Routes>
-				<Route path='/' element={<TelaInicial/>}/>
+				<Route path='/TelaInicial' element={<TelaInicial/>}/>
 				<Route path='/CreateUser' element={<CreateUser/>}/>
 				<Route path='/CadastroDono' element={<CadastroDono/>}/>
 				<Route path='/CadastroPrestador' element={<CadastroPrestador/>}/>
