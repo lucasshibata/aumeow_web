@@ -115,12 +115,8 @@ function CadastroProdutos() {
         await set(productRef, productData);
 
         // Faz o upload da imagem para o S3
-        await s3.upload({
-            Bucket: 'aumeow-images',
-            Key: `${data.code}/imagemProduto`,
-            Body: file,
-            ContentType: file.type,
-        }).promise();
+        const fileName = `${data.code}/imagemProduto`;
+        await s3.uploadFile(file, fileName);
 
         alert('Produto criado com sucesso e salvo no banco!');
         console.log('Arquivo enviado com sucesso');

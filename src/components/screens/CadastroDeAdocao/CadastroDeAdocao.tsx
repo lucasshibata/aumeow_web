@@ -128,12 +128,8 @@ export default function CadastroDeAdocao(){
         await set(adocaoRef, AdocaoData);
 
         //Faz o upload da imagem para o S3
-        await s3.upload({
-            Bucket: 'aumeow-images',
-            Key: `${adocaoRef.key}/imagemAdocao`,
-            Body: file,
-            ContentType: file.type,
-        }).promise();
+        const fileName = `${adocaoRef.key}/imagemAdocao`;
+        await s3.uploadFile(file, fileName);
 
         alert('Produto criado com sucesso e salvo no banco!');
         console.log('Arquivo enviado com sucesso');

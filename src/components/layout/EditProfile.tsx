@@ -47,12 +47,8 @@ export default async function EditProfile(data:any, navigation:any, type:string,
         });
 
         if (file) {
-            s3.upload({
-                Bucket: 'aumeow-images',
-                Key: `imagensPerfil/${user}/imagemDono`,
-                Body: file,
-                ContentType: file.type,
-            }).promise();
+            const fileName = `imagensPerfil/${user}/imagemDono`;
+            await s3.uploadFile(file, fileName);
         }
 
         alert('Conta criada com sucesso!');
