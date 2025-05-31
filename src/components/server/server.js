@@ -46,13 +46,6 @@ app.post('/generate-presigned-url', (req, res) => {
   });
 });
 
-// ✅ Servir build do React se estiver em produção
-const buildPath = path.join(__dirname, '../../../build');
-app.use(express.static(buildPath));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(buildPath, 'index.html'));
-});
-
 
 
 // Criar o servidor HTTP que será compartilhado
