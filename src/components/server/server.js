@@ -1,7 +1,6 @@
 // server.js
 // node ./src/components/server/server.js
 const express = require('express');
-const path = require('path');
 const AWS = require('aws-sdk');
 const cors = require('cors');
 const http = require('http');
@@ -14,9 +13,9 @@ app.use(express.json());
 
 // CONFIG AWS
 AWS.config.update({
-  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-  region: process.env.REACT_APP_AWS_REGION,
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  region: process.env.REGION,
 });
 
 const s3 = new AWS.S3();
