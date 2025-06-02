@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from'react-router-dom';
+import {Route, Routes, Navigate } from'react-router-dom';
 
 import CreateUser from '../screens/CreateUser/CreateUser';
 import CadastroDono from '../screens/CadastroDono/CadastroDono';
@@ -31,6 +31,7 @@ export default function Navigation(){
     return(
 		<div className='Navigation'>
 			<Routes>
+				<Route path='/' element={<Navigate to="/TelaInicial" />} />
 				<Route path='/TelaInicial' element={<TelaInicial/>}/>
 				<Route path='/CreateUser' element={<CreateUser/>}/>
 				<Route path='/CadastroDono' element={<CadastroDono/>}/>

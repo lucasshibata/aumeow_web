@@ -2,7 +2,6 @@
   "name": "aumeow_web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lucasshibata.github.io/aumeow_web",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "aws-sdk": "^2.1692.0",
