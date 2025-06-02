@@ -92,6 +92,10 @@ function CadastroProdutos() {
         };
 
         try {
+        // Faz o upload da imagem para o S3
+        const fileName = `${data.code}/imagemProduto`;
+        await s3.uploadFile(file, fileName);
+
         // Obtém o nome do usuário
         const userNameSnapshot = await get(dbUserNameRef);
         if (userNameSnapshot.exists()) {
@@ -113,10 +117,6 @@ function CadastroProdutos() {
 
         // Salva os dados do produto no Firebase
         await set(productRef, productData);
-
-        // Faz o upload da imagem para o S3
-        const fileName = `${data.code}/imagemProduto`;
-        await s3.uploadFile(file, fileName);
 
         alert('Produto criado com sucesso e salvo no banco!');
         console.log('Arquivo enviado com sucesso');
