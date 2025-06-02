@@ -81,7 +81,7 @@ function Chat() {
     }, [user?.uid, ClienteId, PrestadorId, funcaoUser]);
     //===========================================================================
     useEffect(() => {
-        const ws = new WebSocket('ws://localhost:5000');
+        const ws = new WebSocket('wss://15.229.249.202');
         setSocket(ws);
 
         ws.onmessage = async (event) => {
