@@ -81,10 +81,10 @@ function Chat() {
     }, [user?.uid, ClienteId, PrestadorId, funcaoUser]);
     //===========================================================================
     useEffect(() => {
-        const ws = new WebSocket('wss://15.229.249.202');
-        setSocket(ws);
+        const wss = new WebSocket('wss://9qyb51cmg8.execute-api.sa-east-1.amazonaws.com/production/');
+        setSocket(wss);
 
-        ws.onmessage = async (event) => {
+        wss.onmessage = async (event) => {
             if (event.data instanceof Blob) {
                 const text = await event.data.text(); // Converte Blob para texto
                 try {
@@ -103,12 +103,12 @@ function Chat() {
             }
         };
 
-        ws.onclose = () => {
+        wss.onclose = () => {
             console.log('Conexão WebSocket fechada');
         };
 
         return () => {
-            ws.close();
+            wss.close();
         };
     }, []);
     //===========================================================================
