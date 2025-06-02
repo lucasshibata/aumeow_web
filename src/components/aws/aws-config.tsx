@@ -1,5 +1,5 @@
 const getPresignedUrl = async (fileName: string, fileType: string) => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   try {
     const response = await fetch(`${backendUrl}/generate-presigned-url`, {
