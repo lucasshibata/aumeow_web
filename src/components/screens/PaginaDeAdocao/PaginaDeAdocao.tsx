@@ -90,9 +90,9 @@ function PaginaDeAdocao(){
         <div className="ContainerPaginaDeAdocao">
             <Header/>
             <div className="InnerContainerPaginaDeAdocao">
-                                  <button className='BotaoVoltar' onClick={() => navigate(-1)}>
-                                      <FaArrowLeft /> Voltar
-                                  </button>
+                <button className='BotaoVoltar' onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
                 <div className="DivBtnPaginaDeAdocao" onClick={()=>navigate("/CadastroDeAdocao")}>
                     <FaPlus className="IconBtnPaginaDeAdocao" /><button className="BtnIrParaCadastroPaginaDeAdocao">Cadastro De Adoção</button>
                 </div>
@@ -142,8 +142,12 @@ function PaginaDeAdocao(){
                             <p className="TextoPPaginaDeAdocao">Raça: {service.Raca}</p>
                             <p className="TextoPPaginaDeAdocao">Sexo: {service.Sexo}</p>
                             <p className="TextoPPaginaDeAdocao">Idade: {service.Idade}</p>
-                            <p className="TextoPPaginaDeAdocao">Estado De Saúde: {service.EstadoDeSaude}</p>
-                            <p className="TextoPPaginaDeAdocao">Temperamento: {service.Temperamento}</p>
+                            <p className="TextoPPaginaDeAdocao">Estado De Saúde: {Array.isArray(service.EstadoDeSaude) 
+                                                                                    ? service.EstadoDeSaude.join(', ') 
+                                                                                    : service.EstadoDeSaude}</p>
+                            <p className="TextoPPaginaDeAdocao">Temperamento: {Array.isArray(service.Temperamento) 
+                                                                                    ? service.Temperamento.join(', ') 
+                                                                                    : service.Temperamento}</p>
                             <p className="TextoPPaginaDeAdocao">História Do Animal: {service.HistoriaDoAnimal}</p>
                             <p className="TextoPPaginaDeAdocao">Nome do Responsável: {service.NomeResponsavel}</p>
                             <p className="TextoPPaginaDeAdocao">Email do Responsável: {service.EmailResponsavel}</p>
