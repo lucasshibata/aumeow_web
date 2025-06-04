@@ -135,28 +135,29 @@ function PaginaDeAdocao() {
                     />
                 </div>
                 <ul className="ContainerAdocaoPaginaDeAdocao">
-                    {animaisFiltrados.map((service: any) => (
-                        <li className="ItemListaPaginaDeAdocao" key={service.id}>
+                    {animaisFiltrados.map((animal: any) => (
+                        <li className="ItemListaPaginaDeAdocao" key={animal.id}>
                             <div className="HeaderCard">
-                                <h1 className="NomeAnimal">Nome: {service.Nome}</h1>
-                                <p className="EspecieRaça">{service.Especie} - {service.Raca}</p>
+                                <img src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/adocoes/${animal.id}/imagemAdocao`} alt="" />
+                                <h1 className="NomeAnimal">Nome: {animal.Nome}</h1>
+                                <p className="EspecieRaça">{animal.Especie} - {animal.Raca}</p>
                             </div>
 
                             <div className="InfosGrid">
-                                <p><strong>Sexo:</strong> {service.Sexo}</p>
-                                <p><strong>Idade:</strong> {service.Idade}</p>
-                                <p><strong>Saúde:</strong> {service.EstadoDeSaude}</p>
-                                <p><strong>Temperamento:</strong> {service.Temperamento}</p>
+                                <p><strong>Sexo:</strong> {animal.Sexo}</p>
+                                <p><strong>Idade:</strong> {animal.Idade}</p>
+                                <p><strong>Saúde:</strong> {animal.EstadoDeSaude}</p>
+                                <p><strong>Temperamento:</strong> {animal.Temperamento}</p>
                             </div>
 
                             <div className="HistoriaAnimal">
                                 <p><strong>História:</strong></p>
-                                <p>{service.HistoriaDoAnimal}</p>
+                                <p>{animal.HistoriaDoAnimal}</p>
                             </div>
 
                             <div className="Responsavel">
-                                <p><strong>Responsável:</strong> {service.NomeResponsavel}</p>
-                                <p><strong>Email:</strong> {service.EmailResponsavel}</p>
+                                <p><strong>Responsável:</strong> {animal.NomeResponsavel}</p>
+                                <p><strong>Email:</strong> {animal.EmailResponsavel}</p>
                             </div>
                         </li>
                     ))}
