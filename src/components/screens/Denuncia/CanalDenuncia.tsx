@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import TitleLogo from '../../layout/TitleLogo';
 import { FaArrowLeft } from 'react-icons/fa';
 import { database, ref, set, auth} from '../../firebase/Firebase';
+import Header from '../../layout/Header';
 
 
 interface Data{
@@ -41,12 +42,13 @@ function CanalDenuncia() {
 
     return (
         <div className='CanalDenuncia'>
-            <BackGround>
+            <Header/>
+            {/* <BackGround> */}
                 <div className='ContainerCanalDenuncia'>
-                    
-                    <button className='BotaoVoltarCanalDenuncia' onClick={() => navigate(-1)}>
+                    <button className='BotaoVoltar' onClick={() => navigate(-1)}>
                         <FaArrowLeft /> Voltar
                     </button>
+                    
                         <h1>Canal de Denúncia</h1>
                     <TitleLogo />
                     <div className='InnerContainerCanalDenuncia'>
@@ -105,7 +107,7 @@ function CanalDenuncia() {
                         </form>
                     </div>
                 </div>
-            </BackGround>
+            {/* </BackGround> */}
         </div>
     );
 }

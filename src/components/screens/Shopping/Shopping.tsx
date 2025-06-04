@@ -4,8 +4,9 @@ import withAuth from '../../contexts/LoginContext';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import { useState, useEffect } from "react";
-import { ref, database, get} from "../../firebase/Firebase";
+import { ref, database, get } from "../../firebase/Firebase";
 import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 interface Product {
     id: string; // Chave única do serviço no Firebase
@@ -17,7 +18,7 @@ interface Product {
     userName: string;
 }
 
-function Shopping(){
+function Shopping() {
     const navigate = useNavigate()
     const [product, setServices] = useState<Product[]>([]);
 
@@ -54,23 +55,27 @@ function Shopping(){
         console.log("Produtos carregados:", product);
     }, [product]);
 
-    const produtosFiltrados = product.filter((produt) =>{
+    const produtosFiltrados = product.filter((produt) => {
         const preco = Number((produt.preco ?? "0").replace(',', '.')); // substitua por seu campo real
 
         const min = filtroPrecoMin === '' ? 0 : Number(filtroPrecoMin);
         const max = filtroPrecoMax === '' ? Infinity : Number(filtroPrecoMax);
-        return(
+        return (
             (produt.nome?.toLowerCase().includes(filtroNome.toLowerCase()) ?? false) &&
             (produt.marca?.toLowerCase().includes(filtroMarca.toLowerCase()) ?? false) &&
-            preco >= min && 
+            preco >= min &&
             preco <= max
         );
     });
-    return(
+    return (
         <div className='Shopping'>
-            <Header/>
-            <h1 className="TxtTitleShopping">Página de Shopping</h1>
+            <Header />
             <div className="DivContainerDeFiltrosShopping">
+            <button className='BotaoVoltar' onClick={() => navigate(-1)}>
+                <FaArrowLeft /> Voltar
+            </button>
+            <div className='DivContainerDeFiltrosShopping'>
+            <h1 className="TxtTitleShopping">Página de Shopping</h1>
                 <p className="TxtFiltroShopping">Filtros:</p>
                 <input
                     type="text"
@@ -101,15 +106,16 @@ function Shopping(){
                     className="InputFiltroPrecoMax"
                 />
             </div>
+            </div>
             <div className="FlatListShopping">
                 {produtosFiltrados.map(item => (
                     <div key={item.id} className="itemListShopping">
-                        <ShopBox imgProduct = {`https://aumeow-images.s3.sa-east-1.amazonaws.com/${item.id}/imagemProduto`} titleProduct={item.nome} subtitleProduct={item.marca} 
-                        priceProduct={item.preco} navegar={()=>navigate(`/Shopping/${item.id}`)}/>
+                        <ShopBox imgProduct={`https://aumeow-images.s3.sa-east-1.amazonaws.com/${item.id}/imagemProduto`} titleProduct={item.nome} subtitleProduct={item.marca}
+                            priceProduct={item.preco} navegar={() => navigate(`/Shopping/${item.id}`)} />
                     </div>
                 ))}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

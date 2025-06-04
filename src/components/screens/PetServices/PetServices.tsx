@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { User } from "firebase/auth";
 import withAuth from '../../contexts/LoginContext';
 import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 interface Service {
     id: string;
@@ -26,7 +27,7 @@ function PetServices() {
     const [user, setUser] = useState<User | null>(null);
     const [authChecked, setAuthChecked] = useState(false);
     const userId = auth.currentUser;
-    
+
     const [filtroNome, setFiltroNome] = useState('');
     const [filtroAnimalPref, setFiltroAnimalPref] = useState('');
     const [filtroPrecoMin, setFiltroPrecoMin] = useState('');
@@ -90,11 +91,11 @@ function PetServices() {
         return <div>Faça login</div>;
     }
 
-    function startChat(id:string){
-        navigate('/Chat/'+id+'/'+userId?.uid);
+    function startChat(id: string) {
+        navigate('/Chat/' + id + '/' + userId?.uid);
     }
 
-    const servicosFiltrados = services.filter((servico) =>{
+    const servicosFiltrados = services.filter((servico) => {
         const preco = Number((servico.preco ?? "0").replace(',', '.')); // substitua por seu campo real
         const raio = Number(servico.raio ?? "0");
 
@@ -102,21 +103,24 @@ function PetServices() {
         const precoMax = filtroPrecoMax === '' ? Infinity : Number(filtroPrecoMax);
         const raioMin = filtroRaioMin === '' ? 0 : Number(filtroRaioMin);
         const raioMax = filtroRaioMax === '' ? Infinity : Number(filtroRaioMax);
-        return(
-            servico.nomePrestador.toLowerCase().includes(filtroNome.toLowerCase())&&
-            servico.tipoAnimal.toLowerCase().includes(filtroAnimalPref.toLowerCase())&&
-            servico.estado.toLowerCase().includes(filtroEstado.toLowerCase())&&
-            servico.qtdService.toString().includes(filtroQtdService.toLowerCase())&&
-            preco >= precoMin && 
+        return (
+            servico.nomePrestador.toLowerCase().includes(filtroNome.toLowerCase()) &&
+            servico.tipoAnimal.toLowerCase().includes(filtroAnimalPref.toLowerCase()) &&
+            servico.estado.toLowerCase().includes(filtroEstado.toLowerCase()) &&
+            servico.qtdService.toString().includes(filtroQtdService.toLowerCase()) &&
+            preco >= precoMin &&
             preco <= precoMax &&
-            raio >= raioMin && 
+            raio >= raioMin &&
             raio <= raioMax
         )
     });
     return (
         <div className='PetServices'>
-            <Header/>
+            <Header />
             <div className='ListaDeServicosPetServices'>
+                <button className='BotaoVoltar' onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
                 <h1 className="TxtTitlePetServices">Lista de Pet Sitters</h1>
                 <div className="DivContainerDeFiltrosPetServices">
                     <p className="TxtFiltroPetServices">Filtros:</p>
@@ -188,12 +192,12 @@ function PetServices() {
                             <p className='Texto'>Estado: {service.estado}</p>
                             <p className='Texto'>Experiência: {service.experiencia}</p>
                             <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
-                            <button onClick={()=>startChat(service.userUid)}>iniciar chat</button>
+                            <button onClick={() => startChat(service.userUid)}>iniciar chat</button>
                         </li>
                     ))}
                 </ul>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

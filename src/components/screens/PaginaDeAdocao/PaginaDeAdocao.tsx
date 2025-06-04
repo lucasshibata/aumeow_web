@@ -5,7 +5,7 @@ import withAuth from '../../contexts/LoginContext';
 import './PaginaDeAdocao.css';
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
-import { FaPlus } from "react-icons/fa";
+import { FaArrowLeft, FaPlus } from "react-icons/fa";
 
 interface AnimaisAdocao {
     Nome: string;
@@ -90,6 +90,9 @@ function PaginaDeAdocao(){
         <div className="ContainerPaginaDeAdocao">
             <Header/>
             <div className="InnerContainerPaginaDeAdocao">
+                                  <button className='BotaoVoltar' onClick={() => navigate(-1)}>
+                                      <FaArrowLeft /> Voltar
+                                  </button>
                 <div className="DivBtnPaginaDeAdocao" onClick={()=>navigate("/CadastroDeAdocao")}>
                     <FaPlus className="IconBtnPaginaDeAdocao" /><button className="BtnIrParaCadastroPaginaDeAdocao">Cadastro De Adoção</button>
                 </div>

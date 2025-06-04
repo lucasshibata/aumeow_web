@@ -176,7 +176,7 @@ export default function Header() {
     };
     return (
         <header style={stylesHeader}>
-            {(isSobreNos || isShopping || isPetServices || isServicosPrestador || isEspecificProduct ||
+            {/* {(isSobreNos || isShopping || isPetServices || isServicosPrestador || isEspecificProduct ||
                 isRegistroServicoPrestador || isCadastroProdutos || isListaProdutosPrestador || isChat ||
                 isListaDeChats || isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario ||
                 isEdicaoPerfil || isCadastroDeAdocao || isPaginaDeAdocao) && (
@@ -184,7 +184,7 @@ export default function Header() {
                         <FaArrowLeft style={stylesIcons} />
                         <button style={stylesButton} onClick={() => navigate(-1)}>Voltar</button>
                     </div>
-                )}
+                )} */}
             {/* =========================================== */}
             <div style={stylesLogoTitleContainer}>
                 <div style={stylesLogo}>
@@ -213,6 +213,16 @@ export default function Header() {
                                 <FaUser style={stylesIcons} /><Link to="/Login" style={stylesText}>Entrar</Link>
                             </div>
                         )}
+                            {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
+                                isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
+                                isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
+                                isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
+                                isCadastroDeAdocao || isPaginaDeAdocao) && (
+                                    <div style={stylesInnerDiv}>
+                                        <CgProfile style={stylesIcons} /><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
+                                    </div>
+                                    
+                                )}
                         {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
                             isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
                             isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats || isDenuncia ||
@@ -222,16 +232,6 @@ export default function Header() {
                                     <FaSignOutAlt style={stylesIcons} /><button style={stylesButton} onClick={handleLogout}><span style={stylesText}> Sair </span></button>
                                 </div>
                                 
-                                
-                            )}
-                        {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
-                            isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
-                            isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
-                            isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
-                            isCadastroDeAdocao || isPaginaDeAdocao) && (
-                                <div style={stylesInnerDiv}>
-                                    <CgProfile style={stylesIcons} /><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
-                                </div>
                                 
                             )}
                     </div>
