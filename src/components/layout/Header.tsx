@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RenderLogo from "../layout/RenderLogo";
 import { Link, useLocation } from "react-router-dom";
-import { FaHome, FaUser, FaSignOutAlt, FaArrowLeft, FaBars, FaTimes } from "react-icons/fa";
+import { FaHome, FaUser, FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa";
 import { signOut, auth } from '../firebase/Firebase';
 import { useNavigate } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
@@ -37,15 +37,6 @@ export default function Header() {
         position: 'relative',
         height: isMobile ? '70px' : '100px',
         width: '98%',
-    }
-    const stylesContainer: React.CSSProperties = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: "wrap",
-        flexDirection: isMobile ? 'column' : 'row',
-        width: '98%',
-        gap: isMobile ? '10px' : '0px',
     }
 
     const stylesContent: React.CSSProperties = {
@@ -116,7 +107,6 @@ export default function Header() {
         justifyContent: 'flex-start',
         alignItems: 'center',
         gap: '10px',
-        padding: '10px 15px',
         borderRadius: '10px',
         cursor: 'pointer',
     }
@@ -126,20 +116,21 @@ export default function Header() {
         margin: '0px',
         padding: '0px'
     }
-    const stylesButton: React.CSSProperties = {
+    const stylesText: React.CSSProperties = {
         backgroundColor: 'var(--marrom-btn)',
         color: 'var(--branco)',
+        display: "flex",
+        alignItems: "center",
+        justifyContent:"center",
+        gap: "10px",
+        borderRadius: "10px",
         fontSize: '1.4rem',
-        border: '0px',
-        cursor: isHovering ? 'pointer' : 'default'
-    }
-    const stylesText: React.CSSProperties = {
-        fontSize: '1.4rem',
-        color: 'var(--branco)',
         margin: '0px',
-        padding: '0px',
+        padding: '10px 15px',
         fontFamily: 'var(--fonte-texto)',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        cursor: isHovering ? 'pointer' : 'default',
+        border: '0px',
     }
 
     const location = useLocation();
@@ -204,17 +195,24 @@ export default function Header() {
             {(!isMobile) && (
                 <div style={{ ...stylesContent, flexWrap: 'nowrap', justifyContent: 'flex-end' }}>
                     <div style={stylesContent}>
+<<<<<<< HEAD
                         {(!isHome && !isMenuCliente && !isMenuPrestador) &&
                             (
                                 <div style={stylesInnerDiv}>
                                     <FaHome style={stylesIcons} /><Link to="/" style={stylesText}>Home</Link>
                                 </div>
                             )}
+=======
+                            <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+                                <Link to="/" style={stylesText}><FaHome style={stylesIcons} /> Home</Link>
+                            </div>
+>>>>>>> 925e7ddfce3c91cfd11ef042da12f57f92fb5b8d
                         {(isSobreNos || isHome) && (
-                            <div style={stylesInnerDiv}>
-                                <FaUser style={stylesIcons} /><Link to="/Login" style={stylesText}>Entrar</Link>
+                            <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+                               <Link to="/Login" style={stylesText}> <FaUser style={stylesIcons} /> Entrar</Link>
                             </div>
                         )}
+<<<<<<< HEAD
                         {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
                             isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
                             isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
@@ -225,13 +223,25 @@ export default function Header() {
                                 </div>
 
                             )}
+=======
+                            {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
+                                isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
+                                isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
+                                isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
+                                isCadastroDeAdocao || isPaginaDeAdocao) && (
+                                    <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+                                        <Link to="/PerfilDeUsuario" style={stylesText}><CgProfile style={stylesIcons} /> Perfil</Link>
+                                    </div>
+                                    
+                                )}
+>>>>>>> 925e7ddfce3c91cfd11ef042da12f57f92fb5b8d
                         {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
                             isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
                             isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats || isDenuncia ||
                             isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
                             isCadastroDeAdocao || isPaginaDeAdocao) && (
                                 <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
-                                    <FaSignOutAlt style={stylesIcons} /><button style={stylesButton} onClick={handleLogout}><span style={stylesText}> Sair </span></button>
+                                    <button style={stylesText} onClick={handleLogout}><FaSignOutAlt style={stylesIcons} /> Sair</button>
                                 </div>
 
 
@@ -242,14 +252,20 @@ export default function Header() {
 
             {isMobile && isMobileMenuOpen && (
                 <nav style={stylesMobileMenu}>
+<<<<<<< HEAD
                     {(!isHome || !isMenuCliente || !isMenuPrestador) &&
                         (<Link to="/" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
                             <FaHome style={stylesIcons} /> <span style={stylesText}> Home </span>
                         </Link>)
                     }
+=======
+                        <Link to="/" style={stylesText} onClick={() => setIsMobileMenuOpen(false)}>
+                            <FaHome style={stylesIcons} /> Home 
+                        </Link>
+>>>>>>> 925e7ddfce3c91cfd11ef042da12f57f92fb5b8d
                     {(isSobreNos || isHome) && (
-                        <Link to="/Login" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
-                            <FaUser style={stylesIcons} /> <span style={stylesText}> Entrar </span>
+                        <Link to="/Login" style={stylesText} onClick={() => setIsMobileMenuOpen(false)}>
+                            <FaUser style={stylesIcons} /> Entrar 
                         </Link>
                     )}
                     {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
@@ -258,13 +274,13 @@ export default function Header() {
                         isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
                         isCadastroDeAdocao || isPaginaDeAdocao) && (
                             <button
-                                style={stylesInnerDiv}
+                                style={stylesText}
                                 onClick={() => {
                                     handleLogout();
                                     setIsMobileMenuOpen(false);
                                 }}
                             >
-                                <FaSignOutAlt style={stylesIcons} /> <span style={stylesText}> Sair </span>
+                                <FaSignOutAlt style={stylesIcons} /> Sair 
                             </button>
                         )}
                     {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
@@ -272,8 +288,8 @@ export default function Header() {
                         isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
                         isDenuncia || isCadastroContasAdministracao || isEdicaoPerfil ||
                         isCadastroDeAdocao || isPaginaDeAdocao) && (
-                            <Link to="/PerfilDeUsuario" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
-                                <CgProfile style={stylesIcons} /> <span style={stylesText}> Perfil </span>
+                            <Link to="/PerfilDeUsuario" style={stylesText} onClick={() => setIsMobileMenuOpen(false)}>
+                                <CgProfile style={stylesIcons} /> Perfil
                             </Link>
                         )}
                 </nav>

@@ -25,30 +25,36 @@ interface AdocaoData {
     EmailCadastrante: string; 
 }
 const saudeOptions = [
-  { value: "vacinacaoEmDia", label: "Vacinação em dia" },
-  { value: "vacinacaoIncompleta", label: "Vacinação incompleta" },
-  { value: "castrado", label: "Castrado" },
-  { value: "naoCastrado", label: "Não Castrado" },
-  { value: "vermifugado", label: "Vermifugado" },
-  { value: "naoVermifugado", label: "Não Vermifugado" },
-  { value: "FivPositivo", label: "FIV positivo" },
-  { value: "FelvPositivo", label: "FELV positivo" },
-  { value: "possuiComorbidades", label: "Possui comorbidades" }
+  { value: "Vacinação em dia", label: "Vacinação em dia" },
+  { value: "Vacinação incompleta", label: "Vacinação incompleta" },
+  { value: "Castrado", label: "Castrado" },
+  { value: "Não Castrado", label: "Não Castrado" },
+  { value: "Vermifugado", label: "Vermifugado" },
+  { value: "Não Vermifugado", label: "Não Vermifugado" },
+  { value: "FIV positivo", label: "FIV positivo" },
+  { value: "FELV positivo", label: "FELV positivo" },
+  { value: "Possui comorbidades", label: "Possui comorbidades" }
 ];
 const temperamentoOptions = [
-  { value: "docil", label: "Dócil" },
-  { value: "ativoEnergetico", label: "Ativo/Energético" },
-  { value: "calmoTranquilo", label: "Calmo/Tranquilo" },
-  { value: "brincalhao", label: "Brincalhão" },
-  { value: "independente", label: "Independente" },
-  { value: "sociavel", label: "Sociável" },
+  { value: "Dócil", label: "Dócil" },
+  { value: "Ativo", label: "Ativo" },
+  { value: "Energético", label: "Energético" },
+  { value: "Calmo", label: "Calmo" },
+  { value: "Tranquilo", label: "Tranquilo" },
+  { value: "Brincalhão", label: "Brincalhão" },
+  { value: "Independente", label: "Independente" },
+  { value: "Sociável", label: "Sociável" },
   { value: "dominante", label: "Dominante" },
-  { value: "timidoMedroso", label: "Tímido/Medroso" },
+  { value: "Tímido", label: "Tímido" },
+  { value: "Medroso", label: "Medroso" },
   { value: "preguicoso", label: "Preguiçoso" },
-  { value: "bravoReativo", label: "Bravo/Reativo" },
-  { value: "protetorTerritorial", label: "Protetor/Territorial" },
-  { value: "inteligente", label: "Inteligente" },
-  { value: "carenteGrudento", label: "Carente/Grudento" }
+  { value: "Bravo", label: "Bravo" },
+  { value: "Reativo", label: "Reativo" },
+  { value: "Protetor", label: "Protetor" },
+  { value: "Territorial", label: "Territorial" },
+  { value: "Inteligente", label: "Inteligente" },
+  { value: "Carente", label: "Carente" },
+  { value: "Grudento", label: "Grudento" }
 ];
 
 export default function CadastroDeAdocao(){
@@ -128,7 +134,7 @@ export default function CadastroDeAdocao(){
         await set(adocaoRef, AdocaoData);
 
         //Faz o upload da imagem para o S3
-        const fileName = `${adocaoRef.key}/imagemAdocao`;
+        const fileName = `adocoes/${adocaoRef.key}/imagemAdocao`;
         await s3.uploadFile(file, fileName);
 
         alert('Produto criado com sucesso e salvo no banco!');
@@ -190,8 +196,8 @@ export default function CadastroDeAdocao(){
                     <label className='txtCadastroDeAdocao'>Especie do Animal:</label>
                     <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("especie", { required: true })}>
                         <option value="" disabled hidden>Selecione uma opção:</option>
-                        <option value="gato">Gato</option>
-                        <option value="cachorro">Cachorro</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Cachorro">Cachorro</option>
                     </select>
                     <label className='txtCadastroDeAdocao'>Raça do Animal:</label>
                     <input
@@ -203,8 +209,8 @@ export default function CadastroDeAdocao(){
                     <label className='txtCadastroDeAdocao'>Sexo:</label>
                     <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("sexo", { required: true })}>
                         <option value="" disabled hidden>Selecione uma opção:</option>
-                        <option value="macho">Macho</option>
-                        <option value="femea">Fêmea</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
                     </select>
                     <label className='txtCadastroDeAdocao'>Idade(anos):</label>
                     <input
@@ -216,9 +222,9 @@ export default function CadastroDeAdocao(){
                     <label className='txtCadastroDeAdocao'>Porte:</label>
                     <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("porte", { required: true })}>
                         <option value="" disabled hidden>Selecione uma opção:</option>
-                        <option value="pequeno">Pequeno</option>
-                        <option value="medio">Médio</option>
-                        <option value="grande">Grande</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Grande">Grande</option>
                     </select>
                     <label className='txtCadastroDeAdocao'>Estado de saúde:</label>
                     <Controller

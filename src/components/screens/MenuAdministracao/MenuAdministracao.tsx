@@ -13,7 +13,7 @@ function MenuAdministracao(){
 
     const data = [
         { id:1, titleNav: 'Registro de Produto', srcImg:require('../../../assets/registro_servico.png'), navScreen:()=>navigate('/CadastroProdutos') },
-        { id:2, titleNav: 'Cadastro de Novas Contas', srcImg:require('../../../assets/cadastro_contas_adm.png'), navScreen:()=>navigate('/CadastroContasAdministracao') }
+        { id:2, titleNav: 'Cadastro de Contas', srcImg:require('../../../assets/cadastro_contas_adm.png'), navScreen:()=>navigate('/CadastroContasAdministracao') }
     ];
 
     useEffect(()=>{

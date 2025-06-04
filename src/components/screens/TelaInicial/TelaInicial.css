@@ -46,6 +46,7 @@
                 & .btn_div1{
                     background-color: var(--marrom-btn);
                     transition: 0.4s;
+                    cursor: pointer;
                     border: 0;
                     width: 200px;
                     height: auto;

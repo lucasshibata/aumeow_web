@@ -93,7 +93,7 @@ function CadastroProdutos() {
 
         try {
         // Faz o upload da imagem para o S3
-        const fileName = `${data.code}/imagemProduto`;
+        const fileName = `produtos/${data.code}/imagemProduto`;
         await s3.uploadFile(file, fileName);
 
         // Obtém o nome do usuário
