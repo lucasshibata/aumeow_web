@@ -1,44 +1,50 @@
-.ContainerPaginaDeAdocao{
+.ContainerPaginaDeAdocao {
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    & .InnerContainerPaginaDeAdocao{
+
+    & .InnerContainerPaginaDeAdocao {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 90%;
         padding: 30px;
         gap: 20px;
-        flex: 1; 
-        & .DivContainerDeFiltrosPaginaDeAdocao{
+        flex: 1;
+
+        & .DivContainerDeFiltrosPaginaDeAdocao {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
             width: 100%;
-            gap:10px;
+            gap: 10px;
             flex-wrap: wrap;
-            & .TxtFiltroPaginaDeAdocao{
+
+            & .TxtFiltroPaginaDeAdocao {
                 color: var(--marrom-text);
                 font-weight: bold;
                 font-size: 1.2rem;
             }
-            & input{
+
+            & input {
                 border: 2px solid var(--marrom-btn);
                 padding: 5px;
                 border-radius: 5px;
                 font-size: 1rem;
                 background-color: var(--cinza-claro);
             }
-            & input::placeholder{
+
+            & input::placeholder {
                 color: var(--marrom-text-placeholder);
             }
         }
-        & .DivBtnPaginaDeAdocao{
+
+        & .DivBtnPaginaDeAdocao {
             margin-left: auto;
-            margin-right: 10px; 
+            margin-right: 10px;
             margin-top: 10px;
             display: flex;
             flex-direction: row;
@@ -47,7 +53,8 @@
             padding: 5px;
             border-radius: 10px;
             cursor: pointer;
-            & .BtnIrParaCadastroPaginaDeAdocao{
+
+            & .BtnIrParaCadastroPaginaDeAdocao {
                 border: 0;
                 background-color: var(--marrom-btn);
                 color: var(--branco);
@@ -55,30 +62,78 @@
                 padding: 10px;
                 cursor: pointer;
             }
-            & .IconBtnPaginaDeAdocao{
+
+            & .IconBtnPaginaDeAdocao {
                 background-color: var(--marrom-btn);
                 font-size: 1.2rem;
                 cursor: pointer;
             }
         }
-        & .ContainerAdocaoPaginaDeAdocao{
+
+        & .ContainerAdocaoPaginaDeAdocao {
             display: flex;
             flex-direction: row;
+            width: 95%;
             flex-wrap: wrap;
+            justify-content: space-around;
             gap: 10px;
-            & .ItemListaPaginaDeAdocao{
+
+            & .ItemListaPaginaDeAdocao {
                 border: 2px solid var(--marrom-btn);
-                padding: 10px;
-                border-radius: 15px;
-                & .Textoh1PaginaDeAdocao{
-                    color: var(--marrom-text);
-                    font-size: 2rem;
+                border-radius: 16px;
+                background-color: var(--branco);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                padding: 20px;
+                width: 100%;
+                max-width: 400px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
                 }
-                & .TextoPPaginaDeAdocao{
+
+                & .HeaderCard {
+                    text-align: center;
+
+                    & .NomeAnimal {
+                        color: var(--marrom-text);
+                        font-size: 1.6rem;
+                        font-weight: bold;
+                    }
+
+                    & .EspecieRaça {
+                        font-size: 1rem;
+                        color: var(--marrom-text);
+                        margin-top: 4px;
+                    }
+                }
+
+                & .InfosGrid {
+                    gap: 8px;
+                    font-size: 0.95rem;
                     color: var(--marrom-text);
-                    font-size: 1.2rem;
+                }
+
+                & .HistoriaAnimal {
+                    font-size: 0.95rem;
+                    color: var(--marrom-text);
+                    line-height: 1.5;
+                    text-align: justify;
+                }
+
+                & .Responsavel {
+                    font-size: 0.9rem;
+                    color: var(--marrom-text);
+                    background-color: var(--cinza-claro);
+                    border-radius: 10px;
+                    padding: 10px;
                 }
             }
+
         }
     }
 }

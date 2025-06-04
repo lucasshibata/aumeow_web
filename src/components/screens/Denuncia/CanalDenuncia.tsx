@@ -32,7 +32,7 @@ function CanalDenuncia() {
             }
             set(denunciaRef, denunciaData)
             .then(()=>{
-                alert("conta criada com sucesso e salvo no banco");
+                alert("Denuncia enviada e salva no banco");
                 navigate('/Login');
             })
             .catch((error:any)=>{
@@ -43,7 +43,7 @@ function CanalDenuncia() {
     return (
         <div className='CanalDenuncia'>
             <Header/>
-            {/* <BackGround> */}
+            <BackGround>
                 <div className='ContainerCanalDenuncia'>
                     <button className='BotaoVoltar' onClick={() => navigate(-1)}>
                         <FaArrowLeft /> Voltar
@@ -107,7 +107,7 @@ function CanalDenuncia() {
                         </form>
                     </div>
                 </div>
-            {/* </BackGround> */}
+            </BackGround>
         </div>
     );
 }

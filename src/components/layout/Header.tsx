@@ -5,6 +5,7 @@ import { FaHome, FaUser, FaSignOutAlt, FaArrowLeft, FaBars, FaTimes } from "reac
 import { signOut, auth } from '../firebase/Firebase';
 import { useNavigate } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
+import MenuCliente from "../screens/MenuCliente/MenuCliente";
 
 export default function Header() {
     const navigate = useNavigate()
@@ -13,8 +14,6 @@ export default function Header() {
 
 
     function useWindowWidth() {
-        console.log("funfou o mobile");
-
         const [width, setWidth] = useState(window.innerWidth);
 
         useEffect(() => {
@@ -35,7 +34,7 @@ export default function Header() {
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 1%',
-        position: 'relative',  
+        position: 'relative',
         height: isMobile ? '70px' : '100px',
         width: '98%',
     }
@@ -205,24 +204,27 @@ export default function Header() {
             {(!isMobile) && (
                 <div style={{ ...stylesContent, flexWrap: 'nowrap', justifyContent: 'flex-end' }}>
                     <div style={stylesContent}>
-                            <div style={stylesInnerDiv}>
-                                <FaHome style={stylesIcons} /><Link to="/" style={stylesText}>Home</Link>
-                            </div>
+                        {(!isHome && !isMenuCliente && !isMenuPrestador) &&
+                            (
+                                <div style={stylesInnerDiv}>
+                                    <FaHome style={stylesIcons} /><Link to="/" style={stylesText}>Home</Link>
+                                </div>
+                            )}
                         {(isSobreNos || isHome) && (
                             <div style={stylesInnerDiv}>
                                 <FaUser style={stylesIcons} /><Link to="/Login" style={stylesText}>Entrar</Link>
                             </div>
                         )}
-                            {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
-                                isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
-                                isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
-                                isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
-                                isCadastroDeAdocao || isPaginaDeAdocao) && (
-                                    <div style={stylesInnerDiv}>
-                                        <CgProfile style={stylesIcons} /><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
-                                    </div>
-                                    
-                                )}
+                        {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
+                            isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
+                            isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
+                            isDenuncia || isCadastroContasAdministracao || isEdicaoPerfil ||
+                            isCadastroDeAdocao || isPaginaDeAdocao) && (
+                                <div style={stylesInnerDiv}>
+                                    <CgProfile style={stylesIcons} /><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
+                                </div>
+
+                            )}
                         {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
                             isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
                             isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats || isDenuncia ||
@@ -231,8 +233,8 @@ export default function Header() {
                                 <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} style={stylesInnerDiv}>
                                     <FaSignOutAlt style={stylesIcons} /><button style={stylesButton} onClick={handleLogout}><span style={stylesText}> Sair </span></button>
                                 </div>
-                                
-                                
+
+
                             )}
                     </div>
                 </div>
@@ -240,9 +242,11 @@ export default function Header() {
 
             {isMobile && isMobileMenuOpen && (
                 <nav style={stylesMobileMenu}>
-                        <Link to="/" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
+                    {(!isHome || !isMenuCliente || !isMenuPrestador) &&
+                        (<Link to="/" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
                             <FaHome style={stylesIcons} /> <span style={stylesText}> Home </span>
-                        </Link>
+                        </Link>)
+                    }
                     {(isSobreNos || isHome) && (
                         <Link to="/Login" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
                             <FaUser style={stylesIcons} /> <span style={stylesText}> Entrar </span>
@@ -266,7 +270,7 @@ export default function Header() {
                     {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
                         isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
                         isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
-                        isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
+                        isDenuncia || isCadastroContasAdministracao || isEdicaoPerfil ||
                         isCadastroDeAdocao || isPaginaDeAdocao) && (
                             <Link to="/PerfilDeUsuario" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
                                 <CgProfile style={stylesIcons} /> <span style={stylesText}> Perfil </span>

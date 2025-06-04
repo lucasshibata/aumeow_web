@@ -183,17 +183,29 @@ function PetServices() {
                 </div>
                 <ul className='InnerListaPetServices'>
                     {servicosFiltrados.map((service: Service) => (
-                        <li className='ItemLista' key={service.id}>
-                            <h2 className='Texto'>{service.nomePrestador}</h2>
-                            <p className='Texto'>Endereço: {service.endereco}</p>
-                            <p className='Texto'>Preço: {service.preco}</p>
-                            <p className='Texto'>Animal de Prefência: {service.tipoAnimal}</p>
-                            <p className='Texto'>Raio de Atendimento: {service.raio} Km</p>
-                            <p className='Texto'>Estado: {service.estado}</p>
-                            <p className='Texto'>Experiência: {service.experiencia}</p>
-                            <p className='Texto'>Quantidade de Serviços: {service.qtdService}</p>
-                            <button onClick={() => startChat(service.userUid)}>iniciar chat</button>
+                        <li className="ItemLista" key={service.id}>
+                            <div className="HeaderPrestador">
+                                <h2 className="NomePrestador">{service.nomePrestador}</h2>
+                                <p className="Endereco">{service.endereco}</p>
+                            </div>
+
+                            <div className="InfosGridPrestador">
+                                <p><strong>Preço:</strong> {service.preco}</p>
+                                <p><strong>Animal Preferido:</strong> {service.tipoAnimal}</p>
+                                <p><strong>Raio de Atendimento:</strong> {service.raio} Km</p>
+                                <p><strong>Estado:</strong> {service.estado}</p>
+                                <p><strong>Serviços Realizados:</strong> {service.qtdService}</p>
+                            </div>
+                            <div className="Experiencia">
+                                <p><strong>Experiência:</strong></p>
+                                <p>{service.experiencia}</p>
+                            </div>
+
+                            <button onClick={() => startChat(service.userUid)} className="BtnIniciarChat">
+                                Iniciar Chat
+                            </button>
                         </li>
+
                     ))}
                 </ul>
             </div>

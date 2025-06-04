@@ -1,38 +1,43 @@
-.PetServices{
+.PetServices {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
     background-color: var(--branco);
-    & .ListaDeServicosPetServices{
+
+    & .ListaDeServicosPetServices {
         flex: 1;
-        display:flex; 
-        flex-direction:column;
+        display: flex;
+        flex-direction: column;
         width: auto;
         padding: 30px;
         gap: 20px;
         height: auto;
         align-items: center;
-        & .TxtTitlePetServices{
+
+        & .TxtTitlePetServices {
             color: var(--marrom-text);
             font-weight: bold;
             font-size: 2rem;
         }
-        & .DivContainerDeFiltrosPetServices{
+
+        & .DivContainerDeFiltrosPetServices {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
             width: 100%;
-            gap:10px;
+            gap: 10px;
             flex-wrap: wrap;
-            & .TxtFiltroPetServices{
+
+            & .TxtFiltroPetServices {
                 color: var(--marrom-text);
                 font-weight: bold;
                 font-size: 1.2rem;
             }
-            & input{
+
+            & input {
                 border: 2px solid var(--marrom-btn);
                 padding: 5px;
                 border-radius: 5px;
@@ -40,36 +45,79 @@
                 background-color: var(--cinza-claro);
             }
         }
-        & .InnerListaPetServices{
+
+        & .InnerListaPetServices {
             display: flex;
             flex-direction: row;
-            align-items: flex-start ;
             flex-wrap: wrap;
-            height: auto;
-            gap:10px;
-            & .ItemLista{
+            gap: 20px;
+            justify-content: center;
+
+            & .ItemLista {
                 display: flex;
                 flex-direction: column;
-                padding: 10px;
-                border: solid var(--marrom-btn) 4px;
-                border-radius: 15px;
-                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-                flex-wrap: wrap;
-                & .Texto{
-                    color: var(--preto);
+                gap: 15px;
+                padding: 20px;
+                border: 2px solid var(--marrom-btn);
+                border-radius: 16px;
+                background-color: var(--branco);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                width: 100%;
+                max-width: 400px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
                 }
-                & button{
-                    border: 0;
+
+                & .HeaderPrestador {
+                    text-align: center;
+
+                    & .NomePrestador {
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        color: var(--marrom-text);
+                    }
+
+                    & .Endereco {
+                        font-size: 1rem;
+                        color: var(--marrom-text);
+                        margin-top: 4px;
+                    }
+                }
+
+                & .InfosGridPrestador {
+                    gap: 10px;
+                    font-size: 0.95rem;
+                    color: var(--marrom-text);
+                }
+                & .Experiencia {
+                    font-size: 0.95rem;
+                    color: var(--marrom-text);
+                    line-height: 1.5;
+                    text-align: justify;
+                }
+                
+
+                & .BtnIniciarChat {
+                    border: none;
                     background-color: var(--marrom-btn);
                     color: var(--branco);
                     border-radius: 10px;
                     padding: 10px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    align-self: flex-end;
+                    transition: background-color 0.3s;
                 }
             }
-        }  
+        }
+
     }
 }
-  .BotaoVoltar {
+
+.BotaoVoltar {
     background-color: var(--marrom-btn);
     border: 0;
     border-radius: 15px;
@@ -80,8 +128,8 @@
     cursor: pointer;
     transition: 0.2s;
     margin-right: auto;
-  }
-  
-  .BotaoVoltar:active {
+}
+
+.BotaoVoltar:active {
     background-color: var(--marrom-btn-transparente);
-  }
+}
