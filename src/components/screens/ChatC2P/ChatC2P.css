@@ -11,7 +11,6 @@
         flex-direction: column;
         height: 100%;
         gap: 20px;
-        padding: 20px;
         overflow-y: auto;
         & h1{
             color: var(--marrom-text);
@@ -20,9 +19,12 @@
         & .BlocoDeChats{
             display: flex;
             flex-direction: column;
+            height: 100%;
             gap: 20px;
             padding-left: 70px;
             padding-right: 70px;
+            padding-bottom: 20px;
+            overflow-y: auto;
             & .sentUser {
                 display: inline-block;
                 border-radius: 15px;

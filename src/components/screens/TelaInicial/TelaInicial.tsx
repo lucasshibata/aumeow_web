@@ -28,7 +28,7 @@ export default function TelaInicial(){
                             <h1>Cuidando dos nossos pequenos amigos</h1>
                             <p>Seja bem vindo ao AuMeow, o seu site de cuidados ideal para o seu melhor amigo.
                             Aproveite nossos serviços</p>
-                            <button className="btn_div1" onClick={()=>navigate("/Login")}>Fique por dentro</button>
+                            <button className="btn_div1" onClick={()=>navigate("/SobreNos")}>Fique por dentro</button>
                         </div>
                         <div className="imgDogCat">
                             <img src={cachorroGato} alt="imagem de cachorro e gato" style={{flex:1, width:'100%', height:'100%'}}/>

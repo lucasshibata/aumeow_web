@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { auth, database, set, ref, push, get, onValue } from '../../firebase/Firebase'; 
 import Header from '../../layout/Header';
@@ -18,6 +18,7 @@ function Chat() {
     const navigate = useNavigate();
     const { PrestadorId, ClienteId } = useParams();
     const user = auth.currentUser;
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
     
     //===========recuperar a função do usuário atual================
     useEffect(() => {
@@ -34,7 +35,15 @@ function Chat() {
         fetchFuncaoUser();
     }, [user?.uid]);
     //================================================================    
-    
+    useEffect(() => {
+        const scrollToBottom = () => {
+            if (messagesEndRef.current) {
+                messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
+            }
+        };
+
+        scrollToBottom();
+    }, [messages]);
     //===========================================================================
     useEffect(() => {
             if (!user?.uid || !PrestadorId) return;
@@ -135,8 +144,7 @@ function Chat() {
         <div className='ContainerChat'>
             <Header/>
             <div className='InnerContainerChat'>
-                <h1>Chat</h1>
-                <div className='BlocoDeChats'>
+                <div className='BlocoDeChats' ref={messagesEndRef}>
                     {messages.map((msg, index) => {
                         const isMine = msg.UidEnviou === user?.uid;
                         return(
