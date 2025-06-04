@@ -5,7 +5,6 @@ import { FaHome, FaUser, FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa";
 import { signOut, auth } from '../firebase/Firebase';
 import { useNavigate } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
-import MenuCliente from "../screens/MenuCliente/MenuCliente";
 
 export default function Header() {
     const navigate = useNavigate()
@@ -195,24 +194,17 @@ export default function Header() {
             {(!isMobile) && (
                 <div style={{ ...stylesContent, flexWrap: 'nowrap', justifyContent: 'flex-end' }}>
                     <div style={stylesContent}>
-<<<<<<< HEAD
                         {(!isHome && !isMenuCliente && !isMenuPrestador) &&
                             (
                                 <div style={stylesInnerDiv}>
                                     <FaHome style={stylesIcons} /><Link to="/" style={stylesText}>Home</Link>
                                 </div>
                             )}
-=======
-                            <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                                <Link to="/" style={stylesText}><FaHome style={stylesIcons} /> Home</Link>
-                            </div>
->>>>>>> 925e7ddfce3c91cfd11ef042da12f57f92fb5b8d
                         {(isSobreNos || isHome) && (
                             <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                                <Link to="/Login" style={stylesText}> <FaUser style={stylesIcons} /> Entrar</Link>
                             </div>
                         )}
-<<<<<<< HEAD
                         {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
                             isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
                             isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
@@ -223,18 +215,6 @@ export default function Header() {
                                 </div>
 
                             )}
-=======
-                            {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
-                                isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
-                                isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
-                                isDenuncia || isCadastroContasAdministracao || isPerfilDeUsuario || isEdicaoPerfil ||
-                                isCadastroDeAdocao || isPaginaDeAdocao) && (
-                                    <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                                        <Link to="/PerfilDeUsuario" style={stylesText}><CgProfile style={stylesIcons} /> Perfil</Link>
-                                    </div>
-                                    
-                                )}
->>>>>>> 925e7ddfce3c91cfd11ef042da12f57f92fb5b8d
                         {(isMenuPrestador || isMenuCliente || isMenuAdministracao || isShopping || isPetServices ||
                             isServicosPrestador || isEspecificProduct || isRegistroServicoPrestador ||
                             isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats || isDenuncia ||
@@ -252,17 +232,11 @@ export default function Header() {
 
             {isMobile && isMobileMenuOpen && (
                 <nav style={stylesMobileMenu}>
-<<<<<<< HEAD
                     {(!isHome || !isMenuCliente || !isMenuPrestador) &&
                         (<Link to="/" style={stylesInnerDiv} onClick={() => setIsMobileMenuOpen(false)}>
                             <FaHome style={stylesIcons} /> <span style={stylesText}> Home </span>
                         </Link>)
                     }
-=======
-                        <Link to="/" style={stylesText} onClick={() => setIsMobileMenuOpen(false)}>
-                            <FaHome style={stylesIcons} /> Home 
-                        </Link>
->>>>>>> 925e7ddfce3c91cfd11ef042da12f57f92fb5b8d
                     {(isSobreNos || isHome) && (
                         <Link to="/Login" style={stylesText} onClick={() => setIsMobileMenuOpen(false)}>
                             <FaUser style={stylesIcons} /> Entrar 
