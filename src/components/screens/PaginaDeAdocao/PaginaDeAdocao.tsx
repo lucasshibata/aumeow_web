@@ -137,6 +137,7 @@ function PaginaDeAdocao(){
                 <ul className="ContainerAdocaoPaginaDeAdocao">
                     {animaisFiltrados.map((service:any) => (
                         <li className="ItemListaPaginaDeAdocao" key={service.id}>
+                            <img src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/adocoes/${service.id}/imagemProduto`} alt='imagem do produto'/>
                             <h1 className="Textoh1PaginaDeAdocao">{service.Nome}</h1>
                             <p className="TextoPPaginaDeAdocao">Espécie: {service.Especie}</p>
                             <p className="TextoPPaginaDeAdocao">Raça: {service.Raca}</p>

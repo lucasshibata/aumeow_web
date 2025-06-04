@@ -134,7 +134,7 @@ export default function CadastroDeAdocao(){
         await set(adocaoRef, AdocaoData);
 
         //Faz o upload da imagem para o S3
-        const fileName = `${adocaoRef.key}/imagemAdocao`;
+        const fileName = `adocoes/${adocaoRef.key}/imagemAdocao`;
         await s3.uploadFile(file, fileName);
 
         alert('Produto criado com sucesso e salvo no banco!');
