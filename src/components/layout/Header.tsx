@@ -197,7 +197,7 @@ export default function Header() {
                         {(!isHome && !isMenuCliente && !isMenuPrestador) &&
                             (
                                 <div style={stylesInnerDiv}>
-                                    <FaHome style={stylesIcons} /><Link to="/" style={stylesText}>Home</Link>
+                                    <Link to="/" style={stylesText}><FaHome style={stylesIcons} /> Home</Link>
                                 </div>
                             )}
                         {(isSobreNos || isHome) && (
@@ -211,7 +211,7 @@ export default function Header() {
                             isDenuncia || isCadastroContasAdministracao || isEdicaoPerfil ||
                             isCadastroDeAdocao || isPaginaDeAdocao) && (
                                 <div style={stylesInnerDiv}>
-                                    <CgProfile style={stylesIcons} /><Link to="/PerfilDeUsuario" style={stylesText}>Perfil</Link>
+                                    <Link to="/PerfilDeUsuario" style={stylesText}><CgProfile style={stylesIcons} /> Perfil</Link>
                                 </div>
 
                             )}

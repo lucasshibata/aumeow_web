@@ -11,14 +11,29 @@
         flex-direction: column;
         width: auto;
         padding: 30px;
-        gap: 20px;
+        gap: 5px;
         height: auto;
         align-items: center;
-
+        & .BotaoVoltarPetServices {
+            background-color: var(--marrom-btn);
+            border: 0;
+            border-radius: 15px;
+            color: var(--branco);
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-right: auto;
+        }
+        & .BotaoVoltarPetServices:active {
+            background-color: var(--marrom-btn-transparente);
+        }
         & .TxtTitlePetServices {
             color: var(--marrom-text);
             font-weight: bold;
             font-size: 2rem;
+            border: 0;
         }
 
         & .DivContainerDeFiltrosPetServices {
@@ -53,10 +68,10 @@
             gap: 20px;
             justify-content: center;
 
-            & .ItemLista {
+            & .ItemListaPetServices {
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
+                gap: 5px;
                 padding: 20px;
                 border: 2px solid var(--marrom-btn);
                 border-radius: 16px;
@@ -117,19 +132,3 @@
     }
 }
 
-.BotaoVoltar {
-    background-color: var(--marrom-btn);
-    border: 0;
-    border-radius: 15px;
-    color: var(--branco);
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    transition: 0.2s;
-    margin-right: auto;
-}
-
-.BotaoVoltar:active {
-    background-color: var(--marrom-btn-transparente);
-}

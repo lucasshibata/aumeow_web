@@ -118,7 +118,7 @@ function PetServices() {
         <div className='PetServices'>
             <Header />
             <div className='ListaDeServicosPetServices'>
-                <button className='BotaoVoltar' onClick={() => navigate(-1)}>
+                <button className='BotaoVoltarPetServices' onClick={() => navigate(-1)}>
                     <FaArrowLeft /> Voltar
                 </button>
                 <h1 className="TxtTitlePetServices">Lista de Pet Sitters</h1>
@@ -183,7 +183,7 @@ function PetServices() {
                 </div>
                 <ul className='InnerListaPetServices'>
                     {servicosFiltrados.map((service: Service) => (
-                        <li className="ItemLista" key={service.id}>
+                        <li className="ItemListaPetServices" key={service.id}>
                             <div className="HeaderPrestador">
                                 <h2 className="NomePrestador">{service.nomePrestador}</h2>
                                 <p className="Endereco">{service.endereco}</p>

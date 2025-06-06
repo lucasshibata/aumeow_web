@@ -25,7 +25,7 @@ export default function ShopBox ({imgProduct, titleProduct, subtitleProduct, pri
         boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
     }
     const stylesImg:React.CSSProperties ={
-        width:'80%',
+        width:'100%',
         height:'auto',
         borderRadius:8,
         color:'black'

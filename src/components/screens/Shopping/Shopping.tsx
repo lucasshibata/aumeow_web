@@ -70,12 +70,11 @@ function Shopping() {
     return (
         <div className='Shopping'>
             <Header />
-            <div className="DivContainerDeFiltrosShopping">
-            <button className='BotaoVoltar' onClick={() => navigate(-1)}>
+            <button className='BotaoVoltarShopping' onClick={() => navigate(-1)}>
                 <FaArrowLeft /> Voltar
             </button>
-            <div className='DivContainerDeFiltrosShopping'>
             <h1 className="TxtTitleShopping">Página de Shopping</h1>
+            <div className='DivContainerDeFiltrosShopping'>
                 <p className="TxtFiltroShopping">Filtros:</p>
                 <input
                     type="text"
@@ -105,7 +104,6 @@ function Shopping() {
                     onChange={(e) => setFiltroPrecoMax(e.target.value)}
                     className="InputFiltroPrecoMax"
                 />
-            </div>
             </div>
             <div className="FlatListShopping">
                 {produtosFiltrados.map(item => (

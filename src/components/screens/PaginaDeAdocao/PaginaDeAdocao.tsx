@@ -90,12 +90,15 @@ function PaginaDeAdocao() {
         <div className="ContainerPaginaDeAdocao">
             <Header />
             <div className="InnerContainerPaginaDeAdocao">
-                <button className='BotaoVoltar' onClick={() => navigate(-1)}>
-                    <FaArrowLeft /> Voltar
-                </button>
-                <div className="DivBtnPaginaDeAdocao" onClick={() => navigate("/CadastroDeAdocao")}>
-                    <FaPlus className="IconBtnPaginaDeAdocao" /><button className="BtnIrParaCadastroPaginaDeAdocao">Cadastro De Adoção</button>
+                <div className="btnsInicioDaTelaPaginaDeAdocao">
+                     <button className='BotaoVoltarPaginaDeAdocao' onClick={() => navigate(-1)}>
+                        <FaArrowLeft /> Voltar
+                    </button>
+                    <div className="DivBtnPaginaDeAdocao" onClick={() => navigate("/CadastroDeAdocao")}>
+                        <FaPlus className="IconBtnPaginaDeAdocao" /><button className="BtnIrParaCadastroPaginaDeAdocao">Cadastro De Adoção</button>
+                    </div>
                 </div>
+               
                 <div className="DivContainerDeFiltrosPaginaDeAdocao">
                     <p className="TxtFiltroPaginaDeAdocao">Filtros:</p>
                     <input
@@ -138,7 +141,7 @@ function PaginaDeAdocao() {
                     {animaisFiltrados.map((animal: any) => (
                         <li className="ItemListaPaginaDeAdocao" key={animal.id}>
                             <div className="HeaderCard">
-                                <img src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/adocoes/${animal.id}/imagemAdocao`} alt="" />
+                                <img className="imagemDoAnimalPaginaDeAdocao" src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/adocoes/${animal.id}/imagemAdocao`} alt="" />
                                 <h1 className="NomeAnimal">Nome: {animal.Nome}</h1>
                                 <p className="EspecieRaça">{animal.Especie} - {animal.Raca}</p>
                             </div>

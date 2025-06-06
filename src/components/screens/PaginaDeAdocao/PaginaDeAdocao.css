@@ -13,6 +13,47 @@
         gap: 20px;
         flex: 1;
 
+        & .btnsInicioDaTelaPaginaDeAdocao{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            & .BotaoVoltarPaginaDeAdocao{
+                background-color: var(--marrom-btn);
+                border: 0;
+                border-radius: 15px;
+                color: var(--branco);
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+            & .DivBtnPaginaDeAdocao {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: var(--marrom-btn);
+                padding: 5px;
+                border-radius: 10px;
+                cursor: pointer;
+                & .BtnIrParaCadastroPaginaDeAdocao {
+                    border: 0;
+                    background-color: var(--marrom-btn);
+                    color: var(--branco);
+                    font-size: 1.2rem;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+
+                & .IconBtnPaginaDeAdocao {
+                    background-color: var(--marrom-btn);
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                }
+            }
+        }
+
         & .DivContainerDeFiltrosPaginaDeAdocao {
             display: flex;
             flex-direction: row;
@@ -42,34 +83,6 @@
             }
         }
 
-        & .DivBtnPaginaDeAdocao {
-            margin-left: auto;
-            margin-right: 10px;
-            margin-top: 10px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: var(--marrom-btn);
-            padding: 5px;
-            border-radius: 10px;
-            cursor: pointer;
-
-            & .BtnIrParaCadastroPaginaDeAdocao {
-                border: 0;
-                background-color: var(--marrom-btn);
-                color: var(--branco);
-                font-size: 1.2rem;
-                padding: 10px;
-                cursor: pointer;
-            }
-
-            & .IconBtnPaginaDeAdocao {
-                background-color: var(--marrom-btn);
-                font-size: 1.2rem;
-                cursor: pointer;
-            }
-        }
-
         & .ContainerAdocaoPaginaDeAdocao {
             display: flex;
             flex-direction: row;
@@ -88,7 +101,7 @@
                 max-width: 400px;
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
+                gap: 5px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
 
                 &:hover {
@@ -99,6 +112,10 @@
                 & .HeaderCard {
                     text-align: center;
 
+                    & .imagemDoAnimalPaginaDeAdocao{
+                        width: 100%;
+                        border-radius: 15px;
+                    }
                     & .NomeAnimal {
                         color: var(--marrom-text);
                         font-size: 1.6rem;
