@@ -33,7 +33,7 @@ function CadastroDono(){
 		<div className='CadastroDono'>
 			<BackGround>
 				<div className='ContainerCadastroDono'>
-					<button className='BotaoVoltarCadastroPrestador' onClick={()=>navigate(-1)}><FaArrowLeft/> Voltar</button>
+					<button className='BotaoVoltarCadastroDono' onClick={()=>navigate(-1)}><FaArrowLeft/> Voltar</button>
 					<TitleLogo/>
 					<div className='InnerContainerCadastroDono'>
 						<h1 className='TitleCadastroDono'>Cadastro de Cliente</h1>

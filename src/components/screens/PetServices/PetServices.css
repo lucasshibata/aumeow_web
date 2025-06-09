@@ -21,7 +21,6 @@
             color: var(--branco);
             font-size: 1.2rem;
             padding: 10px 20px;
-            margin-bottom: 20px;
             cursor: pointer;
             transition: 0.2s;
             margin-right: auto;
@@ -33,6 +32,7 @@
             color: var(--marrom-text);
             font-weight: bold;
             font-size: 2rem;
+            margin: 0;
             border: 0;
         }
 

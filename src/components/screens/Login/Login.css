@@ -54,13 +54,12 @@
 				}
 				& .InputText{
 					font-size:1.3rem;
-					border-width: 2px;
-					border-color: var(--marrom-btn);
-					border-radius: 5px;
-					border-style: solid;
+					border: 2px solid var(--marrom-btn);
+					border-radius: 10px;
 					color: var(--marrom-text);
 					padding: 8px;
 					background-color: var(--cinza-claro);
+					box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 				}
 				& .Submit{
 					font-size:1.3rem;

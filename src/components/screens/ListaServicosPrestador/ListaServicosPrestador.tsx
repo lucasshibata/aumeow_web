@@ -4,6 +4,8 @@ import withAuth from '../../contexts/LoginContext';
 import './ListaServicosPrestador.css';
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 interface Service {
     id: string; // Chave única do serviço no Firebase
@@ -18,6 +20,7 @@ interface Service {
 function ListaServicosPrestador(){
     const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchServices = async () => {
@@ -68,19 +71,24 @@ function ListaServicosPrestador(){
       }
     
     return(
-        <div className="ListaServicosPrestador">
+        <div className="ContainerListaServicosPrestador">
             <Header/>
-            <ul className="ContainerServicos">
-                {services.map((service:any) => (
-                    <li className="ItemLista" key={service.id}>
-                        <h2 className="Textoh2">{service.nomePrestador}</h2>
-                        <p className="TextoP">Endereço: {service.endereco}</p>
-                        <p className="TextoP">Preço: {service.preco}</p>
-                        <p className="TextoP">Animal: {service.tipoAnimal}</p>
-                        <p className="TextoP">Quantidade de Serviços: {service.qtdService}</p>
-                    </li>
-                ))}
-            </ul>
+            <div className="InnerContainerServicosListaServicosPrestador">
+                <button className='BotaoVoltarListaServicosPrestador' onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
+                <ul className="ListaCompletaDeServicosListaServicosPrestador">
+                    {services.map((service:any) => (
+                        <li className="ItemListaListaServicosPrestador" key={service.id}>
+                            <h2 className="Textoh2ListaServicosPrestador">{service.nomePrestador}</h2>
+                            <p className="TextoPListaServicosPrestador">Endereço: {service.endereco}</p>
+                            <p className="TextoPListaServicosPrestador">Preço: {service.preco}</p>
+                            <p className="TextoPListaServicosPrestador">Animal: {service.tipoAnimal}</p>
+                            <p className="TextoPListaServicosPrestador">Quantidade de Serviços: {service.qtdService}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <Footer/>
         </div>
     )

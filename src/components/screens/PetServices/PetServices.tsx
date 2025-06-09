@@ -126,7 +126,7 @@ function PetServices() {
                     <p className="TxtFiltroPetServices">Filtros:</p>
                     <input
                         type="text"
-                        placeholder="Nome:"
+                        placeholder="Nome do Prestador:"
                         value={filtroNome}
                         onChange={(e) => setFiltroNome(e.target.value)}
                         className="InputFiltroNome"

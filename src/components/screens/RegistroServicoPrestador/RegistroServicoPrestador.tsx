@@ -5,6 +5,7 @@ import SendService from "../../layout/SendService";
 import { useNavigate } from "react-router-dom";
 import "./RegistroServicoPrestador.css";
 import withAuth from '../../contexts/LoginContext';
+import { FaArrowLeft } from "react-icons/fa";
 
  function RegistroServicoPrestador(){
     const {register, handleSubmit} = useForm();
@@ -14,6 +15,9 @@ import withAuth from '../../contexts/LoginContext';
         <div className="ContainerRegistroServicoPrestador">
             <Header/>
             <div className="DivFormRegistroServicoPrestador">
+                <button className='BotaoVoltarRegistroServicoPrestador' onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
                 <h1 className="TitleRegistroServicoPrestador">Formulário de Serviço</h1>
                 <form className= "FormRegistroServicoPrestador"onSubmit={handleSubmit((data)=>SendService(data, navigate))}>
                     <label className='txtRegistroServicoPrestador'>Endereço:</label>

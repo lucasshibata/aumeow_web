@@ -5,6 +5,7 @@ import { useState } from "react";
 import {auth, database, ref, get} from "../../firebase/Firebase";
 import withAuth from "../../contexts/LoginContext";
 import "./ListaDeChats.css";
+import { FaArrowLeft } from "react-icons/fa";
 
 
 interface Chat {
@@ -53,12 +54,18 @@ function ListaDeChats() {
         <div className="ContainerListaDeChats">
             <Header/>
             <div className="InnerContainerListaDeChats">
-                {chats.map(item => (
-                    <div key={item.id} className="itemListListaDeChats">
-                        <p className="TxtListaDeChats">{item.nomeEnviou}</p>
-                        <button className="Button1ListaDeChats" onClick={()=>{navigate("/Chat/"+item.UidRecebeu+"/"+item.UidEnviou)}}>ir para o chat</button>
-                    </div>
-                ))}
+                <button className='BotaoVoltarListaDeChats' onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
+                <div className="ContainerDeChatsListaDeChats">
+                    {chats.map(item => (
+                        <div key={item.id} className="itemListListaDeChats">
+                            <p className="TxtListaDeChats">{item.nomeEnviou}</p>
+                            <button className="Button1ListaDeChats" onClick={()=>{navigate("/Chat/"+item.UidRecebeu+"/"+item.UidEnviou)}}>ir para o chat</button>
+                        </div>
+                    ))}
+                </div>
+                
             </div>
             <Footer/>
         </div>

@@ -196,7 +196,7 @@ export default function Header() {
                     <div style={stylesContent}>
                         {(!isHome && !isMenuCliente && !isMenuPrestador) &&
                             (
-                                <div style={stylesInnerDiv}>
+                                <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                                     <Link to="/" style={stylesText}><FaHome style={stylesIcons} /> Home</Link>
                                 </div>
                             )}
@@ -210,7 +210,7 @@ export default function Header() {
                             isCadastroProdutos || isListaProdutosPrestador || isChat || isListaDeChats ||
                             isDenuncia || isCadastroContasAdministracao || isEdicaoPerfil ||
                             isCadastroDeAdocao || isPaginaDeAdocao) && (
-                                <div style={stylesInnerDiv}>
+                                <div style={stylesInnerDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                                     <Link to="/PerfilDeUsuario" style={stylesText}><CgProfile style={stylesIcons} /> Perfil</Link>
                                 </div>
 

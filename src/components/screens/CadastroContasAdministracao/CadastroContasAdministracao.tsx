@@ -5,6 +5,8 @@ import SignUp from '../../layout/SignUp';
 import { useNavigate } from 'react-router-dom';
 import TitleLogo from '../../layout/TitleLogo';
 import withAuth from '../../contexts/LoginContext';
+import "./CadastroContasAdministracao.css"
+import { FaArrowLeft } from 'react-icons/fa';
 
 
 function CadastroContasAdministracao(){
@@ -29,23 +31,24 @@ function CadastroContasAdministracao(){
     };
     
     return(
-        <div className='CadastroDono'>
+        <div className='CadastroContasAdministracao'>
             <BackGround>
-                <div className='Container'>
+                <div className='ContainerCadastroContasAdministracao'>
+                    <button className='BotaoVoltarCadastroContasAdministracao' onClick={()=>navigate(-1)}><FaArrowLeft/> Voltar</button>
                     <TitleLogo/>
-                    <div className='InnerContainer'>
-                        <h1 className='Title'>Cadastro de Cliente</h1>
-                        <form className='FormContainer' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "cliente", file))}>
-                            <label className='txt'>Nome:</label>
-                            <input className='InputText' type='text' placeholder='Nome Completo:' {...register("name")} />
-                            <label className='txt'>CPF:</label>
-                            <input className='InputText' type='text' placeholder='CPF:' {...register("cpf")} />
-                            <label className='txt'>Email:</label>
-                            <input className='InputText' type='email' placeholder='Email:' {...register("email")} />
-                            <label className='txtCadastroDono'>Foto Pessoal:</label>
+                    <div className='InnerContainerCadastroContasAdministracao'>
+                        <h1 className='TitleCadastroContasAdministracao'>Cadastro de Contas</h1>
+                        <form className='FormContainerCadastroContasAdministracao' onSubmit={handleSubmit((data)=>SignUp(data, navigate, "cliente", file))}>
+                            <label className='txtCadastroContasAdministracao'>Nome:</label>
+                            <input className='InputTextCadastroContasAdministracao' type='text' placeholder='Nome Completo:' {...register("name")} />
+                            <label className='txtCadastroContasAdministracao'>CPF:</label>
+                            <input className='InputTextCadastroContasAdministracao' type='text' placeholder='CPF:' {...register("cpf")} />
+                            <label className='txtCadastroContasAdministracao'>Email:</label>
+                            <input className='InputTextCadastroContasAdministracao' type='email' placeholder='Email:' {...register("email")} />
+                            <label className='txtCadastroContasAdministracao'>Foto Pessoal:</label>
 							{imagePreview && (
 								<div  style={{ display:'flex', flexDirection:'column', width: '100%', height: 'auto', alignItems:'center'}}>
-									<h3 className='txtCadastroDono'>Prévia da Imagem:</h3>
+									<h3 className='txtCadastroContasAdministracao'>Prévia da Imagem:</h3>
 									<img
 										src={imagePreview}
 										alt="Prévia da imagem selecionada"
@@ -62,19 +65,19 @@ function CadastroContasAdministracao(){
 							/>
 							<button
 								onClick={handleClick}
-								className="botaoUploadImagemCadastroDono"
+								className="botaoUploadImagemCadastroContasAdministracao"
 							>Selecionar imagem</button>
-                            <label className='txt'>sexo:</label>
-                            <select className='InputText' {...register("gender")}>
+                            <label className='txtCadastroContasAdministracao'>sexo:</label>
+                            <select className='InputTextCadastroContasAdministracao' {...register("gender")}>
                                 <option value="Feminino">Feminino</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Outro">Outro</option>
                             </select>
-                            <label className='txt'>Senha:</label>
-                            <input className='InputText' type='password' placeholder='senha:' {...register("password")}/>
-                            <label className='txt'>Repita a senha:</label>
-                            <input className='InputText' type='password' placeholder='Repita a senha:' {...register("passwordAgain")}/>
-                            <input className='submit' value='Enviar' type="submit"/>
+                            <label className='txtCadastroContasAdministracao'>Senha:</label>
+                            <input className='InputTextCadastroContasAdministracao' type='password' placeholder='senha:' {...register("password")}/>
+                            <label className='txtCadastroContasAdministracao'>Repita a senha:</label>
+                            <input className='InputTextCadastroContasAdministracao' type='password' placeholder='Repita a senha:' {...register("passwordAgain")}/>
+                            <input className='submitCadastroContasAdministracao' value='Enviar' type="submit"/>
                         </form>
                     </div>
                 </div>
