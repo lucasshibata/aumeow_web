@@ -7,12 +7,10 @@ import navImg3 from "../../../assets/gatos_comendo_sobre_nos.png";
 import navImg4 from "../../../assets/imagem_equipe_sobre_nos.png";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { mandarParaInstagram } from './mandarParaInstagram';
 
 export default function SobreNos() {
     const navigate = useNavigate()
-    function mandarParaInstagram() {
-        window.location.href = "https://www.instagram.com/aumeow.pets/";
-    }
     return (
         <div className="ContainerSobreNos">
             <Header />

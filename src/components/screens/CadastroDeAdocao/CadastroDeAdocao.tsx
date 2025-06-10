@@ -173,8 +173,9 @@ export default function CadastroDeAdocao(){
                             />
                         </div>
                     )}
-                    <label className='txtCadastroDeAdocao'>Selecione uma imagem:</label>
-                    <input
+                    <label htmlFor="imgDoAnimal" className='txtCadastroDeAdocao'>Selecione uma imagem:</label>
+                    <input 
+                        id="imgDoAnimal"
                         type="file"
                         accept="image/*"
                         onChange={handleFileChange}
@@ -186,47 +187,50 @@ export default function CadastroDeAdocao(){
                         onClick={handleClick}
                         className="botaoUploadImagemCadastroDeAdocao"
                     >Selecionar imagem</button>
-                    <label className='txtCadastroDeAdocao'>Nome do Animal:</label>
+                    <label htmlFor="nomeDoAnimal" className='txtCadastroDeAdocao'>Nome do Animal:</label>
                     <input
+                        id="nomeDoAnimal"
                         className='InputTextCadastroDeAdocao'
                         type='text'
                         placeholder='Nome:'
                         {...register("nome", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Especie do Animal:</label>
-                    <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("especie", { required: true })}>
+                    <label htmlFor="especieDoAnimal" className='txtCadastroDeAdocao'>Especie do Animal:</label>
+                    <select id="especieDoAnimal" required defaultValue="" className='InputTextCadastroDeAdocao' {...register("especie", { required: true })}>
                         <option value="" disabled hidden>Selecione uma opção:</option>
                         <option value="Gato">Gato</option>
                         <option value="Cachorro">Cachorro</option>
                     </select>
-                    <label className='txtCadastroDeAdocao'>Raça do Animal:</label>
+                    <label htmlFor="racaDoAnimal" className='txtCadastroDeAdocao'>Raça do Animal:</label>
                     <input
+                        id="racaDoAnimal"
                         className='InputTextCadastroDeAdocao'
                         type='text'
                         placeholder='Raça:'
                         {...register("raca", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Sexo:</label>
-                    <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("sexo", { required: true })}>
+                    <label htmlFor="sexoDoAnimal" className='txtCadastroDeAdocao'>Sexo:</label>
+                    <select id="sexoDoAnimal" required defaultValue="" className='InputTextCadastroDeAdocao' {...register("sexo", { required: true })}>
                         <option value="" disabled hidden>Selecione uma opção:</option>
                         <option value="Macho">Macho</option>
                         <option value="Fêmea">Fêmea</option>
                     </select>
-                    <label className='txtCadastroDeAdocao'>Idade(anos):</label>
+                    <label htmlFor="idadeDoAnimal" className='txtCadastroDeAdocao'>Idade(anos):</label>
                     <input
+                        id="idadeDoAnimal"
                         className='InputTextCadastroDeAdocao'
                         type='text'
                         placeholder='Idade:'
                         {...register("idade", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Porte:</label>
-                    <select required defaultValue="" className='InputTextCadastroDeAdocao' {...register("porte", { required: true })}>
+                    <label htmlFor="porteDoAnimal" className='txtCadastroDeAdocao'>Porte:</label>
+                    <select id="porteDoAnimal" required defaultValue="" className='InputTextCadastroDeAdocao' {...register("porte", { required: true })}>
                         <option value="" disabled hidden>Selecione uma opção:</option>
                         <option value="Pequeno">Pequeno</option>
                         <option value="Médio">Médio</option>
                         <option value="Grande">Grande</option>
                     </select>
-                    <label className='txtCadastroDeAdocao'>Estado de saúde:</label>
+                    <label htmlFor="estadoDeSaudeDoAnimal" className='txtCadastroDeAdocao'>Estado de saúde:</label>
                     <Controller
                         name="estadoSaude"
                         control={control}
@@ -236,6 +240,7 @@ export default function CadastroDeAdocao(){
                             {...field}
                             options={saudeOptions}
                             isMulti
+                            id="estadoDeSaudeDoAnimal"
                             theme={(theme) => ({
                                 ...theme,
                                 colors: {
@@ -251,7 +256,7 @@ export default function CadastroDeAdocao(){
                         />
                         )}
                     />
-                    <label className='txtCadastroDeAdocao'>Temperamento:</label>
+                    <label htmlFor="temperamentoDoAnimal" className='txtCadastroDeAdocao'>Temperamento:</label>
                     <Controller
                         name="temperamentoDoAnimal"
                         control={control}
@@ -261,6 +266,7 @@ export default function CadastroDeAdocao(){
                             {...field}
                             options={temperamentoOptions}
                             isMulti
+                            id="temperamentoDoAnimal"
                             theme={(theme) => ({
                                 ...theme,
                                 colors: {
@@ -275,22 +281,25 @@ export default function CadastroDeAdocao(){
                         />
                         )}
                     />
-                    <label className='txtCadastroDeAdocao'>Historia do Animal:</label>
+                    <label htmlFor="historiaDoAnimal" className='txtCadastroDeAdocao'>Historia do Animal:</label>
                     <input
+                        id="historiaDoAnimal"
                         className='InputTextCadastroDeAdocao'
                         type='text'
                         placeholder='Historia:'
                         {...register("historiaDoAnimal", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Nome do Responsável:</label>
+                    <label htmlFor="nomeDoResponsavelDoAnimal" className='txtCadastroDeAdocao'>Nome do Responsável:</label>
                     <input
+                        id="nomeDoResponsavelDoAnimal"
                         className='InputTextCadastroDeAdocao'
                         type='text'
                         placeholder='Responsável:'
                         {...register("nomeResponsavel", { required: true })}
                     />
-                    <label className='txtCadastroDeAdocao'>Email do Responsável:</label>
+                    <label htmlFor="emailDoResponsavelDoAnimal" className='txtCadastroDeAdocao'>Email do Responsável:</label>
                     <input
+                        id="emailDoResponsavelDoAnimal"
                         className='InputTextCadastroDeAdocao'
                         type='text'
                         placeholder='Email do Responsável:'
