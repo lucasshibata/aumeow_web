@@ -8,6 +8,7 @@ import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import "./CadastroDeAdocao.css";
 import verifyFunction from "../../layout/verifyFunction";
+import { FaArrowLeft } from "react-icons/fa";
 
 interface AdocaoData {
     Nome: string;
@@ -161,6 +162,9 @@ export default function CadastroDeAdocao(){
         <div className="ContainerCadastroDeAdocao">
             <Header/>
             <div className='InnercontainerCadastroDeAdocao'>
+            <button className='BotaoVoltarCadastroAdocao' onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
                 <h1 className='TitleCadastroDeAdocao'>Cadastro de Adoção</h1>
                 <form className='FormContainerCadastroDeAdocao' onSubmit={handleSubmit(onSubmit)}>
                     {imagePreview && (
