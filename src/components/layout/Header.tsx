@@ -40,7 +40,7 @@ export default function Header() {
 
     const stylesContent: React.CSSProperties = {
         display: 'flex',
-        alignItems: isMobile ? 'flex-start' : 'center',
+        alignItems: isMobile ? 'center' : 'center',
         justifyContent: 'center',
         gap: '20px',
         flexWrap: 'wrap',
@@ -103,7 +103,7 @@ export default function Header() {
     const stylesInnerDiv: React.CSSProperties = {
         backgroundColor: 'var(--marrom-btn)',
         display: 'flex',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
         gap: '10px',
         borderRadius: '10px',

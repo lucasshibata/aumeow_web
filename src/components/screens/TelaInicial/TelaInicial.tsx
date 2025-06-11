@@ -68,10 +68,10 @@ export default function TelaInicial(){
                                     conectando você a uma gama de animais adoráveis 
                                     esperando por um lar amoroso. Explore perfis e descubra 
                                     quem está pronto para se tornar o novo membro da sua família.</p>
-                                    <button className="BtnSobreNosTelaInicial" onClick={()=>navigate("/SobreNos")}>Conheça mais Sobre Nós</button>
                                 </div>
                                 <img className="imagemSobreTelaInicial" src={require("../../../assets/cachorro_piscina.png")} alt="imagem2" />
                             </div>
+                                    <button className="BtnSobreNosTelaInicial" onClick={()=>navigate("/SobreNos")}>Conheça mais Sobre Nós</button>
                         </div>
                     </article>     
                 </main>

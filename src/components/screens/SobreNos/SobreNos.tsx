@@ -15,6 +15,9 @@ export default function SobreNos() {
         <div className="ContainerSobreNos">
             <Header />
             <div className="InnercontainerSobreNos">
+                <button className='BotaoVoltarSobreNos' onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
                 <article className="Article1SobreNos">
                     <div className="DivContainerMiniImg">
                         <img className="Img1SobreNos" src={navImg1} alt="" />
@@ -24,9 +27,6 @@ export default function SobreNos() {
                         <img className="Img2SobreNos" src={navImg4} alt="" />
                     </div>
                 </article>
-                <button className='BotaoVoltarSobreNos' onClick={() => navigate(-1)}>
-                    <FaArrowLeft /> Voltar
-                </button>
                 <article className="Article2SobreNos">
                     <div className="DivInterna1SobreNos">
                         <img className="Img3SobreNos" src={navImg2} alt="" />
