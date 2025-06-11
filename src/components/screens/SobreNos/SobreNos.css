@@ -112,29 +112,30 @@
             & .Article1SobreNos{
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
                 gap: 5px;
-                align-items: center;
+                width: auto;
+                /* align-items: flex-start; */
                 height: 150px;
                 padding: 10px;
-                width: 123%;
                 background-color: var(--pastel-bg);
                 border: solid 2px var(--marrom-btn);
+                align-content: space-around;
+                flex-wrap: nowrap;
                 /* border-bottom-left-radius: 15px;
                 border-bottom-right-radius: 15px; */
                 & .TituloArticle1SobreNos{
                     display: flex;
                     font-family: var(--fonte-texto);
                     font-weight: bold;
-                    font-size: 1.5rem;
+                    font-size: 1.1rem;
                     flex: 2;
                     color: var(--marrom-text);
                 }
                 & .DivContainerMiniImg{
                     display: flex;
                     justify-content: center;
+                    align-items: center;
                     flex: 1;
-                    height: 40%;
                     margin-left: 10px;
                     margin: auto;
                      & .Img2SobreNos{
