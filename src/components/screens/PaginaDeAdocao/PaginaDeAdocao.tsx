@@ -95,7 +95,7 @@ function PaginaDeAdocao() {
                         <FaArrowLeft /> Voltar
                     </button>
                     <div className="DivBtnPaginaDeAdocao" onClick={() => navigate("/CadastroDeAdocao")}>
-                        <FaPlus className="IconBtnPaginaDeAdocao" /><button className="BtnIrParaCadastroPaginaDeAdocao">Cadastro De Adoção</button>
+                        <FaPlus className="IconBtnPaginaDeAdocao" /> <p>Cadastro De Adoção</p>
                     </div>
                 </div>
                
