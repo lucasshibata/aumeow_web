@@ -41,7 +41,7 @@ function CadastroDono(){
 							<label htmlFor="nomeCadastroDono" className='txtCadastroDono'>Nome:</label>
 							<input id="nomeCadastroDono" className='InputTextCadastroDono' type='text' placeholder='Nome Completo:' {...register("name")} />
 							<label htmlFor="CPFCadastroDono" className='txtCadastroDono'>CPF:</label>
-							<input id="CPFCadastroDono" className='InputTextCadastroDono' type='text' placeholder='CPF:' {...register("cpf")} />
+							<input id="CPFCadastroDono" className='InputTextCadastroDono' type='text' placeholder='CPF:' inputMode="numeric" maxLength={11} pattern="\d*" {...register("cpf")} />
 							<label htmlFor="emailCadastroDono" className='txtCadastroDono'>Email:</label>
 							<input id="emailCadastroDono" className='InputTextCadastroDono' type='email' placeholder='Email:' {...register("email")} />
 							<label htmlFor="dataDeNascimentoCadastroDono" className='txtCadastroDono'>Data de Nascimento:</label>

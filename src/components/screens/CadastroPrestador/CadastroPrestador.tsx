@@ -40,7 +40,7 @@ function CadastroPrestador() {
               <input id="nomeCadastroPrestador" className='InputTextCadastroPrestador' type='text' placeholder='Nome Completo:' {...register("name")} />
 
               <label htmlFor="CPFCadastroPrestador" className='txtCadastroPrestador'>CPF:</label>
-              <input id="CPFCadastroPrestador" className='InputTextCadastroPrestador' type='text' placeholder='CPF:' {...register("cpf")} />
+              <input id="CPFCadastroPrestador" className='InputTextCadastroPrestador' type='text' placeholder='CPF:' inputMode="numeric" maxLength={11} pattern="\d*" {...register("cpf")} />
 
               <label htmlFor="emailCadastroPrestador" className='txtCadastroPrestador'>Email:</label>
               <input id="emailCadastroPrestador" className='InputTextCadastroPrestador' type='email' placeholder='Email:' {...register("email")} />

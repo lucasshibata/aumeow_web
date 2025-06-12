@@ -26,6 +26,10 @@ export default async function signUp(data:any, navigation:any, type:string, file
             alert('Por favor, selecione uma imagem.');
             return;
         }
+        if (data.password.length<=5){
+            alert('Sua senha está muito pequena, por favor inserir uma maior!');
+            return;
+        }
         try {
       const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
       const uid = userCredential.user.uid;

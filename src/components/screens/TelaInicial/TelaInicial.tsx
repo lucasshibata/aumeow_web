@@ -56,11 +56,13 @@ export default function TelaInicial(){
                             <h1 className="tituloSobre">Sobre o AuMeow</h1>
                             <div className="InerContainerTelaInicial">
                                 <img className="imagemSobreTelaInicial" src={require("../../../assets/animais_felizes.png")} alt="imagem1" />
-                                <p>O projeto AuMeow é uma iniciativa para agrupar todas as necessidades
+                                <div className="DivSobreNosTelaInicial">
+                                    <p>O projeto AuMeow é uma iniciativa para agrupar todas as necessidades
                                     de donos de pets em um único lugar, com o intúito de trazer o melhor
                                     de todos os serviços, trazendo produtos, lojas e empresas que melhor
                                     atendem seu(s) animal(is), venha com a gente e desfrute de tudo que 
                                     a AuMeow pode fazer por você.</p>
+                                </div>
                             </div>
                             <div className="InerContainerTelaInicial">
                                 <div className="DivSobreNosTelaInicial">

@@ -23,23 +23,27 @@
 }
 
 @media (max-width: 768px)  {
-    .Container{
+    .ContainerMenuCliente{
         display: flex;
-        height: 100%;
-        width: 100vw;
+        min-height: 100vh;
+        width: 100%;
         flex-direction: column;
-        background-color: white;
-        & .FlatList{ 
+        background-color: var(--pastel-bg);
+        & .FlatListMenuCliente{ 
+            flex: 1;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            margin: 10px;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
-            height: auto;
-            width: auto;
-            background-color: white;
+            padding: 20px;
+            height: 100%;
+            overflow-y: auto;
+            & .ContainerListMenuCliente{
+                margin: 5px;
+                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                border-radius: 15px;
+            }
         }
     }
 }

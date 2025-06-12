@@ -185,23 +185,21 @@
                     justify-content: center;
                     align-items: center;
                     flex-direction: row;
-                    flex-wrap: nowrap;
                     gap: 20px;
                     padding: 20px;
+                    width: 100%;
                     & .DivSobreNosTelaInicial{
                         display: flex;
                         flex-direction: column;
-                        align-items: center;
-
-                    }
-                    & p{
-                        width: 80%;
-                        font-size: 1.5rem;
-
+                        width: 40%;
+                        & p{
+                            width: 100%;
+                            font-size: 1.5rem;
+                        }
                     }
                     & img{
+                        width: 40%;
                         border-style: solid;
-                        width: 50%;
                         height: auto;
                         border-color: var(--marrom-btn);
                         border-width: 6px;
@@ -209,47 +207,7 @@
                     }
 
                 } 
-                @media (max-width: 700px) {
-                    & .InerContainerTelaInicial:last-of-type{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: column-reverse  ;
-                        flex-wrap: wrap;
-                        gap: 20px;
-                        padding: 20px;
-                    }
-
-                    & .InerContainerTelaInicial{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: column;
-                        flex-wrap: wrap;
-                        gap: 20px;
-                        padding: 20px;
-                        & .DivSobreNosTelaInicial{
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-    
-                        }
-                        & p{
-                            width: 80%;
-                            font-size: 1.5rem;
-    
-                        }
-                        & img{
-                            border-style: solid;
-                            width: 50%;
-                            height: auto;
-                            border-color: var(--marrom-btn);
-                            border-width: 6px;
-                            border-radius: 22px;
-                        }
-    
-                    } 
-                }
+                
                 & .BtnSobreNosTelaInicial{
                     width: 300px;
                     border: 0;
@@ -265,4 +223,8 @@
             }
         }
     }
+}
+
+@media (max-width: 700px) {
+    
 }
