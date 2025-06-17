@@ -11,7 +11,8 @@ function MenuPrestador(){
         { id:1, titleNav: 'Registro de Serviço', srcImg:require('../../../assets/registro_servico.png'), navScreen:()=>navigate('/RegistroServicoPrestador') },
         { id:2, titleNav: 'Lista de Serviços', srcImg:require('../../../assets/lista_servicos.png'), navScreen:()=>navigate('/ListaServicosPrestador') },
         { id:3, titleNav: 'Lista de Chats', srcImg:require('../../../assets/lista_chats.png'), navScreen:()=>navigate('/ListaDeChats') },
-        { id:4, titleNav: 'Sair', srcImg:require('../../../assets/icone_sair.png'), navScreen:()=>handleLogout() }
+        { id:4, titleNav: 'Adoção', srcImg:require('../../../assets/icone_adocao.png'), navScreen:()=>navigate('/PaginaDeAdocao') },
+        { id:5, titleNav: 'Sair', srcImg:require('../../../assets/icone_sair.png'), navScreen:()=>handleLogout() }
     ];
     const navigate = useNavigate();
 
