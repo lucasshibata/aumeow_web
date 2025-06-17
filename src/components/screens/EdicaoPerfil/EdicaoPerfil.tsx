@@ -71,7 +71,7 @@ function EdicaoPerfil(){
                 nomeDoPet: user?.nomeDoPet || "",
                 especie: user?.especie || "",
                 tipoAnimal: user?.tipoAnimal || "",
-                genero: user?.genero || "",
+                gender: user?.genero || "",
                 senha: user.senha ||""
             };
             reset(dadosUsuario); // Agora isso só roda uma vez
@@ -86,7 +86,7 @@ function EdicaoPerfil(){
                 experiencia: user?.experiencia || "",
                 animalPreferencia: user?.animalPreferencia || "",
                 raioAtendimento: user?.raioAtendimento || "",
-                genero: user?.genero || "",
+                gender: user?.genero || "",
                 senha: user.senha ||""
             };
             reset(dadosUsuario);

@@ -155,7 +155,7 @@ function PerfilDeUsuario(){
                         <li className='ItemListaPerfilDeUsuario' key={User.id}>
                             <div className="DivImgPerfilDeUsuario">
                                 <h1>imagem perfil:</h1>
-                                <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono`} alt="imagem do produto" />
+                                <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono?timestamp=${Date.now()}`} alt="imagem do produto" />
                             </div>
                             <div className="InformacoesPerfilDeUsuario">
                                 <p className='TextoPPerfilDeUsuario'>Nome: {User.nome}</p>
@@ -177,7 +177,7 @@ function PerfilDeUsuario(){
                         <li className='ItemListaPerfilDeUsuario' key={User.id}>
                             <div className="DivImgPerfilDeUsuario">
                                 <h1>imagem perfil:</h1>
-                                <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono`} alt="imagem do produto" />
+                                <img className='imgPerfilDeUsuario' src={`https://aumeow-images.s3.sa-east-1.amazonaws.com/imagensPerfil/${User.id}/imagemDono?timestamp=${Date.now()}`} alt="imagem do produto" />
                             </div>
                             <div className="InformacoesPerfilDeUsuario">
                                 <p className='TextoPPerfilDeUsuario'>Nome: {User.nome}</p>
