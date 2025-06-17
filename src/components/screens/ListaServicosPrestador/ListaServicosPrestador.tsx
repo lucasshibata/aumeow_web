@@ -66,10 +66,6 @@ function ListaServicosPrestador(){
         return <p>Carregando...</p>;
       }
     
-      if (services.length === 0) {
-        return <p>Nenhum serviço encontrado.</p>;
-      }
-    
     return(
         <div className="ContainerListaServicosPrestador">
             <Header/>

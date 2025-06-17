@@ -8,6 +8,7 @@
         display: flex;
         flex-direction: column;
         padding: 20px;
+        flex: 1;
          & .BotaoVoltarListaServicosPrestador {
             background-color: var(--marrom-btn);
             border: 0;
